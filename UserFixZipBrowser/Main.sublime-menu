@@ -1,0 +1,47 @@
+[
+    {
+        "caption": "Preferences",
+        "mnemonic": "n",
+        "id": "preferences",
+        "children":
+        [
+            {
+                "caption": "Package Settings",
+                "mnemonic": "P",
+                "id": "package-settings",
+                "children":
+                [
+                    {
+                        "caption": "Zip Browser",
+                        "children":
+                        [
+                            {
+                                "command": "open_file",
+                                "args": {"file": "${packages}/Zip Browser/README.rst"},
+                                "caption": "README"
+                            },
+                            { "caption": "-"},
+                            {
+                                "caption": "Open File from Zip",
+                                "command": "zip_browser_open"
+                            },
+                            {
+                                "caption": "Remove File from Zip",
+                                "command": "zip_browser_close"
+                            },
+                            {
+                                "caption": "Extract File from Zip",
+                                "command": "zip_browser_extract"
+                            },
+                            {
+                                "caption": "Extract All from Zip",
+                                "command": "zip_browser_extract",
+                                "args": {"all": true}
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

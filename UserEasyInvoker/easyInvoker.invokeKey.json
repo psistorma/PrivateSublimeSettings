@@ -1,0 +1,145 @@
+{
+  "item_recorder": {
+    "def_short": "s.w.o ${file}",
+    "def_long": ""
+  },
+  "invoker_info": [
+    {
+      "key": "c",
+      "invoker": "Cmd",
+      "optMap": {
+        "w": "wait",
+        "s": "shell",
+        "h": "hide"
+      },
+      "_def_short": "c.s cmd /c start $_ ${file}"
+    },
+    {
+      "key": "s",
+      "invoker": "Sublime",
+      "optMap": {
+        "w": "Window",
+        "v": "View",
+        "o": "open_file"
+      }
+    }
+  ],
+  "items": [
+    {
+      "invoker": "Cmd",
+      "opts": [
+        "wait"
+      ],
+      "args": [
+        "node",
+        "${file}"
+      ],
+      "key": "n"
+    },
+    {
+      "invoker": "Sublime",
+      "opts": [
+        "Window",
+        "open_file"
+      ],
+      "args": [
+        "C:\\Users\\Administrator\\AppData\\Roaming\\Sublime Text 3\\Packages\\UserEasyInvoker\\easyInvoker.invokeKey.json"
+      ],
+      "key": "="
+    },
+    {
+      "args": [
+        "cmd",
+        "/c",
+        "start",
+        "",
+        "${packages}"
+      ],
+      "key": "u",
+      "invoker": "Cmd",
+      "opts": [
+        "shell"
+      ]
+    },
+    {
+      "args": [
+        "cmd",
+        "/c",
+        "start",
+        "",
+        "${project_path}"
+      ],
+      "key": "p",
+      "invoker": "Cmd",
+      "opts": [
+        "shell"
+      ]
+    },
+    {
+      "invoker": "Sublime",
+      "args": [
+        "E:\\MyAssset\\TestColorScheme\\test.xml"
+      ],
+      "opts": [
+        "Window",
+        "open_file"
+      ],
+      "key": "tmxml"
+    },
+    {
+      "key": "tm",
+      "opts": [
+        "Window",
+        "open_file"
+      ],
+      "invoker": "Sublime",
+      "args": [
+        "C:\\Users\\Administrator\\AppData\\Roaming\\Sublime Text 3\\Packages\\User\\Storm.tmTheme"
+      ]
+    },
+    {
+      "key": "tmjson",
+      "invoker": "Sublime",
+      "args": [
+        "E:\\MyAssset\\TestColorScheme\\test.json"
+      ],
+      "opts": [
+        "Window",
+        "open_file"
+      ]
+    },
+    {
+      "key": "tmcpp",
+      "invoker": "Sublime",
+      "args": [
+        "E:\\MyAssset\\TestColorScheme\\test.cpp"
+      ],
+      "opts": [
+        "Window",
+        "open_file"
+      ]
+    },
+    {
+      "key": "tmh",
+      "invoker": "Sublime",
+      "args": [
+        "E:\\ForDevEnv\\MyAssset\\TestColorScheme\\test.h"
+      ],
+      "opts": [
+        "Window",
+        "open_file"
+      ]
+    },
+    {
+      "opts": [
+        "Window",
+        "open_file"
+      ],
+      "invoker": "Sublime",
+      "key": "tmsyntax",
+      "args": [
+        "E:\\ForDevEnv\\MyAssset\\TestColorScheme\\test.sublime-syntax"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+[
+//__SmartEnter
+  {"keys": ["shift+enter"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Add Line Before.sublime-macro"}},
+  {"keys": ["alt+enter"], "command": "run_macro_file", "args": {"file": "res://Packages/User/Macros/replaceCurLine.sublime-macro"}},
+  {"keys": ["alt+l"], "command": "run_macro_file", "args": {"file": "res://Packages/User/Macros/prettyLine.sublime-macro"}},
+  {"keys": ["ctrl+alt+t"], "command": "hello"},
+  {"keys": ["ctrl+enter"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Add Line.sublime-macro"}},
+//__For Json
+  {"keys": ["enter"], "command": "mul_run", "args": {
+    "commands" : [
+      {"command": "move", "args": {"by": "characters", "forward": true}},
+      {"command": "insert_snippet", "args": {"contents": "\n'$1': $2$0,"}},
+    ]}, "context": [
+        {"key": "preceding_text", "operator": "regex_contains", "operand": "':"},
+        {"key": "following_text", "operator": "regex_contains", "operand": "^,"}
+    ]
+  },
+  {"keys": ["enter"], "command": "mul_run", "args": {
+    "commands" : [
+      {"command": "move", "args": {"by": "characters", "forward": true}},
+      {"command": "insert_snippet", "args": {"contents": "\n\"$1\": $2$0,"}},
+    ]}, "context": [
+        {"key": "preceding_text", "operator": "regex_contains", "operand": "\":"},
+        {"key": "following_text", "operator": "regex_contains", "operand": "^,"}
+    ]
+  },
+  {"keys": ["enter"], "command": "mul_run", "args": {
+    "commands" : [
+      {"command": "move", "args": {"by": "characters", "forward": true}},
+      {"command": "insert_snippet", "args": {"contents": "\n\"$1\": {$2},"}},
+    ]}, "context": [
+        {"key": "preceding_text", "operator": "regex_contains", "operand": "\\}$"},
+        {"key": "following_text", "operator": "regex_contains", "operand": "^,"}
+    ]
+  },
+  {"keys": ["ctrl+enter"], "command": "mul_run", "args": {
+    "commands" : [
+      {"command": "move", "args": {"by": "characters", "forward": true}},
+      {"command": "left_delete"},
+      {"command": "insert", "args": {"characters": "\n"}},
+      {"command": "move", "args": {"by": "characters", "forward": true}}
+    ]}, "context": [
+        {"key": "following_text", "operator": "regex_contains", "operand": "^,\\}"}
+    ]
+  },
+//For EasyInvoker
+  {"keys": ["enter"], "command": "mul_run", "args": {
+    "commands" : [
+      {"command": "easy_invoke"}
+      ]}, 
+    "context": [
+      { "key": "preceding_text", "operator": "regex_match", "operand": "^\\s*\\$go:.*|^\\s*/{2,}\\s*\\$go:.*"}
+    ]
+  }
+]

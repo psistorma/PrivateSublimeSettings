@@ -1,0 +1,52 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"4GL",
+		"Alignment",
+		"ApplySyntax",
+		"Babel",
+		"Better Completion",
+		"BracketHighlighter",
+		"C Improved",
+		"C++11",
+		"C++NamespaceTool",
+		"ColorPicker",
+		"ConvertToUTF8",
+		"Cscope",
+		"CTags",
+		"Dayle Rees Color Schemes",
+		"Emmet",
+		"ExpandRegion",
+		"File History",
+		"FileSystem Autocompletion",
+		"Go To Definition",
+		"GotoDocumentation",
+		"Indent XML",
+		"JsFormat",
+		"Local History",
+		"Origami",
+		"Package Control",
+		"PackageDev",
+		"PackageResourceViewer",
+		"Pretty JSON",
+		"Pretty YAML",
+		"Pywin32",
+		"Restart",
+		"ScopeHunter",
+		"SideBarEnhancements",
+		"SublimeCodeIntel",
+		"SublimeLinter",
+		"SublimeLinter-contrib-eslint",
+		"Theme - Asphalt",
+		"Theme - SoDaReloaded",
+		"ToggleQuotes",
+		"Zen Tabs"
+	],
+	"repositories":
+	[
+	]
+}

@@ -1,0 +1,332 @@
+%YAML 1.2
+---
+# See http://www.sublimetext.com/docs/3/syntax.html
+name: sublime-syntaxByStorm
+comment: sublime-syntax to define scope
+file_extensions:
+  - sublime-syntax
+first_line_match: '%YAML 1.2'
+scope: source.yaml.sublime-syntax
+variables:
+  svVersion: '[0-9]+\.?[0-9]+'
+  svContextName: '[_A-Za-z][_A-Za-z_0-9-]*+'
+  svVarialbeDefine: '[A-Za-z0-9_]+'
+contexts:
+  main:
+    - include: file_desc
+    - include: sep_symbol
+    - include: comment
+    - include: header
+    - match: \b(-)?[0-9.]+\b
+      scope: constant.numeric.sublime-syntax
+
+  file_desc:
+    - match: '%YAML ({{svVersion}})'
+      captures:
+        0: file-desc.yaml
+        1: file-desc.yaml.version
+  sep_symbol:
+    - match: (?:^|^\s+)-+\s+
+      scope: keyword.operator.symbol
+  header:
+    - match: (?=^name:\s*\S+)
+      push:
+        - meta_scope: meta.file.group.header
+        - include: comment_description
+        - match: ^(contexts)(:)\s*
+          captures:
+            1: keyword.header.tail
+            2: keyword.colon
+          set: contexts_define
+
+        - match: ^(first_line_match)(:)\s*
+          captures:
+            1: keyword.header
+            2: keyword.colon
+          push: 'Packages/Regular Expressions/RegExp.sublime-syntax'
+          with_prototype:
+            - match: (?=$)
+              pop: true
+            - include: comment
+
+        - match: ^(variables)(:)\s*(\|\-)?\s*
+          captures:
+            1: keyword.header.variables
+            2: keyword.colon
+            3: keword.contex.match.multiline
+          push:
+            - meta_scope: meta.header.define.variables
+            - match: (?=^\S+)
+              pop: true
+            - match: ^\s+({{svVarialbeDefine}})(:)\s*
+              captures:
+                1: header.define.variables.name
+                2: keyword.colon
+              push: 'Packages/Regular Expressions/RegExp.sublime-syntax'
+              with_prototype:
+                - match: (?=(^\s\s|^|^\s)\S)
+                  pop: true
+                - match: ({{)({{svVarialbeDefine}})(}})
+                  captures:
+                    1: svregex_variable_begin
+                    2: svregex_variable_name
+                    3: svregex_variable_end
+                - include: comment
+
+        - match: ^(name|file_extensions|scope)(:)\s*
+          captures:
+            1: keyword.header
+            2: keyword.colon
+        - include: sep_symbol
+
+
+  contexts_define:
+    - include: comment
+    - match: ^\s\s(?=({{svContextName}})(:)\s*$)
+      push: context_definition_define
+  context_define:
+    - include: comment
+    - include: context_define_include
+    - include: context_define_meta_pattern
+    - include: context_define_match
+    - match: (?=^\s\s({{svContextName}})(:)\s*$)
+      set: contexts_define
+
+  context_define_include:
+    - match: (-)\s(include)(:)\s
+      captures:
+        1: keyword.operator.symbol
+        2: keyword.context.include
+        3: keyword.colon
+      push: context_definition_include
+
+  context_define_meta_pattern:
+    - match: (-)\s(meta_scope|meta_content_scope|meta_include_prototype)(:)\s
+      captures:
+        1: keyword.operator.symbol
+        2: keyword.context.meta_pattern
+        3: keyword.colon
+      push: scope_definition
+
+
+  context_define_match:
+    - include: context_define_match_regex_multiline
+    - include: context_define_match_regex_simple
+    - include: context_define_match_pattern
+
+  context_define_match_regex_multiline:
+    - match: \s+(-)\s(match)(:)\s*(\|\-)\s*$
+      captures:
+        1: keyword.operator.symbol
+        2: keyword.context.match
+        3: keyword.colon
+        4: keword.contex.match.multiline
+      push:
+        - meta_scope: meta.context.definition.match.mutiline
+        - match: (?=^\s+(?:scope|captures|push|pop|set|comment):)
+          pop: true
+        - match: (?=^\s+-\s(?:match|include):)
+          pop: true
+        - match: (?=.?)
+          push: 'Packages/Regular Expressions/RegExp.sublime-syntax'
+          with_prototype:
+            - match: (?=^\s+(?:scope|captures|push|pop|set|comment):)
+              pop: true
+            - match: (?=^\s+-\s(?:match|include):)
+              pop: true
+            - include: comment
+  context_define_match_regex_simple:
+    - match: \s+(-)\s(match)(:)\s*
+      captures:
+        1: keyword.operator.symbol
+        2: keyword.context.match
+        3: keyword.colon
+      push:
+        - match: (?!^\s+(?:scope|captures|push|pop|set|comment))
+          set: 'Packages/Regular Expressions/RegExp.sublime-syntax'
+          with_prototype:
+            - match: (?=^\s+(?:scope|captures|push|pop|set|comment):)
+              pop: true
+            - match: (?=^\s+-\s(?:match|include):)
+              pop: true
+            - include: comment
+  context_define_match_pattern:
+    - include: context_define_match_pattern_captures
+    - include: context_define_match_pattern_stack_simple
+    - include: context_define_match_pattern_stack_lvl0
+    - include: context_define_match_pattern_stack_lvl1
+    - include: context_define_match_pattern_stack_lvl2
+    - include: context_define_match_pattern_pop
+    - include: context_define_match_pattern_scope
+    - include: comment_description
+    - include: comment
+
+  context_define_match_pattern_captures:
+    - match: \s+(captures)(:)
+      captures:
+        1: keyword.context.match.captures
+        2: keyword.colon
+      push:
+        - meta_scope: meta.context.definition.captures
+        - match: ^(?!\s*[0-9]+:)
+          pop: true
+        - match: ([0-9]+)(:)\s*+
+          captures:
+            0: context.definition.captures.line
+            1: context.definition.captures.line.num
+            2: keyword.conlon
+          push: scope_definition
+        - include: comment
+
+  context_define_match_pattern_stack_simple:
+    - match: ^\s+(push|set)(:)\s*
+      captures:
+        1: keyword.context.match.stack.simple
+        2: keyword.colon
+      push: context_definition_include
+    - match: ^\s+(with_prototype)(:)
+      captures:
+        1: keyword.context.match.stack.simple.with_prototype
+        2: keyword.colon
+
+  context_define_match_pattern_stack_lvl0:
+    - match: ^(?:\s{6}++)(push|set)(:)
+      captures:
+        1: keyword.context.match.stack
+        2: keyword.colon
+      push:
+      - meta_scope: meta.context.definition.stack
+      - include: context_define_match_pattern_meta-scope
+      - match: (?=^\s{1,6}\S)
+        pop: true
+      - include: context_define
+  context_define_match_pattern_stack_lvl1:
+    - match: ^(?:\s{10}++)(push|set)(:)
+      captures:
+        1: keyword.context.match.stack
+        2: keyword.colon
+      push:
+      - meta_scope: meta.context.definition.stack
+      - include: context_define_match_pattern_meta-scope
+      - match: (?=^\s{1,10}\S)
+        pop: true
+      - include: context_define
+  context_define_match_pattern_stack_lvl2:
+    - match: ^(?:\s{14}++)(push|set)(:)
+      captures:
+        1: keyword.context.match.stack
+        2: keyword.colon
+      push:
+      - meta_scope: meta.context.definition.stack
+      - include: context_define_match_pattern_meta-scope
+      - match: (?=^\s{1,14}\S)
+        pop: true
+      - include: context_define
+
+  context_define_match_pattern_pop:
+    - match: \s+(pop)(:)\s(true)
+      captures:
+        0: context.definition.pop
+        1: keyword.context.match.pop
+        2: keyword.colon
+        3: constant.boolean
+
+  context_define_match_pattern_scope:
+    - match: \s+(scope)(:)\s+
+      captures:
+        1: keyword.context.match.scope
+        2: keyword.colon
+      push: scope_definition
+  context_define_match_pattern_meta-scope:
+    - match: \s+(-)\s(meta_scope)(:)\s+
+      captures:
+        1: keyword.operator.symbol
+        2: keyword.context.match.meta-scope
+        3: keyword.colon
+      push: scope_definition
+  comment_description:
+    - match: (?:^)(comment)(:)\s(.*)
+      captures:
+        1: keyword.comment
+        2: keyword.colon
+        3: conet_description_comment
+
+  variable_define:
+    - match: '({{)([A-Za-z_][A-Za-z0-9_]*)(}})'
+      captures:
+        1: keyword.control.variable.define.begin
+        2: entity.name.variable
+        3: keyword.control.variable.define.end
+  patterns:
+    - match: \b(include|match)\b
+      scope: keyword.control.pattern.sublime-syntax
+  match_patterns:
+    - match: \b(scope|captures|push|pop|set|with_prototype)\b
+      scope: keyword.control.sublime-syntax
+  lex:
+    - include: comment
+    - include: qutoed-string
+
+  comment:
+    - match: (?<=^|:\s)\s*#
+      scope: punctuation.definition.comment.sublime-syntax
+      push: line_comment
+  line_comment:
+    - meta_scope: meta.comment.line.sublime-syntax
+    - match: $\n?
+      pop: true
+
+  qutoed-string:
+    - match: '"'
+      scope: punctuation.definition.string.begin.sublime-syntax
+      push: double_quoted_string
+
+    - match: "'"
+      scope: punctuation.definition.string.begin.sublime-syntax
+      push: single_quoted_string
+  double_quoted_string:
+    - meta_scope: string.quoted.double.sublime-syntax
+    - match: '\\.'
+      scope: constant.character.escape.sublime-syntax
+    - match: '"'
+      scope: punctuation.definition.string.end.sublime-syntax
+      pop: true
+  single_quoted_string:
+    - meta_scope: string.quoted.single.sublime-syntax
+    - match: '\\.'
+      scope: constant.character.escape.sublime-syntax
+    - match: "'"
+      scope: punctuation.definition.string.end.sublime-syntax
+      pop: true
+  context_definition_define:
+    - match: \n
+      set:
+        - meta_scope: context.definition
+        - include: context_define
+    - match: '__[^:\s]+'
+      scope: context.name.define.inner
+    - match: '[^:\s]+'
+      scope: context.name.define
+    - match: ':'
+      scope: keyword.colon
+  context_definition_include:
+    - match: $\n?
+      pop: true
+    - include: comment
+    - match: \'.*\'
+      scope: context.name.file
+    - match: \[|\]|\,
+      scope: keyword.operator.symbol
+    - match: '__[\w_-]+'
+      scope: context.name.include.inner
+    - match: '[\w_-]+'
+      scope: context.name.include
+  scope_definition:
+    - match: \n
+      pop: true
+    - match: (?<=meta_include_prototype:\s)\s*(true|false)
+      scope: constant.boolean
+    - match: __\S+
+      scope: scope.definition.inner
+    - match: \S+
+      scope: scope.definition

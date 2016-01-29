@@ -1,0 +1,5 @@
+[
+//Begin Json Literal
+  {"keys": ["ctrl+alt+j"], "command": "insert_snippet", "args": {"contents": " = {\n\t'$1': $2,$0}"} },
+  {"keys": ["ctrl+alt+i"], "command": "insert_snippet", "args": {"contents": ": {\n\t'$1': $2,$0}"} }
+]

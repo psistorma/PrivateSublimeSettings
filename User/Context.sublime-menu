@@ -1,0 +1,5 @@
+[
+	{ "caption": "-" },
+	{ "caption": "-" },
+  { "caption": "*************New File*************", "command": "run_macro_file", "args": {"file": "res://Packages/User/Macros/createNewFile.sublime-macro"} },
+]

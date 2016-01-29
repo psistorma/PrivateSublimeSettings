@@ -1,0 +1,53 @@
+[
+//Forward
+  {"keys": ["ctrl+u"], "command": "move", "args": {"by": "characters", "forward": true, "extend": false} },
+  {"keys": ["ctrl+u"], "command": "move", "args": {"by": "characters", "forward": true, "extend": true}, "context":[
+     { "key": "selection_empty", "operator": "equal", "operand": false },
+  ] },
+
+  {"keys": ["ctrl+alt+u"], "command": "move", "args": {"by": "words", "forward": true,"word_begin": true, "extend": false} },
+  {"keys": ["ctrl+alt+u"], "command": "move", "args": {"by": "words", "forward": true,"word_begin": true, "extend": true}, "context":[
+     { "key": "selection_empty", "operator": "equal", "operand": false  },
+  ] },
+
+//Backward
+  {"keys": ["ctrl+shift+u"], "command": "move", "args": {"by": "characters", "forward": false, "extend": false} },
+  {"keys": ["ctrl+shift+u"], "command": "move", "args": {"by": "characters", "forward": false, "extend": true}, "context":[
+     { "key": "selection_empty", "operator": "equal", "operand": false  },
+  ] },
+
+  {"keys": ["ctrl+shift+alt+u"], "command": "move", "args": {"by": "words", "forward": false,"word_begin": true, "extend": false} },
+  {"keys": ["ctrl+shift+alt+u"], "command": "move", "args": {"by": "words", "forward": false,"word_begin": true, "extend": true }, "context":[
+     { "key": "selection_empty", "operator": "equal", "operand": false  },
+  ] },
+
+//Smart Jump bol eol
+  {"keys": ["alt+u"], "command": "move_to", "args": {"to": "bol", "extend": false}, "context": [
+     { "key": "preceding_text", "operator": "not_regex_match", "operand": "^$"}
+  ] },  
+
+  {"keys": ["alt+u"], "command": "move_to", "args": {"to": "eol", "extend": false}, "context": [
+     { "key": "preceding_text", "operator": "regex_match", "operand": "^$"}
+  ] },
+
+  {"keys": ["alt+u"], "command": "move_to", "args": {"to": "eol", "extend": false}, "context": [
+     { "key": "preceding_text", "operator": "regex_contains", "operand": "\\w+"},
+     { "key": "following_text", "operator": "regex_contains", "operand": "\\w+"}
+  ]} ,
+  {"keys": ["alt+u"], "command": "move_to", "args": {"to": "eol", "extend": true}, "context": [
+     { "key": "preceding_text", "operator": "regex_contains", "operand": "\\w+"},
+     { "key": "following_text", "operator": "not_regex_contains", "operand": "^$"},
+     { "key": "selection_empty", "operator": "equal", "operand": false  }
+  ]},  
+  {"keys": ["alt+u"], "command": "expand_selection", "args": {"to": "line"}, "context": [
+     { "key": "selection_empty", "operator": "equal", "operand": false  }
+  ]},
+  {"keys": ["alt+u"], "command": "mul_run", "args": {
+    "commands" : [
+      {"command": "expand_selection", "args": {"to": "line"}},
+      {"command": "move", "args": {"by": "characters", "forward": false, "extend": true}},
+    ]}, "context": [
+     { "key": "selection_empty", "operator": "equal", "operand": false  }
+    ]
+  }
+]

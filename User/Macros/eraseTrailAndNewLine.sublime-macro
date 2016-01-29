@@ -1,0 +1,5 @@
+[
+    { "command": "move_to", "args": {"to": "eol", "extend": false} },
+    { "command": "move", "args": {"by": "lines", "forward": true} },
+    { "command": "move_to", "args": {"to": "eol", "extend": false} }
+]

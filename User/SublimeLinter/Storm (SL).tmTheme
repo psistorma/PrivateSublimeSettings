@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>name</key>
+  <string>Oasis</string>
+  <key>settings</key>
+  <array>
+    <dict>
+      <key>settings</key>
+      <dict>
+        <key>background</key>
+        <string>#000000</string>
+        <key>caret</key>
+        <string>#ffff00</string>
+        <key>foreground</key>
+        <string>#bfbfbf</string>
+        <key>invisibles</key>
+        <string>#3B3A32</string>
+        <key>lineHighlight</key>
+        <string>#292929</string>
+        <key>selection</key>
+        <string>#292929</string>
+        <key>findHighlight</key>
+        <string>#991f1f</string>
+        <key>findHighlightForeground</key>
+        <string>#ffffff</string>
+        <key>selectionBorder</key>
+        <string>#404040</string>
+        <key>activeGuide</key>
+        <string>#9D550FB0</string>
+
+        <key>bracketsForeground</key>
+        <string>#F8F8F2A5</string>
+        <key>bracketsOptions</key>
+        <string>underline</string>
+
+        <key>bracketContentsForeground</key>
+        <string>#F8F8F2A5</string>
+        <key>bracketContentsOptions</key>
+        <string>underline</string>
+
+        <key>tagsOptions</key>
+        <string>stippled_underline</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>Source</string>
+      <key>scope</key>
+      <string>source</string>
+      <key>settings</key>
+      <dict>
+        <key>fontStyle</key>
+        <string />
+        <key>foreground</key>
+        <string>#FF0000</string>
+      </dict>
+    </dict>
+  <dict>
+            <key>name</key>
+            <string>SublimeLinter Gutter Mark</string>
+            <key>scope</key>
+            <string>sublimelinter.gutter-mark</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#FFFFFF</string>
+            </dict>
+        </dict><dict>
+            <key>name</key>
+            <string>SublimeLinter Warning</string>
+            <key>scope</key>
+            <string>sublimelinter.mark.warning</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#DDB700</string>
+            </dict>
+        </dict><dict>
+            <key>name</key>
+            <string>SublimeLinter Error</string>
+            <key>scope</key>
+            <string>sublimelinter.mark.error</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#D02000</string>
+            </dict>
+        </dict></array>
+  <key>uuid</key>
+  <string>73AF7A40-14E8-438D-855A-6FC53AC4E851</string>
+</dict>
+</plist>

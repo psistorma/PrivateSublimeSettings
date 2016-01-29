@@ -1,0 +1,18 @@
+{
+	"variables": {
+	},
+	
+	"html": {
+		"filters": "html",
+		"profile": "html",
+		"snippets": {
+			"ea": "${$},",
+			"eas": "'${$}',",
+			"eajs": "\"${$}\","
+		},
+		
+		"abbreviations": {
+			
+		}
+	}
+}

@@ -1,0 +1,46 @@
+{
+	"auto_complete_triggers":
+	[
+		{
+			"characters": "<",
+			"selector": "text.html"
+		},
+		{
+			"characters": ".",
+			"selector": "source.js"
+		},
+		{
+			"characters": ".:>",
+			"selector": "source.c++ - string - comment - constant.numeric"
+		},
+		{
+			"characters": " qazwsxedcrfvtgbyhnujmikolpQAZWSXEDCRFVTGBYHNUJMIKOLP",
+			"selector": "text, source, meta, string, punctuation, constant"
+		}
+	],
+	"color_scheme": "Packages/User/Storm.tmTheme",
+	"detect_indentation": false,
+	"ensure_newline_at_eof_on_save": true,
+	"font_face": "PragmataPro",
+	"font_options":
+	[
+		"directwrite"
+	],
+	"font_size": 14,
+	"highlight_line": false,
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+		"C++",
+		"ColorPicker",
+		"SublimeCodeIntel",
+		"SublimeLinter",
+		"SublimeLinter-contrib-eslint",
+		"tern_for_sublime",
+		"Vintage"
+	],
+	"line_numbers": true,
+	"theme": "SoDaReloaded Dark.sublime-theme",
+	"trim_trailing_white_space_on_save": true,
+	"wide_caret": false
+}

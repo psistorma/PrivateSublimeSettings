@@ -1,0 +1,1157 @@
+%YAML 1.2
+---
+# http://www.sublimetext.com/docs/3/syntax.html
+name: CppByStorm
+comment: |
+  MinliXie80@gmail.com
+file_extensions:
+  - cpp
+  - cc
+  - tcc
+  - cp
+  - cxx
+  - c++
+  - hh
+  - thh
+  - hpp
+  - hxx
+  - h++
+  - inl
+  - ipp
+first_line_match: "-[*]-( Mode:)? C -[*]-"
+scope: source.c++
+variables:
+  svIdent: '[A-Za-z_][A-Za-z_0-9]*+'
+  svIdentUpper: '[A-Z_][A-Z_0-9]*+(?![a-z_0-9])'
+  svIdentFirstUpper: '(?:_+)?[A-Z][A-Za-z_0-9]*+'
+  svIdentEvt: '(?:_+)?(?:On|on)[A-Z][A-Za-z_0-9]*+'
+  svIdentMember: |-
+    (?x)
+    (?:
+      m_{{svIdent}}|
+      _[A-Za-z][A-Za-z_0-9]*+|
+      [A-Za-z][A-Za-z_0-9]*?+[A-Za-z]_|
+      (?<={{svMemberAccess}}){{svIdent}}
+    )
+  svNsSep: '(?<!:)::(?!:)'
+  svEmbedComment: '/\*.*?\*/'
+  svCanEmbedSpaceAndComment: '(?:\s|{{svEmbedComment}})*+'
+  svCanEmbedComment: '(?:{{svEmbedComment}})*+'
+  svMemberAccess: '(?:\.|->)'
+  svOverrideFnInvoke: '<<(?!=)|>>(?!=)'
+  svCtxTypeNoPointer: |-
+    (?x)
+      (?<ctxType>(
+        (::)?
+        {{svIdent}}
+        (\<\g<ctxType>\>)?
+      )++)
+  svCtxType: '{{svCtxTypeNoPointer}}\s*\*?'
+contexts:
+  prototype:
+    - include: rule-comments
+    - match: ，|。|（|）|“|”
+      scope: invalid.illegal.chs-symbol
+  main:
+    - include: __rule-preprocessor-include
+    - include: rule-declaration-preprocessor-safe
+# declaration
+  rule-declaration-preprocessor-safe:
+    - include: rule-pragma-region
+    - include: rule-preprocessor-condition
+    - include: rule-preprocessor-directive
+    - include: rule-statement-typedef
+    - include: rule-statement-namespace
+    - include: rule-preprocessor-macro
+    - include: rule-definition-class
+    - include: rule-definition-enum
+    - include: rule-macro-expandsion
+    - include: rule-definition-function
+    - include: rule-statement-declaration
+    - include: rule-statement-empty
+    - include: rule-invalid-statement-symbol
+
+  rule-declaration-block:
+    - match: (?=\s*\{)
+      push:
+        - match: \s*\{
+          scope: punctuation.brace.declaration.begin
+          push:
+            - meta_scope: meta.declaration.body
+            - match: \s*\}
+              scope: punctuation.brace.declaration.end
+              pop: true
+            - match: \s*\{
+              scope: invalid.illegal.stray-brace-begin
+              pop: true
+            - include: __step-declaration-statement
+        - match: \s*\}
+          scope: invalid.illegal.stray-brace-end
+          pop: true
+        - include: step-finish-now
+
+  step-declaration-block:
+    - include: rule-declaration-block
+    - include: step-finish-now
+
+  __step-declaration-statement:
+    - match: (?=\s*\})
+      pop: true
+    - include: lex-keyword-modifier
+    - include: $top_level_main
+# invalid
+  rule-invalid-statement-symbol:
+    - match: \s*\(
+      scope: invalid.illegal.stray-bracket-begin
+    - match: \s*\)
+      scope: invalid.illegal.stray-bracket-end
+    - include: rule-invalid-expression-symbol
+
+  rule-invalid-expression-symbol:
+    - match: \s*\{
+      scope: invalid.illegal.stray-brace-begin
+    - match: \s*\}
+      scope: invalid.illegal.stray-brace-end
+    - match: \s*\]
+      scope: invalid.illegal.stray-square-end
+# impl
+  rule-impl-block:
+    - match: (?=\s*\{)
+      push:
+        - match: \s*\{
+          scope: punctuation.brace.impl.begin
+          push:
+            - match: \s*\}
+              scope: punctuation.brace.impl.end
+              pop: true
+            - include: __step-impl-statement
+        - match: \s*\}
+          scope: invalid.illegal.stray-brace-end
+          pop: true
+        - include: step-finish-now
+
+  step-impl-block:
+    - include: rule-impl-block
+    - include: rule-invalid-statement-symbol
+    - include: step-finish-now
+
+  step-impl-inner-block:
+    - match: (?=\s*\{)
+      push:
+        - meta_scope: meta.impl.inner
+        - include: step-impl-block
+    - include: step-finish-now
+
+
+  __step-impl-statement:
+    - match: (?=\s*\})
+      pop: true
+    - include: __rule-impl-statement-compact
+    - include: rule-pragma-region
+    - include: rule-statement-flee
+    - include: rule-statement-try
+    - include: rule-statement-typedef
+    - include: rule-statement-namespace
+    - include: rule-statement-flow
+    - include: rule-statement-declaration
+    - include: rule-statement-expression
+    - include: rule-statement-empty
+    - include: rule-invalid-expression-symbol
+
+  __rule-impl-statement-compact:
+    - match: (?=\s*\{)
+      push:
+        - match: \s*\{
+          scope: punctuation.brace.block.begin
+          push:
+            - meta_scope: meta.statement.block
+            - match: \s*\}
+              scope: punctuation.brace.block.end
+              pop: true
+            - include: __step-impl-statement
+        - match: (\s*\})
+          scope: invalid.illegal.stray-brace-end
+        - include: step-finish-now
+# expression
+  step-expression:
+    - match: \s*(?=\)|;)
+      pop: true
+    - include: __rule-expression-compact
+    - include: __rule-expression-unit
+
+  __rule-expression-compact:
+    - match: (?=\s*\()
+      push:
+        - match: \s*\(
+          scope: punctuation.bracket.expression.begin
+          push:
+            - meta_scope: meta.expression.group
+            - match: \s*\{
+              scope: invalid.illegal.stray-brace-begin
+              pop: true
+            - include: step-expression
+        - match: \s*\)
+          scope: punctuation.bracket.expression.end
+          pop: true
+        - include: step-finish-now
+
+  __rule-expression-unit:
+    - include: rule-memory-control
+    - include: rule-macro-expandsion
+    - include: rule-expression-impl-function-call
+    - include: lex-variable
+    - include: lex-operator
+    - include: lex-sep
+    - include: rule-invalid-expression-symbol
+# parens
+  __step-parens-definition:
+    - meta_scope: meta.parens meta.definition
+    - match: \s*\(
+      scope: punctuation.bracket.parens.begin
+      push:
+        - match: \s*\)
+          scope: punctuation.bracket.parens.end
+          pop: true
+        - match: =
+          scope: keyword.operator.assignment.default.c
+          push:
+            - match: \s*,
+              scope: punctuation.comma.parameter.sep
+              pop: true
+            - include: step-expression
+        - match: '(?<=,)(?=\s*{{svCtxType}}\s*(?=,|\)|/\*))'
+          push:
+            - match: \s*(?=,|\)|/\*)
+              pop: true
+            - include: lex-declaration-type
+        - match: '\s*({{svIdent}})\s*(?:(,)|(?=\)|=|/\*))'
+          captures:
+            1: variable.parameter.definition.name
+            2: punctuation.comma.parameter.sep
+        - include: lex-slack-pointer-type
+        - include: lex-declaration-type
+    - match: \s*\)
+      scope: invalid.illegal.stray-bracket-end
+    - include: step-finish-now
+
+  __step-parens-invoke:
+    - meta_scope: meta.parens meta.invoke
+    - match: \s*\(
+      scope: punctuation.bracket.parens.begin
+      push:
+        - match: \s*\)
+          scope: punctuation.bracket.parens.end
+          pop: true
+        - match: ;
+          scope: invalid.illegal.semicolon.end
+        - match: (?=\w|\()
+          push:
+            - match: (?=\s*\{)
+              push:
+                - match: \{
+                  scope: invalid.illegal.stray-brace-begin
+                  pop: true
+            - include: step-expression
+        - include: lex-variable
+    - include: step-finish-now
+# pragma region
+  rule-pragma-region:
+    - match: (?=^\s*#pragma\s*region\b)
+      push:
+        - meta_scope: meta.preprocessor.directive
+        - match: ^\s*(#)(pragma)\s*(region)\b
+          captures:
+            1: keyword.other.preprocessor.c
+            2: keyword.other.preprocessor.directive.c
+            3: keyword.other.preprocessor.directive.c
+            5: title.important.region
+        - match: '__{{svIdent}}'
+          scope: title.hide.region
+        - match: '{{svIdent}}'
+          scope: title.important.region
+        - match: $\n?
+          set:
+            - meta_scope: meta.preprocessor.directive meta.region
+            - match: (?=^\s*#pragma\s*endregion\b)
+              set:
+                - meta_scope: meta.preprocessor.directive
+                - match: ^\s*(#)(pragma)\s*(endregion)\b
+                  captures:
+                    1: keyword.other.preprocessor.c
+                    2: keyword.other.preprocessor.directive.c
+                    3: keyword.other.preprocessor.directive.c
+                  pop: true
+            - include: $top_level_main
+
+# statement namespace
+  rule-statement-namespace:
+    - match: (?=\s*\busing\s+(namespace)?\b)
+      push:
+        - include: step-finish-at-end-of-statement
+        - match: \s*\b(using)\s+(namespace)?\b
+          captures:
+            1: keyword.control.c++
+            2: keyword.control.namespace.c++
+        - include: lex-declaration-type
+    - match: (?=\s*\bnamespace\b\s*$)
+      push:
+        - match: \s*\bnamespace\b
+          scope: keyword.control.namespace.c++
+        - match: (?=\s*\{)
+          set:
+            - meta_scope: meta.namespace.anonymous
+            - include: step-declaration-block
+    - match: (?=\s*\bnamespace\b\s*)
+      push:
+        - match: \s*\bnamespace\b
+          scope: keyword.control.namespace.c++
+        - match: (?=\s*\{)
+          set:
+            - meta_scope: meta.namespace
+            - include: step-declaration-block
+        - include: lex-declaration-type
+
+# statement typedef
+  rule-statement-typedef:
+    - match: (?=^\s*\btypedef\b)
+      push:
+        - match: \btypedef\b
+          scope: keyword.control.c
+          set: [__step-typedef-after-typename, __step-typename]
+  __step-typename:
+    - match: \s*\bstruct\b
+      scope: storage.type.c
+      set:
+        - match: (?=\s*\{)
+          set:
+            - include: step-declaration-block
+        - include: lex-declaration-type
+    - match: (?=\s*{{svIdent}};)
+      pop: true
+    - include: lex-declaration-type
+
+  __step-typedef-after-typename:
+    - meta_scope: meta.typedef
+    - include: step-finish-at-end-of-statement
+    - match: '\s*(,)?\s*(\*)?\s*({{svIdent}})'
+      captures:
+        1: punctuation.comma.typedef.target
+        2: keyword.operator.pointer
+        3: entity.type.name.typedef.target
+    - include: lex-declaration-type
+
+# comment
+  rule-comments:
+    - match: (?=\s*(?://|/\*))
+      push: step-comments
+
+  step-comments:
+    - match: $|(?<=\*/)\s*
+      pop: true
+    - match: ^\s*(/\*) =(\s*.*?)\s*= (\*/)\s*$\n?
+      scope: comment.block.c
+      captures:
+        1: punctuation.definition.comment.c
+        2: title.important.toc-list.banner.block.c
+        3: punctuation.definition.comment.c
+    - match: \s*/\*
+      captures:
+        0: punctuation.definition.comment.c
+      push:
+        - meta_scope: comment.block.c
+        - match: \*/
+          captures:
+            0: punctuation.definition.comment.c
+          pop: true
+    - match: '\*/(?=[^*].*\n)'
+      scope: invalid.illegal.stray-comment-end.c
+    - match: ^\s*// =(\s*.*?)\s*=\s*$\n?
+      scope: comment.line.banner.c++
+      captures:
+        1: meta.toc-list.banner.line.c
+    - match: \s*//
+      captures:
+        0: punctuation.definition.comment.c
+      push:
+        - meta_scope: comment.line.double-slash.c++
+        - match: '(?<=^|[^\\])(?=\s*(//.*)?\n)$\n?|(?<=[^\\]\n)|(?<=\A\n)'
+          pop: true
+        - include: lex-continuation
+# include
+  __rule-preprocessor-include:
+    - match: (?=^\s*(#)(include)\s+)
+      push: __step-preprocessor-include
+
+  __step-preprocessor-include:
+    - include: step-finish-at-end-of-line
+    - match: ^\s*(#)(include)\s+
+      captures:
+        1: keyword.other.preprocessor.c
+        2: keyword.other.preprocessor.include.c
+      push:
+        - meta_scope: meta.preprocessor.include.c
+        - include: step-finish-at-end-of-line
+        - match: \".+\"
+          scope: string.quoted.double.include.c
+        - match: \<.+\>
+          scope: string.quoted.other.lt-gt.include.c
+# ifdef
+  rule-preprocessor-condition:
+    - match: (?=^\s*(#)(ifdef|ifndef|if)\s)
+      push:
+        - meta_scope: meta.preprocessor.condition
+        - include: __step-preprocessor-condition-endif
+        - include: __step-preprocessor-condition
+
+  __step-preprocessor-condition:
+    - match: ^\s*(#)(ifdef|ifndef|if)\s(?:({{svIdent}})|([0-9]++))?
+      captures:
+        1: keyword.other.preprocessor.c
+        2: keyword.other.preprocessor.condition.c
+        3: entity.name.marco
+        4: constant.numeric
+      push:
+        - match: (?=^\s*(#)(endif)\b)
+          pop: true
+        - match: (?<=^#if\s)\s*
+          push: __step-preprocessor-condition-expression
+        - include: rule-declaration-preprocessor-safe
+        - include: __step-preprocessor-condition-else
+
+  __step-preprocessor-condition-expression:
+    - meta_scope: meta.condition.expression
+    - include: step-finish-at-end-of-line
+    - match: \s*\bdefined(?=\s*\()
+      scope: keyword.other.preprocessor.condition.keyword
+    - match: (?=\s*\()
+      set: __step-parens-invoke
+
+  __step-preprocessor-condition-else:
+    - match: ^\s*(#)(elif|else)
+      captures:
+        1: keyword.other.preprocessor.c
+        2: keyword.other.preprocessor.condition.c
+      set:
+        - meta_scope: meta.else
+        - match: (?=^\s*(#)(endif)\b)
+          pop: true
+        - match: (?<=^#elif\s)\s*
+          push: __step-preprocessor-condition-expression
+        - include: rule-declaration-preprocessor-safe
+        - include: __step-preprocessor-condition-else
+
+  __step-preprocessor-condition-endif:
+    - match: ^\s*(#)(endif)\b
+      captures:
+        1: keyword.other.preprocessor.c
+        2: keyword.other.preprocessor.condition.c
+      pop: true
+# directive
+  rule-preprocessor-directive:
+    - match: (?=^\s*(#)(undef|pragma|line|error|warning)\s)
+      push: __step-preprocessor-directive
+  __step-preprocessor-directive:
+    - include: step-finish-at-end-of-line
+    - match: ^\s*(#)(undef)\s
+      captures:
+        1: keyword.other.preprocessor.c
+        2: keyword.other.preprocessor.undef.c
+      push:
+        - meta_scope: meta.preprocessor.macro.undef
+        - include: step-finish-at-end-of-line
+    - match: ^\s*(#)(pragma|line|error|warning)\s
+      captures:
+        1: keyword.other.preprocessor.c
+        2: keyword.other.preprocessor.directive.c
+      push:
+        - meta_scope: meta.preprocessor.directive
+        - include: step-finish-at-end-of-line
+        - match: \b(message|error|warning|once|comment|lib|code_page|component|pack|(end)?region)\b
+          scope: keyword.other.preprocessor.directive.subdirective.c
+        - match: \(|\)
+          scope: punctuation.bracket.preprocessor.directive
+        - match: \,
+          scope: punctuation.comma.preprocessor.directive
+        - match: \b(push|pop|on|off)
+          scope: keyword.other.preprocessor.directive.subdirective.parameter.c
+        - include: lex-literal-value
+# macro
+  rule-preprocessor-macro:
+    - match: (?=^\s*(#)(define)\s)
+      push:
+        - match: (?=.?)
+          set: [__step-preprocessor-macro-body, __step-preprocessor-macro-header]
+
+  __step-preprocessor-macro-header:
+    - meta_scope: meta.header
+    - match: (?=$\n?)
+      pop: true
+    - match: ^\s*(#)(define)\s
+      captures:
+        1: keyword.other.preprocessor.c
+        2: keyword.other.preprocessor.define.c
+    - match: \b(new|delete)\b
+      scope: entity.name.marco.src keyword.operator.memory.override
+    - match: \s*{{svIdent}}(?=\s*\(|\\?$\n?)
+      scope: entity.name.marco.dest
+    - match: '\s*{{svIdent}}'
+      scope: entity.name.marco.src
+    - match: \s*\(
+      scope: punctuation.bracket.parens.begin
+      push:
+        - meta_scope: meta.parens.definition.macro
+        - match: \s*\)
+          scope: punctuation.bracket.parens.end
+          pop: true
+        - include: step-expression
+    - match: (\s*\))
+      scope: invalid.illegal.stray-bracket-end
+    - include: lex-variable
+
+  __step-preprocessor-macro-body:
+    - meta_scope: meta.preprocessor.macro
+    - match: (?<!\\)\n$\n?
+      pop: true
+    - include: lex-continuation
+# class definition
+  rule-definition-class:
+    - match: (?=\bclass\s+{{svIdent}}\s*:)
+      push:
+        - match: (?=.?)
+          set: [__step-definition-class-body, __step-definition-class-header]
+
+  __step-definition-class-header:
+    - meta_scope: meta.header
+    - match: (?=\s*\{)
+      pop: true
+    - match: \b(class)\s+({{svIdent}})\s*(:)\s*
+      captures:
+        1: storage.type.c
+        2: entity.name.type.class.c
+        3: punctuation.colon.definition.class
+    - match: \b(public|protected|private)\b
+      scope: keyword.definition.class.modifier.base
+    - include: rule-declaration-type
+
+  __step-definition-class-body:
+    - match: (?=\s*\{)
+      set:
+        - meta_scope: meta.definition.class
+        - include: step-declaration-block
+
+# enum definition
+  rule-definition-enum:
+    - match: (?=\s*\b(enum)\s*(?:{{svIdent}})?)
+      push:
+        - match: \s*(enum)\s*({{svIdent}})?
+          captures:
+            1: storage.type.c
+            2: entity.name.type.enum.c
+        - match: \s*\{
+          scope: punctuation.brace.definition.enum.begin
+          set:
+            - match: \s*\};
+              scope: punctuation.brace.definition.enum.end
+              pop: true
+            - match: ({{svIdent}})\s*(?:(=|,)\s*({{svIdent}}|[0-9]*+)?)
+              captures:
+                1: entity.name.enum.key
+                2: keyword.operator.assignment.c
+                3: entity.name.enum.value
+        - match: (\s*\})
+          scope: invalid.illegal.stray-brace-end
+# macro expandsion
+  rule-macro-expandsion:
+    - match: (?=\s*{{svIdentUpper}}\s*\()
+      push:
+        - meta_scope: meta.macro.expandsion
+        - include: __step-parens-invoke
+        - include: lex-support-macro-name
+        - include: step-finish-now
+# function definition
+  rule-definition-function:
+    - match: (?=.*?\boperator\b.*?\()|(?=.*?\b{{svIdent}}\s*\()
+      push:
+        - meta_scope: meta.definition.function
+        - include: step-finish-at-end-of-statement
+# parens
+        - match: (?=\s*\()
+          push: __step-parens-definition
+# function name
+        - match: \s*\b(operator)\s*(\S*?)(?=\()
+          captures:
+            1: keyword.operator.operator
+            2: entity.name.operator
+        - match: (~)(?=\s*{{svIdent}}\s*\()
+          captures:
+            1: punctuation.definition.wave.class.destruction
+        - match: \s*\b({{svIdent}})\s*(?=\()
+          captures:
+            1: entity.name.function
+#return type
+        - include: lex-keyword-modifier
+        - include: lex-declaration-type
+#impl block
+        - match: (?=\s*\{)
+          set:
+            - meta_scope: meta.definition.function
+            - include: step-impl-block
+#init block
+        - match: '\:'
+          scope: punctuation.definition.class.init
+          push:
+            - meta_scope: meta.definition.class.init
+            - match: (?=\s*\{)
+              pop: true
+            - include: rule-expression-impl-function-call
+
+# memory control
+  rule-memory-control:
+    - match: (?=\s*new\s+)
+      push:
+        - match: \s*(new)\s+
+          scope: keyword.operator.memory
+        - include: lex-declaration-type
+        - match: (?=\s*\()
+          push: __step-parens-invoke
+        - include: step-finish-now
+
+#impl function call
+  rule-expression-impl-function-call:
+    - match: (?=\s*{{svCtxType}}\s*(?:\(|{{svOverrideFnInvoke}}))
+      push:
+        - match: (?=\s*\()
+          set: __step-parens-invoke
+        - match: \s*{{svOverrideFnInvoke}}
+          scope: variable.function.override
+          set: step-expression
+        - match: (?=.?)
+          push:
+            - meta_scope: meta.function.name
+            - include: lex-internal-fun
+            - match: \s*{{svIdent}}?(?=\(|{{svOverrideFnInvoke}})
+              scope: variable.entity.name.function
+            - match: (?=\(|{{svOverrideFnInvoke}})
+              pop: true
+            - include: lex-literal-value
+            - include: lex-declaration-type
+
+# statement flow
+  rule-statement-flow:
+    - match: (?=^\s*\b(?:else\s+if|if|for|while)\b)
+      push:
+        - meta_scope: meta.flow
+        - match: \b(else\s+if|if|for|while)\b
+          scope: keyword.control.c
+        - match: (?=\s*\()
+          push: __step-parens-invoke
+        - match: (?=\s*\{)
+          set:
+            - meta_scope: meta.flow
+            - include: step-impl-inner-block
+        - match: (?=\w)
+          pop: true
+# statement try
+  rule-statement-try:
+    - match: (?=^\s*\b(?:try)\b)
+      push:
+        - match: \s*\b(try)\b
+          scope: keyword.control.c
+        - match: (?=\s*\{)
+          set:
+            - meta_scope: meta.try
+            - match: \s*\b(catch)\b
+              scope: keyword.control.c
+              set:
+                - meta_scope: meta.catch
+                - match: (?=\s*\()
+                  push: __step-parens-invoke
+                - match: (?=\s*\{)
+                  set:
+                    - meta_scope: meta.catch
+                    - include: step-impl-inner-block
+            - include: step-impl-inner-block
+# statement declaration
+  rule-statement-declaration:
+    - match: (?=^\s*{{svCtxType}}\s*{{svIdent}})
+      push:
+        - meta_scope: meta.impl.declaration
+        - match: (?=\s*{{svIdent}}\s*(?=,|;|$|=))
+          set: __step-varaible-declaration
+        - include: lex-slack-pointer-type
+        - include: lex-declaration-type
+
+
+  __step-varaible-declaration:
+    - meta_scope: meta.impl.declaration
+    - include: step-finish-at-end-of-statement
+      pop: true
+    - match: (?=\s*(\*?{{svIdent}})\s*(?=,|;|=|\())
+      push:
+        - match: (?=\s*\()
+          push: __step-parens-invoke
+        - match: \s*\*
+          scope: keyword.operator.pointer
+        - match: =
+          scope: keyword.operator.assignment.c
+          push:
+            - match: (?=,)
+              pop: true
+            - match: \s*\)
+              scope: invalid.illegal.stray-bracket-end
+            - include: step-expression
+        - match: (?=,|;)
+          pop: true
+        - include: lex-ident
+    - match: '\,'
+      scope: punctuation.comma.declaration.sep
+      set: __step-varaible-declaration
+
+# empty statement
+  rule-statement-empty:
+    - match: \s*;
+      scope: punctuation.semicolon.statement.end
+# statement flee
+  rule-statement-flee:
+    - match: (?=\s*(?:goto|return|throw)\b)
+      push:
+        - meta_scope: meta.flee
+        - include: step-expression-statement
+# statement expression
+  rule-statement-expression:
+    - match: (?=\w)
+      push: step-expression-statement
+# declare friend
+  rule-declare-friend:
+    - match: (?=\s*friend\s*)
+      push:
+        - include: step-finish-at-end-of-statement
+        - include: lex-keyword
+        - include: lex-declaration-type
+#-------------------simple step-------------------------------------
+  step-finish-at-end-of-line:
+    - match: $\n?
+      pop: true
+  step-finish-at-end-of-statement:
+    - match: ;
+      scope: punctuation.semicolon.statement.end
+      pop: true
+  step-finish-now:
+    - match: (?=.?)
+      pop: true
+
+  rule-declaration-type:
+    - match: (?={{svCtxType}})\s*
+      push:
+        - include: lex-declaration-type
+        - include: step-finish-now
+
+  step-expression-statement:
+    - include: step-finish-at-end-of-statement
+    - match: \s*\)
+      scope: invalid.illegal.stray-bracket-end
+    - include: step-expression
+#------------------lex--------------------------
+  __lex-chain-type:
+    - match: '\s*{{svNsSep}}'
+      scope: punctuation.sep.ctx-chain
+    - match: \s*(?:\<|\>)\s*(?=\w|\*)
+      scope: punctuation.ltgt.template.type
+    - match: '\s*{{svIdent}}'
+      scope: variable.entity.name.type
+  lex-pointer-type:
+    - match: (?=\s*{{svCtxTypeNoPointer}}\s*\*\s*(?!\w))
+      push:
+        - include: lex-slack-pointer-type
+        - include: step-finish-now
+  lex-slack-pointer-type:
+    - match: (?=\s*{{svCtxTypeNoPointer}}\s*\*\s*)
+      push:
+        - meta_scope: meta.type.pointer
+        - match: \s*\*
+          scope: keyword.operator.pointer
+          pop: true
+        - include: __lex-declaration-type
+  lex-declaration-type:
+    - include: lex-pointer-type
+    - include: __lex-declaration-type
+  __lex-declaration-type:
+    - include: lex-keyword-type
+    - include: lex-keyword-modifier
+    - include: lex-support-macro-name
+    - include: __lex-chain-type
+  lex-variable:
+    - include: lex-memory-operator
+    - include: lex-keyword
+    - include: lex-support-literal
+    - include: lex-literal-value
+    - include: lex-ident
+  lex-ident:
+    - include: lex-pointer-type
+    - match: \s*{{svIdentUpper}}\s*
+      scope: variable.other.ident.upper
+    - match: \s*{{svIdentEvt}}\s*
+      scope: variable.other.ident.evt
+    - match: \s*{{svIdentFirstUpper}}\s*
+      scope: variable.other.ident.first-upper
+    - match: \s*{{svIdentMember}}\s*
+      scope: variable.other.ident.member
+    - match: \s*{{svIdent}}\s*
+      scope: variable.other.ident
+    - include: __lex-chain-type
+    - match: '\s*{{svIdentUpper}}'
+      scope: variable.other.ident.upper
+    - match: '\s*{{svIdent}}'
+      scope: variable.other.ident
+  lex-literal-value:
+    - include: lex-literal-string
+    - include: lex-literal-number
+
+  lex-literal-string:
+    - match: \s*\b(_T(?=\()|L)\b(?=\s*\(?)
+      scope: support.macro.name.mfc.unicode
+      push:
+        - match: \s*\(
+          set:
+            - match: \s*\)
+              pop: true
+            - include: __lex-literal-string
+        - include: step-finish-now
+    - include: __lex-literal-string
+
+  __lex-literal-string:
+    - match: '"'
+      captures:
+        0: punctuation.definition.string.begin.c
+      push:
+        - meta_include_prototype: false
+        - meta_scope: string.quoted.double.c
+        - match: '(")|(?<=^|[^\\])\s*(\n)'
+          captures:
+            1: punctuation.definition.string.end.c
+            2: invalid.illegal.unexpected-end-of-line.c
+          pop: true
+        - include: lex-continuation
+        - include: string_escaped_char
+        - include: string_placeholder
+    - match: "'"
+      captures:
+        0: punctuation.definition.string.begin.c
+      push:
+        - meta_include_prototype: false
+        - meta_scope: string.quoted.single.c
+        - match: '('')|(?<=^|[^\\])\s*(\n)'
+          captures:
+            1: punctuation.definition.string.end.c
+            2: invalid.illegal.unexpected-end-of-line.c
+          pop: true
+        - include: lex-continuation
+        - include: string_escaped_char
+  lex-literal-number:
+    - match: |-
+        (?ix)  # hexadecimal float
+                    (?<!\.) \b
+
+                    (0x)
+
+                    # significand
+                    (?: (\.) (?=p)  # invalid
+                      |        [0-9a-f]*+ ([0-9a-z]*?) [0-9a-f]*+
+                        (?: \. [0-9a-f]*+ ([0-9a-z.]*?) [0-9a-f]*+ )? )
+
+                    # exponent (required)
+                    (?: (p) (?:        [+\-]  [0-9]++ ([0-9a-z]*?)
+                              | (?=[0-9a-z.]) [0-9]*+ ([0-9a-z.]*?) )
+                      | (p) )
+
+                    # remaining valid chars and type
+                    [0-9]*+ ([fl]?)
+
+                    \b (?!\.)
+
+      scope: constant.numeric.float.hexadecimal.c
+      captures:
+        1: string.other.number.prefix.hexadecimal.c
+        2: invalid.illegal.number.missing-fragment.significand.c
+        3: invalid.illegal.numeric-literal-character.float.whole-number.c
+        4: invalid.illegal.numeric-literal-character.float.fraction.c
+        5: keyword.other.exponent.hexadecimal.c
+        6: invalid.illegal.numeric-literal-character.float.exponent.c
+        7: invalid.illegal.numeric-literal-character.float.exponent.c
+        8: invalid.illegal.number.missing-fragment.exponent.c
+        9: string.other.number.suffix.float.c
+    - match: |-
+        (?ix)  # hexadecimal float without required exponent
+                    (?<!\.) \b
+
+                    (0x)
+
+                    # significand (at least a period)
+                         [0-9a-f]*+ ([0-9a-z&&[^p]]*?) [0-9a-f]*+
+                    (\.) [0-9a-f]*+ ([0-9a-z.&&[^p]]*?) [0-9a-f]*+
+
+                    # type
+                    (l?)
+
+                    (?:(?<=\.)|\b) (?!\.)
+
+      scope: constant.numeric.float.hexadecimal.c
+      captures:
+        1: string.other.number.prefix.hexadecimal.c
+        2: invalid.illegal.numeric-literal-character.float.whole-number.c
+        3: invalid.illegal.number.hexadecimal-float-requires-exponent.c
+        4: invalid.illegal.numeric-literal-character.float.fraction.c
+        5: string.other.number.suffix.float.c
+    - match: |-
+        (?ix)  # decimal float literal
+                    (?<!\.) (?:(?=\.)|\b)
+
+                    (?!0x)
+                    # significand
+                    (?: (?: [0-9]++ ([0-9a-z&&[^e]]*?) [0-9]+* )?
+                        \.  [0-9]++ ([0-9a-z.&&[^e]]*?) [0-9]+*
+
+                      |     [0-9]++ ([0-9a-z&&[^e]]*?) [0-9]+* (?: \. | (?=e)) )
+
+                    # exponent (optional)
+                    (?: (e) (?: [+\-]  [0-9]++ ([0-9a-z]*?)
+                              |        [0-9]++ ([0-9a-z.]*?) )
+                      | ( p     [+\-]? [0-9]++
+                        | [ep]                  [0-9a-z.]*?) )?
+
+                    # any invalid chars and type
+                    ([0-9a-z]*?) [0-9]*+ ([fl]?)
+
+                    (?:(?<=\.)|\b) (?!\.)
+
+      scope: constant.numeric.float.c
+      captures:
+        1: invalid.illegal.numeric-literal-character.float.whole-number.c
+        2: invalid.illegal.numeric-literal-character.float.fraction.c
+        3: invalid.illegal.numeric-literal-character.float.whole-number.c
+        4: keyword.other.exponent.c
+        5: invalid.illegal.numeric-literal-character.float.exponent.c
+        6: invalid.illegal.numeric-literal-character.float.exponent.c
+        7: invalid.illegal.numeric-literal-character.float.exponent.c
+        8: invalid.illegal.numeric-literal-character.float.exponent.c
+        9: string.other.number.suffix.float.c
+    - match: |-
+        (?ix)
+          (?<!\.) \b
+          (0x)? 0++
+          (u?l{0,2}|lul?|llu)
+          \b (?!\.)
+      scope: constant.numeric.integer.zero.c
+      captures:
+        1: string.other.number.prefix.hexadecimal.c
+        2: string.other.number.suffix.c
+    - match: |-
+        (?ix)
+                    (?<!\.) \b
+
+                    (?: (0x) | (0b) )
+                    (u?l{0,2}|lul?|llu)
+
+                    \b (?!\.)
+
+      scope: invalid.illegal.invalid-number-literal.c
+      captures:
+        1: string.other.number.prefix.hexadecimal.c
+        2: string.other.number.prefix.binary.c
+        3: string.other.number.suffix.c
+    - match: |-
+        (?ix)
+                    (?<!\.) \b
+
+                    (0x) [0-9a-f]++
+
+                    # any invalid chars
+                    ([0-9a-z]*?)
+
+                    # the remainder (after invalid chars, if any) and a type
+                    [0-9a-f]* (u?l{0,2}|lul?|llu)
+
+                    \b (?!\.)
+
+      scope: constant.numeric.integer.hexadecimal.c
+      captures:
+        1: string.other.number.prefix.hexadecimal.c
+        2: invalid.illegal.numeric-literal-character.integer.c
+        3: string.other.number.suffix.c
+    - match: |-
+        (?ix)
+                    (?<!\.) \b
+
+                    (0b) [01]++
+
+                    # any invalid chars
+                    ([0-9a-z]*?)
+
+                    # the remainder (after invalid chars, if any) and a type
+                    [01]* (u?l{0,2}|lul?|llu)
+
+                    \b (?!\.)
+
+      scope: constant.numeric.integer.binary.c
+      captures:
+        1: string.other.number.prefix.binary.c
+        2: invalid.illegal.numeric-literal-character.integer.c
+        3: string.other.number.suffix.c
+    - match: |-
+        (?ix)
+                    (?<!\.) \b
+
+                    (0) [0-7]++
+
+                    # any invalid chars
+                    ([0-9a-z]*?)
+
+                    # the remainder (after invalid chars, if any) and a type
+                    [0-7]* (u?l{0,2}|lul?|llu)
+
+                    \b (?!\.)
+
+      scope: constant.numeric.integer.octal.c
+      captures:
+        1: string.other.number.prefix.octal.c
+        2: invalid.illegal.numeric-literal-character.integer.c
+        3: string.other.number.suffix.c
+    - match: |-
+        (?ix)
+                    (?<!\.) \b
+
+                    [0-9]++
+
+                    # any invalid chars
+                    ([0-9a-z]*?)
+
+                    # the remainder (after invalid chars, if any) and a type
+                    [0-9]* (u?l{0,2}|lul?|llu)
+
+                    \b (?!\.)
+
+      scope: constant.numeric.integer.decimal.c
+      captures:
+        1: invalid.illegal.numeric-literal-character.integer.c
+        2: string.other.number.suffix.c
+  lex-control:
+    - match: \s*\b(break|continue|goto|return|throw)
+      scope: keyword.control.flee.c
+    - match: \s*\b((?:__|(?!\w+__))asm(?:__)?|case|default|do|else\s+if|else|for|if|_Pragma|switch|while|__extension__)\b
+      captures:
+        1: keyword.control.c
+    - match: \s*delete\s*\[\]
+      scope: keyword.operator.delete.array.c++
+    - match: \s*\b(new|delete)\b
+      scope: keyword.operator.memory
+  lex-internal-fun:
+    - match: \s*\bsizeof\b
+      scope: keyword.operator.sizeof
+  lex-keyword:
+    - include: lex-storage-type
+    - include: lex-keyword-type
+    - include: lex-keyword-other
+    - include: lex-keyword-modifier
+    - include: lex-control
+    - include: lex-macro-param-vararg
+
+  lex-macro-param-vararg:
+    - match: (\.\.\.)
+      captures:
+        1: punctuation.definition.ellipsis.c
+  lex-storage-type:
+    - match: \s*\b(class|struct|enum)\b
+      scope: storage.type.c
+  lex-keyword-type:
+    - match: \s*\b(auto|bool|_Bool|char|_Complex|double|float|_Imaginary|int|long|short|signed|unsigned|void)\b
+      captures:
+        1: storage.type.c
+    - match: \s*\b(wchar_t)\b
+      scope: storage.type.c++
+    - match: \s*\b(LPC?T?STR|BOOL|BYTE|UINT|HCURSOR|HBRUSH|COLORREF|HBITMAP|INT_PTR|MSG|WPARAM|LPARAM|CDC)\b
+      captures:
+        1: storage.type.c.mfc
+  lex-keyword-other:
+    - match: \s*\b(this)\b
+      scope: variable.language.c++
+    - match: '\s*\btemplate(<[\s\w,]*>)?'
+      scope: storage.type.template.c++
+    - match: |-
+        (?x)(
+          \b(?:and|and_eq|bitand|bitor|compl|not|not_eq|or|or_eq|typeid|xor|xor_eq)\b
+        )
+      scope: keyword.operator.c++
+    - match: \s*\b(export|mutable|typename)\b
+      scope: storage.modifier.c++
+  lex-keyword-modifier:
+    - match: \s*(public|protected|private)(:(?!:))?
+      captures:
+        1: keyword.definition.class.modifier
+        2: punctuation.colon.definition.class.modifier
+    - match: \s*\b(extern|static|register|__attribute__|(?:__|(?!\w+__))(?:const|restrict|volatile|inline)(?:__)?)\b
+      captures:
+        1: storage.modifier.c
+    - match: \s*(friend|explicit|virtual)\b
+      scope: storage.modifier.c++
+  lex-operator:
+    - match: \s*(->)(?={{svCanEmbedSpaceAndComment}}{{svIdent}})
+      scope: keyword.operator.dereference.c
+    - match: \s*(==|(?<!<)<=|(?<!>)>=)
+      scope: keyword.operator.comparison.c
+    - match: \s*(\-|\+|\*|\/|%|&|\||\^|<<|>>)?=
+      scope: keyword.operator.assignment.c
+    - match: \s*(!=|<>|(?<!<)<(?!<)|(?<!>)>(?!>))
+      scope: keyword.operator.comparison.c
+    - match: \s*(\-\-|\+\+)
+      scope: keyword.operator.increment-decrement.c
+    - match: \s*(\?|(?<!:):(?!:))
+      scope: keyword.operator.ternary.c
+    - match: \s*(\-|\+|\*|\/|%)
+      scope: keyword.operator.arithmetic.c
+    - match: \s*(!|&&|\|\|)
+      scope: keyword.operator.logical.c
+    - match: \s*(~|&|\||\^|<<|>>)
+      scope: keyword.operator.bitwise.c
+    - match: '\s*(\.)(?={{svCanEmbedSpaceAndComment}}{{svIdent}})'
+      scope: keyword.operator.dereference.c
+  lex-memory-operator:
+    - match: \s*(?:(?<!&)&(?!&)|\*)
+      scope: keyword.operator.pointer
+  lex-sep:
+    - match: \,
+      scope: punctuation.comma.sep
+  string_placeholder:
+    - match: |-
+        (?x)%
+          (\d+\$)?                             # field (argument #)
+          [#0\- +']*                           # flags
+          [,;:_]?                              # separator character (AltiVec)
+          ((-?\d+)|\*(-?\d+\$)?)?              # minimum field width
+          (\.((-?\d+)|\*(-?\d+\$)?)?)?         # precision
+          (hh|h|ll|l|j|t|z|q|L|vh|vl|v|hv|hl)? # length modifier
+          [diouxXDOUeEfFgGaACcSspn%]           # conversion type
+      scope: constant.other.placeholder.c
+    - match: "%"
+      scope: invalid.illegal.placeholder.c
+
+  string_escaped_char:
+    - match: '\\(\\|[abefnprtv''"?]|[0-3]\d{,2}|[4-7]\d?|x[a-fA-F0-9]{,2}|u[a-fA-F0-9]{,4}|U[a-fA-F0-9]{,8})'
+      scope: constant.character.escape.c
+    - match: \\.
+      scope: invalid.illegal.unknown-escape.c
+
+  lex-continuation:
+    - match: (\\)(?=$\n?)
+      scope: punctuation.separator.continuation.c
+    - match: \\(\s+?)(?=$\n?)
+      captures:
+        1: invalid.deprecated.space-after-continuation.c
+#------------------support----------------------
+  lex-support-macro-name:
+    - match: \s*\b(NEAR|FAR|afx_msg|DECLARE_MESSAGE_MAP|BEGIN_MESSAGE_MAP|END_MESSAGE_MAP|_T|L)\b
+      scope: support.macro.name.mfc
+    - match: \s*\b{{svIdentUpper}}\b
+      scope: support.macro.name.guess
+  lex-support-literal:
+    - match: \s*\b(NULL|TRUE|FALSE)\b
+      scope: support.literal.macro.name.mfc

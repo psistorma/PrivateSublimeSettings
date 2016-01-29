@@ -1,0 +1,215 @@
+[
+  { "keys": ["ctrl+shift+c"], "command": "copy" },
+  { "keys": ["ctrl+shift+x"], "command": "cut" },
+//auto expand and copy if have selection is empty
+  {"keys": ["ctrl+alt+c"], "command": "mul_run", "args": {
+    "commands" : [
+        {"command": "expand_region"},
+        {"command": "copy"}
+      ]
+    }
+  },
+//auto expand and re copy if have selection already
+  {"keys": ["ctrl+alt+v"], "command": "mul_run", "args": {
+    "commands" : [
+        {"command": "expand_region"},
+        {"command": "paste"}
+      ]
+    }
+  },
+//auto expand and re copy if have selection already
+  {"keys": ["ctrl+alt+x"], "command": "mul_run", "args": {
+    "commands" : [
+        {"command": "expand_region"},
+        {"command": "cut"}
+      ]
+    }
+  },
+//-------------string.quoted -----------------
+//copy whole string when no src
+  {"keys": ["ctrl+c"], "command": "mul_run", "args": {
+    "commands" : [
+      {"command": "expand_selection",   "args": {"to": "scope"} },
+      {"command": "copy"}
+    ]
+  },"context": [
+      {"key": "selection_empty", "operator": "equal", "operand": true},
+      {"key": "selector", "operator": "equal", "operand": "string.quoted"},
+      {"key": "following_text", "operator": "regex_match", "operand": "^[^'\"'].*"}
+    ]
+  },
+  //replace whole string when no dest
+  {"keys": ["ctrl+v"], "command": "mul_run", "args": {
+    "commands" : [
+      {"command": "expand_selection",   "args": {"to": "scope"} },
+      {"command": "paste"}
+    ]
+  },"context": [
+      {"key": "selection_empty", "operator": "equal", "operand": true},
+      {"key": "selector", "operator": "equal", "operand": "string.quoted "},
+      {"key": "following_text", "operator": "regex_match", "operand": "^[^'\"'].*"}
+    ]
+  },
+  //replace when have src and dest
+  {"keys": ["ctrl+v"], "command": "mul_run", "args": {
+    "commands" : [
+      {"command": "left_delete"},
+      {"command": "paste"}
+      ]},"context": [
+        {"key": "selector", "operator": "equal", "operand": "source"},
+        {"key": "selection_empty", "operator": "equal", "operand": false}
+      ]
+  },
+  {"keys": ["ctrl+x"], "command": "mul_run", "args": {
+    "commands" : [
+      {"command": "expand_selection",   "args": {"to": "scope"} },
+      {"command": "cut"}
+    ]
+  },"context": [
+      {"key": "selection_empty", "operator": "equal", "operand": true},
+      {"key": "selector", "operator": "equal", "operand": "string.quoted"},
+      {"key": "following_text", "operator": "regex_match", "operand": "^[^'\"'].*"}
+    ]
+  },
+
+//-------------XML-----------------
+//copy whole scope when no src
+  {"keys": ["ctrl+c"], "command": "mul_run", "args": {
+    "commands" : [
+      {"command": "expand_selection",   "args": {"to": "tag"} },
+      {"command": "copy"}
+    ]
+  },"context": [
+      {"key": "selection_empty", "operator": "equal", "operand": true},
+      {"key": "preceding_text", "operator": "regex_contains", "operand": ".*>.*"},
+      {"key": "following_text", "operator": "regex_contains", "operand": ".*<.*"},
+      {"key": "selector", "operator": "equal", "operand": "text.xml "}
+    ]
+  },
+  {"keys": ["ctrl+c"], "command": "mul_run", "args": {
+    "commands" : [
+      {"command": "expand_selection",   "args": {"to": "scope"} },
+      {"command": "copy"}
+    ]
+  },"context": [
+      {"key": "selection_empty", "operator": "equal", "operand": true},
+      {"key": "selector", "operator": "equal", "operand": "meta.tag.xml entity.name.tag.localname.xml,text.xml meta.tag.xml entity.other.attribute-name.localname.xml,comment.block.xml  "}
+    ]
+  },
+  {"keys": ["ctrl+c"], "command": "mul_run", "args": {
+    "commands" : [
+      {"command": "run_emmet_action",   "args": {"action": "balance_inward"}},
+      {"command": "copy"}
+    ]
+  },"context": [
+      {"key": "selection_empty", "operator": "equal", "operand": true},
+      {"key": "selector", "operator": "equal", "operand": "comment.block.xml"}
+    ]
+  },
+//replace whole string when no dest
+  {"keys": ["ctrl+v"], "command": "mul_run", "args": {
+    "commands" : [
+      {"command": "expand_selection", "args": {"to": "tag"} },
+      {"command": "paste"}
+    ]
+  },"context": [
+      {"key": "selection_empty", "operator": "equal", "operand": true},
+      {"key": "selector", "operator": "equal", "operand": "text.xml"},
+      {"key": "selector", "operator": "not_equal", "operand": "meta.tag.no-content.xml"}
+    ]
+  },
+  {"keys": ["ctrl+v"], "command": "mul_run", "args": {
+    "commands" : [
+      {"command": "expand_selection", "args": {"to": "scope"} },
+      {"command": "paste"}
+    ]
+  },"context": [
+      {"key": "selection_empty", "operator": "equal", "operand": true},
+      {"key": "selector", "operator": "equal", "operand": "meta.tag.xml entity.name.tag.localname.xml"}
+    ]
+  },
+  {"keys": ["ctrl+v"], "command": "mul_run", "args": {
+    "commands" : [
+      {"command": "run_emmet_action",   "args": {"action": "balance_inward"}},
+      {"command": "paste"}
+    ]
+  },"context": [
+      {"key": "selection_empty", "operator": "equal", "operand": true},
+      {"key": "selector", "operator": "equal", "operand": "comment.block.xml"}
+    ]
+  },
+  {"keys": ["ctrl+x"], "command": "mul_run", "args": {
+    "commands" : [
+      {"command": "expand_selection",   "args": {"to": "tag"} },
+      {"command": "cut"}
+    ]
+  },"context": [
+      {"key": "selection_empty", "operator": "equal", "operand": true},
+      {"key": "selector", "operator": "equal", "operand": "text.xml"},
+    ]
+  },
+  {"keys": ["ctrl+x"], "command": "mul_run", "args": {
+    "commands" : [
+      {"command": "expand_selection",   "args": {"to": "scope"} },
+      {"command": "cut"}
+    ]
+  },"context": [
+      {"key": "selection_empty", "operator": "equal", "operand": true},
+      {"key": "selector", "operator": "equal", "operand": "meta.tag.xml entity.name.tag.localname.xml"},
+    ]
+  },
+  {"keys": ["ctrl+x"], "command": "mul_run", "args": {
+    "commands" : [
+      {"command": "run_emmet_action",   "args": {"action": "balance_inward"}},
+      {"command": "cut"}
+    ]
+  },"context": [
+      {"key": "selection_empty", "operator": "equal", "operand": true},
+      {"key": "selector", "operator": "equal", "operand": "comment.block.xml"},
+    ]
+  },
+//-------------JSON-----------------
+//copy whole scope when no src
+  {"keys": ["ctrl+c"], "command": "mul_run", "args": {
+    "commands" : [
+      {"command": "expand_selection",   "args": {"to": "scope"} },
+      {"command": "copy"}
+    ]
+  },"context": [
+      {"key": "selection_empty", "operator": "equal", "operand": true},
+      {"key": "selector", "operator": "equal", "operand": "source.json, source.sublimekeymap"}
+    ]
+  },
+//replace whole string when no dest
+  {"keys": ["ctrl+v"], "command": "mul_run", "args": {
+    "commands" : [
+      {"command": "expand_selection",   "args": {"to": "scope"} },
+      {"command": "paste"}
+    ]
+  },"context": [
+      {"key": "selection_empty", "operator": "equal", "operand": true},
+      {"key": "selector", "operator": "equal", "operand": "source.json, source.sublimekeymap"},
+    ]
+  },
+  {"keys": ["ctrl+v"], "command": "mul_run", "args": {
+    "commands" : [
+      {"command": "paste"}
+    ]
+  },"context": [
+      {"key": "selection_empty", "operator": "equal", "operand": true},
+      {"key": "preceding_text", "operator": "regex_contains", "operand": "\"$"},
+      {"key": "following_text", "operator": "regex_contains", "operand": "^\""},
+      {"key": "selector", "operator": "equal", "operand": "source.sublimekeymap meta.keybinding.collection.sublimekeymap"},
+    ]
+  },
+  {"keys": ["ctrl+x"], "command": "mul_run", "args": {
+    "commands" : [
+      {"command": "expand_selection",   "args": {"to": "scope"} },
+      {"command": "cut"}
+    ]
+  },"context": [
+      {"key": "selection_empty", "operator": "equal", "operand": true},
+      {"key": "selector", "operator": "equal", "operand": "source.json, source.sublimekeymap"},
+    ]
+  },
+]

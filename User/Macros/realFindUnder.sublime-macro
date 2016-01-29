@@ -1,0 +1,5 @@
+[
+    { "command": "find_under" },
+    { "command": "find_next" },
+    { "command": "find_prev"  }
+]

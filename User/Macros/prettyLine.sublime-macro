@@ -1,0 +1,6 @@
+[
+    { "command": "expand_selection", "args": {"to": "line"} },
+    { "command": "js_format" },
+    { "command": "move_to", "args": {"to": "eol", "extend": false} },
+    { "command": "insert", "args": {"characters": "\n"} }
+]
