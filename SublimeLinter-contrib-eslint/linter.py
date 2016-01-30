@@ -20,7 +20,7 @@ class ESLint(NodeLinter):
 
     """Provides an interface to the eslint executable."""
 
-    syntax = ('javascript', 'html', 'javascriptnext', 'javascript (babel)', 'javascript (jsx)', 'jsx-real')
+    syntax = ('javascript', 'html', 'javascriptnext', 'javascript (babel)', 'javascript (jsx)', 'jsx-real', 'Vue Component')
     npm_name = 'eslint'
     cmd = ('eslint', '--format', 'compact', '--stdin', '--stdin-filename', '__RELATIVE_TO_FOLDER__')
     version_args = '--version'
@@ -38,7 +38,8 @@ class ESLint(NodeLinter):
     )
     line_col_base = (1, 1)
     selectors = {
-        'html': 'source.js.embedded.html'
+        'html': 'source.js.embedded.html',
+        'vue': 'source.js.embedded.html'
     }
 
     def find_errors(self, output):
@@ -75,7 +76,7 @@ class ESLint(NodeLinter):
     def communicate(self, cmd, code=None):
         """Run an external executable using stdin to pass code and return its output."""
 
-        if '__RELATIVE_TO_FOLDER__' in cmd:
+        if '__RELATIVE_TO_FOLDER__' in cmd and self.filename[0] == self.view.window().extract_variables()['folder'][0]:
 
             relfilename = self.filename
             window = self.view.window()

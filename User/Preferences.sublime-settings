@@ -18,7 +18,7 @@
 			"selector": "text, source, meta, string, punctuation, constant"
 		}
 	],
-	"color_scheme": "Packages/User/Storm.tmTheme",
+	"color_scheme": "Packages/User/Oasis.tmTheme",
 	"detect_indentation": false,
 	"ensure_newline_at_eof_on_save": true,
 	"font_face": "PragmataPro",

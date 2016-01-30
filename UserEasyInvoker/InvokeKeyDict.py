@@ -41,6 +41,9 @@ class InvokeKeyDict:
     self.invokeItemsMap = None
     gInvokerLoader.unloadAllInvokers()
 
+  def getInvokeItems(self):
+    return self.data['items']
+
   def mergeItems(self, mainItems, otherItems):
     reItems = []
     if mainItems is None and otherItems is None:
@@ -50,7 +53,7 @@ class InvokeKeyDict:
       for opt in otherItems:
         if opt.startswith('!'):
           continue
-        reItems.append(opt)  
+        reItems.append(opt)
       return reItems
 
     if otherItems is None:
@@ -77,22 +80,26 @@ class InvokeKeyDict:
   def mergeArgs(self, mainArgs, otherArgs):
     return self.mergeItems(mainArgs, otherArgs)
 
-  def regInvokeItem(self, view, destKey, srcKey, opts, args):
-    if self.off:
-      return
-
+  def getSrcInfo(self, srcKey, byKey):
     srcInfo = None
     for info in self.data['invoker_info']:
-      if info['key'] == srcKey:
+      if info[byKey] == srcKey:
         srcInfo = info
         break
 
     if srcInfo is None:
       raise ValueError("Can't Find invoker_info for {0}".format(srcKey))
 
+    return srcInfo
+
+  def regInvokeItem(self, view, destKey, srcKey, opts, args):
+    if self.off:
+      return
+
+    srcInfo = self.getSrcInfo(srcKey, 'key')
     invoker = srcInfo['invoker']
     expandOpts, expandedArgs = self.prepareOptArg(view, srcInfo['optMap'],
-      opts, args, [], [])
+      opts, args, None, None, None)
 
     invokeItem = self.queryInvokeItem(destKey)
     if invokeItem is None:
@@ -125,27 +132,26 @@ class InvokeKeyDict:
 
     return self.invokeItemsMap[invokeKeyUpper]
 
-  def prepareOptArg(self, view, optMap, mainOpts, mainArgs, otherOpts, otherArgs):
-    realMainOpts = []
-    realOtherOpts = []
-    if mainOpts is not None:
-      for opt in mainOpts:
-        if optMap is not None:
-          realMainOpts.append(optMap[opt])
-        else:
-          realMainOpts.append(opt)
+  def mapOpts(self, optMap, opts):
+    realOpts = []
+    if opts is None:
+      return realOpts
 
+    for opt in opts:
+      if optMap is not None:
+        realOpts.append(optMap[opt])
+      else:
+        realOpts.append(opt)
 
-    if otherOpts is not None:
-      for opt in otherOpts:
-        if optMap is not None:
-          realOtherOpts.append(optMap[opt])
-        else:
-          realOtherOpts.append(opt)
+    return realOpts
+
+  def prepareOptArg(self, view, mainOptMap, mainOpts, mainArgs, otherOptMap, otherOpts, otherArgs):
+    realMainOpts = self.mapOpts(mainOptMap, mainOpts)
+    realOtherOpts = self.mapOpts(otherOptMap, otherOpts)
 
     opts = self.mergeOpts(realMainOpts, realOtherOpts)
     args = self.mergeArgs(mainArgs, otherArgs)
-    
+
     expandOpts = []
     expandedArgs = []
     for opt in opts:
@@ -161,8 +167,9 @@ class InvokeKeyDict:
       rease_error('invokeKey:' + invokeKey + ' is not exist!')
       return
 
+    srcInfo = self.getSrcInfo(invokeItem["invoker"], 'invoker')
     expandOpts, expandedArgs = self.prepareOptArg(view, None,
-      invokeItem["opts"], invokeItem["args"], otherOpts, otherArgs)
+      invokeItem["opts"], invokeItem["args"], srcInfo['optMap'], otherOpts, otherArgs)
 
     invoker = gInvokerLoader.mustGetInvoker(invokeItem["invoker"])
 

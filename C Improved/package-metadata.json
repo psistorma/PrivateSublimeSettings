@@ -1,1 +1,1 @@
-{"sublime_text": "*", "dependencies": [], "platforms": ["*"], "description": "Improved syntax for C/C++/Objective-C, with a special support for sources of Linux kernel, CPython, etc.", "version": "1.8.1", "url": "https://packagecontrol.io/packages/C%20Improved"}
+{"dependencies": [], "url": "https://packagecontrol.io/packages/C%20Improved", "version": "1.9.1", "platforms": ["*"], "sublime_text": "*", "description": "Improved syntax for C/C++/Objective-C, with a special support for sources of Linux kernel, CPython, etc."}

@@ -114,7 +114,8 @@
     ]
   }},
   {"keys": ["/"], "command": "toggle_comment", "args": { "block": false }, "context": [
-    { "key": "selection_empty", "operator": "equal", "operand": false }
+    { "key": "selection_empty", "operator": "equal", "operand": false },
+    {"key": "selector", "operator": "equal", "operand": "source - string"}
   ]},
   //Goto
   {"keys": ["ctrl+r"], "command": "show_overlay", "args": {"overlay": "goto", "text": "@"} },
