@@ -9,14 +9,17 @@ class SublimeInvoker(Invoker):
 
   def invoke(self, view, opts, args):
     operator = opts[-1]
-    obj = opts[-2]
+    obj = "sublime"
+    if len(opts) > 1:
+      obj = opts[-2]
     if obj.upper() == "WINDOW":
       obj = "view.window()"
     elif obj.upper() == "VIEW":
       obj = "view"
-    
+
     evalCode = "{0}.{1}".format(obj, operator)
     if len(args) == 0:
+      print(evalCode)
       try:
         eval("{0}()".format(evalCode))
         sublime.status_message("Invoke {0}() success".format(evalCode))
@@ -30,7 +33,9 @@ class SublimeInvoker(Invoker):
     for arg in args:
       try:
         arg = arg.replace('\\', '\\\\')
-        eval("{0}(\"{1}\")".format(evalCode, arg))
+        evalCode = "{0}({1})".format(evalCode, arg)
+        print(evalCode)
+        eval(evalCode)
         sucCount += 1
       except:
         traceback.print_exc()
