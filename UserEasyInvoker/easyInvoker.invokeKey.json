@@ -27,9 +27,7 @@
   "items": [
     {
       "invoker": "Cmd",
-      "opts": [
-        "wait"
-      ],
+      "opts": [],
       "args": [
         "node",
         "${file}"
