@@ -26,7 +26,7 @@ class CmdInvoker(Invoker):
         startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
 
     command = args
-
+    print(command)
     p = subprocess.Popen(command, startupinfo=startupinfo, shell=needShell)
 
     if needWait:
