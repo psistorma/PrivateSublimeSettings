@@ -1,0 +1,12 @@
+{
+	"bundles":
+	{
+		"C++":
+		{
+			"ignored_packages":
+			[
+				"SublimeCodeIntel"
+			]
+		}
+	}
+}

@@ -32,11 +32,9 @@
 	"ignored_packages":
 	[
 		"C++",
-		"ColorPicker",
 		"SublimeCodeIntel",
 		"SublimeLinter",
 		"SublimeLinter-contrib-eslint",
-		"tern_for_sublime",
 		"Vintage"
 	],
 	"line_numbers": true,
