@@ -12,10 +12,6 @@
 		{
 			"characters": ".:>",
 			"selector": "source.c++ - string - comment - constant.numeric"
-		},
-		{
-			"characters": " qazwsxedcrfvtgbyhnujmikolpQAZWSXEDCRFVTGBYHNUJMIKOLP",
-			"selector": "text, source, meta, string, punctuation, constant"
 		}
 	],
 	"color_scheme": "Packages/User/Oasis.tmTheme",
@@ -31,6 +27,7 @@
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
+		"All Autocomplete",
 		"C++",
 		"SublimeCodeIntel",
 		"SublimeLinter",

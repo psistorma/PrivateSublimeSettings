@@ -2,7 +2,7 @@
   { "keys": ["ctrl+shift+c"], "command": "copy" },
   { "keys": ["ctrl+shift+x"], "command": "cut" },
 //auto expand and copy if have selection is empty
-  {"keys": ["ctrl+alt+c"], "command": "mul_run", "args": {
+  {"keys": ["alt+c"], "command": "mul_run", "args": {
     "commands" : [
         {"command": "expand_region"},
         {"command": "copy"}
@@ -10,7 +10,7 @@
     }
   },
 //auto expand and re copy if have selection already
-  {"keys": ["ctrl+alt+v"], "command": "mul_run", "args": {
+  {"keys": ["alt+v"], "command": "mul_run", "args": {
     "commands" : [
         {"command": "expand_region"},
         {"command": "paste"}

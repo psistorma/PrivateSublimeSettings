@@ -1,5 +1,5 @@
 {
   "debug":     true,
-  "add_slash": true,
+  "add_slash": false,
   "path_search_order": ["project", "view", "window"]
 }

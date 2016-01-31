@@ -5,6 +5,10 @@
   {"keys": ["alt+f8"], "command": "pretty_json", "context": [
     {"key": "selector", "operator": "equal", "operand": "source.sublimekeymap,source.json"}
   ]},
+//alligment
+  {"keys": ["f1"], "command": "alignment" },
+//Zen Tabs
+  { "keys": ["ctrl+shift+tab"], "command": "switch_tabs"},
 //SublimeCodeIntel
   { "keys": ["alt+m"], "command": "code_intel_auto_complete" },
   { "keys": ["f6"], "command": "goto_python_definition"},
@@ -19,7 +23,7 @@
   {"keys": ["ctrl+k", "ctrl+j"], "command": "sublimelinter_goto_error", "args": {"direction": "previous"} },
   {"keys": ["ctrl+k", "ctrl+a"], "command": "sublimelinter_show_all_errors" },
 //FileSystem AutoCompletion
-  {"keys": ["ctrl+k", "ctrl+f"], "command": "file_system_comp_trigger" },
+ // {"keys": ["ctrl+k", "ctrl+f"], "command": "file_system_comp_trigger" },
 //SideBarEnhancements
   {"keys": ["f5"], "command": "side_bar_open_in_browser" , "args":{"paths":[], "type":"testing", "browser":""} },
   {"keys": ["ctrl+f5"], "command": "side_bar_open_in_browser", "args":{"paths":[], "type":"production", "browser":""} },
@@ -42,7 +46,7 @@
 //C++ NamespaceTools
   { "keys": ["ctrl+k","ctrl+r"], "command": "namespace_tool"},
 //Restart
-  {"keys": ["alt+f12"], "command": "restart"},
+  {"keys": ["ctrl+alt+f12"], "command": "restart"},
 //Emmet
 	{
     "keys": ["ctrl+k", "ctrl+t"],
@@ -107,12 +111,12 @@
       {"command": "show_scope_name"}
       ]}
   },
-  {"keys": ["alt+d"], "command": "mul_run", "args": {
-    "commands" : [
-      {"command": "expand_selection",   "args": {"to": "scope"} },
-      {"command": "copy"}
-    ]
-  }},
+//Open Current Directory:
+  {"keys": ["alt+o"], "command": "list_current_dir"},
+//Open Include
+  { "keys": ["ctrl+o"], "command": "open_include", "context": [
+    {"key": "selector", "operator": "equal", "operand": "string"}
+  ]},
   {"keys": ["/"], "command": "toggle_comment", "args": { "block": false }, "context": [
     { "key": "selection_empty", "operator": "equal", "operand": false },
     {"key": "selector", "operator": "equal", "operand": "source - string"}
@@ -136,7 +140,7 @@
 		]
 	},
 	{"keys": ["ctrl+q"], "command": "duplicate_line" },
-	{"keys": ["alt+c"],  "command": "fold" },
+	{"keys": ["alt+f"],  "command": "fold" },
   {"keys": ["alt+x"], "command": "unfold" },
 	{"keys": ["ctrl+w"], "command": "join_lines" },
   {"keys": ["ctrl+e"], "command": "swap_line_up" },
@@ -149,7 +153,7 @@
 
 	{"keys": ["alt+b"], "command": "show_panel", "args": {"panel": "console", "toggle": true} },
   //__MySelf
-  {"keys": ["f1"], "command": "goto_documentation" },
+  {"keys": ["ctrl+k", "h"], "command": "goto_documentation" },
 	{"keys": ["ctrl+]"], "command": "move_to", "args": {"to": "brackets"} },
 	{"keys": ["ctrl+3"], "command": "move_to", "args": {"to": "eol", "extend": false} },
 	{"keys": ["ctrl+4"], "command": "move_to", "args": {"to": "bof", "extend": false} },
