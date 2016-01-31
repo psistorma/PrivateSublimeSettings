@@ -6,6 +6,7 @@ import re
 
 VERSION = int(sublime.version())
 IS_ST3 = VERSION >=3006
+CUR_ITER_ORDER = 1
 
 def _ignore_file(filename, ignore_patterns=[]):
     ignore = False
@@ -35,7 +36,7 @@ def _list_path_file(path, ignore_patterns=[]):
 class ListCurrentDirCommand(sublime_plugin.TextCommand):
   def __init__(self, args):
     sublime_plugin.TextCommand.__init__(self, args)
-    self.lastPath = None
+
   def run(self, edit):
     self.settings = sublime.load_settings("ListCurrentDir.sublime-settings")
     current = os.path.abspath(self.view.file_name())
@@ -46,19 +47,25 @@ class ListCurrentDirCommand(sublime_plugin.TextCommand):
 
   def show_dir_file(self, path):
     self.path = path
-    if self.lastPath != self.path:
-      self.build_quick_panel_file_list()
-      self.lastPath = self.path
+    self.build_quick_panel_file_list()
 
-    index = self.quick_panel_files.index(self.curName) + 1
-    if index >= len(self.quick_panel_files):
-      index = 0
+    index = self.quick_panel_files.index(self.curName) + CUR_ITER_ORDER
+    if index >= len(self.quick_panel_files) or index <= 1:
+      if CUR_ITER_ORDER == 1:
+        index = 2
+      else:
+        index = len(self.quick_panel_files) - 1
 
     self.show_quick_panel(self.quick_panel_files, self.path_file_callback, index)
 
   def build_quick_panel_file_list(self):
     self.path_objs = {}
     self.quick_panel_files = []
+    if CUR_ITER_ORDER == 1:
+      self.quick_panel_files.append("/* change iter order to prev */")
+    else:
+      self.quick_panel_files.append("/* change iter order to next */")
+
     if os.path.exists(os.path.dirname(os.path.dirname(self.path))):
       self.quick_panel_files.append("..")
 
@@ -78,12 +85,20 @@ class ListCurrentDirCommand(sublime_plugin.TextCommand):
     return not entry.endswith('/')
 
   def path_file_callback(self, index):
+    global CUR_ITER_ORDER
     if index == -1:
       return
+
     entry = self.quick_panel_files[index]
 
     if entry == "..":
       self.show_dir_file(os.path.dirname(os.path.dirname(self.path)))
+      return
+    elif entry == "/* change iter order to prev */":
+      CUR_ITER_ORDER = -1
+      return
+    elif entry == "/* change iter order to next */":
+      CUR_ITER_ORDER = 1
       return
     else:
       target = os.path.join(self.path, entry)
