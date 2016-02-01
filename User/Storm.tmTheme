@@ -89,7 +89,7 @@
         <key>fontStyle</key>
         <string>bold</string>
         <key>foreground</key>
-        <string>#40A14A</string>
+        <string>#92BB7B</string>
       </dict>
     </dict>
     <dict><!--sublime-syntax internal num-->
@@ -272,7 +272,7 @@
       <key>settings</key>
       <dict>
         <key>foreground</key>
-        <string>#40A14A</string>
+        <string>#92BB7B</string>
       </dict>
     </dict>
     <dict><!--sublime-syntax regex set-->
@@ -455,7 +455,7 @@
       <key>settings</key>
       <dict>
         <key>foreground</key>
-        <string>#40A14A</string>
+        <string>#92BB7B</string>
       </dict>
     </dict>
     <dict><!--JSON Comment-->
@@ -681,20 +681,20 @@
         <key>fontStyle</key>
         <string></string>
         <key>foreground</key>
-        <string>#40A14A</string>
+        <string>#92BB7B</string>
       </dict>
     </dict>
     <dict><!--C++ numeric-->
       <key>name</key>
       <string>C++ numeric</string>
       <key>scope</key>
-      <string>source.c++ constant.numeric</string>
+      <string>source.c++ constant.numeric,source.c++ constant.language.c++</string>
       <key>settings</key>
       <dict>
         <key>fontStyle</key>
         <string></string>
         <key>foreground</key>
-        <string>#A0522D</string>
+        <string>#C1764C</string>
       </dict>
     </dict>
     <dict><!--C++ Normal Keyword-->
@@ -714,26 +714,13 @@
       <key>name</key>
       <string>C++ punctuation sep</string>
       <key>scope</key>
-      <string>source.c++ punctuation.bracket,source.c++ punctuation.brace,punctuation.semicolon,source.c++ punctuation.colon,source.c++ punctuation.sep.ctx-chain,source.c++ punctuation.comma,source.c++ meta.impl.inner punctuation.brace.impl,source.c++ keyword.operator.dereference.c</string>
+      <string>source.c++ punctuation.bracket,source.c++ punctuation.brace,punctuation.semicolon,source.c++ punctuation.colon,source.c++ punctuation.sep.ctx-chain,source.c++ punctuation.comma,source.c++ meta.impl.inner punctuation.brace.impl,source.c++ keyword.operator.dereference.c,source.c++ punctuation.bracket.parens</string>
       <key>settings</key>
       <dict>
         <key>fontStyle</key>
         <string></string>
         <key>foreground</key>
-        <string>#40A14A</string>
-      </dict>
-    </dict>
-    <dict><!--C++ parens-->
-      <key>name</key>
-      <string>C++ parens</string>
-      <key>scope</key>
-      <string>source.c++ punctuation.bracket.parens</string>
-      <key>settings</key>
-      <dict>
-        <key>fontStyle</key>
-        <string></string>
-        <key>foreground</key>
-        <string>#40A14A</string>
+        <string>#92BB7B</string>
       </dict>
     </dict>
     <dict><!--C++ control-->
@@ -1001,7 +988,7 @@
       <key>name</key>
       <string>C++ Member</string>
       <key>scope</key>
-      <string>source.c++ variable.other.ident.member,source.c++ meta.declaration.body meta.impl.declaration variable.other.ident</string>
+      <string>source.c++ variable.other.ident.member</string>
       <key>settings</key>
       <dict>
         <key>fontStyle</key>

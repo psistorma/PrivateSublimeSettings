@@ -58,7 +58,7 @@
     ]
   },"context": [
       {"key": "selection_empty", "operator": "equal", "operand": true},
-      {"key": "selector", "operator": "equal", "operand": "string - punctuation"}
+      {"key": "selector", "operator": "equal", "operand": "string - punctuation - string.regexp"}
     ]
   },
   {"keys": ["ctrl+v"], "command": "mul_run", "args": {

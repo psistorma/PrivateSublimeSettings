@@ -14,7 +14,7 @@
 			"selector": "source.c++ - string - comment - constant.numeric"
 		}
 	],
-	"color_scheme": "Packages/User/Oasis.tmTheme",
+	"color_scheme": "Packages/User/Storm.tmTheme",
 	"detect_indentation": false,
 	"ensure_newline_at_eof_on_save": true,
 	"font_face": "PragmataPro",
@@ -22,7 +22,7 @@
 	[
 		"directwrite"
 	],
-	"font_size": 14,
+	"font_size": 16,
 	"highlight_line": false,
 	"highlight_modified_tabs": true,
 	"ignored_packages":

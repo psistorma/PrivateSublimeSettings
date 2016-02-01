@@ -197,6 +197,7 @@ contexts:
         - include: step-finish-now
 
   __rule-expression-unit:
+    - include: rule-cast-template
     - include: rule-memory-control
     - include: rule-macro-expandsion
     - include: rule-expression-impl-function-call
@@ -601,7 +602,18 @@ contexts:
             - match: (?=\s*\{)
               pop: true
             - include: rule-expression-impl-function-call
-
+# cast template
+  rule-cast-template:
+    - match: (?=\s*\b(const_cast|dynamic_cast|reinterpret_cast|static_cast)\b)
+      push:
+        - match: \b(const_cast|dynamic_cast|reinterpret_cast|static_cast)\b
+          scope: keyword.operator.cast.c++
+        - match: \<
+          scope: punctuation.ltgt.template.type
+          set:
+            - match: (?=\s*\()
+              set: __step-parens-invoke
+            - include: lex-declaration-type
 # memory control
   rule-memory-control:
     - match: (?=\s*new\s+)
@@ -635,7 +647,7 @@ contexts:
 
 # statement flow
   rule-statement-flow:
-    - match: (?=^\s*\b(?:else\s+if|if|else|for|while)\b)
+    - match: (?=\s*\b(?:else\s+if|if|else|for|while)\b)
       push:
         - meta_scope: meta.flow
         - match: \b(else\s+if|if|else|for|while)\b
@@ -673,7 +685,7 @@ contexts:
     - match: (?=^\s*{{svCtxType}}\s*{{svIdent}})
       push:
         - meta_scope: meta.impl.declaration
-        - match: (?=\s*{{svIdent}}\s*(?=,|;|$|=))
+        - match: (?=\s*{{svIdent}}\s*(?=,|;|$|=|\())
           set: __step-varaible-declaration
         - include: lex-slack-pointer-type
         - include: lex-declaration-type
@@ -752,7 +764,7 @@ contexts:
   __lex-chain-type:
     - match: '\s*{{svNsSep}}'
       scope: punctuation.sep.ctx-chain
-    - match: \s*(?:\<|\>)\s*(?=\w|\*)
+    - match: \s*(?:\<|\>)\s*(?=\w|\*|\()
       scope: punctuation.ltgt.template.type
     - match: '\s*{{svIdent}}'
       scope: variable.entity.name.type
@@ -803,6 +815,11 @@ contexts:
   lex-literal-value:
     - include: lex-literal-string
     - include: lex-literal-number
+    - include: lex-literal-inner
+
+  lex-literal-inner:
+    - match: \s*\b(nullptr|true|false)\b
+      scope: constant.language.c++
 
   lex-literal-string:
     - match: \s*\b(_T(?=\()|L)\b(?=\s*\(?)
