@@ -49,11 +49,15 @@ class ListCurrentDirCommand(sublime_plugin.TextCommand):
     self.path = path
     self.build_quick_panel_file_list()
 
-    index = self.quick_panel_files.index(self.curName) + CUR_ITER_ORDER
+    if self.curName is not None:
+      index = self.quick_panel_files.index(self.curName) + CUR_ITER_ORDER
+    else:
+      index = -1
+
     if index >= len(self.quick_panel_files) or index <= 1:
       if CUR_ITER_ORDER == 1:
         index = 2
-      else:
+    else:
         index = len(self.quick_panel_files) - 1
 
     self.show_quick_panel(self.quick_panel_files, self.path_file_callback, index)
@@ -92,6 +96,7 @@ class ListCurrentDirCommand(sublime_plugin.TextCommand):
     entry = self.quick_panel_files[index]
 
     if entry == "..":
+      self.curName = None
       self.show_dir_file(os.path.dirname(os.path.dirname(self.path)))
       return
     elif entry == "/* change iter order to prev */":
