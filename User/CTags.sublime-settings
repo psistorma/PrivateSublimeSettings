@@ -12,7 +12,7 @@
     // When enabled, this turns on a basic "auto-complete" feature, similar to
     // a very rudimentary "Intellisense(TM)". This is useful for providing
     // better suggestions than stock Sublime Text could provide.
-    "autocomplete": true,
+    "autocomplete": false,
 
     // Path to ctags executable.
     //
@@ -95,8 +95,8 @@
     //
     "extra_tag_paths": [
         [["source.python", "windows"], "C:\\Python27\\Lib\\tags"],
-        [["source.c++", "windows"], "E:\\ForDevEnv\\myTags\\c++\\atlmfc"],
-        [["source.c++", "windows"], "E:\\ForDevEnv\\myTags\\c++\\winsdk"]
+        [["source.c++", "windows"], "E:\\ForDevEnv\\myTags\\c++\\winsdk"],
+        [["source.c++", "windows"], "E:\\ForDevEnv\\myTags\\c++\\vc"]
     ],
 
     // Enable highlighting of selected symbol.

@@ -2,10 +2,22 @@
 	"folders":
 	[
 		{
+			"path": "E:\\Tmp\\TestMake\\TestMake"
+		},
+		{
 			"path": "E:\\Tmp\\TestMake"
 		},
 		{
+			"path": "C:\\Users\\Administrator\\AppData\\Roaming\\Sublime Text 3\\Packages\\UserSmartCaret"
+		},
+		{
 			"path": "C:\\Users\\Administrator\\AppData\\Roaming\\Sublime Text 3\\Packages\\UserMergeOther"
+		},
+		{
+			"path": "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\include"
+		},
+		{
+			"path": "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC"
 		}
 	],
 	"swap_append_load": false

@@ -61,6 +61,15 @@
       {"key": "selector", "operator": "equal", "operand": "string - punctuation"}
     ]
   },
+  {"keys": ["ctrl+v"], "command": "mul_run", "args": {
+    "commands" : [
+      {"command": "paste"}
+    ]
+  },"context": [
+      {"key": "selection_empty", "operator": "equal", "operand": true},
+      {"key": "preceding_text", "operator": "regex_contains", "operand": "(?:'|\")$"},
+    ]
+  },
   //replace when have src and dest
   {"keys": ["ctrl+v"], "command": "mul_run", "args": {
     "commands" : [

@@ -635,10 +635,10 @@ contexts:
 
 # statement flow
   rule-statement-flow:
-    - match: (?=^\s*\b(?:else\s+if|if|for|while)\b)
+    - match: (?=^\s*\b(?:else\s+if|if|else|for|while)\b)
       push:
         - meta_scope: meta.flow
-        - match: \b(else\s+if|if|for|while)\b
+        - match: \b(else\s+if|if|else|for|while)\b
           scope: keyword.control.c
         - match: (?=\s*\()
           push: __step-parens-invoke

@@ -14,7 +14,7 @@
 			"selector": "source.c++ - string - comment - constant.numeric"
 		}
 	],
-	"color_scheme": "Packages/User/SublimeLinter/Oasis (SL).tmTheme",
+	"color_scheme": "Packages/User/Oasis.tmTheme",
 	"detect_indentation": false,
 	"ensure_newline_at_eof_on_save": true,
 	"font_face": "PragmataPro",
@@ -29,6 +29,9 @@
 	[
 		"All Autocomplete",
 		"C++",
+		"SublimeCodeIntel",
+		"SublimeLinter",
+		"SublimeLinter-contrib-eslint",
 		"Vintage"
 	],
 	"line_numbers": true,
