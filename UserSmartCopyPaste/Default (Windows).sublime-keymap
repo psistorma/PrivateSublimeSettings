@@ -30,24 +30,35 @@
   {"keys": ["ctrl+c"], "command": "mul_run", "args": {
     "commands" : [
       {"command": "expand_selection",   "args": {"to": "scope"} },
+      {"command": "expand_both_side_sel",   "args": {"count": -1} },
       {"command": "copy"}
     ]
   },"context": [
       {"key": "selection_empty", "operator": "equal", "operand": true},
-      {"key": "selector", "operator": "equal", "operand": "string.quoted"},
-      {"key": "following_text", "operator": "regex_match", "operand": "^[^'\"'].*"}
+      {"key": "selector", "operator": "equal", "operand": "string - punctuation.definition.string.begin"}
+    ]
+  },
+//copy whole string with punctuation when src is already how src
+  {"keys": ["ctrl+c"], "command": "mul_run", "args": {
+    "commands" : [
+      {"command": "expand_selection",   "args": {"to": "scope"} },
+      {"command": "copy"}
+    ]
+  },"context": [
+      {"key": "selection_empty", "operator": "equal", "operand": false},
+      {"key": "selector", "operator": "equal", "operand": "punctuation.definition.string.end"}
     ]
   },
   //replace whole string when no dest
   {"keys": ["ctrl+v"], "command": "mul_run", "args": {
     "commands" : [
       {"command": "expand_selection",   "args": {"to": "scope"} },
+      {"command": "expand_both_side_sel",   "args": {"count": -1} },
       {"command": "paste"}
     ]
   },"context": [
       {"key": "selection_empty", "operator": "equal", "operand": true},
-      {"key": "selector", "operator": "equal", "operand": "string.quoted "},
-      {"key": "following_text", "operator": "regex_match", "operand": "^[^'\"'].*"}
+      {"key": "selector", "operator": "equal", "operand": "string - punctuation"}
     ]
   },
   //replace when have src and dest
@@ -63,12 +74,12 @@
   {"keys": ["ctrl+x"], "command": "mul_run", "args": {
     "commands" : [
       {"command": "expand_selection",   "args": {"to": "scope"} },
+      {"command": "expand_both_side_sel",   "args": {"count": -1} },
       {"command": "cut"}
     ]
   },"context": [
       {"key": "selection_empty", "operator": "equal", "operand": true},
-      {"key": "selector", "operator": "equal", "operand": "string.quoted"},
-      {"key": "following_text", "operator": "regex_match", "operand": "^[^'\"'].*"}
+      {"key": "selector", "operator": "equal", "operand": "string - punctuation"}
     ]
   },
 
@@ -83,7 +94,7 @@
       {"key": "selection_empty", "operator": "equal", "operand": true},
       {"key": "preceding_text", "operator": "regex_contains", "operand": ".*>.*"},
       {"key": "following_text", "operator": "regex_contains", "operand": ".*<.*"},
-      {"key": "selector", "operator": "equal", "operand": "text.xml "}
+      {"key": "selector", "operator": "equal", "operand": "text.xml - string"}
     ]
   },
   {"keys": ["ctrl+c"], "command": "mul_run", "args": {
@@ -93,7 +104,7 @@
     ]
   },"context": [
       {"key": "selection_empty", "operator": "equal", "operand": true},
-      {"key": "selector", "operator": "equal", "operand": "meta.tag.xml entity.name.tag.localname.xml,text.xml meta.tag.xml entity.other.attribute-name.localname.xml,comment.block.xml  "}
+      {"key": "selector", "operator": "equal", "operand": "meta.tag.xml entity.name.tag.localname.xml,text.xml meta.tag.xml entity.other.attribute-name.localname.xml - string,comment.block.xml"}
     ]
   },
   {"keys": ["ctrl+c"], "command": "mul_run", "args": {
@@ -114,8 +125,7 @@
     ]
   },"context": [
       {"key": "selection_empty", "operator": "equal", "operand": true},
-      {"key": "selector", "operator": "equal", "operand": "text.xml"},
-      {"key": "selector", "operator": "not_equal", "operand": "meta.tag.no-content.xml"}
+      {"key": "selector", "operator": "equal", "operand": "text.xml - meta.tag.no-content.xml - string"}
     ]
   },
   {"keys": ["ctrl+v"], "command": "mul_run", "args": {
@@ -125,7 +135,7 @@
     ]
   },"context": [
       {"key": "selection_empty", "operator": "equal", "operand": true},
-      {"key": "selector", "operator": "equal", "operand": "meta.tag.xml entity.name.tag.localname.xml"}
+      {"key": "selector", "operator": "equal", "operand": "meta.tag.xml entity.name.tag.localname.xml - string"}
     ]
   },
   {"keys": ["ctrl+v"], "command": "mul_run", "args": {
@@ -145,7 +155,7 @@
     ]
   },"context": [
       {"key": "selection_empty", "operator": "equal", "operand": true},
-      {"key": "selector", "operator": "equal", "operand": "text.xml"},
+      {"key": "selector", "operator": "equal", "operand": "text.xml - string - string"},
     ]
   },
   {"keys": ["ctrl+x"], "command": "mul_run", "args": {
@@ -177,7 +187,7 @@
     ]
   },"context": [
       {"key": "selection_empty", "operator": "equal", "operand": true},
-      {"key": "selector", "operator": "equal", "operand": "source.json, source.sublimekeymap"}
+      {"key": "selector", "operator": "equal", "operand": "source.json - string, source.sublimekeymap"}
     ]
   },
 //replace whole string when no dest
@@ -188,18 +198,7 @@
     ]
   },"context": [
       {"key": "selection_empty", "operator": "equal", "operand": true},
-      {"key": "selector", "operator": "equal", "operand": "source.json, source.sublimekeymap"},
-    ]
-  },
-  {"keys": ["ctrl+v"], "command": "mul_run", "args": {
-    "commands" : [
-      {"command": "paste"}
-    ]
-  },"context": [
-      {"key": "selection_empty", "operator": "equal", "operand": true},
-      {"key": "preceding_text", "operator": "regex_contains", "operand": "\"$"},
-      {"key": "following_text", "operator": "regex_contains", "operand": "^\""},
-      {"key": "selector", "operator": "equal", "operand": "source.sublimekeymap meta.keybinding.collection.sublimekeymap"},
+      {"key": "selector", "operator": "equal", "operand": "source.json - string, source.sublimekeymap"},
     ]
   },
   {"keys": ["ctrl+x"], "command": "mul_run", "args": {
@@ -209,7 +208,7 @@
     ]
   },"context": [
       {"key": "selection_empty", "operator": "equal", "operand": true},
-      {"key": "selector", "operator": "equal", "operand": "source.json, source.sublimekeymap"},
+      {"key": "selector", "operator": "equal", "operand": "source.json - string, source.sublimekeymap"},
     ]
   },
 ]

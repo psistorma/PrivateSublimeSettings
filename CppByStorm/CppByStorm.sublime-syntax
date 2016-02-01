@@ -148,6 +148,7 @@ contexts:
       pop: true
     - include: __rule-impl-statement-compact
     - include: rule-pragma-region
+    - include: rule-preprocessor-directive
     - include: rule-statement-flee
     - include: rule-statement-try
     - include: rule-statement-typedef
@@ -404,41 +405,37 @@ contexts:
         - include: __step-preprocessor-condition
 
   __step-preprocessor-condition:
-    - match: ^\s*(#)(ifdef|ifndef|if)\s(?:({{svIdent}})|([0-9]++))?
+    - match: ^\s*(#)(ifdef|ifndef|if)\s(?:({{svIdent}})|([0-9]++))?(?!\()
       captures:
         1: keyword.other.preprocessor.c
         2: keyword.other.preprocessor.condition.c
         3: entity.name.marco
         4: constant.numeric
       push:
+        - meta_scope: meta.condition.expression
+        - include: __step-preprocessor-condition-info
+
+  __step-preprocessor-condition-info:
+    - match: $\n?
+      set:
         - match: (?=^\s*(#)(endif)\b)
           pop: true
-        - match: (?<=^#if\s)\s*
-          push: __step-preprocessor-condition-expression
         - include: rule-declaration-preprocessor-safe
         - include: __step-preprocessor-condition-else
-
-  __step-preprocessor-condition-expression:
-    - meta_scope: meta.condition.expression
-    - include: step-finish-at-end-of-line
     - match: \s*\bdefined(?=\s*\()
       scope: keyword.other.preprocessor.condition.keyword
     - match: (?=\s*\()
-      set: __step-parens-invoke
+      push: __step-parens-invoke
+    - include: lex-operator
 
   __step-preprocessor-condition-else:
     - match: ^\s*(#)(elif|else)
       captures:
         1: keyword.other.preprocessor.c
         2: keyword.other.preprocessor.condition.c
-      set:
+      push:
         - meta_scope: meta.else
-        - match: (?=^\s*(#)(endif)\b)
-          pop: true
-        - match: (?<=^#elif\s)\s*
-          push: __step-preprocessor-condition-expression
-        - include: rule-declaration-preprocessor-safe
-        - include: __step-preprocessor-condition-else
+        - include: __step-preprocessor-condition-info
 
   __step-preprocessor-condition-endif:
     - match: ^\s*(#)(endif)\b

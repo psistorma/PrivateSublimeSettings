@@ -910,6 +910,19 @@
         <string>#D9962E</string>
       </dict>
     </dict>
+    <dict><!--C++ macro definition block-->
+      <key>name</key>
+      <string>C++ macro definition block</string>
+      <key>scope</key>
+      <string>source.c++ meta.preprocessor.macro</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#BD62C5</string>
+        <key>background</key>
+        <string>#1E1E1E</string>
+      </dict>
+    </dict>
     <dict><!--C++ macro invoke-->
       <key>name</key>
       <string>C++ macro invoke</string>

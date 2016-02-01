@@ -11,8 +11,8 @@
   { "keys": ["ctrl+shift+tab"], "command": "switch_tabs"},
 //SublimeCodeIntel
   { "keys": ["alt+m"], "command": "code_intel_auto_complete" },
-  { "keys": ["f6"], "command": "goto_python_definition"},
-  // { "keys": ["f6"], "command": "back_to_python_definition"},
+  { "keys": ["f6"], "command": "select_quoted"},
+ // { "keys": ["f6"], "command": "back_to_python_definition"},
 //CTags
   {"keys": ["f4"], "command": "navigate_to_definition"},
   {"keys": ["alt+0"], "command": "jump_prev"},
@@ -112,7 +112,7 @@
       ]}
   },
 //Open Current Directory:
-  {"keys": ["alt+o"], "command": "list_current_dir"},
+  {"keys": ["ctrl+shift+o"], "command": "list_current_dir"},
 //Open Include
   { "keys": ["ctrl+o"], "command": "open_include", "context": [
     {"key": "selector", "operator": "equal", "operand": "string"}
@@ -122,6 +122,7 @@
     {"key": "selector", "operator": "equal", "operand": "source - string"}
   ]},
   //Goto
+  { "keys": ["ctrl+\\"], "command": "show_overlay", "args": {"overlay": "goto", "text": ":"} },
   {"keys": ["ctrl+r"], "command": "show_overlay", "args": {"overlay": "goto", "text": "@"} },
   {"keys": ["ctrl+shift+r"], "command": "goto_symbol_in_projegct" },
   {"keys": ["ctrl+1"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} },
