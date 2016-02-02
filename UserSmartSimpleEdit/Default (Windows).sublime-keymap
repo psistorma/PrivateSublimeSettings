@@ -1,0 +1,4 @@
+[
+  {"keys": ["ctrl+alt+\\"], "command": "auto_escape" },
+  {"keys": ["ctrl+alt+u"], "command": "toggle_camel_underscore" },
+]

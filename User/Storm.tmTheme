@@ -209,6 +209,17 @@
         <string>#40A14A</string>
       </dict>
     </dict>
+    <dict><!--exception-->
+      <key>name</key>
+      <string>exception</string>
+      <key>scope</key>
+      <string>support.type.exception</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#FF00FF</string>
+      </dict>
+    </dict>
     <dict><!--meta type pointer-->
       <key>name</key>
       <string>meta type pointer</string>
@@ -571,38 +582,78 @@
       <string>keyword.operator.memory.override</string>
       <key>settings</key>
       <dict>
-        <key>fontStyle</key>
-        <string></string>
         <key>foreground</key>
         <string>#469CD6</string>
       </dict>
     </dict>
-    <dict><!--constant source cmake-->
-      <key>name</key>
-      <string>constant source cmake</string>
-      <key>scope</key>
-      <string>constant.source.cmake</string>
-      <key>settings</key>
-      <dict>
-        <key>fontStyle</key>
-        <string></string>
-        <key>foreground</key>
-        <string>#92BB7B</string>
-      </dict>
+    <dict><!--variable parameter compiler-->
+        <key>name</key>
+        <string>variable parameter compiler</string>
+        <key>scope</key>
+        <string>variable.parameter.compiler</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#40A14A</string>
+        </dict>
     </dict>
-    <dict><!--variable compiler cmake-->
-      <key>name</key>
-      <string>variable compiler cmake</string>
-      <key>scope</key>
-      <string>constant.source.cmake</string>
-      <key>settings</key>
-      <dict>
-        <key>fontStyle</key>
-        <string></string>
-        <key>foreground</key>
-        <string>#92BB7B</string>
-      </dict>
+    <dict><!--variable parameter compiler preprocessor-->
+        <key>name</key>
+        <string>variable parameter compiler preprocessor</string>
+        <key>scope</key>
+        <string>variable.parameter.compiler.preprocessor</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#BD62C5</string>
+        </dict>
     </dict>
+    <dict><!--variable parameter linker-->
+        <key>name</key>
+        <string>variable parameter linker</string>
+        <key>scope</key>
+        <string>variable.parameter.linker</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#92BB7B</string>
+        </dict>
+    </dict>
+    <dict><!--variable parameter linker exe-->
+        <key>name</key>
+        <string>variable parameter linker exe</string>
+        <key>scope</key>
+        <string>variable.parameter.linker.exe</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#5FD2F2</string>
+        </dict>
+    </dict>
+    <dict><!--variable parameter input-->
+        <key>name</key>
+        <string>variable parameter input</string>
+        <key>scope</key>
+        <string>variable.parameter.input</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#BDB76B</string>
+        </dict>
+    </dict>
+    <dict><!--variable parameter output-->
+        <key>name</key>
+        <string>variable parameter output</string>
+        <key>scope</key>
+        <string>variable.parameter.output</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#FF7F7F</string>
+        </dict>
+    </dict>
+
+
   </array>
   <key>uuid</key>
   <string>73AF7A40-14E8-438D-855A-6FC53AC4E851</string>

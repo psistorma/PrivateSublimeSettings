@@ -105,6 +105,7 @@
   ]},
   {"keys": ["ctrl+delete"], "command": "reset_file_history"},
 //__Override/__Confirm
+  { "keys": ["ctrl+shift+a"], "command": "expand_selection", "args": {"to": "tag"} },
   {"keys": ["ctrl+alt+shift+p"], "command": "mul_run", "args": {
     "commands" : [
       {"command": "pick_scope_name"},

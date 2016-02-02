@@ -42,19 +42,21 @@ contexts:
         - include: lex-storage-source
     - include: step-finish-now
 
-  lex-variable:
-    - include: lex-literal-value
-    - include: lex-normal-keyword
-    - include: rule-variable-key
+  lex-storage-source:
+     - include: lex-storage-key
+     - include: lex-variable
 
-  rule-variable-key:
-    - match: (?=\s*(?i:CMAKE_|PROJECT_)\w+)
-      push:
-        - meta_scope: meta.tip.library
-        - include: __step-variable-info
-    - match: (?=\w|-)
-      push:
-        - include: __step-variable-info
+  lex-storage-key:
+    - match: '\s*(\$)(\{|\<)(?=\w+\s*(\}|\>))'
+      captures:
+       1: meta.tip.highlight punctuation.library.cmake
+       2: punctuation.symbol.begin.cmake
+      push: step-variable-key
+
+  lex-variable:
+    - include: lex-normal-keyword
+    - include: lex-literal-value
+    - include: rule-variable-key
 
   step-variable-key:
     - match: \s*(\}|\>)
@@ -62,7 +64,52 @@ contexts:
       pop: true
     - include: rule-variable-key
 
-  __step-variable-info:
+  rule-variable-key:
+    - match: (?=\s*(?i:CMAKE_|PROJECT_)\w+)
+      push:
+        - meta_scope: meta.tip.library
+        - include: __step-variable-key-info
+    - match: (?=\w|-)
+      push:
+        - include: __step-variable-key-info
+
+  lex-normal-keyword:
+    - match: \b(VERSION)\b\s+((?:[0-9]+\.?[0-9]+\.?)+)
+      captures:
+        1: keyword.other.version
+        2: meta.tip.important string.file-desc.cmake.version
+    - match: \b(NOT)\b
+      scope: meta.tip.highlight keyword.operator.logical.cmake
+    - match: \b(DEFINED)\b
+      scope: keyword.other.cmake
+
+  lex-literal-value:
+    - include: lex-literal-string
+    - include: lex-literal-number
+    - include: lex-literal-inner
+
+  lex-literal-string:
+    - match: '\s*"'
+      captures:
+        0: punctuation.definition.string.begin.cmake
+      push:
+        - meta_include_prototype: false
+        - meta_scope: string.quoted.double.cmake
+        - match: '"'
+          scope: punctuation.definition.string.end.cmake
+          pop: true
+        - match: '/'
+          scope: meta.tip.highlight punctuation.slash
+        - include: string-escaped-char
+        - include: lex-storage-key
+
+  string-escaped-char:
+    - match: '\\(\\|[abefnprtv''"?]|[0-3]\d{,2}|[4-7]\d?|x[a-fA-F0-9]{,2}|u[a-fA-F0-9]{,4}|U[a-fA-F0-9]{,8})'
+      scope: constant.character.escape.c
+    - match: \\.
+      scope: invalid.illegal.unknown-escape.c
+
+  __step-variable-key-info:
     - match: (?=\s|\)|\}|\>)
       pop: true
     - match: (?<=\s|\()-D\w++(?=\s|\))
@@ -83,52 +130,6 @@ contexts:
     - match: \b(?i:\w+?_(?:BINARY_DIR|OUTPUT_DIRECTORY)(_\w+)?)\b
       comment: Variables that Control the Build OUTPUT PATH
       scope: variable.parameter.output.cmake
-
-  lex-normal-keyword:
-    - match: \b(VERSION)\b\s+((?:[0-9]+\.?[0-9]+\.?)+)
-      captures:
-        1: keyword.other.version
-        2: meta.tip.important string.file-desc.cmake.version
-    - match: \b(NOT|DEFINED))
-      captures:
-        1: keyword.operator.logical.cmake
-        2: meta.tip.important string.file-desc.cmake.version
-
-
-  lex-literal-value:
-    - include: lex-literal-string
-    - include: lex-literal-number
-    - include: lex-literal-inner
-
-  lex-literal-string:
-    - match: '\s*"'
-      captures:
-        0: punctuation.definition.string.begin.cmake
-      push:
-        - meta_include_prototype: false
-        - meta_scope: string.quoted.double.cmake
-        - match: '"'
-          scope: punctuation.definition.string.end.cmake
-          pop: true
-        - match: '/'
-          scope: meta.tip.highlight punctuation.slash
-        - include: string-escaped-char
-        - include: lex-storage-source
-
-  lex-storage-source:
-     - match: '\s*(\$)(\{|\<)(?=\w+\s*(\}|\>))'
-       captures:
-        1: meta.tip.highlight punctuation.library.cmake
-        2: punctuation.symbol.begin.cmake
-       push: step-variable-key
-     - include: rule-variable-key
-
-  string-escaped-char:
-    - match: '\\(\\|[abefnprtv''"?]|[0-3]\d{,2}|[4-7]\d?|x[a-fA-F0-9]{,2}|u[a-fA-F0-9]{,4}|U[a-fA-F0-9]{,8})'
-      scope: constant.character.escape.c
-    - match: \\.
-      scope: invalid.illegal.unknown-escape.c
-
 #-------------------simple step-------------------------------------
   step-finish-at-end-of-line:
     - match: $\n?

@@ -772,7 +772,7 @@ contexts:
   __lex-chain-type:
     - match: '\s*{{svNsSep}}'
       scope: punctuation.sep.ctx-chain
-    - match: \s*(?:\<|\>)\s*(?=\w|\*|\(|\>|$)
+    - match: \s*(?:\<|\>)\s*(?=\w|\*|\(|\>|$|\:)
       scope: meta.tip.highlight punctuation.lt-gt.template.type
     - match: '\s*{{svIdent}}'
       scope: variable.entity.name.type
