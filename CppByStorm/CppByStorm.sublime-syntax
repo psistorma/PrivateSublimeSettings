@@ -2,8 +2,7 @@
 ---
 # http://www.sublimetext.com/docs/3/syntax.html
 name: CppByStorm
-comment: |
-  MinliXie80@gmail.com
+comment: MinliXie80@gmail.com
 file_extensions:
   - cpp
   - cc
@@ -51,7 +50,7 @@ contexts:
   prototype:
     - include: rule-comments
     - match: ，|。|（|）|“|”
-      scope: invalid.illegal.chs-symbol
+      scope: invalid.illegal.punctuation
   main:
     - include: __rule-preprocessor-include
     - include: rule-declaration-preprocessor-safe
@@ -236,7 +235,7 @@ contexts:
       scope: invalid.illegal.stray-bracket-end
     - include: step-finish-now
 
-  __step-parens-invoke:
+  step-parens-invoke:
     - meta_scope: meta.parens meta.invoke
     - match: \s*\(
       scope: punctuation.bracket.parens.begin
@@ -432,7 +431,7 @@ contexts:
     - match: \s*\bdefined(?=\s*\()
       scope: keyword.other.preprocessor.condition.keyword
     - match: (?=\s*\()
-      push: __step-parens-invoke
+      push: step-parens-invoke
     - include: lex-operator
 
   __step-preprocessor-condition-else:
@@ -461,7 +460,7 @@ contexts:
         1: keyword.other.preprocessor.c
         2: keyword.other.preprocessor.undef.c
       push:
-        - meta_scope: meta.preprocessor.macro.undef
+        - meta_scope: meta.tip.embed meta.preprocessor.macro.undef
         - include: step-finish-at-end-of-line
     - match: ^\s*(#)(pragma|line|error|warning)\s
       captures:
@@ -572,7 +571,7 @@ contexts:
     - match: (?=\s*{{svIdentUpper}}\s*\()
       push:
         - meta_scope: meta.macro.expandsion
-        - include: __step-parens-invoke
+        - include: step-parens-invoke
         - include: lex-support-macro-name
         - include: step-finish-now
 # function definition
@@ -621,7 +620,7 @@ contexts:
           scope: meta.tip.highlight punctuation.lt-gt.template.type
           set:
             - match: (?=\s*\()
-              set: __step-parens-invoke
+              set: step-parens-invoke
             - include: lex-declaration-type
 # memory control
   rule-memory-control:
@@ -631,7 +630,7 @@ contexts:
           scope: keyword.operator.memory
         - include: lex-declaration-type
         - match: (?=\s*\()
-          push: __step-parens-invoke
+          push: step-parens-invoke
         - include: step-finish-now
 
 #impl function call
@@ -639,7 +638,7 @@ contexts:
     - match: (?=\s*{{svCtxType}}\s*(?:\(|{{svOverrideFnInvoke}}))
       push:
         - match: (?=\s*\()
-          set: __step-parens-invoke
+          set: step-parens-invoke
         - match: \s*{{svOverrideFnInvoke}}
           scope: variable.function.override
           set: step-expression
@@ -662,7 +661,7 @@ contexts:
         - match: \b(else\s+if|if|else|for|while)\b
           scope: keyword.control.c
         - match: (?=\s*\()
-          push: __step-parens-invoke
+          push: step-parens-invoke
         - match: (?=\s*\{)
           set:
             - meta_scope: meta.flow
@@ -683,7 +682,7 @@ contexts:
               set:
                 - meta_scope: meta.catch
                 - match: (?=\s*\()
-                  push: __step-parens-invoke
+                  push: step-parens-invoke
                 - match: (?=\s*\{)
                   set:
                     - meta_scope: meta.catch
@@ -707,7 +706,7 @@ contexts:
     - match: (?=\s*(\*?{{svIdent}})\s*(?=,|;|=|\())
       push:
         - match: (?=\s*\()
-          push: __step-parens-invoke
+          push: step-parens-invoke
         - match: \s*\*
           scope: meta.tip.highlight keyword.operator.pointer
         - match: =
@@ -773,7 +772,7 @@ contexts:
   __lex-chain-type:
     - match: '\s*{{svNsSep}}'
       scope: punctuation.sep.ctx-chain
-    - match: \s*(?:\<|\>)\s*(?=\w|\*|\()
+    - match: \s*(?:\<|\>)\s*(?=\w|\*|\(|\>|$)
       scope: meta.tip.highlight punctuation.lt-gt.template.type
     - match: '\s*{{svIdent}}'
       scope: variable.entity.name.type

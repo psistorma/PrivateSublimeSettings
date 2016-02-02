@@ -59,7 +59,7 @@
       <key>name</key>
       <string>Keyword</string>
       <key>scope</key>
-      <string>keyword - meta.preprocessor - meta.tip.notify - meta.tip.highlight</string>
+      <string>keyword - meta.preprocessor - meta.tip.notify - meta.tip.highlight, keyword.other.preprocessor.directive,meta.preprocessor.directive keyword.other.preprocessor</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -165,11 +165,11 @@
         <string>#5FD2F2</string>
       </dict>
     </dict>
-    <dict><!--entity name function-->
+    <dict><!--function name-->
       <key>name</key>
-      <string>entity name function</string>
+      <string>function name</string>
       <key>scope</key>
-      <string>entity.name.function, variable.entity.name.function</string>
+      <string>entity.name.function, variable.entity.name.function, support.function, keyword.function</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -239,14 +239,25 @@
       <key>settings</key>
       <dict>
         <key>foreground</key>
-        <string>#92BB7B</string>
+        <string>#F0E68C</string>
       </dict>
     </dict>
-    <dict><!--variable other upper-->
+    <dict><!--variable other ident upper-->
       <key>name</key>
-      <string>variable other upper</string>
+      <string>variable other ident upper</string>
       <key>scope</key>
       <string>variable.other.ident.upper</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#F0E68C</string>
+      </dict>
+    </dict>
+    <dict><!--variable.language-->
+      <key>name</key>
+      <string>variable.language</string>
+      <key>scope</key>
+      <string>variable.language</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -268,11 +279,22 @@
       <key>name</key>
       <string>constant</string>
       <key>scope</key>
-      <string>constant</string>
+      <string>constant - string.regexp</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
         <string>#FF7F7F</string>
+      </dict>
+    </dict>
+    <dict><!--constant character escape-->
+      <key>name</key>
+      <string>constant character escape</string>
+      <key>scope</key>
+      <string>constant.character.escape</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#40A14A</string>
       </dict>
     </dict>
     <dict><!--constant numeric-->
@@ -341,6 +363,17 @@
         <string>italic</string>
       </dict>
     </dict>
+    <dict><!--tip guess-->
+      <key>name</key>
+      <string>tip library</string>
+      <key>scope</key>
+      <string>meta.tip.library</string>
+      <key>settings</key>
+      <dict>
+        <key>fontStyle</key>
+        <string>italic</string>
+      </dict>
+    </dict>
     <dict><!--invalid-->
       <key>name</key>
       <string>invalid</string>
@@ -381,7 +414,7 @@
       <key>name</key>
       <string>regex set</string>
       <key>scope</key>
-      <string>source.regexp keyword.control.set.regexp</string>
+      <string>keyword.control.set.regexp</string>
       <key>settings</key>
       <dict>
         <key>background</key>
@@ -392,7 +425,7 @@
       <key>name</key>
       <string>regex assert</string>
       <key>scope</key>
-      <string>source.regexp string.regexp.group constant.other.assertion.regexp</string>
+      <string>string.regexp.group constant.other.assertion.regexp</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -403,7 +436,18 @@
       <key>name</key>
       <string>regex character-class</string>
       <key>scope</key>
-      <string>source.regexp keyword.control.character-class.regexp</string>
+      <string>constant.other.range.regexp</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#92BB7B</string>
+      </dict>
+    </dict>
+    <dict><!--regex character-class-->
+      <key>name</key>
+      <string>regex character-class</string>
+      <key>scope</key>
+      <string>keyword.control.character-class.regexp</string>
       <key>settings</key>
       <dict>
         <key>fontStyle</key>
@@ -416,7 +460,7 @@
       <key>name</key>
       <string>regex quantifier</string>
       <key>scope</key>
-      <string>source.regexp keyword.operator.quantifier.regexp</string>
+      <string>keyword.operator.quantifier.regexp</string>
       <key>settings</key>
       <dict>
         <key>fontStyle</key>
@@ -429,7 +473,7 @@
       <key>name</key>
       <string>regex keyword operator</string>
       <key>scope</key>
-      <string>source.regexp keyword.operator.regexp</string>
+      <string>keyword.operator.regexp</string>
       <key>settings</key>
       <dict>
         <key>fontStyle</key>
@@ -442,7 +486,7 @@
       <key>name</key>
       <string>regex anchors</string>
       <key>scope</key>
-      <string>source.regexp keyword.control.anchors.regexp</string>
+      <string>keyword.control.anchors.regexp</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -531,6 +575,32 @@
         <string></string>
         <key>foreground</key>
         <string>#469CD6</string>
+      </dict>
+    </dict>
+    <dict><!--constant source cmake-->
+      <key>name</key>
+      <string>constant source cmake</string>
+      <key>scope</key>
+      <string>constant.source.cmake</string>
+      <key>settings</key>
+      <dict>
+        <key>fontStyle</key>
+        <string></string>
+        <key>foreground</key>
+        <string>#92BB7B</string>
+      </dict>
+    </dict>
+    <dict><!--variable compiler cmake-->
+      <key>name</key>
+      <string>variable compiler cmake</string>
+      <key>scope</key>
+      <string>constant.source.cmake</string>
+      <key>settings</key>
+      <dict>
+        <key>fontStyle</key>
+        <string></string>
+        <key>foreground</key>
+        <string>#92BB7B</string>
       </dict>
     </dict>
   </array>

@@ -2,6 +2,7 @@
 ---
 # http://www.sublimetext.com/docs/3/syntax.html
 name: JSONByStorm
+comment: MinliXie80@gmail.com
 file_extensions:
   - json
   - sublime-settings

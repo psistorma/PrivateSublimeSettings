@@ -1,0 +1,7 @@
+{
+	"extensions":
+	[
+		"CMakeLists.txt",
+		"cmake"
+	]
+}

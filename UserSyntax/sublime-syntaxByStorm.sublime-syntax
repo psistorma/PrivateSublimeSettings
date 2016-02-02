@@ -2,7 +2,7 @@
 ---
 # See http://www.sublimetext.com/docs/3/syntax.html
 name: sublime-syntaxByStorm
-comment: sublime-syntax to define scope
+comment: MinliXie80@gmail.com
 file_extensions:
   - sublime-syntax
 first_line_match: '%YAML 1.2'
@@ -60,7 +60,7 @@ contexts:
               pop: true
             - match: ^\s+({{svVarialbeDefine}})(:)\s*
               captures:
-                1: header.define.variables.name
+                1: entity.name.type.value
                 2: punctuation.colon
               push: 'Packages/Regular Expressions/RegExp.sublime-syntax'
               with_prototype:
@@ -239,7 +239,7 @@ contexts:
         3: punctuation.colon
       push: scope_definition
   comment_description:
-    - match: (?:^)(comment)(:)\s(.*)
+    - match: (?:^)\s*(comment)(:)\s(.*)
       captures:
         1: keyword.comment
         2: punctuation.colon
@@ -298,9 +298,9 @@ contexts:
         - meta_scope: meta.context.definition
         - include: context_define
     - match: '__[^:\s]+'
-      scope: markup.bold entity.name.tag
+      scope: meta.tip.important entity.name.tag
     - match: '[^:\s]+'
-      scope: markup.bold entity.name.section
+      scope: meta.tip.important entity.name.section
     - match: ':'
       scope: punctuation.colon
   context_definition_include:

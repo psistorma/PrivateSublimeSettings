@@ -92,6 +92,39 @@
     ]
   },
 
+  //string variable
+  //copy whole scope when no src
+    {"keys": ["ctrl+c"], "command": "mul_run", "args": {
+      "commands" : [
+        {"command": "expand_selection",   "args": {"to": "scope"} },
+        {"command": "copy"}
+      ]
+    },"context": [
+        {"key": "selection_empty", "operator": "equal", "operand": true},
+        {"key": "selector", "operator": "equal", "operand": "string variable"}
+      ]
+    },
+  //replace whole string when no dest
+    {"keys": ["ctrl+v"], "command": "mul_run", "args": {
+      "commands" : [
+        {"command": "expand_selection",   "args": {"to": "scope"} },
+        {"command": "paste"}
+      ]
+    },"context": [
+        {"key": "selection_empty", "operator": "equal", "operand": true},
+        {"key": "selector", "operator": "equal", "operand": "string variable"},
+      ]
+    },
+    {"keys": ["ctrl+x"], "command": "mul_run", "args": {
+      "commands" : [
+        {"command": "expand_selection",   "args": {"to": "scope"} },
+        {"command": "cut"}
+      ]
+    },"context": [
+        {"key": "selection_empty", "operator": "equal", "operand": true},
+        {"key": "selector", "operator": "equal", "operand": "string variable"},
+      ]
+    },
 //-------------XML-----------------
 //copy whole scope when no src
   {"keys": ["ctrl+c"], "command": "mul_run", "args": {
@@ -220,4 +253,5 @@
       {"key": "selector", "operator": "equal", "operand": "source.json - string, source.sublimekeymap"},
     ]
   },
+
 ]

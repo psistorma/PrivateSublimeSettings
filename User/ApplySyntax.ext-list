@@ -1,4 +1,9 @@
 {
+	"CMakeByStorm":
+	[
+		"CMakeLists.txt",
+		"cmake"
+	],
 	"CppByStorm":
 	[
 		"cp",

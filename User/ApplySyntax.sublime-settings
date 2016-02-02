@@ -31,5 +31,9 @@
           "syntax": "UserSyntax/sublime-syntaxByStorm",
           "extensions": ["sublime-syntax"]
       },
+      {
+          "syntax": "UserSyntax/CMakeByStorm",
+          "extensions": ["CMakeLists.txt", "cmake"]
+      },
     ]
 }
