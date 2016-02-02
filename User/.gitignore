@@ -20,6 +20,7 @@ FileHistory*.json
 
 #Package Control
 Package Control.cache/*
+Package Control.last-run
 
 #Cache
 encoding_cache.json

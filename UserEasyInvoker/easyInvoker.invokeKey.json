@@ -186,6 +186,17 @@
       "args": [
         "\"C:\\Users\\Administrator\\AppData\\Roaming\\Sublime Text 3\\Packages\\CppByStorm\\CppByStorm.sublime-syntax\""
       ]
+    }, 
+    {
+      "key": "maintodo", 
+      "invoker": "Sublime", 
+      "opts": [
+        "Window", 
+        "open_file"
+      ], 
+      "args": [
+        "\"C:\\Users\\Administrator\\AppData\\Roaming\\Sublime Text 3\\Packages\\UserHelp\\main.todo\""
+      ]
     }
   ]
 }

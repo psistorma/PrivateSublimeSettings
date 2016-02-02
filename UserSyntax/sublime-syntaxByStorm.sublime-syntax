@@ -23,26 +23,26 @@ contexts:
   file_desc:
     - match: '%YAML ({{svVersion}})'
       captures:
-        0: file-desc.yaml
-        1: file-desc.yaml.version
+        0: keyword.file-desc.yaml
+        1: meta.tip.important string.file-desc.yaml.version
   sep_symbol:
     - match: (?:^|^\s+)-+\s+
-      scope: keyword.operator.symbol
+      scope: punctuation.line
   header:
     - match: (?=^name:\s*\S+)
       push:
-        - meta_scope: meta.file.group.header
+        - meta_scope: meta.section.heading
         - include: comment_description
         - match: ^(contexts)(:)\s*
           captures:
             1: keyword.header.tail
-            2: keyword.colon
+            2: punctuation.colon
           set: contexts_define
 
         - match: ^(first_line_match)(:)\s*
           captures:
             1: keyword.header
-            2: keyword.colon
+            2: punctuation.colon
           push: 'Packages/Regular Expressions/RegExp.sublime-syntax'
           with_prototype:
             - match: (?=$)
@@ -52,16 +52,16 @@ contexts:
         - match: ^(variables)(:)\s*(\|\-)?\s*
           captures:
             1: keyword.header.variables
-            2: keyword.colon
-            3: keword.contex.match.multiline
+            2: punctuation.colon
+            3: keword.context.match.multiline
           push:
-            - meta_scope: meta.header.define.variables
+            - meta_scope: meta.section.variables
             - match: (?=^\S+)
               pop: true
             - match: ^\s+({{svVarialbeDefine}})(:)\s*
               captures:
                 1: header.define.variables.name
-                2: keyword.colon
+                2: punctuation.colon
               push: 'Packages/Regular Expressions/RegExp.sublime-syntax'
               with_prototype:
                 - match: (?=(^\s\s|^|^\s)\S)
@@ -76,7 +76,7 @@ contexts:
         - match: ^(name|file_extensions|scope)(:)\s*
           captures:
             1: keyword.header
-            2: keyword.colon
+            2: punctuation.colon
         - include: sep_symbol
 
 
@@ -95,17 +95,17 @@ contexts:
   context_define_include:
     - match: (-)\s(include)(:)\s
       captures:
-        1: keyword.operator.symbol
+        1: punctuation.line
         2: keyword.context.include
-        3: keyword.colon
+        3: punctuation.colon
       push: context_definition_include
 
   context_define_meta_pattern:
     - match: (-)\s(meta_scope|meta_content_scope|meta_include_prototype)(:)\s
       captures:
-        1: keyword.operator.symbol
+        1: punctuation.line
         2: keyword.context.meta_pattern
-        3: keyword.colon
+        3: punctuation.colon
       push: scope_definition
 
 
@@ -117,12 +117,11 @@ contexts:
   context_define_match_regex_multiline:
     - match: \s+(-)\s(match)(:)\s*(\|\-)\s*$
       captures:
-        1: keyword.operator.symbol
+        1: punctuation.line
         2: keyword.context.match
-        3: keyword.colon
-        4: keword.contex.match.multiline
+        3: punctuation.colon
+        4: keword.context.match.multiline
       push:
-        - meta_scope: meta.context.definition.match.mutiline
         - match: (?=^\s+(?:scope|captures|push|pop|set|comment):)
           pop: true
         - match: (?=^\s+-\s(?:match|include):)
@@ -138,9 +137,9 @@ contexts:
   context_define_match_regex_simple:
     - match: \s+(-)\s(match)(:)\s*
       captures:
-        1: keyword.operator.symbol
+        1: punctuation.line
         2: keyword.context.match
-        3: keyword.colon
+        3: punctuation.colon
       push:
         - match: (?!^\s+(?:scope|captures|push|pop|set|comment))
           set: 'Packages/Regular Expressions/RegExp.sublime-syntax'
@@ -165,15 +164,13 @@ contexts:
     - match: \s+(captures)(:)
       captures:
         1: keyword.context.match.captures
-        2: keyword.colon
+        2: punctuation.colon
       push:
-        - meta_scope: meta.context.definition.captures
         - match: ^(?!\s*[0-9]+:)
           pop: true
         - match: ([0-9]+)(:)\s*+
           captures:
-            0: context.definition.captures.line
-            1: context.definition.captures.line.num
+            1: string.definition.captures.line.num
             2: keyword.conlon
           push: scope_definition
         - include: comment
@@ -182,20 +179,19 @@ contexts:
     - match: ^\s+(push|set)(:)\s*
       captures:
         1: keyword.context.match.stack.simple
-        2: keyword.colon
+        2: punctuation.colon
       push: context_definition_include
     - match: ^\s+(with_prototype)(:)
       captures:
         1: keyword.context.match.stack.simple.with_prototype
-        2: keyword.colon
+        2: punctuation.colon
 
   context_define_match_pattern_stack_lvl0:
     - match: ^(?:\s{6}++)(push|set)(:)
       captures:
         1: keyword.context.match.stack
-        2: keyword.colon
+        2: punctuation.colon
       push:
-      - meta_scope: meta.context.definition.stack
       - include: context_define_match_pattern_meta-scope
       - match: (?=^\s{1,6}\S)
         pop: true
@@ -204,9 +200,8 @@ contexts:
     - match: ^(?:\s{10}++)(push|set)(:)
       captures:
         1: keyword.context.match.stack
-        2: keyword.colon
+        2: punctuation.colon
       push:
-      - meta_scope: meta.context.definition.stack
       - include: context_define_match_pattern_meta-scope
       - match: (?=^\s{1,10}\S)
         pop: true
@@ -215,9 +210,8 @@ contexts:
     - match: ^(?:\s{14}++)(push|set)(:)
       captures:
         1: keyword.context.match.stack
-        2: keyword.colon
+        2: punctuation.colon
       push:
-      - meta_scope: meta.context.definition.stack
       - include: context_define_match_pattern_meta-scope
       - match: (?=^\s{1,14}\S)
         pop: true
@@ -228,28 +222,28 @@ contexts:
       captures:
         0: context.definition.pop
         1: keyword.context.match.pop
-        2: keyword.colon
-        3: constant.boolean
+        2: punctuation.colon
+        3: constant.language.boolean
 
   context_define_match_pattern_scope:
     - match: \s+(scope)(:)\s+
       captures:
         1: keyword.context.match.scope
-        2: keyword.colon
+        2: punctuation.colon
       push: scope_definition
   context_define_match_pattern_meta-scope:
     - match: \s+(-)\s(meta_scope)(:)\s+
       captures:
-        1: keyword.operator.symbol
+        1: punctuation.line
         2: keyword.context.match.meta-scope
-        3: keyword.colon
+        3: punctuation.colon
       push: scope_definition
   comment_description:
     - match: (?:^)(comment)(:)\s(.*)
       captures:
         1: keyword.comment
-        2: keyword.colon
-        3: conet_description_comment
+        2: punctuation.colon
+        3: comment.line
 
   variable_define:
     - match: '({{)([A-Za-z_][A-Za-z0-9_]*)(}})'
@@ -301,32 +295,34 @@ contexts:
   context_definition_define:
     - match: \n
       set:
-        - meta_scope: context.definition
+        - meta_scope: meta.context.definition
         - include: context_define
     - match: '__[^:\s]+'
-      scope: context.name.define.inner
+      scope: markup.bold entity.name.tag
     - match: '[^:\s]+'
-      scope: context.name.define
+      scope: markup.bold entity.name.section
     - match: ':'
-      scope: keyword.colon
+      scope: punctuation.colon
   context_definition_include:
     - match: $\n?
       pop: true
     - include: comment
     - match: \'.*\'
-      scope: context.name.file
-    - match: \[|\]|\,
-      scope: keyword.operator.symbol
+      scope: meta.type.file string.quoted.double
+    - match: \[|\]
+      scope: punctuation.square
+    - match: \,
+      scope: punctuation.comma
     - match: '__[\w_-]+'
-      scope: context.name.include.inner
+      scope: entity.name.tag
     - match: '[\w_-]+'
-      scope: context.name.include
+      scope: entity.name.section
   scope_definition:
     - match: \n
       pop: true
     - match: (?<=meta_include_prototype:\s)\s*(true|false)
-      scope: constant.boolean
+      scope: constant.language.boolean
     - match: __\S+
-      scope: scope.definition.inner
+      scope: variable.parameter.scope
     - match: \S+
-      scope: scope.definition
+      scope: variable.parameter.scope

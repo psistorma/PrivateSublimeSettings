@@ -165,7 +165,7 @@ contexts:
         - match: \s*\{
           scope: punctuation.brace.block.begin
           push:
-            - meta_scope: meta.statement.block
+            - meta_scope: meta.tip.embed meta.block.statement
             - match: \s*\}
               scope: punctuation.brace.block.end
               pop: true
@@ -186,7 +186,7 @@ contexts:
         - match: \s*\(
           scope: punctuation.bracket.expression.begin
           push:
-            - meta_scope: meta.expression.group
+            - meta_scope: meta.tip.embed meta.expression.group
             - match: \s*\{
               scope: invalid.illegal.stray-brace-begin
               pop: true
@@ -268,7 +268,7 @@ contexts:
             3: keyword.other.preprocessor.directive.c
             5: title.important.region
         - match: '__{{svIdent}}'
-          scope: title.hide.region
+          scope: title.hide.region comment.title
         - match: '{{svIdent}}'
           scope: title.important.region
         - match: $\n?
@@ -338,7 +338,7 @@ contexts:
     - match: '\s*(,)?\s*(\*)?\s*({{svIdent}})'
       captures:
         1: punctuation.comma.typedef.target
-        2: keyword.operator.pointer
+        2: meta.tip.highlight keyword.operator.pointer
         3: entity.type.name.typedef.target
     - include: lex-declaration-type
 
@@ -393,10 +393,16 @@ contexts:
       push:
         - meta_scope: meta.preprocessor.include.c
         - include: step-finish-at-end-of-line
-        - match: \".+\"
-          scope: string.quoted.double.include.c
-        - match: \<.+\>
-          scope: string.quoted.other.lt-gt.include.c
+        - match: (\")(.+)(\")
+          captures:
+            1: punctuation.definition.string.begin.c
+            2: meta.type.file string.quoted.double.include.c
+            3: punctuation.definition.string.end.c
+        - match: (\<)(.+)(\>)
+          captures:
+            1: punctuation.lt-gt.begin.c
+            2: meta.type.file string.lt-gt.include.c
+            3: punctuation.lt-gt.end.c
 # ifdef
   rule-preprocessor-condition:
     - match: (?=^\s*(#)(ifdef|ifndef|if)\s)
@@ -410,7 +416,7 @@ contexts:
       captures:
         1: keyword.other.preprocessor.c
         2: keyword.other.preprocessor.condition.c
-        3: entity.name.marco
+        3: entity.name.tag.marco
         4: constant.numeric
       push:
         - meta_scope: meta.condition.expression
@@ -489,11 +495,11 @@ contexts:
         1: keyword.other.preprocessor.c
         2: keyword.other.preprocessor.define.c
     - match: \b(new|delete)\b
-      scope: entity.name.marco.src keyword.operator.memory.override
+      scope: entity.name.tag.marco.src keyword.operator.memory.override.c
     - match: \s*{{svIdent}}(?=\s*\(|\\?$\n?)
-      scope: entity.name.marco.dest
+      scope: entity.name.tag.marco.dest
     - match: '\s*{{svIdent}}'
-      scope: entity.name.marco.src
+      scope: entity.name.tag.marco.src
     - match: \s*\(
       scope: punctuation.bracket.parens.begin
       push:
@@ -505,9 +511,10 @@ contexts:
     - match: (\s*\))
       scope: invalid.illegal.stray-bracket-end
     - include: lex-variable
+    - include: lex-continuation
 
   __step-preprocessor-macro-body:
-    - meta_scope: meta.preprocessor.macro
+    - meta_scope: meta.tip.embed meta.preprocessor.macro
     - match: (?<!\\)\n$\n?
       pop: true
     - include: lex-continuation
@@ -553,9 +560,11 @@ contexts:
               pop: true
             - match: ({{svIdent}})\s*(?:(=|,)\s*({{svIdent}}|[0-9]*+)?)
               captures:
-                1: entity.name.enum.key
+                1: entity.name.type.value
                 2: keyword.operator.assignment.c
-                3: entity.name.enum.value
+                3: variable.other.init
+            - match: \,
+              scope: punctuation.comma
         - match: (\s*\})
           scope: invalid.illegal.stray-brace-end
 # macro expandsion
@@ -579,7 +588,7 @@ contexts:
         - match: \s*\b(operator)\s*(\S*?)(?=\()
           captures:
             1: keyword.operator.operator
-            2: entity.name.operator
+            2: meta.tip.highlight entity.name.operator
         - match: (~)(?=\s*{{svIdent}}\s*\()
           captures:
             1: punctuation.definition.wave.class.destruction
@@ -607,9 +616,9 @@ contexts:
     - match: (?=\s*\b(const_cast|dynamic_cast|reinterpret_cast|static_cast)\b)
       push:
         - match: \b(const_cast|dynamic_cast|reinterpret_cast|static_cast)\b
-          scope: keyword.operator.cast.c++
+          scope: meta.tip.notify keyword.operator.cast.c++
         - match: \<
-          scope: punctuation.ltgt.template.type
+          scope: meta.tip.highlight punctuation.lt-gt.template.type
           set:
             - match: (?=\s*\()
               set: __step-parens-invoke
@@ -700,7 +709,7 @@ contexts:
         - match: (?=\s*\()
           push: __step-parens-invoke
         - match: \s*\*
-          scope: keyword.operator.pointer
+          scope: meta.tip.highlight keyword.operator.pointer
         - match: =
           scope: keyword.operator.assignment.c
           push:
@@ -765,7 +774,7 @@ contexts:
     - match: '\s*{{svNsSep}}'
       scope: punctuation.sep.ctx-chain
     - match: \s*(?:\<|\>)\s*(?=\w|\*|\()
-      scope: punctuation.ltgt.template.type
+      scope: meta.tip.highlight punctuation.lt-gt.template.type
     - match: '\s*{{svIdent}}'
       scope: variable.entity.name.type
   lex-pointer-type:
@@ -778,7 +787,7 @@ contexts:
       push:
         - meta_scope: meta.type.pointer
         - match: \s*\*
-          scope: keyword.operator.pointer
+          scope: meta.tip.highlight keyword.operator.pointer
           pop: true
         - include: __lex-declaration-type
   lex-declaration-type:
@@ -1050,7 +1059,7 @@ contexts:
         2: string.other.number.suffix.c
   lex-control:
     - match: \s*\b(break|continue|goto|return|throw)
-      scope: keyword.control.flee.c
+      scope: meta.tip.notify keyword.control.flee.c
     - match: \s*\b((?:__|(?!\w+__))asm(?:__)?|case|default|do|else\s+if|else|for|if|_Pragma|switch|while|__extension__)\b
       captures:
         1: keyword.control.c
@@ -1109,13 +1118,13 @@ contexts:
       scope: storage.modifier.c++
   lex-operator:
     - match: \s*(->)(?={{svCanEmbedSpaceAndComment}}{{svIdent}})
-      scope: keyword.operator.dereference.c
+      scope: meta.tip.highlight keyword.operator.dereference.c
     - match: \s*(==|(?<!<)<=|(?<!>)>=)
-      scope: keyword.operator.comparison.c
+      scope: meta.tip.highlight keyword.operator.comparison.c
     - match: \s*(\-|\+|\*|\/|%|&|\||\^|<<|>>)?=
       scope: keyword.operator.assignment.c
     - match: \s*(!=|<>|(?<!<)<(?!<)|(?<!>)>(?!>))
-      scope: keyword.operator.comparison.c
+      scope: meta.tip.highlight keyword.operator.comparison.c
     - match: \s*(\-\-|\+\+)
       scope: keyword.operator.increment-decrement.c
     - match: \s*(\?|(?<!:):(?!:))
@@ -1123,14 +1132,14 @@ contexts:
     - match: \s*(\-|\+|\*|\/|%)
       scope: keyword.operator.arithmetic.c
     - match: \s*(!|&&|\|\|)
-      scope: keyword.operator.logical.c
+      scope: meta.tip.highlight keyword.operator.logical.c
     - match: \s*(~|&|\||\^|<<|>>)
       scope: keyword.operator.bitwise.c
     - match: '\s*(\.)(?={{svCanEmbedSpaceAndComment}}{{svIdent}})'
-      scope: keyword.operator.dereference.c
+      scope: meta.tip.highlight keyword.operator.dereference.c
   lex-memory-operator:
     - match: \s*(?:(?<!&)&(?!&)|\*)
-      scope: keyword.operator.pointer
+      scope: meta.tip.highlight keyword.operator.pointer
   lex-sep:
     - match: \,
       scope: punctuation.comma.sep
@@ -1156,16 +1165,16 @@ contexts:
 
   lex-continuation:
     - match: (\\)(?=$\n?)
-      scope: punctuation.separator.continuation.c
+      scope: meta.tip.highlight punctuation.separator.continuation.c
     - match: \\(\s+?)(?=$\n?)
       captures:
         1: invalid.deprecated.space-after-continuation.c
 #------------------support----------------------
   lex-support-macro-name:
     - match: \s*\b(NEAR|FAR|afx_msg|DECLARE_MESSAGE_MAP|BEGIN_MESSAGE_MAP|END_MESSAGE_MAP|_T|L)\b
-      scope: support.macro.name.mfc
+      scope: support.macro.name
     - match: \s*\b{{svIdentUpper}}\b
-      scope: support.macro.name.guess
+      scope: meta.tip.guess support.macro.name
   lex-support-literal:
     - match: \s*\b(NULL|TRUE|FALSE)\b
-      scope: support.literal.macro.name.mfc
+      scope: support.literal.macro.name
