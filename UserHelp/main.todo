@@ -1,17 +1,23 @@
-Projects:
+Sublime Text:
   ☐ C++ code auto completion
   ☐ other support
   ☐ Anything with colon at the end of the line is a project title
 
-Tasks:
-  So let's do it
-  Study:
-   ✔ Python Study @done (16-02-01 23:21)
-   ☐ Clang Study
+Study:
+ ☐ Python Study
+ ☐ Clang Study
+
+Work:
+   ☐ Batch apply DB field to TX     @1 day me 3 days guo
+   ☐ CalField add util to help select boundary, add output area utils    @2 qiang
+   ☐ Beijing Plain to system must one to one of Note      @2 days me
+   ☐ Batch change 1/2 to 7/8 line must has option to make sure for it    @1 qiang
+
+
   Url:
-    https://github.com/psistorma/StormSublimeSettings
+    ☐ https://github.com/psistorma/StormSublimeSettings
     Clang:
-      http://swtv.kaist.ac.kr/courses/cs453-fall13/Clang%20tutorial%20v4.pdf
-      https://github.com/loarabia/Clang-tutorial/wiki/TutorialOrig
-      https://github.com/loarabia/Clang-tutorial
-      http://eli.thegreenplace.net/2011/07/03/parsing-c-in-python-with-clang
+      ☐ http://swtv.kaist.ac.kr/courses/cs453-fall13/Clang%20tutorial%20v4.pdf
+      ☐ https://github.com/loarabia/Clang-tutorial/wiki/TutorialOrig
+      ☐ https://github.com/loarabia/Clang-tutorial
+      ☐ http://eli.thegreenplace.net/2011/07/03/parsing-c-in-python-with-clang
