@@ -8,7 +8,11 @@ file_extensions:
   - CMakeLists.txt
 scope: source.cmake
 variables:
-  svCMakeCommand: '(?i:cmake_minimum_required|add_custom_command|add_custom_target|add_definitions|add_dependencies|add_executable|add_library|add_subdirectory|add_test|aux_source_directory|break|build_command|cmake_minimum_required|cmake_policy|configure_file|create_test_sourcelist|define_property|else|elseif|enable_language|enable_testing|endforeach|endfunction|endif|endmacro|endwhile|execute_process|export|file|find_file|find_library|find_package|find_path|find_program|fltk_wrap_ui|foreach|function|generate_export_header|get_cmake_property|get_directory_property|get_filename_component|get_property|get_source_file_property|get_target_property|get_test_property|if|include|include_directories|include_external_msproject|include_regular_expression|install|link_directories|list|load_cache|load_command|macro|mark_as_advanced|math|message|option|project|qt_wrap_cpp|qt_wrap_ui|remove_definitions|return|separate_arguments|set|set_directory_properties|set_property|set_source_files_properties|set_target_properties|set_tests_properties|site_name|source_group|string|target_compile_definitions|target_compile_options|target_include_directories|target_link_libraries|try_compile|try_run|unset|variable_watch|while)'
+  svCMakeSectionDefineCommand: '(?i:(?:end)?macro)'
+  svCMakeMostImportCommand: '(?i:add_custom_command|add_custom_target|add_definitions|add_dependencies|add_executable|add_library|add_subdirectory|add_test|aux_source_directory|build_command|cmake_policy|configure_file|create_test_sourcelist|define_property|enable_language|enable_testing|execute_process|export|fltk_wrap_ui|function|generate_export_header|install|link_directories|load_cache|load_command|mark_as_advanced|project|qt_wrap_cpp|qt_wrap_ui|remove_definitions|separate_arguments|set_directory_properties|set_property|set_source_files_properties|set_target_properties|set_tests_properties|target_compile_definitions|target_compile_options|target_include_directories|target_link_libraries|try_compile|try_run|variable_watch)'
+  svCMakeHightlightCommand: '(?i:cmake_minimum_required|add_custom_command|add_custom_target|add_compile_options|add_definitions|add_dependencies|add_executable|add_library|add_subdirectory|add_test|aux_source_directory|break|build_command|cmake_minimum_required|cmake_policy|configure_file|create_test_sourcelist|define_property|enable_language|enable_testing|execute_process|export|fltk_wrap_ui|function|generate_export_header|get_cmake_property|get_directory_property|get_filename_component|get_property|get_source_file_property|get_target_property|get_test_property|include(?:_directories|_external_msproject|_regular_expression)?|install|link_directories|load_cache|load_command|mark_as_advanced|qt_wrap_cpp|qt_wrap_ui|remove_definitions|return|separate_arguments|set_directory_properties|set_property|set_source_files_properties|set_target_properties|set_tests_properties|site_name|source_group|string|target_compile_definitions|target_compile_options|target_include_directories|target_link_libraries|try_compile|try_run|variable_watch)'
+  svCMakeFlowCommand: '(?i:break|else|elseif|(?:end)?foreach|endfunction|endif|endwhile|if|return|while)'
+  svCMakeOtherCommand: '(?i:file|find_file|find_library|find_package|find_path|find_program|list|math|message|option|unset|set)'
 contexts:
   prototype:
     - match: "#+.*$"
@@ -19,13 +23,39 @@ contexts:
     - include: rule_comand
 
   rule_comand:
-    - match: (?=^\s*{{svCMakeCommand}}\s*\()
+    - match: (?=^\s*[A-Z_]++\s*\()
       push:
-        - match: \s*\b(if|endif|else)\b
-          scope: keyword.control.c
-        - match: \s*\b(project)\b
+        - match: \s*[A-Z_]++
+          scope: support.macro.name
+        - match: (?=\s*\()
+          set: step-parens-invoke
+    - match: (?=^\s*{{svCMakeSectionDefineCommand}}\s*\()
+      push:
+        - match: \s*\w*+
+          scope: meta.tip.embed keyword.control.c
+        - match: (?=\s*\()
+          set: step-parens-invoke
+    - match: (?=^\s*{{svCMakeMostImportCommand}}\s*\()
+      push:
+        - match: \s*\w*+
           scope: meta.tip.important meta.tip.highlight keyword.control.c
-        - match: '\s*{{svCMakeCommand}}'
+        - match: (?=\s*\()
+          set: step-parens-invoke
+    - match: (?=^\s*{{svCMakeHightlightCommand}}\s*\()
+      push:
+        - match: \s*\w*+
+          scope: meta.tip.highlight keyword.control.c
+        - match: (?=\s*\()
+          set: step-parens-invoke
+    - match: (?=^\s*{{svCMakeFlowCommand}}\s*\()
+      push:
+        - match: \s*\w*+
+          scope: keyword.control.c
+        - match: (?=\s*\()
+          set: step-parens-invoke
+    - match: (?=^\s*{{svCMakeOtherCommand}}\s*\()
+      push:
+        - match: \s*\w*+
           scope: keyword.function.cmake
         - match: (?=\s*\()
           set: step-parens-invoke
@@ -47,18 +77,23 @@ contexts:
      - include: lex-variable
 
   lex-storage-key:
-    - match: '\s*(\$)(\{|\<)(?=\w+\s*(\}|\>))'
+    - match: '\s*(\$)(\{|\<)(?=(?:\$\{)?\w+\s*(\}|\>))'
       captures:
        1: meta.tip.highlight punctuation.library.cmake
        2: punctuation.symbol.begin.cmake
-      push: step-variable-key
+      push:
+        - meta_scope: meta.variable.key.cmake
+        - include: step-variable-key
 
   lex-variable:
+    - match: '/'
+      scope: meta.tip.highlight punctuation.slash
     - include: lex-normal-keyword
     - include: lex-literal-value
     - include: rule-variable-key
 
   step-variable-key:
+    - include: lex-storage-key
     - match: \s*(\}|\>)
       scope: punctuation.symbol.end.cmake
       pop: true
@@ -69,27 +104,15 @@ contexts:
       push:
         - meta_scope: meta.tip.library
         - include: __step-variable-key-info
-    - match: (?=\w|-)
+    - match: (?=\w|-|\*|/|\.)
       push:
         - include: __step-variable-key-info
 
-  lex-normal-keyword:
-    - match: \b(VERSION)\b\s+((?:[0-9]+\.?[0-9]+\.?)+)
-      captures:
-        1: keyword.other.version
-        2: meta.tip.important string.file-desc.cmake.version
-    - match: \b(NOT)\b
-      scope: meta.tip.highlight keyword.operator.logical.cmake
-    - match: \b(DEFINED)\b
-      scope: keyword.other.cmake
-
   lex-literal-value:
     - include: lex-literal-string
-    - include: lex-literal-number
-    - include: lex-literal-inner
 
   lex-literal-string:
-    - match: '\s*"'
+    - match: '"'
       captures:
         0: punctuation.definition.string.begin.cmake
       push:
@@ -115,7 +138,9 @@ contexts:
     - match: (?<=\s|\()-D\w++(?=\s|\))
       comment: Variables That Change Compliler Preprocessor Behavior
       scope: variable.parameter.compiler.preprocessor.cmake
-    - match: \b(?i:\w+?_(?:COMPILER|CXX|C)_FLAGS(_\w+)?)\b
+    - match: (?:[\\/|\w]*+(?:\*|\.)[\\/\w\.]*+)++
+      scope: variable.parameter.file.cmake
+    - match: \b(?:(?i:\w+?_(?:COMPILER|CXX|C)_FLAGS(_\w+)?)|COMPILE_\w*+)\b
       comment: Variables That Change Compliler Behavior
       scope: variable.parameter.compiler.cmake
     - match: \b(?i:\w+?_EXE_LINKER_FLAGS(_\w+)?)\b
@@ -124,12 +149,27 @@ contexts:
     - match: \b(?i:\w+?_LINKER_FLAGS(_\w+)?)\b
       comment: Variables That Change Linker Behavior
       scope: variable.parameter.linker.cmake
-    - match: \b(?i:\w+?_(?:RESOURCE_DIR|SOURCE_DIR)(_\w+)?)\b
+    - match: \b(?i:\w+?_(?:(?:RESOURCE|SOURCE)_(?:DIR|DIRECTORY|PATH))(_\w+)?)\b
       comment: Variables that Provide Input Source Information
       scope: variable.parameter.input.cmake
-    - match: \b(?i:\w+?_(?:BINARY_DIR|OUTPUT_DIRECTORY)(_\w+)?)\b
+    - match: \b(?i:\w+?_(?:(?:BINARY|OUT(?:PUT)?)_(?:DIR|DIRECTORY|PATH))(_\w+)?)\b
       comment: Variables that Control the Build OUTPUT PATH
       scope: variable.parameter.output.cmake
+    - match: \b(?i:\w+?_(?:CONFIGURATION)(_\w+)?)\b
+      comment: Variables that Control the Configuration
+      scope: variable.parameter.config.cmake
+
+  lex-normal-keyword:
+    - match: \b(VERSION)\b\s+((?:[0-9]+\.?[0-9]+\.?)+)
+      captures:
+        1: keyword.other.version
+        2: meta.tip.important string.file-desc.cmake.version
+    - match: \b(NOT|MATCHES)\b
+      scope: meta.tip.highlight keyword.operator.logical.cmake
+    - match: \b(DEFINED|STATUS|GLOB|FILES|CACHE|STRING)\b
+      scope: keyword.other.cmake
+    - match: \b(WIN32|SHARED)\b
+      scope: meta.tip.notify keyword.other.cmake
 #-------------------simple step-------------------------------------
   step-finish-at-end-of-line:
     - match: $\n?

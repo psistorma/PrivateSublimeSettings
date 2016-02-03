@@ -6,7 +6,8 @@
     {"key": "selector", "operator": "equal", "operand": "source.sublimekeymap,source.json"}
   ]},
 //alligment
-  {"keys": ["f1"], "command": "alignment" },
+ // {"keys": ["f1"], "command": "alignment" },
+  {"keys": ["f1"], "command": "storm_cpp_auto_completion" },
 //Zen Tabs
   { "keys": ["ctrl+shift+tab"], "command": "switch_tabs"},
 //SublimeCodeIntel

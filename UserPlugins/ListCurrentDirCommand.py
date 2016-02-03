@@ -70,7 +70,7 @@ class ListCurrentDirCommand(sublime_plugin.TextCommand):
     else:
       self.quick_panel_files.append("/* change iter order to next */")
 
-    if os.path.exists(os.path.dirname(os.path.dirname(self.path))):
+    if os.path.exists(os.path.dirname(self.path)):
       self.quick_panel_files.append("..")
 
     files_list = _list_path_file(self.path, self.ignore_patterns)
@@ -97,7 +97,7 @@ class ListCurrentDirCommand(sublime_plugin.TextCommand):
 
     if entry == "..":
       self.curName = None
-      self.show_dir_file(os.path.dirname(os.path.dirname(self.path)))
+      self.show_dir_file(os.path.dirname(self.path))
       return
     elif entry == "/* change iter order to prev */":
       CUR_ITER_ORDER = -1

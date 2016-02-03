@@ -586,6 +586,7 @@
         <string>#469CD6</string>
       </dict>
     </dict>
+
     <dict><!--variable parameter compiler-->
         <key>name</key>
         <string>variable parameter compiler</string>
@@ -616,7 +617,7 @@
         <key>settings</key>
         <dict>
           <key>foreground</key>
-          <string>#92BB7B</string>
+          <string>#5FD2F2</string>
         </dict>
     </dict>
     <dict><!--variable parameter linker exe-->
@@ -626,6 +627,8 @@
         <string>variable.parameter.linker.exe</string>
         <key>settings</key>
         <dict>
+          <key>background</key>
+          <string>#505C00</string>
           <key>foreground</key>
           <string>#5FD2F2</string>
         </dict>
@@ -650,6 +653,28 @@
         <dict>
           <key>foreground</key>
           <string>#FF7F7F</string>
+        </dict>
+    </dict>
+    <dict><!--variable parameter config-->
+        <key>name</key>
+        <string>variable parameter config</string>
+        <key>scope</key>
+        <string>variable.parameter.config.cmake</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#BD62C5</string>
+        </dict>
+    </dict>
+    <dict><!--variable parameter file-->
+        <key>name</key>
+        <string>variable parameter file</string>
+        <key>scope</key>
+        <string>variable.parameter.file</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#FFD700</string>
         </dict>
     </dict>
 

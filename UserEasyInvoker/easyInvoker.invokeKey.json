@@ -167,7 +167,7 @@
     }, 
     {
       "args": [
-        "\"E:\\Tmp\\TestMake\\TestMake\\CMakeLists.txt\""
+        "\"C:\\Users\\Administrator\\AppData\\Roaming\\Sublime Text 3\\Packages\\UserC++AutoCompletion\\StormCppAutoCompletionCommand.py\""
       ], 
       "opts": [
         "Window", 
@@ -196,6 +196,17 @@
       ], 
       "args": [
         "\"C:\\Users\\Administrator\\AppData\\Roaming\\Sublime Text 3\\Packages\\UserHelp\\main.todo\""
+      ]
+    }, 
+    {
+      "opts": [
+        "Window", 
+        "open_file"
+      ], 
+      "invoker": "Sublime", 
+      "key": "t", 
+      "args": [
+        "\"C:\\Users\\Administrator\\AppData\\Roaming\\Sublime Text 3\\Packages\\UserHelp\\tmp\""
       ]
     }
   ]
