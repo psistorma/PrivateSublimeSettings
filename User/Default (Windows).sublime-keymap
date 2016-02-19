@@ -1,171 +1,166 @@
 [
-  {"keys": ["alt+f8"], "command": "js_format", "context": [
-    {"key": "selector", "operator": "equal", "operand": "source.js"}
-  ]},
-  {"keys": ["alt+f8"], "command": "pretty_json", "context": [
-    {"key": "selector", "operator": "equal", "operand": "source.sublimekeymap,source.json"}
-  ]},
+    {"keys": ["alt+f8"], "command": "js_format", "context": [
+        {"key": "selector", "operator": "equal", "operand": "source.js"}
+    ]},
+    {"keys": ["alt+f8"], "command": "pretty_json", "context": [
+        {"key": "selector", "operator": "equal", "operand": "source.sublimekeymap,source.json"}
+    ]},
 //alligment
  // {"keys": ["f1"], "command": "alignment" },
-  {"keys": ["f1"], "command": "storm_cpp_auto_completion" },
+    {"keys": ["ctrl+shift+f1"], "command": "cpp_auto_completion_by_storm" },
 //Zen Tabs
-  { "keys": ["ctrl+shift+tab"], "command": "switch_tabs"},
+    { "keys": ["ctrl+shift+tab"], "command": "switch_tabs"},
 //SublimeCodeIntel
-  { "keys": ["alt+m"], "command": "code_intel_auto_complete" },
-  { "keys": ["f6"], "command": "select_quoted"},
+    { "keys": ["alt+m"], "command": "code_intel_auto_complete" },
  // { "keys": ["f6"], "command": "back_to_python_definition"},
 //CTags
-  {"keys": ["f4"], "command": "navigate_to_definition"},
-  {"keys": ["alt+0"], "command": "jump_prev"},
-  {"keys": ["ctrl+f12"], "command": "search_for_definition"},
-  {"keys": ["ctrl+alt+b"], "command": "rebuild_tags"},
-//SublimeLinter
-  {"keys": ["ctrl+k", "ctrl+k"], "command": "sublimelinter_goto_error", "args": {"direction": "next"} },
-  {"keys": ["ctrl+k", "ctrl+j"], "command": "sublimelinter_goto_error", "args": {"direction": "previous"} },
-  {"keys": ["ctrl+k", "ctrl+a"], "command": "sublimelinter_show_all_errors" },
+    {"keys": ["f4"], "command": "navigate_to_definition"},
+    {"keys": ["shift+f4"], "command": "jump_prev"},
+    {"keys": ["alt+0"], "command": "jump_prev"},
+    {"keys": ["ctrl+f12"], "command": "search_for_definition"},
+    {"keys": ["ctrl+alt+b"], "command": "rebuild_tags"},
 //FileSystem AutoCompletion
  // {"keys": ["ctrl+k", "ctrl+f"], "command": "file_system_comp_trigger" },
 //SideBarEnhancements
-  {"keys": ["f5"], "command": "side_bar_open_in_browser" , "args":{"paths":[], "type":"testing", "browser":""} },
-  {"keys": ["ctrl+f5"], "command": "side_bar_open_in_browser", "args":{"paths":[], "type":"production", "browser":""} },
-  {"keys": ["ctrl+k","ctrl+n"], "command": "mul_run", "args": {
-    "commands" : [
-      {"command": "copy_path"},
-      {"command": "side_bar_new_file2", "context": "window"}
-      ]}
-  },
-  {"keys": ["ctrl+k","ctrl+shift+n"], "command": "side_bar_new_file2" },
-  {"keys": ["alt+f2"], "command": "side_bar_rename"},
-//Color Highligter
-  {
-    "keys": ["ctrl+k", "ctrl+c"],
-    "command": "color_picker",
-    "context": [
-      {"key": "color_highlighter.color_picker"}
-    ]
-  },
-//C++ NamespaceTools
-  { "keys": ["ctrl+k","ctrl+r"], "command": "namespace_tool"},
-//Restart
-  {"keys": ["ctrl+alt+f12"], "command": "restart"},
-//Emmet
-	{
-    "keys": ["ctrl+k", "ctrl+t"],
-    "command": "expand_as_you_type",
-    "context": [
-        {
-            "operand": false,
-            "operator": "equal",
-            "match_all": true,
-            "key": "setting.is_widget"
-        },
-        {
-            "match_all": true,
-            "key": "emmet_action_enabled.expand_as_you_type"
-        }
-    ]
-	},
-	{
-    "keys": ["ctrl+alt+f"],
-    "args": {"action": "evaluate_math_expression"},
-    "command": "run_emmet_action",
-    "context": [{"key": "emmet_action_enabled.evaluate_math_expression"} ]
-	},
-  {"keys": ["alt+s"], "command": "mul_run", "args": {
-    "commands" : [
-      {"command": "run_emmet_action",   "args": {"action": "balance_inward"}},
-      {"command": "copy"}
-      ]
-    },"context": [
-      {"key": "emmet_action_enabled.balance_inward"}
-    ]
-  },
-	{
-    "keys": [
-        "alt+e"
-    ],
-    "args": {
-        "action": "expand_abbreviation"
+    {"keys": ["f5"], "command": "side_bar_open_in_browser" , "args":{"paths":[], "type":"testing", "browser":""} },
+    {"keys": ["ctrl+f5"], "command": "side_bar_open_in_browser", "args":{"paths":[], "type":"production", "browser":""} },
+    {"keys": ["ctrl+k","ctrl+n"], "command": "mul_run", "args": {
+        "commands" : [
+            {"command": "copy_path"},
+            {"command": "side_bar_new_file2", "context": "window"}
+            ]}
     },
-    "command": "run_emmet_action",
-    "context": [
-        {
-            "key": "emmet_action_enabled.expand_abbreviation"
-        }
-    ]
-	},
+    {"keys": ["ctrl+k","ctrl+shift+n"], "command": "side_bar_new_file2" },
+    {"keys": ["alt+f2"], "command": "side_bar_rename"},
+//Color Highligter
+    {
+        "keys": ["ctrl+k", "ctrl+c"],
+        "command": "color_picker",
+        "context": [
+            {"key": "color_highlighter.color_picker"}
+        ]
+    },
+//C++ NamespaceTools
+    {"keys": ["ctrl+k","ctrl+r"], "command": "namespace_tool"},
+//Restart
+    {"keys": ["ctrl+alt+f12"], "command": "restart"},
+//Emmet
+    {
+        "keys": ["ctrl+k", "ctrl+t"],
+        "command": "expand_as_you_type",
+        "context": [
+                {
+                        "operand": false,
+                        "operator": "equal",
+                        "match_all": true,
+                        "key": "setting.is_widget"
+                },
+                {
+                        "match_all": true,
+                        "key": "emmet_action_enabled.expand_as_you_type"
+                }
+        ]
+    },
+    {
+        "keys": ["ctrl+alt+f"],
+        "args": {"action": "evaluate_math_expression"},
+        "command": "run_emmet_action",
+        "context": [{"key": "emmet_action_enabled.evaluate_math_expression"} ]
+    },
+    {"keys": ["alt+s"], "command": "mul_run", "args": {
+        "commands" : [
+            {"command": "run_emmet_action",   "args": {"action": "balance_inward"}},
+            {"command": "copy"}
+            ]
+        },"context": [
+            {"key": "emmet_action_enabled.balance_inward"}
+        ]
+    },
+    {
+        "keys": [
+                "alt+e"
+        ],
+        "args": {
+                "action": "expand_abbreviation"
+        },
+        "command": "run_emmet_action",
+        "context": [
+                {
+                        "key": "emmet_action_enabled.expand_abbreviation"
+                }
+        ]
+    },
 //Go to Definitiaon
-  {"keys": ["f12"], "command": "go_to_definition", "args": {} },
+    {"keys": ["f12"], "command": "go_to_definition", "args": {} },
 //File History
-  {"keys": ["ctrl+shift+t"],     "command": "open_recently_closed_file", "args": {"show_quick_panel": false} },
-  {"keys": ["ctrl+2"],       "command": "open_recently_closed_file" },
-  {"keys": ["ctrl+alt+t"], "command": "open_recently_closed_file", "args": {"current_project_only": false} },
-  {"keys": ["right"], "command": "quick_open_file_history", "context": [
-      { "key": "overlay_visible", "operator": "equal", "operand": true },
-      { "key": "file_history_overlay_visible", "operator": "equal", "operand": true }
-  ]},
-  {"keys": ["ctrl+delete"], "command": "reset_file_history"},
+    {"keys": ["ctrl+shift+t"],     "command": "open_recently_closed_file", "args": {"show_quick_panel": false} },
+    {"keys": ["ctrl+2"],       "command": "open_recently_closed_file" },
+    {"keys": ["ctrl+alt+t"], "command": "open_recently_closed_file", "args": {"current_project_only": false} },
+    {"keys": ["right"], "command": "quick_open_file_history", "context": [
+            { "key": "overlay_visible", "operator": "equal", "operand": true },
+            { "key": "file_history_overlay_visible", "operator": "equal", "operand": true }
+    ]},
+    {"keys": ["ctrl+delete"], "command": "reset_file_history"},
 //__Override/__Confirm
-  { "keys": ["ctrl+shift+a"], "command": "expand_selection", "args": {"to": "tag"} },
-  {"keys": ["ctrl+alt+shift+p"], "command": "mul_run", "args": {
-    "commands" : [
-      {"command": "pick_scope_name"},
-      {"command": "show_scope_name"}
-      ]}
-  },
+    { "keys": ["ctrl+shift+a"], "command": "expand_selection", "args": {"to": "tag"} },
+    {"keys": ["ctrl+alt+shift+p"], "command": "mul_run", "args": {
+        "commands" : [
+            {"command": "pick_scope_name"}
+            ]}
+    },
 //Open Current Directory:
-  {"keys": ["ctrl+shift+o"], "command": "list_current_dir"},
+    {"keys": ["ctrl+shift+o"], "command": "list_current_dir"},
 //Open Include
-  { "keys": ["ctrl+o"], "command": "open_include", "context": [
-    {"key": "selector", "operator": "equal", "operand": "string"}
-  ]},
-  {"keys": ["/"], "command": "toggle_comment", "args": { "block": false }, "context": [
-    { "key": "selection_empty", "operator": "equal", "operand": false },
-    {"key": "selector", "operator": "equal", "operand": "source - string"}
-  ]},
-  //Goto
-  { "keys": ["ctrl+\\"], "command": "show_overlay", "args": {"overlay": "goto", "text": ":"} },
-  {"keys": ["ctrl+r"], "command": "show_overlay", "args": {"overlay": "goto", "text": "@"} },
-  {"keys": ["ctrl+shift+r"], "command": "goto_symbol_in_projegct" },
-  {"keys": ["ctrl+1"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} },
-  {"keys": ["alt+g"],  "command": "show_overlay", "args": {"overlay": "goto", "text": ":"} },
-  {"keys": ["alt+-"], "command": "jump_back" },
-  {"keys": ["alt+="], "command": "jump_forward" },
+    { "keys": ["ctrl+o"], "command": "open_include", "context": [
+        {"key": "selector", "operator": "equal", "operand": "string"}
+    ]},
+    {"keys": ["/"], "command": "toggle_comment", "args": { "block": false }, "context": [
+        { "key": "selection_empty", "operator": "equal", "operand": false },
+        {"key": "selector", "operator": "equal", "operand": "source - string"}
+    ]},
+    //Goto
+    { "keys": ["ctrl+\\"], "command": "show_overlay", "args": {"overlay": "goto", "text": ":"} },
+    {"keys": ["ctrl+r"], "command": "show_overlay", "args": {"overlay": "goto", "text": "@"} },
+    {"keys": ["ctrl+shift+r"], "command": "goto_symbol_in_projegct" },
+    {"keys": ["ctrl+1"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} },
+    {"keys": ["alt+g"],  "command": "show_overlay", "args": {"overlay": "goto", "text": ":"} },
+    {"keys": ["alt+-"], "command": "jump_back" },
+    {"keys": ["alt+="], "command": "jump_forward" },
 
-  {"keys": ["ctrl+-"], "command": "show_panel", "args": {"panel": "console", "toggle": true} },
-  {"keys": ["ctrl+="], "command": "show_overlay", "args": {"overlay": "command_palette"} },
-	{"keys": ["ctrl+m"], "command": "auto_complete" },
-	{"keys": ["ctrl+m"], "command": "replace_completion_with_auto_complete", "context":
-		[
-			{ "key": "last_command", "operator": "equal", "operand": "insert_best_completion" },
-			{ "key": "auto_complete_visible", "operator": "equal", "operand": false },
-			{ "key": "setting.tab_completion", "operator": "equal", "operand": true }
-		]
-	},
-	{"keys": ["ctrl+q"], "command": "duplicate_line" },
-	{"keys": ["alt+f"],  "command": "fold" },
-  {"keys": ["alt+x"], "command": "unfold" },
-	{"keys": ["ctrl+w"], "command": "join_lines" },
-  {"keys": ["ctrl+e"], "command": "swap_line_up" },
-	{"keys": ["ctrl+shift+e"], "command": "swap_line_down" },
-  {"keys": ["ctrl+alt+="], "command": "select_lines", "args": {"forward": false} },
-	{"keys": ["ctrl+alt+-"], "command": "select_lines", "args": {"forward": true} },
+    {"keys": ["ctrl+-"], "command": "show_panel", "args": {"panel": "console", "toggle": true} },
+    {"keys": ["ctrl+="], "command": "show_overlay", "args": {"overlay": "command_palette"} },
+    {"keys": ["ctrl+m"], "command": "auto_complete" },
+    {"keys": ["ctrl+m"], "command": "replace_completion_with_auto_complete", "context":
+        [
+            { "key": "last_command", "operator": "equal", "operand": "insert_best_completion" },
+            { "key": "auto_complete_visible", "operator": "equal", "operand": false },
+            { "key": "setting.tab_completion", "operator": "equal", "operand": true }
+        ]
+    },
+    {"keys": ["ctrl+q"], "command": "duplicate_line" },
+    {"keys": ["alt+f"],  "command": "fold" },
+    {"keys": ["alt+x"], "command": "unfold" },
+    {"keys": ["ctrl+w"], "command": "join_lines" },
+    {"keys": ["ctrl+e"], "command": "swap_line_up" },
+    {"keys": ["ctrl+shift+e"], "command": "swap_line_down" },
+    {"keys": ["ctrl+alt+="], "command": "select_lines", "args": {"forward": false} },
+    {"keys": ["ctrl+alt+-"], "command": "select_lines", "args": {"forward": true} },
 
 //Build
-  { "keys": ["f7"], "command": "build" },
+    { "keys": ["f7"], "command": "build" },
 
-	{"keys": ["alt+b"], "command": "show_panel", "args": {"panel": "console", "toggle": true} },
-  //__MySelf
-  {"keys": ["ctrl+k", "h"], "command": "goto_documentation" },
-	{"keys": ["ctrl+]"], "command": "move_to", "args": {"to": "brackets"} },
-	{"keys": ["ctrl+3"], "command": "move_to", "args": {"to": "eol", "extend": false} },
-	{"keys": ["ctrl+4"], "command": "move_to", "args": {"to": "bof", "extend": false} },
-	{"keys": ["ctrl+5"], "command": "move_to", "args": {"to": "eof", "extend": false} },
-  {"keys": ["alt+."],  "command": "soft_undo" },
-  {"keys": ["ctrl+,"], "command": "insert", "args": {"characters": ", "} },
-  {"keys": ["ctrl+j"], "command": "insert", "args": {"characters": " = "} },
+    {"keys": ["alt+b"], "command": "show_panel", "args": {"panel": "console", "toggle": true} },
+    //__MySelf
+    {"keys": ["ctrl+k", "h"], "command": "goto_documentation" },
+    {"keys": ["ctrl+]"], "command": "move_to", "args": {"to": "brackets"} },
+    {"keys": ["ctrl+3"], "command": "move_to", "args": {"to": "eol", "extend": false} },
+    {"keys": ["ctrl+4"], "command": "move_to", "args": {"to": "bof", "extend": false} },
+    {"keys": ["ctrl+5"], "command": "move_to", "args": {"to": "eof", "extend": false} },
+    {"keys": ["alt+."],  "command": "soft_undo" },
+    {"keys": ["ctrl+,"], "command": "insert", "args": {"characters": ", "} },
+    {"keys": ["ctrl+j"], "command": "insert", "args": {"characters": " = "} },
 //__EasyInvoker
-  {"keys": ["ctrl+g"], "command": "easy_invoke" }
+    {"keys": ["ctrl+g"], "command": "easy_invoke" }
 //__BindToMacros
  //  {"keys": ["alt+t"], "command": "end_less"}
 ]

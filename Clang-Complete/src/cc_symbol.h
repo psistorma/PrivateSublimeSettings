@@ -10,6 +10,14 @@ struct  cc_def{
   unsigned int col;
 };
 
+struct cc_symbol {
+	CXTranslationUnit tu;
+	char* filename;
+
+	struct cc_trie* tp;
+	struct cc_resultcache* cache;
+};
+
 typedef void(*diagnostic_visit)(const char* info, void* ud);
 
 struct cc_symbol* cc_symbol_new(const char* filename, const char* opt[], int opt_len, struct CXUnsavedFile*  unsaved_files, unsigned num_unsaved_files);

@@ -14,13 +14,15 @@ cmake -DCMAKE_C_COMPILER="C:/Program Files/LLVM/bin/clang-cl.exe" -DCMAKE_CXX_CO
 
 cmake -DCMAKE_C_COMPILER="C:/Program Files/LLVM/bin/clang-cl.exe" -DCMAKE_CXX_COMPILER="C:/Program Files/LLVM/bin/clang-cl.exe" E:\Tmp\TestMake -G "NMake Makefiles"
 
-clang++ -cc1 -x c++ -fsyntax-only -code-completion-at c:\users\administrator\appdata\local\temp/auto_complete_tmp:97:15 c:\users\administrator\appdata\local\temp/auto_complete_tmp -I . -I ".\TestMake" -I "C:\Program Files (x86)\Windows Kits\8.1\Include\um" -I "C:\Program Files (x86)\Windows Kits\8.1\Include\shared" -I "C:\Program Files (x86)\Windows Kits\8.1\Include\winrt" -I "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include" -I "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\atlmfc\include" -I "C:\Program Files (x86)\Windows Kits\10\Include\10.0.10150.0\ucrt"
+clang++ -cc1 -x c++ -fsyntax-only -code-completion-at c:\users\administrator\appdata\local\temp/auto_complete_tmp:97:15 c:\users\administrator\appdata\local\temp/auto_complete_tmp -I . -I ".\TestMake" -I "C:\Program Files (x86)\Windows Kits\8.1\Include\um" -I "C:\Program Files (x86)\Windows Kits\8.1\Include\shared" -I "C:\Program Files (x86)\Windows Kits\8.1\Include\winrt" -I "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include" -I "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\atlmfc\include" -I "C:\Program Files (x86)\Windows Kits\10\Include\10.0.10150.0\ucrt" > E:\Tmp\big.txt
 
 
-           "$project_base_path/TestMake",
-            "C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\um",
-            "C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\shared",
-            "C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\winrt",
-            "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\include",
-            "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\atlmfc\\include",
-            "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10150.0\\ucrt",
+ "$project_base_path/TestMake",
+  "C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\um",
+  "C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\shared",
+  "C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\winrt",
+  "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\include",
+  "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\atlmfc\\include",
+  "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10150.0\\ucrt",
+
+  ['-xc++', '-isystem', 'C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\um', '-isystem', 'C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\shared', '-isystem', 'C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\winrt', '-isystem', 'C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\include', '-isystem', 'C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\atlmfc\\include', '-isystem', 'C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10150.0\\ucrt', '-Wall']

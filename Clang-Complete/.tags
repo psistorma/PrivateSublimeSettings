@@ -1,0 +1,1241 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ADDR_LABEL_EXPR	.\clang.py	/^  ADDR_LABEL_EXPR =  120 $/;"	v	class:CXCursorKind
+ARRAY_SUBSCRIPT_EXPR	.\clang.py	/^  ARRAY_SUBSCRIPT_EXPR =  113 $/;"	v	class:CXCursorKind
+ASM_STMT	.\clang.py	/^  ASM_STMT =  215 $/;"	v	class:CXCursorKind
+ASTNode	.\lib\include\clang-c\Documentation.h	/^  const void *ASTNode;$/;"	m	struct:__anon3
+BINARY_OPERATOR	.\clang.py	/^  BINARY_OPERATOR =  114 $/;"	v	class:CXCursorKind
+BLOCK_EXPR	.\clang.py	/^  BLOCK_EXPR =  105 $/;"	v	class:CXCursorKind
+BREAK_STMT	.\clang.py	/^  BREAK_STMT =  213 $/;"	v	class:CXCursorKind
+CALL_EXPR	.\clang.py	/^  CALL_EXPR =  103 $/;"	v	class:CXCursorKind
+CASE_STMT	.\clang.py	/^  CASE_STMT =  203 $/;"	v	class:CXCursorKind
+CCAutoComplete	.\st_cc.py	/^class CCAutoComplete(sublime_plugin.EventListener):$/;"	c
+CCHelper	.\cc.py	/^class CCHelper(object):$/;"	c
+CCResult	.\cc.py	/^class CCResult(object):$/;"	c
+CCSymbol	.\cc.py	/^class CCSymbol(object):$/;"	c
+CCTrunk	.\cc.py	/^class CCTrunk(Structure):$/;"	c
+CCdef	.\cc.py	/^class CCdef(Structure):$/;"	c
+CHARACTER_LITERAL	.\clang.py	/^  CHARACTER_LITERAL =  110 $/;"	v	class:CXCursorKind
+CINDEX_DEPRECATED	.\lib\include\clang-c\Platform.h	33;"	d
+CINDEX_DEPRECATED	.\lib\include\clang-c\Platform.h	36;"	d
+CINDEX_DEPRECATED	.\lib\include\clang-c\Platform.h	38;"	d
+CINDEX_LINKAGE	.\lib\include\clang-c\Platform.h	24;"	d
+CINDEX_LINKAGE	.\lib\include\clang-c\Platform.h	26;"	d
+CINDEX_LINKAGE	.\lib\include\clang-c\Platform.h	29;"	d
+CINDEX_VERSION	.\lib\include\clang-c\Index.h	41;"	d
+CINDEX_VERSION_ENCODE	.\lib\include\clang-c\Index.h	37;"	d
+CINDEX_VERSION_MAJOR	.\lib\include\clang-c\Index.h	34;"	d
+CINDEX_VERSION_MINOR	.\lib\include\clang-c\Index.h	35;"	d
+CINDEX_VERSION_STRING	.\lib\include\clang-c\Index.h	50;"	d
+CINDEX_VERSION_STRINGIZE	.\lib\include\clang-c\Index.h	47;"	d
+CINDEX_VERSION_STRINGIZE_	.\lib\include\clang-c\Index.h	45;"	d
+CLANG_CXCOMPILATIONDATABASE_H	.\lib\include\clang-c\CXCompilationDatabase.h	16;"	d
+CLANG_CXSTRING_H	.\lib\include\clang-c\CXString.h	15;"	d
+CLANG_C_BUILD_SYSTEM_H	.\lib\include\clang-c\BuildSystem.h	15;"	d
+CLANG_C_CXERRORCODE_H	.\lib\include\clang-c\CXErrorCode.h	15;"	d
+CLANG_C_DOCUMENTATION_H	.\lib\include\clang-c\Documentation.h	16;"	d
+CLANG_C_INDEX_H	.\lib\include\clang-c\Index.h	17;"	d
+CLANG_C_PLATFORM_H	.\lib\include\clang-c\Platform.h	15;"	d
+CLASS_DECL	.\clang.py	/^  CLASS_DECL =  4 $/;"	v	class:CXCursorKind
+CLASS_TEMPLATE	.\clang.py	/^  CLASS_TEMPLATE =  31 $/;"	v	class:CXCursorKind
+CLASS_TEMPLATE_PARTIAL_SPECIALIZATION	.\clang.py	/^  CLASS_TEMPLATE_PARTIAL_SPECIALIZATION =  32 $/;"	v	class:CXCursorKind
+COMPOUND_ASSIGNMENT_OPERATOR	.\clang.py	/^  COMPOUND_ASSIGNMENT_OPERATOR =  115 $/;"	v	class:CXCursorKind
+COMPOUND_LITERAL_EXPR	.\clang.py	/^  COMPOUND_LITERAL_EXPR =  118 $/;"	v	class:CXCursorKind
+COMPOUND_STMT	.\clang.py	/^  COMPOUND_STMT =  202 $/;"	v	class:CXCursorKind
+CONDITONAL_OPERATOR	.\clang.py	/^  CONDITONAL_OPERATOR =  116 $/;"	v	class:CXCursorKind
+CONSTRUCTOR	.\clang.py	/^  CONSTRUCTOR =  24 $/;"	v	class:CXCursorKind
+CONTINUE_STMT	.\clang.py	/^  CONTINUE_STMT =  212 $/;"	v	class:CXCursorKind
+CONVERSION_FUNCTION	.\clang.py	/^  CONVERSION_FUNCTION =  26 $/;"	v	class:CXCursorKind
+CSTYLE_CAST_EXPR	.\clang.py	/^  CSTYLE_CAST_EXPR =  117 $/;"	v	class:CXCursorKind
+CXAvailabilityKind	.\lib\include\clang-c\Index.h	/^enum CXAvailabilityKind {$/;"	g
+CXAvailability_Available	.\lib\include\clang-c\Index.h	/^  CXAvailability_Available,$/;"	e	enum:CXAvailabilityKind
+CXAvailability_Deprecated	.\lib\include\clang-c\Index.h	/^  CXAvailability_Deprecated,$/;"	e	enum:CXAvailabilityKind
+CXAvailability_NotAccessible	.\lib\include\clang-c\Index.h	/^  CXAvailability_NotAccessible$/;"	e	enum:CXAvailabilityKind
+CXAvailability_NotAvailable	.\lib\include\clang-c\Index.h	/^  CXAvailability_NotAvailable,$/;"	e	enum:CXAvailabilityKind
+CXCallingConv	.\lib\include\clang-c\Index.h	/^enum CXCallingConv {$/;"	g
+CXCallingConv_AAPCS	.\lib\include\clang-c\Index.h	/^  CXCallingConv_AAPCS = 6,$/;"	e	enum:CXCallingConv
+CXCallingConv_AAPCS_VFP	.\lib\include\clang-c\Index.h	/^  CXCallingConv_AAPCS_VFP = 7,$/;"	e	enum:CXCallingConv
+CXCallingConv_C	.\lib\include\clang-c\Index.h	/^  CXCallingConv_C = 1,$/;"	e	enum:CXCallingConv
+CXCallingConv_Default	.\lib\include\clang-c\Index.h	/^  CXCallingConv_Default = 0,$/;"	e	enum:CXCallingConv
+CXCallingConv_IntelOclBicc	.\lib\include\clang-c\Index.h	/^  CXCallingConv_IntelOclBicc = 9,$/;"	e	enum:CXCallingConv
+CXCallingConv_Invalid	.\lib\include\clang-c\Index.h	/^  CXCallingConv_Invalid = 100,$/;"	e	enum:CXCallingConv
+CXCallingConv_PnaclCall	.\lib\include\clang-c\Index.h	/^  CXCallingConv_PnaclCall = 8,$/;"	e	enum:CXCallingConv
+CXCallingConv_Unexposed	.\lib\include\clang-c\Index.h	/^  CXCallingConv_Unexposed = 200$/;"	e	enum:CXCallingConv
+CXCallingConv_X86FastCall	.\lib\include\clang-c\Index.h	/^  CXCallingConv_X86FastCall = 3,$/;"	e	enum:CXCallingConv
+CXCallingConv_X86Pascal	.\lib\include\clang-c\Index.h	/^  CXCallingConv_X86Pascal = 5,$/;"	e	enum:CXCallingConv
+CXCallingConv_X86StdCall	.\lib\include\clang-c\Index.h	/^  CXCallingConv_X86StdCall = 2,$/;"	e	enum:CXCallingConv
+CXCallingConv_X86ThisCall	.\lib\include\clang-c\Index.h	/^  CXCallingConv_X86ThisCall = 4,$/;"	e	enum:CXCallingConv
+CXCallingConv_X86_64SysV	.\lib\include\clang-c\Index.h	/^  CXCallingConv_X86_64SysV = 11,$/;"	e	enum:CXCallingConv
+CXCallingConv_X86_64Win64	.\lib\include\clang-c\Index.h	/^  CXCallingConv_X86_64Win64 = 10,$/;"	e	enum:CXCallingConv
+CXChildVisitResult	.\lib\include\clang-c\Index.h	/^enum CXChildVisitResult {$/;"	g
+CXChildVisit_Break	.\lib\include\clang-c\Index.h	/^  CXChildVisit_Break,$/;"	e	enum:CXChildVisitResult
+CXChildVisit_Continue	.\lib\include\clang-c\Index.h	/^  CXChildVisit_Continue,$/;"	e	enum:CXChildVisitResult
+CXChildVisit_Recurse	.\lib\include\clang-c\Index.h	/^  CXChildVisit_Recurse$/;"	e	enum:CXChildVisitResult
+CXClientData	.\lib\include\clang-c\Index.h	/^typedef void *CXClientData;$/;"	t
+CXCodeCompleteResults	.\lib\include\clang-c\Index.h	/^} CXCodeCompleteResults;$/;"	t	typeref:struct:__anon15
+CXCodeComplete_Flags	.\lib\include\clang-c\Index.h	/^enum CXCodeComplete_Flags {$/;"	g
+CXCodeComplete_IncludeBriefComments	.\lib\include\clang-c\Index.h	/^  CXCodeComplete_IncludeBriefComments = 0x04$/;"	e	enum:CXCodeComplete_Flags
+CXCodeComplete_IncludeCodePatterns	.\lib\include\clang-c\Index.h	/^  CXCodeComplete_IncludeCodePatterns = 0x02,$/;"	e	enum:CXCodeComplete_Flags
+CXCodeComplete_IncludeMacros	.\lib\include\clang-c\Index.h	/^  CXCodeComplete_IncludeMacros = 0x01,$/;"	e	enum:CXCodeComplete_Flags
+CXComment	.\lib\include\clang-c\Documentation.h	/^} CXComment;$/;"	t	typeref:struct:__anon3
+CXCommentInlineCommandRenderKind	.\lib\include\clang-c\Documentation.h	/^enum CXCommentInlineCommandRenderKind {$/;"	g
+CXCommentInlineCommandRenderKind_Bold	.\lib\include\clang-c\Documentation.h	/^  CXCommentInlineCommandRenderKind_Bold,$/;"	e	enum:CXCommentInlineCommandRenderKind
+CXCommentInlineCommandRenderKind_Emphasized	.\lib\include\clang-c\Documentation.h	/^  CXCommentInlineCommandRenderKind_Emphasized$/;"	e	enum:CXCommentInlineCommandRenderKind
+CXCommentInlineCommandRenderKind_Monospaced	.\lib\include\clang-c\Documentation.h	/^  CXCommentInlineCommandRenderKind_Monospaced,$/;"	e	enum:CXCommentInlineCommandRenderKind
+CXCommentInlineCommandRenderKind_Normal	.\lib\include\clang-c\Documentation.h	/^  CXCommentInlineCommandRenderKind_Normal,$/;"	e	enum:CXCommentInlineCommandRenderKind
+CXCommentKind	.\lib\include\clang-c\Documentation.h	/^enum CXCommentKind {$/;"	g
+CXCommentParamPassDirection	.\lib\include\clang-c\Documentation.h	/^enum CXCommentParamPassDirection {$/;"	g
+CXCommentParamPassDirection_In	.\lib\include\clang-c\Documentation.h	/^  CXCommentParamPassDirection_In,$/;"	e	enum:CXCommentParamPassDirection
+CXCommentParamPassDirection_InOut	.\lib\include\clang-c\Documentation.h	/^  CXCommentParamPassDirection_InOut$/;"	e	enum:CXCommentParamPassDirection
+CXCommentParamPassDirection_Out	.\lib\include\clang-c\Documentation.h	/^  CXCommentParamPassDirection_Out,$/;"	e	enum:CXCommentParamPassDirection
+CXComment_BlockCommand	.\lib\include\clang-c\Documentation.h	/^  CXComment_BlockCommand = 6,$/;"	e	enum:CXCommentKind
+CXComment_FullComment	.\lib\include\clang-c\Documentation.h	/^  CXComment_FullComment = 12$/;"	e	enum:CXCommentKind
+CXComment_HTMLEndTag	.\lib\include\clang-c\Documentation.h	/^  CXComment_HTMLEndTag = 4,$/;"	e	enum:CXCommentKind
+CXComment_HTMLStartTag	.\lib\include\clang-c\Documentation.h	/^  CXComment_HTMLStartTag = 3,$/;"	e	enum:CXCommentKind
+CXComment_InlineCommand	.\lib\include\clang-c\Documentation.h	/^  CXComment_InlineCommand = 2,$/;"	e	enum:CXCommentKind
+CXComment_Null	.\lib\include\clang-c\Documentation.h	/^  CXComment_Null = 0,$/;"	e	enum:CXCommentKind
+CXComment_Paragraph	.\lib\include\clang-c\Documentation.h	/^  CXComment_Paragraph = 5,$/;"	e	enum:CXCommentKind
+CXComment_ParamCommand	.\lib\include\clang-c\Documentation.h	/^  CXComment_ParamCommand = 7,$/;"	e	enum:CXCommentKind
+CXComment_TParamCommand	.\lib\include\clang-c\Documentation.h	/^  CXComment_TParamCommand = 8,$/;"	e	enum:CXCommentKind
+CXComment_Text	.\lib\include\clang-c\Documentation.h	/^  CXComment_Text = 1,$/;"	e	enum:CXCommentKind
+CXComment_VerbatimBlockCommand	.\lib\include\clang-c\Documentation.h	/^  CXComment_VerbatimBlockCommand = 9,$/;"	e	enum:CXCommentKind
+CXComment_VerbatimBlockLine	.\lib\include\clang-c\Documentation.h	/^  CXComment_VerbatimBlockLine = 10,$/;"	e	enum:CXCommentKind
+CXComment_VerbatimLine	.\lib\include\clang-c\Documentation.h	/^  CXComment_VerbatimLine = 11,$/;"	e	enum:CXCommentKind
+CXCompilationDatabase	.\lib\include\clang-c\CXCompilationDatabase.h	/^typedef void * CXCompilationDatabase;$/;"	t
+CXCompilationDatabase_CanNotLoadDatabase	.\lib\include\clang-c\CXCompilationDatabase.h	/^  CXCompilationDatabase_CanNotLoadDatabase = 1$/;"	e	enum:__anon1
+CXCompilationDatabase_Error	.\lib\include\clang-c\CXCompilationDatabase.h	/^} CXCompilationDatabase_Error;$/;"	t	typeref:enum:__anon1
+CXCompilationDatabase_NoError	.\lib\include\clang-c\CXCompilationDatabase.h	/^  CXCompilationDatabase_NoError = 0,$/;"	e	enum:__anon1
+CXCompileCommand	.\lib\include\clang-c\CXCompilationDatabase.h	/^typedef void * CXCompileCommand;$/;"	t
+CXCompileCommands	.\lib\include\clang-c\CXCompilationDatabase.h	/^typedef void * CXCompileCommands;$/;"	t
+CXCompletionChunkKind	.\cc.py	/^from .clang import CXUnsavedFile, CXCompletionChunkKind, CXCursorKind$/;"	i
+CXCompletionChunkKind	.\clang.py	/^class CXCompletionChunkKind(Enum):$/;"	c
+CXCompletionChunkKind	.\lib\include\clang-c\Index.h	/^enum CXCompletionChunkKind {$/;"	g
+CXCompletionChunk_Colon	.\lib\include\clang-c\Index.h	/^  CXCompletionChunk_Colon,$/;"	e	enum:CXCompletionChunkKind
+CXCompletionChunk_Comma	.\lib\include\clang-c\Index.h	/^  CXCompletionChunk_Comma,$/;"	e	enum:CXCompletionChunkKind
+CXCompletionChunk_CurrentParameter	.\lib\include\clang-c\Index.h	/^  CXCompletionChunk_CurrentParameter,$/;"	e	enum:CXCompletionChunkKind
+CXCompletionChunk_Equal	.\lib\include\clang-c\Index.h	/^  CXCompletionChunk_Equal,$/;"	e	enum:CXCompletionChunkKind
+CXCompletionChunk_HorizontalSpace	.\lib\include\clang-c\Index.h	/^  CXCompletionChunk_HorizontalSpace,$/;"	e	enum:CXCompletionChunkKind
+CXCompletionChunk_Informative	.\lib\include\clang-c\Index.h	/^  CXCompletionChunk_Informative,$/;"	e	enum:CXCompletionChunkKind
+CXCompletionChunk_LeftAngle	.\lib\include\clang-c\Index.h	/^  CXCompletionChunk_LeftAngle,$/;"	e	enum:CXCompletionChunkKind
+CXCompletionChunk_LeftBrace	.\lib\include\clang-c\Index.h	/^  CXCompletionChunk_LeftBrace,$/;"	e	enum:CXCompletionChunkKind
+CXCompletionChunk_LeftBracket	.\lib\include\clang-c\Index.h	/^  CXCompletionChunk_LeftBracket,$/;"	e	enum:CXCompletionChunkKind
+CXCompletionChunk_LeftParen	.\lib\include\clang-c\Index.h	/^  CXCompletionChunk_LeftParen,$/;"	e	enum:CXCompletionChunkKind
+CXCompletionChunk_Optional	.\lib\include\clang-c\Index.h	/^  CXCompletionChunk_Optional,$/;"	e	enum:CXCompletionChunkKind
+CXCompletionChunk_Placeholder	.\lib\include\clang-c\Index.h	/^  CXCompletionChunk_Placeholder,$/;"	e	enum:CXCompletionChunkKind
+CXCompletionChunk_ResultType	.\lib\include\clang-c\Index.h	/^  CXCompletionChunk_ResultType,$/;"	e	enum:CXCompletionChunkKind
+CXCompletionChunk_RightAngle	.\lib\include\clang-c\Index.h	/^  CXCompletionChunk_RightAngle,$/;"	e	enum:CXCompletionChunkKind
+CXCompletionChunk_RightBrace	.\lib\include\clang-c\Index.h	/^  CXCompletionChunk_RightBrace,$/;"	e	enum:CXCompletionChunkKind
+CXCompletionChunk_RightBracket	.\lib\include\clang-c\Index.h	/^  CXCompletionChunk_RightBracket,$/;"	e	enum:CXCompletionChunkKind
+CXCompletionChunk_RightParen	.\lib\include\clang-c\Index.h	/^  CXCompletionChunk_RightParen,$/;"	e	enum:CXCompletionChunkKind
+CXCompletionChunk_SemiColon	.\lib\include\clang-c\Index.h	/^  CXCompletionChunk_SemiColon,$/;"	e	enum:CXCompletionChunkKind
+CXCompletionChunk_Text	.\lib\include\clang-c\Index.h	/^  CXCompletionChunk_Text,$/;"	e	enum:CXCompletionChunkKind
+CXCompletionChunk_TypedText	.\lib\include\clang-c\Index.h	/^  CXCompletionChunk_TypedText,$/;"	e	enum:CXCompletionChunkKind
+CXCompletionChunk_VerticalSpace	.\lib\include\clang-c\Index.h	/^  CXCompletionChunk_VerticalSpace$/;"	e	enum:CXCompletionChunkKind
+CXCompletionContext	.\lib\include\clang-c\Index.h	/^enum CXCompletionContext {$/;"	g
+CXCompletionContext_AnyType	.\lib\include\clang-c\Index.h	/^  CXCompletionContext_AnyType = 1 << 0,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_AnyValue	.\lib\include\clang-c\Index.h	/^  CXCompletionContext_AnyValue = 1 << 1,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_ArrowMemberAccess	.\lib\include\clang-c\Index.h	/^  CXCompletionContext_ArrowMemberAccess = 1 << 6,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_CXXClassTypeValue	.\lib\include\clang-c\Index.h	/^  CXCompletionContext_CXXClassTypeValue = 1 << 4,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_ClassTag	.\lib\include\clang-c\Index.h	/^  CXCompletionContext_ClassTag = 1 << 11,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_DotMemberAccess	.\lib\include\clang-c\Index.h	/^  CXCompletionContext_DotMemberAccess = 1 << 5,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_EnumTag	.\lib\include\clang-c\Index.h	/^  CXCompletionContext_EnumTag = 1 << 8,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_MacroName	.\lib\include\clang-c\Index.h	/^  CXCompletionContext_MacroName = 1 << 20,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_Namespace	.\lib\include\clang-c\Index.h	/^  CXCompletionContext_Namespace = 1 << 12,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_NaturalLanguage	.\lib\include\clang-c\Index.h	/^  CXCompletionContext_NaturalLanguage = 1 << 21,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_NestedNameSpecifier	.\lib\include\clang-c\Index.h	/^  CXCompletionContext_NestedNameSpecifier = 1 << 13,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_ObjCCategory	.\lib\include\clang-c\Index.h	/^  CXCompletionContext_ObjCCategory = 1 << 16,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_ObjCClassMessage	.\lib\include\clang-c\Index.h	/^  CXCompletionContext_ObjCClassMessage = 1 << 18,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_ObjCInstanceMessage	.\lib\include\clang-c\Index.h	/^  CXCompletionContext_ObjCInstanceMessage = 1 << 17,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_ObjCInterface	.\lib\include\clang-c\Index.h	/^  CXCompletionContext_ObjCInterface = 1 << 14,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_ObjCObjectValue	.\lib\include\clang-c\Index.h	/^  CXCompletionContext_ObjCObjectValue = 1 << 2,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_ObjCPropertyAccess	.\lib\include\clang-c\Index.h	/^  CXCompletionContext_ObjCPropertyAccess = 1 << 7,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_ObjCProtocol	.\lib\include\clang-c\Index.h	/^  CXCompletionContext_ObjCProtocol = 1 << 15,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_ObjCSelectorName	.\lib\include\clang-c\Index.h	/^  CXCompletionContext_ObjCSelectorName = 1 << 19,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_ObjCSelectorValue	.\lib\include\clang-c\Index.h	/^  CXCompletionContext_ObjCSelectorValue = 1 << 3,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_StructTag	.\lib\include\clang-c\Index.h	/^  CXCompletionContext_StructTag = 1 << 10,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_Unexposed	.\lib\include\clang-c\Index.h	/^  CXCompletionContext_Unexposed = 0,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_UnionTag	.\lib\include\clang-c\Index.h	/^  CXCompletionContext_UnionTag = 1 << 9,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_Unknown	.\lib\include\clang-c\Index.h	/^  CXCompletionContext_Unknown = ((1 << 22) - 1)$/;"	e	enum:CXCompletionContext
+CXCompletionResult	.\cc.py	/^class CXCompletionResult(Structure):$/;"	c
+CXCompletionResult	.\lib\include\clang-c\Index.h	/^} CXCompletionResult;$/;"	t	typeref:struct:__anon14
+CXCompletionString	.\lib\include\clang-c\Index.h	/^typedef void *CXCompletionString;$/;"	t
+CXCursor	.\lib\include\clang-c\Index.h	/^} CXCursor;$/;"	t	typeref:struct:__anon9
+CXCursorAndRangeVisitor	.\lib\include\clang-c\Index.h	/^} CXCursorAndRangeVisitor;$/;"	t	typeref:struct:__anon16
+CXCursorKind	.\cc.py	/^from .clang import CXUnsavedFile, CXCompletionChunkKind, CXCursorKind$/;"	i
+CXCursorKind	.\clang.py	/^class CXCursorKind(Enum):$/;"	c
+CXCursorKind	.\lib\include\clang-c\Index.h	/^enum CXCursorKind {$/;"	g
+CXCursorSet	.\lib\include\clang-c\Index.h	/^typedef struct CXCursorSetImpl *CXCursorSet;$/;"	t	typeref:struct:CXCursorSetImpl
+CXCursorVisitor	.\lib\include\clang-c\Index.h	/^typedef enum CXChildVisitResult (*CXCursorVisitor)(CXCursor cursor,$/;"	t	typeref:enum:CXCursorVisitor
+CXCursor_AddrLabelExpr	.\lib\include\clang-c\Index.h	/^  CXCursor_AddrLabelExpr                 = 120,$/;"	e	enum:CXCursorKind
+CXCursor_AnnotateAttr	.\lib\include\clang-c\Index.h	/^  CXCursor_AnnotateAttr                  = 406,$/;"	e	enum:CXCursorKind
+CXCursor_ArraySubscriptExpr	.\lib\include\clang-c\Index.h	/^  CXCursor_ArraySubscriptExpr            = 113,$/;"	e	enum:CXCursorKind
+CXCursor_AsmLabelAttr	.\lib\include\clang-c\Index.h	/^  CXCursor_AsmLabelAttr                  = 407,$/;"	e	enum:CXCursorKind
+CXCursor_AsmStmt	.\lib\include\clang-c\Index.h	/^  CXCursor_AsmStmt                       = CXCursor_GCCAsmStmt,$/;"	e	enum:CXCursorKind
+CXCursor_BinaryOperator	.\lib\include\clang-c\Index.h	/^  CXCursor_BinaryOperator                = 114,$/;"	e	enum:CXCursorKind
+CXCursor_BlockExpr	.\lib\include\clang-c\Index.h	/^  CXCursor_BlockExpr                     = 105,$/;"	e	enum:CXCursorKind
+CXCursor_BreakStmt	.\lib\include\clang-c\Index.h	/^  CXCursor_BreakStmt                     = 213,$/;"	e	enum:CXCursorKind
+CXCursor_CStyleCastExpr	.\lib\include\clang-c\Index.h	/^  CXCursor_CStyleCastExpr                = 117,$/;"	e	enum:CXCursorKind
+CXCursor_CUDAConstantAttr	.\lib\include\clang-c\Index.h	/^  CXCursor_CUDAConstantAttr              = 412,$/;"	e	enum:CXCursorKind
+CXCursor_CUDADeviceAttr	.\lib\include\clang-c\Index.h	/^  CXCursor_CUDADeviceAttr                = 413,$/;"	e	enum:CXCursorKind
+CXCursor_CUDAGlobalAttr	.\lib\include\clang-c\Index.h	/^  CXCursor_CUDAGlobalAttr                = 414,$/;"	e	enum:CXCursorKind
+CXCursor_CUDAHostAttr	.\lib\include\clang-c\Index.h	/^  CXCursor_CUDAHostAttr                  = 415,$/;"	e	enum:CXCursorKind
+CXCursor_CXXAccessSpecifier	.\lib\include\clang-c\Index.h	/^  CXCursor_CXXAccessSpecifier            = 39,$/;"	e	enum:CXCursorKind
+CXCursor_CXXBaseSpecifier	.\lib\include\clang-c\Index.h	/^  CXCursor_CXXBaseSpecifier              = 44,$/;"	e	enum:CXCursorKind
+CXCursor_CXXBoolLiteralExpr	.\lib\include\clang-c\Index.h	/^  CXCursor_CXXBoolLiteralExpr            = 130,$/;"	e	enum:CXCursorKind
+CXCursor_CXXCatchStmt	.\lib\include\clang-c\Index.h	/^  CXCursor_CXXCatchStmt                  = 223,$/;"	e	enum:CXCursorKind
+CXCursor_CXXConstCastExpr	.\lib\include\clang-c\Index.h	/^  CXCursor_CXXConstCastExpr              = 127,$/;"	e	enum:CXCursorKind
+CXCursor_CXXDeleteExpr	.\lib\include\clang-c\Index.h	/^  CXCursor_CXXDeleteExpr                 = 135,$/;"	e	enum:CXCursorKind
+CXCursor_CXXDynamicCastExpr	.\lib\include\clang-c\Index.h	/^  CXCursor_CXXDynamicCastExpr            = 125,$/;"	e	enum:CXCursorKind
+CXCursor_CXXFinalAttr	.\lib\include\clang-c\Index.h	/^  CXCursor_CXXFinalAttr                  = 404,$/;"	e	enum:CXCursorKind
+CXCursor_CXXForRangeStmt	.\lib\include\clang-c\Index.h	/^  CXCursor_CXXForRangeStmt               = 225,$/;"	e	enum:CXCursorKind
+CXCursor_CXXFunctionalCastExpr	.\lib\include\clang-c\Index.h	/^  CXCursor_CXXFunctionalCastExpr         = 128,$/;"	e	enum:CXCursorKind
+CXCursor_CXXMethod	.\lib\include\clang-c\Index.h	/^  CXCursor_CXXMethod                     = 21,$/;"	e	enum:CXCursorKind
+CXCursor_CXXNewExpr	.\lib\include\clang-c\Index.h	/^  CXCursor_CXXNewExpr                    = 134,$/;"	e	enum:CXCursorKind
+CXCursor_CXXNullPtrLiteralExpr	.\lib\include\clang-c\Index.h	/^  CXCursor_CXXNullPtrLiteralExpr         = 131,$/;"	e	enum:CXCursorKind
+CXCursor_CXXOverrideAttr	.\lib\include\clang-c\Index.h	/^  CXCursor_CXXOverrideAttr               = 405,$/;"	e	enum:CXCursorKind
+CXCursor_CXXReinterpretCastExpr	.\lib\include\clang-c\Index.h	/^  CXCursor_CXXReinterpretCastExpr        = 126,$/;"	e	enum:CXCursorKind
+CXCursor_CXXStaticCastExpr	.\lib\include\clang-c\Index.h	/^  CXCursor_CXXStaticCastExpr             = 124,$/;"	e	enum:CXCursorKind
+CXCursor_CXXThisExpr	.\lib\include\clang-c\Index.h	/^  CXCursor_CXXThisExpr                   = 132,$/;"	e	enum:CXCursorKind
+CXCursor_CXXThrowExpr	.\lib\include\clang-c\Index.h	/^  CXCursor_CXXThrowExpr                  = 133,$/;"	e	enum:CXCursorKind
+CXCursor_CXXTryStmt	.\lib\include\clang-c\Index.h	/^  CXCursor_CXXTryStmt                    = 224,$/;"	e	enum:CXCursorKind
+CXCursor_CXXTypeidExpr	.\lib\include\clang-c\Index.h	/^  CXCursor_CXXTypeidExpr                 = 129,$/;"	e	enum:CXCursorKind
+CXCursor_CallExpr	.\lib\include\clang-c\Index.h	/^  CXCursor_CallExpr                      = 103,$/;"	e	enum:CXCursorKind
+CXCursor_CaseStmt	.\lib\include\clang-c\Index.h	/^  CXCursor_CaseStmt                      = 203,$/;"	e	enum:CXCursorKind
+CXCursor_CharacterLiteral	.\lib\include\clang-c\Index.h	/^  CXCursor_CharacterLiteral              = 110,$/;"	e	enum:CXCursorKind
+CXCursor_ClassDecl	.\lib\include\clang-c\Index.h	/^  CXCursor_ClassDecl                     = 4,$/;"	e	enum:CXCursorKind
+CXCursor_ClassTemplate	.\lib\include\clang-c\Index.h	/^  CXCursor_ClassTemplate                 = 31,$/;"	e	enum:CXCursorKind
+CXCursor_ClassTemplatePartialSpecialization	.\lib\include\clang-c\Index.h	/^  CXCursor_ClassTemplatePartialSpecialization = 32,$/;"	e	enum:CXCursorKind
+CXCursor_CompoundAssignOperator	.\lib\include\clang-c\Index.h	/^  CXCursor_CompoundAssignOperator        = 115,$/;"	e	enum:CXCursorKind
+CXCursor_CompoundLiteralExpr	.\lib\include\clang-c\Index.h	/^  CXCursor_CompoundLiteralExpr           = 118,$/;"	e	enum:CXCursorKind
+CXCursor_CompoundStmt	.\lib\include\clang-c\Index.h	/^  CXCursor_CompoundStmt                  = 202,$/;"	e	enum:CXCursorKind
+CXCursor_ConditionalOperator	.\lib\include\clang-c\Index.h	/^  CXCursor_ConditionalOperator           = 116,$/;"	e	enum:CXCursorKind
+CXCursor_ConstAttr	.\lib\include\clang-c\Index.h	/^  CXCursor_ConstAttr                     = 410,$/;"	e	enum:CXCursorKind
+CXCursor_Constructor	.\lib\include\clang-c\Index.h	/^  CXCursor_Constructor                   = 24,$/;"	e	enum:CXCursorKind
+CXCursor_ContinueStmt	.\lib\include\clang-c\Index.h	/^  CXCursor_ContinueStmt                  = 212,$/;"	e	enum:CXCursorKind
+CXCursor_ConversionFunction	.\lib\include\clang-c\Index.h	/^  CXCursor_ConversionFunction            = 26,$/;"	e	enum:CXCursorKind
+CXCursor_DeclRefExpr	.\lib\include\clang-c\Index.h	/^  CXCursor_DeclRefExpr                   = 101,$/;"	e	enum:CXCursorKind
+CXCursor_DeclStmt	.\lib\include\clang-c\Index.h	/^  CXCursor_DeclStmt                      = 231,$/;"	e	enum:CXCursorKind
+CXCursor_DefaultStmt	.\lib\include\clang-c\Index.h	/^  CXCursor_DefaultStmt                   = 204,$/;"	e	enum:CXCursorKind
+CXCursor_Destructor	.\lib\include\clang-c\Index.h	/^  CXCursor_Destructor                    = 25,$/;"	e	enum:CXCursorKind
+CXCursor_DoStmt	.\lib\include\clang-c\Index.h	/^  CXCursor_DoStmt                        = 208,$/;"	e	enum:CXCursorKind
+CXCursor_EnumConstantDecl	.\lib\include\clang-c\Index.h	/^  CXCursor_EnumConstantDecl              = 7,$/;"	e	enum:CXCursorKind
+CXCursor_EnumDecl	.\lib\include\clang-c\Index.h	/^  CXCursor_EnumDecl                      = 5,$/;"	e	enum:CXCursorKind
+CXCursor_FieldDecl	.\lib\include\clang-c\Index.h	/^  CXCursor_FieldDecl                     = 6,$/;"	e	enum:CXCursorKind
+CXCursor_FirstAttr	.\lib\include\clang-c\Index.h	/^  CXCursor_FirstAttr                     = 400,$/;"	e	enum:CXCursorKind
+CXCursor_FirstDecl	.\lib\include\clang-c\Index.h	/^  CXCursor_FirstDecl                     = CXCursor_UnexposedDecl,$/;"	e	enum:CXCursorKind
+CXCursor_FirstExpr	.\lib\include\clang-c\Index.h	/^  CXCursor_FirstExpr                     = 100,$/;"	e	enum:CXCursorKind
+CXCursor_FirstExtraDecl	.\lib\include\clang-c\Index.h	/^  CXCursor_FirstExtraDecl                = CXCursor_ModuleImportDecl,$/;"	e	enum:CXCursorKind
+CXCursor_FirstInvalid	.\lib\include\clang-c\Index.h	/^  CXCursor_FirstInvalid                  = 70,$/;"	e	enum:CXCursorKind
+CXCursor_FirstPreprocessing	.\lib\include\clang-c\Index.h	/^  CXCursor_FirstPreprocessing            = CXCursor_PreprocessingDirective,$/;"	e	enum:CXCursorKind
+CXCursor_FirstRef	.\lib\include\clang-c\Index.h	/^  CXCursor_FirstRef                      = 40, \/* Decl references *\/$/;"	e	enum:CXCursorKind
+CXCursor_FirstStmt	.\lib\include\clang-c\Index.h	/^  CXCursor_FirstStmt                     = 200,$/;"	e	enum:CXCursorKind
+CXCursor_FloatingLiteral	.\lib\include\clang-c\Index.h	/^  CXCursor_FloatingLiteral               = 107,$/;"	e	enum:CXCursorKind
+CXCursor_ForStmt	.\lib\include\clang-c\Index.h	/^  CXCursor_ForStmt                       = 209,$/;"	e	enum:CXCursorKind
+CXCursor_FunctionDecl	.\lib\include\clang-c\Index.h	/^  CXCursor_FunctionDecl                  = 8,$/;"	e	enum:CXCursorKind
+CXCursor_FunctionTemplate	.\lib\include\clang-c\Index.h	/^  CXCursor_FunctionTemplate              = 30,$/;"	e	enum:CXCursorKind
+CXCursor_GCCAsmStmt	.\lib\include\clang-c\Index.h	/^  CXCursor_GCCAsmStmt                    = 215,$/;"	e	enum:CXCursorKind
+CXCursor_GNUNullExpr	.\lib\include\clang-c\Index.h	/^  CXCursor_GNUNullExpr                   = 123,$/;"	e	enum:CXCursorKind
+CXCursor_GenericSelectionExpr	.\lib\include\clang-c\Index.h	/^  CXCursor_GenericSelectionExpr          = 122,$/;"	e	enum:CXCursorKind
+CXCursor_GotoStmt	.\lib\include\clang-c\Index.h	/^  CXCursor_GotoStmt                      = 210,$/;"	e	enum:CXCursorKind
+CXCursor_IBActionAttr	.\lib\include\clang-c\Index.h	/^  CXCursor_IBActionAttr                  = 401,$/;"	e	enum:CXCursorKind
+CXCursor_IBOutletAttr	.\lib\include\clang-c\Index.h	/^  CXCursor_IBOutletAttr                  = 402,$/;"	e	enum:CXCursorKind
+CXCursor_IBOutletCollectionAttr	.\lib\include\clang-c\Index.h	/^  CXCursor_IBOutletCollectionAttr        = 403,$/;"	e	enum:CXCursorKind
+CXCursor_IfStmt	.\lib\include\clang-c\Index.h	/^  CXCursor_IfStmt                        = 205,$/;"	e	enum:CXCursorKind
+CXCursor_ImaginaryLiteral	.\lib\include\clang-c\Index.h	/^  CXCursor_ImaginaryLiteral              = 108,$/;"	e	enum:CXCursorKind
+CXCursor_InclusionDirective	.\lib\include\clang-c\Index.h	/^  CXCursor_InclusionDirective            = 503,$/;"	e	enum:CXCursorKind
+CXCursor_IndirectGotoStmt	.\lib\include\clang-c\Index.h	/^  CXCursor_IndirectGotoStmt              = 211,$/;"	e	enum:CXCursorKind
+CXCursor_InitListExpr	.\lib\include\clang-c\Index.h	/^  CXCursor_InitListExpr                  = 119,$/;"	e	enum:CXCursorKind
+CXCursor_IntegerLiteral	.\lib\include\clang-c\Index.h	/^  CXCursor_IntegerLiteral                = 106,$/;"	e	enum:CXCursorKind
+CXCursor_InvalidCode	.\lib\include\clang-c\Index.h	/^  CXCursor_InvalidCode                   = 73,$/;"	e	enum:CXCursorKind
+CXCursor_InvalidFile	.\lib\include\clang-c\Index.h	/^  CXCursor_InvalidFile                   = 70,$/;"	e	enum:CXCursorKind
+CXCursor_LabelRef	.\lib\include\clang-c\Index.h	/^  CXCursor_LabelRef                      = 48,$/;"	e	enum:CXCursorKind
+CXCursor_LabelStmt	.\lib\include\clang-c\Index.h	/^  CXCursor_LabelStmt                     = 201,$/;"	e	enum:CXCursorKind
+CXCursor_LambdaExpr	.\lib\include\clang-c\Index.h	/^  CXCursor_LambdaExpr                    = 144,$/;"	e	enum:CXCursorKind
+CXCursor_LastAttr	.\lib\include\clang-c\Index.h	/^  CXCursor_LastAttr                      = CXCursor_CUDAHostAttr,$/;"	e	enum:CXCursorKind
+CXCursor_LastDecl	.\lib\include\clang-c\Index.h	/^  CXCursor_LastDecl                      = CXCursor_CXXAccessSpecifier,$/;"	e	enum:CXCursorKind
+CXCursor_LastExpr	.\lib\include\clang-c\Index.h	/^  CXCursor_LastExpr                      = CXCursor_ObjCSelfExpr,$/;"	e	enum:CXCursorKind
+CXCursor_LastExtraDecl	.\lib\include\clang-c\Index.h	/^  CXCursor_LastExtraDecl                 = CXCursor_ModuleImportDecl$/;"	e	enum:CXCursorKind
+CXCursor_LastInvalid	.\lib\include\clang-c\Index.h	/^  CXCursor_LastInvalid                   = CXCursor_InvalidCode,$/;"	e	enum:CXCursorKind
+CXCursor_LastPreprocessing	.\lib\include\clang-c\Index.h	/^  CXCursor_LastPreprocessing             = CXCursor_InclusionDirective,$/;"	e	enum:CXCursorKind
+CXCursor_LastRef	.\lib\include\clang-c\Index.h	/^  CXCursor_LastRef                       = CXCursor_VariableRef,$/;"	e	enum:CXCursorKind
+CXCursor_LastStmt	.\lib\include\clang-c\Index.h	/^  CXCursor_LastStmt                      = CXCursor_SEHLeaveStmt,$/;"	e	enum:CXCursorKind
+CXCursor_LinkageSpec	.\lib\include\clang-c\Index.h	/^  CXCursor_LinkageSpec                   = 23,$/;"	e	enum:CXCursorKind
+CXCursor_MSAsmStmt	.\lib\include\clang-c\Index.h	/^  CXCursor_MSAsmStmt                     = 229,$/;"	e	enum:CXCursorKind
+CXCursor_MacroDefinition	.\lib\include\clang-c\Index.h	/^  CXCursor_MacroDefinition               = 501,$/;"	e	enum:CXCursorKind
+CXCursor_MacroExpansion	.\lib\include\clang-c\Index.h	/^  CXCursor_MacroExpansion                = 502,$/;"	e	enum:CXCursorKind
+CXCursor_MacroInstantiation	.\lib\include\clang-c\Index.h	/^  CXCursor_MacroInstantiation            = CXCursor_MacroExpansion,$/;"	e	enum:CXCursorKind
+CXCursor_MemberRef	.\lib\include\clang-c\Index.h	/^  CXCursor_MemberRef                     = 47,$/;"	e	enum:CXCursorKind
+CXCursor_MemberRefExpr	.\lib\include\clang-c\Index.h	/^  CXCursor_MemberRefExpr                 = 102,$/;"	e	enum:CXCursorKind
+CXCursor_ModuleImportDecl	.\lib\include\clang-c\Index.h	/^  CXCursor_ModuleImportDecl              = 600,$/;"	e	enum:CXCursorKind
+CXCursor_Namespace	.\lib\include\clang-c\Index.h	/^  CXCursor_Namespace                     = 22,$/;"	e	enum:CXCursorKind
+CXCursor_NamespaceAlias	.\lib\include\clang-c\Index.h	/^  CXCursor_NamespaceAlias                = 33,$/;"	e	enum:CXCursorKind
+CXCursor_NamespaceRef	.\lib\include\clang-c\Index.h	/^  CXCursor_NamespaceRef                  = 46,$/;"	e	enum:CXCursorKind
+CXCursor_NoDeclFound	.\lib\include\clang-c\Index.h	/^  CXCursor_NoDeclFound                   = 71,$/;"	e	enum:CXCursorKind
+CXCursor_NoDuplicateAttr	.\lib\include\clang-c\Index.h	/^  CXCursor_NoDuplicateAttr               = 411,$/;"	e	enum:CXCursorKind
+CXCursor_NonTypeTemplateParameter	.\lib\include\clang-c\Index.h	/^  CXCursor_NonTypeTemplateParameter      = 28,$/;"	e	enum:CXCursorKind
+CXCursor_NotImplemented	.\lib\include\clang-c\Index.h	/^  CXCursor_NotImplemented                = 72,$/;"	e	enum:CXCursorKind
+CXCursor_NullStmt	.\lib\include\clang-c\Index.h	/^  CXCursor_NullStmt                      = 230,$/;"	e	enum:CXCursorKind
+CXCursor_OMPBarrierDirective	.\lib\include\clang-c\Index.h	/^  CXCursor_OMPBarrierDirective           = 244,$/;"	e	enum:CXCursorKind
+CXCursor_OMPCriticalDirective	.\lib\include\clang-c\Index.h	/^  CXCursor_OMPCriticalDirective          = 242,$/;"	e	enum:CXCursorKind
+CXCursor_OMPFlushDirective	.\lib\include\clang-c\Index.h	/^  CXCursor_OMPFlushDirective             = 246,$/;"	e	enum:CXCursorKind
+CXCursor_OMPForDirective	.\lib\include\clang-c\Index.h	/^  CXCursor_OMPForDirective               = 234,$/;"	e	enum:CXCursorKind
+CXCursor_OMPMasterDirective	.\lib\include\clang-c\Index.h	/^  CXCursor_OMPMasterDirective            = 241,$/;"	e	enum:CXCursorKind
+CXCursor_OMPParallelDirective	.\lib\include\clang-c\Index.h	/^  CXCursor_OMPParallelDirective          = 232,$/;"	e	enum:CXCursorKind
+CXCursor_OMPParallelForDirective	.\lib\include\clang-c\Index.h	/^  CXCursor_OMPParallelForDirective       = 238,$/;"	e	enum:CXCursorKind
+CXCursor_OMPParallelSectionsDirective	.\lib\include\clang-c\Index.h	/^  CXCursor_OMPParallelSectionsDirective  = 239,$/;"	e	enum:CXCursorKind
+CXCursor_OMPSectionDirective	.\lib\include\clang-c\Index.h	/^  CXCursor_OMPSectionDirective           = 236,$/;"	e	enum:CXCursorKind
+CXCursor_OMPSectionsDirective	.\lib\include\clang-c\Index.h	/^  CXCursor_OMPSectionsDirective          = 235,$/;"	e	enum:CXCursorKind
+CXCursor_OMPSimdDirective	.\lib\include\clang-c\Index.h	/^  CXCursor_OMPSimdDirective              = 233,$/;"	e	enum:CXCursorKind
+CXCursor_OMPSingleDirective	.\lib\include\clang-c\Index.h	/^  CXCursor_OMPSingleDirective            = 237,$/;"	e	enum:CXCursorKind
+CXCursor_OMPTaskDirective	.\lib\include\clang-c\Index.h	/^  CXCursor_OMPTaskDirective              = 240,$/;"	e	enum:CXCursorKind
+CXCursor_OMPTaskwaitDirective	.\lib\include\clang-c\Index.h	/^  CXCursor_OMPTaskwaitDirective          = 245,$/;"	e	enum:CXCursorKind
+CXCursor_OMPTaskyieldDirective	.\lib\include\clang-c\Index.h	/^  CXCursor_OMPTaskyieldDirective         = 243,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCAtCatchStmt	.\lib\include\clang-c\Index.h	/^  CXCursor_ObjCAtCatchStmt               = 217,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCAtFinallyStmt	.\lib\include\clang-c\Index.h	/^  CXCursor_ObjCAtFinallyStmt             = 218,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCAtSynchronizedStmt	.\lib\include\clang-c\Index.h	/^  CXCursor_ObjCAtSynchronizedStmt        = 220,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCAtThrowStmt	.\lib\include\clang-c\Index.h	/^  CXCursor_ObjCAtThrowStmt               = 219,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCAtTryStmt	.\lib\include\clang-c\Index.h	/^  CXCursor_ObjCAtTryStmt                 = 216,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCAutoreleasePoolStmt	.\lib\include\clang-c\Index.h	/^  CXCursor_ObjCAutoreleasePoolStmt       = 221,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCBoolLiteralExpr	.\lib\include\clang-c\Index.h	/^  CXCursor_ObjCBoolLiteralExpr           = 145,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCBridgedCastExpr	.\lib\include\clang-c\Index.h	/^  CXCursor_ObjCBridgedCastExpr           = 141,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCCategoryDecl	.\lib\include\clang-c\Index.h	/^  CXCursor_ObjCCategoryDecl              = 12,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCCategoryImplDecl	.\lib\include\clang-c\Index.h	/^  CXCursor_ObjCCategoryImplDecl          = 19,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCClassMethodDecl	.\lib\include\clang-c\Index.h	/^  CXCursor_ObjCClassMethodDecl           = 17,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCClassRef	.\lib\include\clang-c\Index.h	/^  CXCursor_ObjCClassRef                  = 42,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCDynamicDecl	.\lib\include\clang-c\Index.h	/^  CXCursor_ObjCDynamicDecl               = 38,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCEncodeExpr	.\lib\include\clang-c\Index.h	/^  CXCursor_ObjCEncodeExpr                = 138,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCForCollectionStmt	.\lib\include\clang-c\Index.h	/^  CXCursor_ObjCForCollectionStmt         = 222,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCImplementationDecl	.\lib\include\clang-c\Index.h	/^  CXCursor_ObjCImplementationDecl        = 18,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCInstanceMethodDecl	.\lib\include\clang-c\Index.h	/^  CXCursor_ObjCInstanceMethodDecl        = 16,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCInterfaceDecl	.\lib\include\clang-c\Index.h	/^  CXCursor_ObjCInterfaceDecl             = 11,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCIvarDecl	.\lib\include\clang-c\Index.h	/^  CXCursor_ObjCIvarDecl                  = 15,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCMessageExpr	.\lib\include\clang-c\Index.h	/^  CXCursor_ObjCMessageExpr               = 104,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCPropertyDecl	.\lib\include\clang-c\Index.h	/^  CXCursor_ObjCPropertyDecl              = 14,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCProtocolDecl	.\lib\include\clang-c\Index.h	/^  CXCursor_ObjCProtocolDecl              = 13,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCProtocolExpr	.\lib\include\clang-c\Index.h	/^  CXCursor_ObjCProtocolExpr              = 140,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCProtocolRef	.\lib\include\clang-c\Index.h	/^  CXCursor_ObjCProtocolRef               = 41,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCSelectorExpr	.\lib\include\clang-c\Index.h	/^  CXCursor_ObjCSelectorExpr              = 139,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCSelfExpr	.\lib\include\clang-c\Index.h	/^  CXCursor_ObjCSelfExpr                  = 146,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCStringLiteral	.\lib\include\clang-c\Index.h	/^  CXCursor_ObjCStringLiteral             = 137,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCSuperClassRef	.\lib\include\clang-c\Index.h	/^  CXCursor_ObjCSuperClassRef             = 40,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCSynthesizeDecl	.\lib\include\clang-c\Index.h	/^  CXCursor_ObjCSynthesizeDecl            = 37,$/;"	e	enum:CXCursorKind
+CXCursor_OverloadedDeclRef	.\lib\include\clang-c\Index.h	/^  CXCursor_OverloadedDeclRef             = 49,$/;"	e	enum:CXCursorKind
+CXCursor_PackExpansionExpr	.\lib\include\clang-c\Index.h	/^  CXCursor_PackExpansionExpr             = 142,$/;"	e	enum:CXCursorKind
+CXCursor_PackedAttr	.\lib\include\clang-c\Index.h	/^  CXCursor_PackedAttr                    = 408,$/;"	e	enum:CXCursorKind
+CXCursor_ParenExpr	.\lib\include\clang-c\Index.h	/^  CXCursor_ParenExpr                     = 111,$/;"	e	enum:CXCursorKind
+CXCursor_ParmDecl	.\lib\include\clang-c\Index.h	/^  CXCursor_ParmDecl                      = 10,$/;"	e	enum:CXCursorKind
+CXCursor_PreprocessingDirective	.\lib\include\clang-c\Index.h	/^  CXCursor_PreprocessingDirective        = 500,$/;"	e	enum:CXCursorKind
+CXCursor_PureAttr	.\lib\include\clang-c\Index.h	/^  CXCursor_PureAttr                      = 409,$/;"	e	enum:CXCursorKind
+CXCursor_ReturnStmt	.\lib\include\clang-c\Index.h	/^  CXCursor_ReturnStmt                    = 214,$/;"	e	enum:CXCursorKind
+CXCursor_SEHExceptStmt	.\lib\include\clang-c\Index.h	/^  CXCursor_SEHExceptStmt                 = 227,$/;"	e	enum:CXCursorKind
+CXCursor_SEHFinallyStmt	.\lib\include\clang-c\Index.h	/^  CXCursor_SEHFinallyStmt                = 228,$/;"	e	enum:CXCursorKind
+CXCursor_SEHLeaveStmt	.\lib\include\clang-c\Index.h	/^  CXCursor_SEHLeaveStmt                  = 247,$/;"	e	enum:CXCursorKind
+CXCursor_SEHTryStmt	.\lib\include\clang-c\Index.h	/^  CXCursor_SEHTryStmt                    = 226,$/;"	e	enum:CXCursorKind
+CXCursor_SizeOfPackExpr	.\lib\include\clang-c\Index.h	/^  CXCursor_SizeOfPackExpr                = 143,$/;"	e	enum:CXCursorKind
+CXCursor_StmtExpr	.\lib\include\clang-c\Index.h	/^  CXCursor_StmtExpr                      = 121,$/;"	e	enum:CXCursorKind
+CXCursor_StringLiteral	.\lib\include\clang-c\Index.h	/^  CXCursor_StringLiteral                 = 109,$/;"	e	enum:CXCursorKind
+CXCursor_StructDecl	.\lib\include\clang-c\Index.h	/^  CXCursor_StructDecl                    = 2,$/;"	e	enum:CXCursorKind
+CXCursor_SwitchStmt	.\lib\include\clang-c\Index.h	/^  CXCursor_SwitchStmt                    = 206,$/;"	e	enum:CXCursorKind
+CXCursor_TemplateRef	.\lib\include\clang-c\Index.h	/^  CXCursor_TemplateRef                   = 45,$/;"	e	enum:CXCursorKind
+CXCursor_TemplateTemplateParameter	.\lib\include\clang-c\Index.h	/^  CXCursor_TemplateTemplateParameter     = 29,$/;"	e	enum:CXCursorKind
+CXCursor_TemplateTypeParameter	.\lib\include\clang-c\Index.h	/^  CXCursor_TemplateTypeParameter         = 27,$/;"	e	enum:CXCursorKind
+CXCursor_TranslationUnit	.\lib\include\clang-c\Index.h	/^  CXCursor_TranslationUnit               = 300,$/;"	e	enum:CXCursorKind
+CXCursor_TypeAliasDecl	.\lib\include\clang-c\Index.h	/^  CXCursor_TypeAliasDecl                 = 36,$/;"	e	enum:CXCursorKind
+CXCursor_TypeRef	.\lib\include\clang-c\Index.h	/^  CXCursor_TypeRef                       = 43,$/;"	e	enum:CXCursorKind
+CXCursor_TypedefDecl	.\lib\include\clang-c\Index.h	/^  CXCursor_TypedefDecl                   = 20,$/;"	e	enum:CXCursorKind
+CXCursor_UnaryExpr	.\lib\include\clang-c\Index.h	/^  CXCursor_UnaryExpr                     = 136,$/;"	e	enum:CXCursorKind
+CXCursor_UnaryOperator	.\lib\include\clang-c\Index.h	/^  CXCursor_UnaryOperator                 = 112,$/;"	e	enum:CXCursorKind
+CXCursor_UnexposedAttr	.\lib\include\clang-c\Index.h	/^  CXCursor_UnexposedAttr                 = 400,$/;"	e	enum:CXCursorKind
+CXCursor_UnexposedDecl	.\lib\include\clang-c\Index.h	/^  CXCursor_UnexposedDecl                 = 1,$/;"	e	enum:CXCursorKind
+CXCursor_UnexposedExpr	.\lib\include\clang-c\Index.h	/^  CXCursor_UnexposedExpr                 = 100,$/;"	e	enum:CXCursorKind
+CXCursor_UnexposedStmt	.\lib\include\clang-c\Index.h	/^  CXCursor_UnexposedStmt                 = 200,$/;"	e	enum:CXCursorKind
+CXCursor_UnionDecl	.\lib\include\clang-c\Index.h	/^  CXCursor_UnionDecl                     = 3,$/;"	e	enum:CXCursorKind
+CXCursor_UsingDeclaration	.\lib\include\clang-c\Index.h	/^  CXCursor_UsingDeclaration              = 35,$/;"	e	enum:CXCursorKind
+CXCursor_UsingDirective	.\lib\include\clang-c\Index.h	/^  CXCursor_UsingDirective                = 34,$/;"	e	enum:CXCursorKind
+CXCursor_VarDecl	.\lib\include\clang-c\Index.h	/^  CXCursor_VarDecl                       = 9,$/;"	e	enum:CXCursorKind
+CXCursor_VariableRef	.\lib\include\clang-c\Index.h	/^  CXCursor_VariableRef                   = 50,$/;"	e	enum:CXCursorKind
+CXCursor_WhileStmt	.\lib\include\clang-c\Index.h	/^  CXCursor_WhileStmt                     = 207,$/;"	e	enum:CXCursorKind
+CXDiagnostic	.\lib\include\clang-c\Index.h	/^typedef void *CXDiagnostic;$/;"	t
+CXDiagnosticDisplayOptions	.\lib\include\clang-c\Index.h	/^enum CXDiagnosticDisplayOptions {$/;"	g
+CXDiagnosticSet	.\cc.py	/^class CXDiagnosticSet(Structure):$/;"	c
+CXDiagnosticSet	.\lib\include\clang-c\Index.h	/^typedef void *CXDiagnosticSet;$/;"	t
+CXDiagnosticSeverity	.\lib\include\clang-c\Index.h	/^enum CXDiagnosticSeverity {$/;"	g
+CXDiagnostic_DisplayCategoryId	.\lib\include\clang-c\Index.h	/^  CXDiagnostic_DisplayCategoryId = 0x10,$/;"	e	enum:CXDiagnosticDisplayOptions
+CXDiagnostic_DisplayCategoryName	.\lib\include\clang-c\Index.h	/^  CXDiagnostic_DisplayCategoryName = 0x20$/;"	e	enum:CXDiagnosticDisplayOptions
+CXDiagnostic_DisplayColumn	.\lib\include\clang-c\Index.h	/^  CXDiagnostic_DisplayColumn = 0x02,$/;"	e	enum:CXDiagnosticDisplayOptions
+CXDiagnostic_DisplayOption	.\lib\include\clang-c\Index.h	/^  CXDiagnostic_DisplayOption = 0x08,$/;"	e	enum:CXDiagnosticDisplayOptions
+CXDiagnostic_DisplaySourceLocation	.\lib\include\clang-c\Index.h	/^  CXDiagnostic_DisplaySourceLocation = 0x01,$/;"	e	enum:CXDiagnosticDisplayOptions
+CXDiagnostic_DisplaySourceRanges	.\lib\include\clang-c\Index.h	/^  CXDiagnostic_DisplaySourceRanges = 0x04,$/;"	e	enum:CXDiagnosticDisplayOptions
+CXDiagnostic_Error	.\lib\include\clang-c\Index.h	/^  CXDiagnostic_Error   = 3,$/;"	e	enum:CXDiagnosticSeverity
+CXDiagnostic_Fatal	.\lib\include\clang-c\Index.h	/^  CXDiagnostic_Fatal   = 4$/;"	e	enum:CXDiagnosticSeverity
+CXDiagnostic_Ignored	.\lib\include\clang-c\Index.h	/^  CXDiagnostic_Ignored = 0,$/;"	e	enum:CXDiagnosticSeverity
+CXDiagnostic_Note	.\lib\include\clang-c\Index.h	/^  CXDiagnostic_Note    = 1,$/;"	e	enum:CXDiagnosticSeverity
+CXDiagnostic_Warning	.\lib\include\clang-c\Index.h	/^  CXDiagnostic_Warning = 2,$/;"	e	enum:CXDiagnosticSeverity
+CXErrorCode	.\lib\include\clang-c\CXErrorCode.h	/^enum CXErrorCode {$/;"	g
+CXError_ASTReadError	.\lib\include\clang-c\CXErrorCode.h	/^  CXError_ASTReadError = 4$/;"	e	enum:CXErrorCode
+CXError_Crashed	.\lib\include\clang-c\CXErrorCode.h	/^  CXError_Crashed = 2,$/;"	e	enum:CXErrorCode
+CXError_Failure	.\lib\include\clang-c\CXErrorCode.h	/^  CXError_Failure = 1,$/;"	e	enum:CXErrorCode
+CXError_InvalidArguments	.\lib\include\clang-c\CXErrorCode.h	/^  CXError_InvalidArguments = 3,$/;"	e	enum:CXErrorCode
+CXError_Success	.\lib\include\clang-c\CXErrorCode.h	/^  CXError_Success = 0,$/;"	e	enum:CXErrorCode
+CXFile	.\lib\include\clang-c\Index.h	/^typedef void *CXFile;$/;"	t
+CXFileUniqueID	.\lib\include\clang-c\Index.h	/^} CXFileUniqueID;$/;"	t	typeref:struct:__anon5
+CXGlobalOptFlags	.\lib\include\clang-c\Index.h	/^} CXGlobalOptFlags;$/;"	t	typeref:enum:__anon4
+CXGlobalOpt_None	.\lib\include\clang-c\Index.h	/^  CXGlobalOpt_None = 0x0,$/;"	e	enum:__anon4
+CXGlobalOpt_ThreadBackgroundPriorityForAll	.\lib\include\clang-c\Index.h	/^  CXGlobalOpt_ThreadBackgroundPriorityForAll =$/;"	e	enum:__anon4
+CXGlobalOpt_ThreadBackgroundPriorityForEditing	.\lib\include\clang-c\Index.h	/^  CXGlobalOpt_ThreadBackgroundPriorityForEditing = 0x2,$/;"	e	enum:__anon4
+CXGlobalOpt_ThreadBackgroundPriorityForIndexing	.\lib\include\clang-c\Index.h	/^  CXGlobalOpt_ThreadBackgroundPriorityForIndexing = 0x1,$/;"	e	enum:__anon4
+CXIdxAttrInfo	.\lib\include\clang-c\Index.h	/^} CXIdxAttrInfo;$/;"	t	typeref:struct:__anon25
+CXIdxAttrKind	.\lib\include\clang-c\Index.h	/^} CXIdxAttrKind;$/;"	t	typeref:enum:__anon24
+CXIdxAttr_IBAction	.\lib\include\clang-c\Index.h	/^  CXIdxAttr_IBAction      = 1,$/;"	e	enum:__anon24
+CXIdxAttr_IBOutlet	.\lib\include\clang-c\Index.h	/^  CXIdxAttr_IBOutlet      = 2,$/;"	e	enum:__anon24
+CXIdxAttr_IBOutletCollection	.\lib\include\clang-c\Index.h	/^  CXIdxAttr_IBOutletCollection = 3$/;"	e	enum:__anon24
+CXIdxAttr_Unexposed	.\lib\include\clang-c\Index.h	/^  CXIdxAttr_Unexposed     = 0,$/;"	e	enum:__anon24
+CXIdxBaseClassInfo	.\lib\include\clang-c\Index.h	/^} CXIdxBaseClassInfo;$/;"	t	typeref:struct:__anon33
+CXIdxCXXClassDeclInfo	.\lib\include\clang-c\Index.h	/^} CXIdxCXXClassDeclInfo;$/;"	t	typeref:struct:__anon39
+CXIdxClientASTFile	.\lib\include\clang-c\Index.h	/^typedef void *CXIdxClientASTFile;$/;"	t
+CXIdxClientContainer	.\lib\include\clang-c\Index.h	/^typedef void *CXIdxClientContainer;$/;"	t
+CXIdxClientEntity	.\lib\include\clang-c\Index.h	/^typedef void *CXIdxClientEntity;$/;"	t
+CXIdxClientFile	.\lib\include\clang-c\Index.h	/^typedef void *CXIdxClientFile;$/;"	t
+CXIdxContainerInfo	.\lib\include\clang-c\Index.h	/^} CXIdxContainerInfo;$/;"	t	typeref:struct:__anon27
+CXIdxDeclFlag_Skipped	.\lib\include\clang-c\Index.h	/^  CXIdxDeclFlag_Skipped = 0x1$/;"	e	enum:__anon29
+CXIdxDeclInfo	.\lib\include\clang-c\Index.h	/^} CXIdxDeclInfo;$/;"	t	typeref:struct:__anon30
+CXIdxDeclInfoFlags	.\lib\include\clang-c\Index.h	/^} CXIdxDeclInfoFlags;$/;"	t	typeref:enum:__anon29
+CXIdxEntityCXXTemplateKind	.\lib\include\clang-c\Index.h	/^} CXIdxEntityCXXTemplateKind;$/;"	t	typeref:enum:__anon23
+CXIdxEntityInfo	.\lib\include\clang-c\Index.h	/^} CXIdxEntityInfo;$/;"	t	typeref:struct:__anon26
+CXIdxEntityKind	.\lib\include\clang-c\Index.h	/^} CXIdxEntityKind;$/;"	t	typeref:enum:__anon21
+CXIdxEntityLang_C	.\lib\include\clang-c\Index.h	/^  CXIdxEntityLang_C    = 1,$/;"	e	enum:__anon22
+CXIdxEntityLang_CXX	.\lib\include\clang-c\Index.h	/^  CXIdxEntityLang_CXX  = 3$/;"	e	enum:__anon22
+CXIdxEntityLang_None	.\lib\include\clang-c\Index.h	/^  CXIdxEntityLang_None = 0,$/;"	e	enum:__anon22
+CXIdxEntityLang_ObjC	.\lib\include\clang-c\Index.h	/^  CXIdxEntityLang_ObjC = 2,$/;"	e	enum:__anon22
+CXIdxEntityLanguage	.\lib\include\clang-c\Index.h	/^} CXIdxEntityLanguage;$/;"	t	typeref:enum:__anon22
+CXIdxEntityRefInfo	.\lib\include\clang-c\Index.h	/^} CXIdxEntityRefInfo;$/;"	t	typeref:struct:__anon41
+CXIdxEntityRefKind	.\lib\include\clang-c\Index.h	/^} CXIdxEntityRefKind;$/;"	t	typeref:enum:__anon40
+CXIdxEntityRef_Direct	.\lib\include\clang-c\Index.h	/^  CXIdxEntityRef_Direct = 1,$/;"	e	enum:__anon40
+CXIdxEntityRef_Implicit	.\lib\include\clang-c\Index.h	/^  CXIdxEntityRef_Implicit = 2$/;"	e	enum:__anon40
+CXIdxEntity_CXXClass	.\lib\include\clang-c\Index.h	/^  CXIdxEntity_CXXClass              = 16,$/;"	e	enum:__anon21
+CXIdxEntity_CXXConstructor	.\lib\include\clang-c\Index.h	/^  CXIdxEntity_CXXConstructor        = 22,$/;"	e	enum:__anon21
+CXIdxEntity_CXXConversionFunction	.\lib\include\clang-c\Index.h	/^  CXIdxEntity_CXXConversionFunction = 24,$/;"	e	enum:__anon21
+CXIdxEntity_CXXDestructor	.\lib\include\clang-c\Index.h	/^  CXIdxEntity_CXXDestructor         = 23,$/;"	e	enum:__anon21
+CXIdxEntity_CXXInstanceMethod	.\lib\include\clang-c\Index.h	/^  CXIdxEntity_CXXInstanceMethod     = 21,$/;"	e	enum:__anon21
+CXIdxEntity_CXXInterface	.\lib\include\clang-c\Index.h	/^  CXIdxEntity_CXXInterface          = 26$/;"	e	enum:__anon21
+CXIdxEntity_CXXNamespace	.\lib\include\clang-c\Index.h	/^  CXIdxEntity_CXXNamespace          = 17,$/;"	e	enum:__anon21
+CXIdxEntity_CXXNamespaceAlias	.\lib\include\clang-c\Index.h	/^  CXIdxEntity_CXXNamespaceAlias     = 18,$/;"	e	enum:__anon21
+CXIdxEntity_CXXStaticMethod	.\lib\include\clang-c\Index.h	/^  CXIdxEntity_CXXStaticMethod       = 20,$/;"	e	enum:__anon21
+CXIdxEntity_CXXStaticVariable	.\lib\include\clang-c\Index.h	/^  CXIdxEntity_CXXStaticVariable     = 19,$/;"	e	enum:__anon21
+CXIdxEntity_CXXTypeAlias	.\lib\include\clang-c\Index.h	/^  CXIdxEntity_CXXTypeAlias          = 25,$/;"	e	enum:__anon21
+CXIdxEntity_Enum	.\lib\include\clang-c\Index.h	/^  CXIdxEntity_Enum          = 13,$/;"	e	enum:__anon21
+CXIdxEntity_EnumConstant	.\lib\include\clang-c\Index.h	/^  CXIdxEntity_EnumConstant  = 5,$/;"	e	enum:__anon21
+CXIdxEntity_Field	.\lib\include\clang-c\Index.h	/^  CXIdxEntity_Field         = 4,$/;"	e	enum:__anon21
+CXIdxEntity_Function	.\lib\include\clang-c\Index.h	/^  CXIdxEntity_Function      = 2,$/;"	e	enum:__anon21
+CXIdxEntity_NonTemplate	.\lib\include\clang-c\Index.h	/^  CXIdxEntity_NonTemplate   = 0,$/;"	e	enum:__anon23
+CXIdxEntity_ObjCCategory	.\lib\include\clang-c\Index.h	/^  CXIdxEntity_ObjCCategory  = 8,$/;"	e	enum:__anon21
+CXIdxEntity_ObjCClass	.\lib\include\clang-c\Index.h	/^  CXIdxEntity_ObjCClass     = 6,$/;"	e	enum:__anon21
+CXIdxEntity_ObjCClassMethod	.\lib\include\clang-c\Index.h	/^  CXIdxEntity_ObjCClassMethod    = 10,$/;"	e	enum:__anon21
+CXIdxEntity_ObjCInstanceMethod	.\lib\include\clang-c\Index.h	/^  CXIdxEntity_ObjCInstanceMethod = 9,$/;"	e	enum:__anon21
+CXIdxEntity_ObjCIvar	.\lib\include\clang-c\Index.h	/^  CXIdxEntity_ObjCIvar      = 12,$/;"	e	enum:__anon21
+CXIdxEntity_ObjCProperty	.\lib\include\clang-c\Index.h	/^  CXIdxEntity_ObjCProperty  = 11,$/;"	e	enum:__anon21
+CXIdxEntity_ObjCProtocol	.\lib\include\clang-c\Index.h	/^  CXIdxEntity_ObjCProtocol  = 7,$/;"	e	enum:__anon21
+CXIdxEntity_Struct	.\lib\include\clang-c\Index.h	/^  CXIdxEntity_Struct        = 14,$/;"	e	enum:__anon21
+CXIdxEntity_Template	.\lib\include\clang-c\Index.h	/^  CXIdxEntity_Template      = 1,$/;"	e	enum:__anon23
+CXIdxEntity_TemplatePartialSpecialization	.\lib\include\clang-c\Index.h	/^  CXIdxEntity_TemplatePartialSpecialization = 2,$/;"	e	enum:__anon23
+CXIdxEntity_TemplateSpecialization	.\lib\include\clang-c\Index.h	/^  CXIdxEntity_TemplateSpecialization = 3$/;"	e	enum:__anon23
+CXIdxEntity_Typedef	.\lib\include\clang-c\Index.h	/^  CXIdxEntity_Typedef       = 1,$/;"	e	enum:__anon21
+CXIdxEntity_Unexposed	.\lib\include\clang-c\Index.h	/^  CXIdxEntity_Unexposed     = 0,$/;"	e	enum:__anon21
+CXIdxEntity_Union	.\lib\include\clang-c\Index.h	/^  CXIdxEntity_Union         = 15,$/;"	e	enum:__anon21
+CXIdxEntity_Variable	.\lib\include\clang-c\Index.h	/^  CXIdxEntity_Variable      = 3,$/;"	e	enum:__anon21
+CXIdxIBOutletCollectionAttrInfo	.\lib\include\clang-c\Index.h	/^} CXIdxIBOutletCollectionAttrInfo;$/;"	t	typeref:struct:__anon28
+CXIdxImportedASTFileInfo	.\lib\include\clang-c\Index.h	/^} CXIdxImportedASTFileInfo;$/;"	t	typeref:struct:__anon20
+CXIdxIncludedFileInfo	.\lib\include\clang-c\Index.h	/^} CXIdxIncludedFileInfo;$/;"	t	typeref:struct:__anon19
+CXIdxLoc	.\lib\include\clang-c\Index.h	/^} CXIdxLoc;$/;"	t	typeref:struct:__anon18
+CXIdxObjCCategoryDeclInfo	.\lib\include\clang-c\Index.h	/^} CXIdxObjCCategoryDeclInfo;$/;"	t	typeref:struct:__anon37
+CXIdxObjCContainerDeclInfo	.\lib\include\clang-c\Index.h	/^} CXIdxObjCContainerDeclInfo;$/;"	t	typeref:struct:__anon32
+CXIdxObjCContainerKind	.\lib\include\clang-c\Index.h	/^} CXIdxObjCContainerKind;$/;"	t	typeref:enum:__anon31
+CXIdxObjCContainer_ForwardRef	.\lib\include\clang-c\Index.h	/^  CXIdxObjCContainer_ForwardRef = 0,$/;"	e	enum:__anon31
+CXIdxObjCContainer_Implementation	.\lib\include\clang-c\Index.h	/^  CXIdxObjCContainer_Implementation = 2$/;"	e	enum:__anon31
+CXIdxObjCContainer_Interface	.\lib\include\clang-c\Index.h	/^  CXIdxObjCContainer_Interface = 1,$/;"	e	enum:__anon31
+CXIdxObjCInterfaceDeclInfo	.\lib\include\clang-c\Index.h	/^} CXIdxObjCInterfaceDeclInfo;$/;"	t	typeref:struct:__anon36
+CXIdxObjCPropertyDeclInfo	.\lib\include\clang-c\Index.h	/^} CXIdxObjCPropertyDeclInfo;$/;"	t	typeref:struct:__anon38
+CXIdxObjCProtocolRefInfo	.\lib\include\clang-c\Index.h	/^} CXIdxObjCProtocolRefInfo;$/;"	t	typeref:struct:__anon34
+CXIdxObjCProtocolRefListInfo	.\lib\include\clang-c\Index.h	/^} CXIdxObjCProtocolRefListInfo;$/;"	t	typeref:struct:__anon35
+CXInclusionVisitor	.\lib\include\clang-c\Index.h	/^typedef void (*CXInclusionVisitor)(CXFile included_file,$/;"	t
+CXIndex	.\lib\include\clang-c\Index.h	/^typedef void *CXIndex;$/;"	t
+CXIndexAction	.\lib\include\clang-c\Index.h	/^typedef void *CXIndexAction;$/;"	t
+CXIndexOptFlags	.\lib\include\clang-c\Index.h	/^} CXIndexOptFlags;$/;"	t	typeref:enum:__anon43
+CXIndexOpt_IndexFunctionLocalSymbols	.\lib\include\clang-c\Index.h	/^  CXIndexOpt_IndexFunctionLocalSymbols = 0x2,$/;"	e	enum:__anon43
+CXIndexOpt_IndexImplicitTemplateInstantiations	.\lib\include\clang-c\Index.h	/^  CXIndexOpt_IndexImplicitTemplateInstantiations = 0x4,$/;"	e	enum:__anon43
+CXIndexOpt_None	.\lib\include\clang-c\Index.h	/^  CXIndexOpt_None = 0x0,$/;"	e	enum:__anon43
+CXIndexOpt_SkipParsedBodiesInSession	.\lib\include\clang-c\Index.h	/^  CXIndexOpt_SkipParsedBodiesInSession = 0x10$/;"	e	enum:__anon43
+CXIndexOpt_SuppressRedundantRefs	.\lib\include\clang-c\Index.h	/^  CXIndexOpt_SuppressRedundantRefs = 0x1,$/;"	e	enum:__anon43
+CXIndexOpt_SuppressWarnings	.\lib\include\clang-c\Index.h	/^  CXIndexOpt_SuppressWarnings = 0x8,$/;"	e	enum:__anon43
+CXLanguageKind	.\lib\include\clang-c\Index.h	/^enum CXLanguageKind {$/;"	g
+CXLanguage_C	.\lib\include\clang-c\Index.h	/^  CXLanguage_C,$/;"	e	enum:CXLanguageKind
+CXLanguage_CPlusPlus	.\lib\include\clang-c\Index.h	/^  CXLanguage_CPlusPlus$/;"	e	enum:CXLanguageKind
+CXLanguage_Invalid	.\lib\include\clang-c\Index.h	/^  CXLanguage_Invalid = 0,$/;"	e	enum:CXLanguageKind
+CXLanguage_ObjC	.\lib\include\clang-c\Index.h	/^  CXLanguage_ObjC,$/;"	e	enum:CXLanguageKind
+CXLinkageKind	.\lib\include\clang-c\Index.h	/^enum CXLinkageKind {$/;"	g
+CXLinkage_External	.\lib\include\clang-c\Index.h	/^  CXLinkage_External$/;"	e	enum:CXLinkageKind
+CXLinkage_Internal	.\lib\include\clang-c\Index.h	/^  CXLinkage_Internal,$/;"	e	enum:CXLinkageKind
+CXLinkage_Invalid	.\lib\include\clang-c\Index.h	/^  CXLinkage_Invalid,$/;"	e	enum:CXLinkageKind
+CXLinkage_NoLinkage	.\lib\include\clang-c\Index.h	/^  CXLinkage_NoLinkage,$/;"	e	enum:CXLinkageKind
+CXLinkage_UniqueExternal	.\lib\include\clang-c\Index.h	/^  CXLinkage_UniqueExternal,$/;"	e	enum:CXLinkageKind
+CXLoadDiag_CannotLoad	.\lib\include\clang-c\Index.h	/^  CXLoadDiag_CannotLoad = 2,$/;"	e	enum:CXLoadDiag_Error
+CXLoadDiag_Error	.\lib\include\clang-c\Index.h	/^enum CXLoadDiag_Error {$/;"	g
+CXLoadDiag_InvalidFile	.\lib\include\clang-c\Index.h	/^  CXLoadDiag_InvalidFile = 3$/;"	e	enum:CXLoadDiag_Error
+CXLoadDiag_None	.\lib\include\clang-c\Index.h	/^  CXLoadDiag_None = 0,$/;"	e	enum:CXLoadDiag_Error
+CXLoadDiag_Unknown	.\lib\include\clang-c\Index.h	/^  CXLoadDiag_Unknown = 1,$/;"	e	enum:CXLoadDiag_Error
+CXModule	.\lib\include\clang-c\Index.h	/^typedef void *CXModule;$/;"	t
+CXModuleMapDescriptor	.\lib\include\clang-c\BuildSystem.h	/^typedef struct CXModuleMapDescriptorImpl *CXModuleMapDescriptor;$/;"	t	typeref:struct:CXModuleMapDescriptorImpl
+CXNameRange_WantQualifier	.\lib\include\clang-c\Index.h	/^  CXNameRange_WantQualifier = 0x1,$/;"	e	enum:CXNameRefFlags
+CXNameRange_WantSinglePiece	.\lib\include\clang-c\Index.h	/^  CXNameRange_WantSinglePiece = 0x4$/;"	e	enum:CXNameRefFlags
+CXNameRange_WantTemplateArgs	.\lib\include\clang-c\Index.h	/^  CXNameRange_WantTemplateArgs = 0x2,$/;"	e	enum:CXNameRefFlags
+CXNameRefFlags	.\lib\include\clang-c\Index.h	/^enum CXNameRefFlags {$/;"	g
+CXObjCDeclQualifierKind	.\lib\include\clang-c\Index.h	/^} CXObjCDeclQualifierKind;$/;"	t	typeref:enum:__anon12
+CXObjCDeclQualifier_Bycopy	.\lib\include\clang-c\Index.h	/^  CXObjCDeclQualifier_Bycopy = 0x8,$/;"	e	enum:__anon12
+CXObjCDeclQualifier_Byref	.\lib\include\clang-c\Index.h	/^  CXObjCDeclQualifier_Byref = 0x10,$/;"	e	enum:__anon12
+CXObjCDeclQualifier_In	.\lib\include\clang-c\Index.h	/^  CXObjCDeclQualifier_In = 0x1,$/;"	e	enum:__anon12
+CXObjCDeclQualifier_Inout	.\lib\include\clang-c\Index.h	/^  CXObjCDeclQualifier_Inout = 0x2,$/;"	e	enum:__anon12
+CXObjCDeclQualifier_None	.\lib\include\clang-c\Index.h	/^  CXObjCDeclQualifier_None = 0x0,$/;"	e	enum:__anon12
+CXObjCDeclQualifier_Oneway	.\lib\include\clang-c\Index.h	/^  CXObjCDeclQualifier_Oneway = 0x20$/;"	e	enum:__anon12
+CXObjCDeclQualifier_Out	.\lib\include\clang-c\Index.h	/^  CXObjCDeclQualifier_Out = 0x4,$/;"	e	enum:__anon12
+CXObjCPropertyAttrKind	.\lib\include\clang-c\Index.h	/^} CXObjCPropertyAttrKind;$/;"	t	typeref:enum:__anon11
+CXObjCPropertyAttr_assign	.\lib\include\clang-c\Index.h	/^  CXObjCPropertyAttr_assign    = 0x04,$/;"	e	enum:__anon11
+CXObjCPropertyAttr_atomic	.\lib\include\clang-c\Index.h	/^  CXObjCPropertyAttr_atomic    = 0x100,$/;"	e	enum:__anon11
+CXObjCPropertyAttr_copy	.\lib\include\clang-c\Index.h	/^  CXObjCPropertyAttr_copy      = 0x20,$/;"	e	enum:__anon11
+CXObjCPropertyAttr_getter	.\lib\include\clang-c\Index.h	/^  CXObjCPropertyAttr_getter    = 0x02,$/;"	e	enum:__anon11
+CXObjCPropertyAttr_noattr	.\lib\include\clang-c\Index.h	/^  CXObjCPropertyAttr_noattr    = 0x00,$/;"	e	enum:__anon11
+CXObjCPropertyAttr_nonatomic	.\lib\include\clang-c\Index.h	/^  CXObjCPropertyAttr_nonatomic = 0x40,$/;"	e	enum:__anon11
+CXObjCPropertyAttr_readonly	.\lib\include\clang-c\Index.h	/^  CXObjCPropertyAttr_readonly  = 0x01,$/;"	e	enum:__anon11
+CXObjCPropertyAttr_readwrite	.\lib\include\clang-c\Index.h	/^  CXObjCPropertyAttr_readwrite = 0x08,$/;"	e	enum:__anon11
+CXObjCPropertyAttr_retain	.\lib\include\clang-c\Index.h	/^  CXObjCPropertyAttr_retain    = 0x10,$/;"	e	enum:__anon11
+CXObjCPropertyAttr_setter	.\lib\include\clang-c\Index.h	/^  CXObjCPropertyAttr_setter    = 0x80,$/;"	e	enum:__anon11
+CXObjCPropertyAttr_strong	.\lib\include\clang-c\Index.h	/^  CXObjCPropertyAttr_strong    = 0x400,$/;"	e	enum:__anon11
+CXObjCPropertyAttr_unsafe_unretained	.\lib\include\clang-c\Index.h	/^  CXObjCPropertyAttr_unsafe_unretained = 0x800$/;"	e	enum:__anon11
+CXObjCPropertyAttr_weak	.\lib\include\clang-c\Index.h	/^  CXObjCPropertyAttr_weak      = 0x200,$/;"	e	enum:__anon11
+CXPlatformAvailability	.\lib\include\clang-c\Index.h	/^typedef struct CXPlatformAvailability {$/;"	s
+CXPlatformAvailability	.\lib\include\clang-c\Index.h	/^} CXPlatformAvailability;$/;"	t	typeref:struct:CXPlatformAvailability
+CXRefQualifierKind	.\lib\include\clang-c\Index.h	/^enum CXRefQualifierKind {$/;"	g
+CXRefQualifier_LValue	.\lib\include\clang-c\Index.h	/^  CXRefQualifier_LValue,$/;"	e	enum:CXRefQualifierKind
+CXRefQualifier_None	.\lib\include\clang-c\Index.h	/^  CXRefQualifier_None = 0,$/;"	e	enum:CXRefQualifierKind
+CXRefQualifier_RValue	.\lib\include\clang-c\Index.h	/^  CXRefQualifier_RValue$/;"	e	enum:CXRefQualifierKind
+CXRemapping	.\lib\include\clang-c\Index.h	/^typedef void *CXRemapping;$/;"	t
+CXReparse_Flags	.\lib\include\clang-c\Index.h	/^enum CXReparse_Flags {$/;"	g
+CXReparse_None	.\lib\include\clang-c\Index.h	/^  CXReparse_None = 0x0$/;"	e	enum:CXReparse_Flags
+CXResult	.\lib\include\clang-c\Index.h	/^} CXResult;$/;"	t	typeref:enum:__anon17
+CXResult_Invalid	.\lib\include\clang-c\Index.h	/^  CXResult_Invalid = 1,$/;"	e	enum:__anon17
+CXResult_Success	.\lib\include\clang-c\Index.h	/^  CXResult_Success = 0,$/;"	e	enum:__anon17
+CXResult_VisitBreak	.\lib\include\clang-c\Index.h	/^  CXResult_VisitBreak = 2$/;"	e	enum:__anon17
+CXSaveError	.\lib\include\clang-c\Index.h	/^enum CXSaveError {$/;"	g
+CXSaveError_InvalidTU	.\lib\include\clang-c\Index.h	/^  CXSaveError_InvalidTU = 3$/;"	e	enum:CXSaveError
+CXSaveError_None	.\lib\include\clang-c\Index.h	/^  CXSaveError_None = 0,$/;"	e	enum:CXSaveError
+CXSaveError_TranslationErrors	.\lib\include\clang-c\Index.h	/^  CXSaveError_TranslationErrors = 2,$/;"	e	enum:CXSaveError
+CXSaveError_Unknown	.\lib\include\clang-c\Index.h	/^  CXSaveError_Unknown = 1,$/;"	e	enum:CXSaveError
+CXSaveTranslationUnit_Flags	.\lib\include\clang-c\Index.h	/^enum CXSaveTranslationUnit_Flags {$/;"	g
+CXSaveTranslationUnit_None	.\lib\include\clang-c\Index.h	/^  CXSaveTranslationUnit_None = 0x0$/;"	e	enum:CXSaveTranslationUnit_Flags
+CXSourceLocation	.\lib\include\clang-c\Index.h	/^} CXSourceLocation;$/;"	t	typeref:struct:__anon6
+CXSourceRange	.\lib\include\clang-c\Index.h	/^} CXSourceRange;$/;"	t	typeref:struct:__anon7
+CXSourceRangeList	.\lib\include\clang-c\Index.h	/^} CXSourceRangeList;$/;"	t	typeref:struct:__anon8
+CXString	.\lib\include\clang-c\CXString.h	/^} CXString;$/;"	t	typeref:struct:__anon2
+CXTUResourceUsage	.\lib\include\clang-c\Index.h	/^typedef struct CXTUResourceUsage {$/;"	s
+CXTUResourceUsage	.\lib\include\clang-c\Index.h	/^} CXTUResourceUsage;$/;"	t	typeref:struct:CXTUResourceUsage
+CXTUResourceUsageEntry	.\lib\include\clang-c\Index.h	/^typedef struct CXTUResourceUsageEntry {$/;"	s
+CXTUResourceUsageEntry	.\lib\include\clang-c\Index.h	/^} CXTUResourceUsageEntry;$/;"	t	typeref:struct:CXTUResourceUsageEntry
+CXTUResourceUsageKind	.\lib\include\clang-c\Index.h	/^enum CXTUResourceUsageKind {$/;"	g
+CXTUResourceUsage_AST	.\lib\include\clang-c\Index.h	/^  CXTUResourceUsage_AST = 1,$/;"	e	enum:CXTUResourceUsageKind
+CXTUResourceUsage_AST_SideTables	.\lib\include\clang-c\Index.h	/^  CXTUResourceUsage_AST_SideTables = 6,$/;"	e	enum:CXTUResourceUsageKind
+CXTUResourceUsage_ExternalASTSource_Membuffer_MMap	.\lib\include\clang-c\Index.h	/^  CXTUResourceUsage_ExternalASTSource_Membuffer_MMap = 10, $/;"	e	enum:CXTUResourceUsageKind
+CXTUResourceUsage_ExternalASTSource_Membuffer_Malloc	.\lib\include\clang-c\Index.h	/^  CXTUResourceUsage_ExternalASTSource_Membuffer_Malloc = 9, $/;"	e	enum:CXTUResourceUsageKind
+CXTUResourceUsage_First	.\lib\include\clang-c\Index.h	/^  CXTUResourceUsage_First = CXTUResourceUsage_AST,$/;"	e	enum:CXTUResourceUsageKind
+CXTUResourceUsage_GlobalCompletionResults	.\lib\include\clang-c\Index.h	/^  CXTUResourceUsage_GlobalCompletionResults = 4,$/;"	e	enum:CXTUResourceUsageKind
+CXTUResourceUsage_Identifiers	.\lib\include\clang-c\Index.h	/^  CXTUResourceUsage_Identifiers = 2,$/;"	e	enum:CXTUResourceUsageKind
+CXTUResourceUsage_Last	.\lib\include\clang-c\Index.h	/^  CXTUResourceUsage_Last = CXTUResourceUsage_Preprocessor_HeaderSearch$/;"	e	enum:CXTUResourceUsageKind
+CXTUResourceUsage_MEMORY_IN_BYTES_BEGIN	.\lib\include\clang-c\Index.h	/^  CXTUResourceUsage_MEMORY_IN_BYTES_BEGIN = CXTUResourceUsage_AST,$/;"	e	enum:CXTUResourceUsageKind
+CXTUResourceUsage_MEMORY_IN_BYTES_END	.\lib\include\clang-c\Index.h	/^  CXTUResourceUsage_MEMORY_IN_BYTES_END =$/;"	e	enum:CXTUResourceUsageKind
+CXTUResourceUsage_PreprocessingRecord	.\lib\include\clang-c\Index.h	/^  CXTUResourceUsage_PreprocessingRecord = 12,$/;"	e	enum:CXTUResourceUsageKind
+CXTUResourceUsage_Preprocessor	.\lib\include\clang-c\Index.h	/^  CXTUResourceUsage_Preprocessor = 11,$/;"	e	enum:CXTUResourceUsageKind
+CXTUResourceUsage_Preprocessor_HeaderSearch	.\lib\include\clang-c\Index.h	/^  CXTUResourceUsage_Preprocessor_HeaderSearch = 14,$/;"	e	enum:CXTUResourceUsageKind
+CXTUResourceUsage_Selectors	.\lib\include\clang-c\Index.h	/^  CXTUResourceUsage_Selectors = 3,$/;"	e	enum:CXTUResourceUsageKind
+CXTUResourceUsage_SourceManagerContentCache	.\lib\include\clang-c\Index.h	/^  CXTUResourceUsage_SourceManagerContentCache = 5,$/;"	e	enum:CXTUResourceUsageKind
+CXTUResourceUsage_SourceManager_DataStructures	.\lib\include\clang-c\Index.h	/^  CXTUResourceUsage_SourceManager_DataStructures = 13,$/;"	e	enum:CXTUResourceUsageKind
+CXTUResourceUsage_SourceManager_Membuffer_MMap	.\lib\include\clang-c\Index.h	/^  CXTUResourceUsage_SourceManager_Membuffer_MMap = 8,$/;"	e	enum:CXTUResourceUsageKind
+CXTUResourceUsage_SourceManager_Membuffer_Malloc	.\lib\include\clang-c\Index.h	/^  CXTUResourceUsage_SourceManager_Membuffer_Malloc = 7,$/;"	e	enum:CXTUResourceUsageKind
+CXToken	.\lib\include\clang-c\Index.h	/^} CXToken;$/;"	t	typeref:struct:__anon13
+CXTokenKind	.\lib\include\clang-c\Index.h	/^typedef enum CXTokenKind {$/;"	g
+CXTokenKind	.\lib\include\clang-c\Index.h	/^} CXTokenKind;$/;"	t	typeref:enum:CXTokenKind
+CXToken_Comment	.\lib\include\clang-c\Index.h	/^  CXToken_Comment$/;"	e	enum:CXTokenKind
+CXToken_Identifier	.\lib\include\clang-c\Index.h	/^  CXToken_Identifier,$/;"	e	enum:CXTokenKind
+CXToken_Keyword	.\lib\include\clang-c\Index.h	/^  CXToken_Keyword,$/;"	e	enum:CXTokenKind
+CXToken_Literal	.\lib\include\clang-c\Index.h	/^  CXToken_Literal,$/;"	e	enum:CXTokenKind
+CXToken_Punctuation	.\lib\include\clang-c\Index.h	/^  CXToken_Punctuation,$/;"	e	enum:CXTokenKind
+CXTranslationUnit	.\lib\include\clang-c\Index.h	/^typedef struct CXTranslationUnitImpl *CXTranslationUnit;$/;"	t	typeref:struct:CXTranslationUnitImpl
+CXTranslationUnit_CXXChainedPCH	.\lib\include\clang-c\Index.h	/^  CXTranslationUnit_CXXChainedPCH = 0x20,$/;"	e	enum:CXTranslationUnit_Flags
+CXTranslationUnit_CacheCompletionResults	.\lib\include\clang-c\Index.h	/^  CXTranslationUnit_CacheCompletionResults = 0x08,$/;"	e	enum:CXTranslationUnit_Flags
+CXTranslationUnit_DetailedPreprocessingRecord	.\lib\include\clang-c\Index.h	/^  CXTranslationUnit_DetailedPreprocessingRecord = 0x01,$/;"	e	enum:CXTranslationUnit_Flags
+CXTranslationUnit_Flags	.\lib\include\clang-c\Index.h	/^enum CXTranslationUnit_Flags {$/;"	g
+CXTranslationUnit_ForSerialization	.\lib\include\clang-c\Index.h	/^  CXTranslationUnit_ForSerialization = 0x10,$/;"	e	enum:CXTranslationUnit_Flags
+CXTranslationUnit_IncludeBriefCommentsInCodeCompletion	.\lib\include\clang-c\Index.h	/^  CXTranslationUnit_IncludeBriefCommentsInCodeCompletion = 0x80$/;"	e	enum:CXTranslationUnit_Flags
+CXTranslationUnit_Incomplete	.\lib\include\clang-c\Index.h	/^  CXTranslationUnit_Incomplete = 0x02,$/;"	e	enum:CXTranslationUnit_Flags
+CXTranslationUnit_None	.\lib\include\clang-c\Index.h	/^  CXTranslationUnit_None = 0x0,$/;"	e	enum:CXTranslationUnit_Flags
+CXTranslationUnit_PrecompiledPreamble	.\lib\include\clang-c\Index.h	/^  CXTranslationUnit_PrecompiledPreamble = 0x04,$/;"	e	enum:CXTranslationUnit_Flags
+CXTranslationUnit_SkipFunctionBodies	.\lib\include\clang-c\Index.h	/^  CXTranslationUnit_SkipFunctionBodies = 0x40,$/;"	e	enum:CXTranslationUnit_Flags
+CXType	.\lib\include\clang-c\Index.h	/^} CXType;$/;"	t	typeref:struct:__anon10
+CXTypeKind	.\lib\include\clang-c\Index.h	/^enum CXTypeKind {$/;"	g
+CXTypeLayoutError	.\lib\include\clang-c\Index.h	/^enum CXTypeLayoutError {$/;"	g
+CXTypeLayoutError_Dependent	.\lib\include\clang-c\Index.h	/^  CXTypeLayoutError_Dependent = -3,$/;"	e	enum:CXTypeLayoutError
+CXTypeLayoutError_Incomplete	.\lib\include\clang-c\Index.h	/^  CXTypeLayoutError_Incomplete = -2,$/;"	e	enum:CXTypeLayoutError
+CXTypeLayoutError_Invalid	.\lib\include\clang-c\Index.h	/^  CXTypeLayoutError_Invalid = -1,$/;"	e	enum:CXTypeLayoutError
+CXTypeLayoutError_InvalidFieldName	.\lib\include\clang-c\Index.h	/^  CXTypeLayoutError_InvalidFieldName = -5$/;"	e	enum:CXTypeLayoutError
+CXTypeLayoutError_NotConstantSize	.\lib\include\clang-c\Index.h	/^  CXTypeLayoutError_NotConstantSize = -4,$/;"	e	enum:CXTypeLayoutError
+CXType_BlockPointer	.\lib\include\clang-c\Index.h	/^  CXType_BlockPointer = 102,$/;"	e	enum:CXTypeKind
+CXType_Bool	.\lib\include\clang-c\Index.h	/^  CXType_Bool = 3,$/;"	e	enum:CXTypeKind
+CXType_Char16	.\lib\include\clang-c\Index.h	/^  CXType_Char16 = 6,$/;"	e	enum:CXTypeKind
+CXType_Char32	.\lib\include\clang-c\Index.h	/^  CXType_Char32 = 7,$/;"	e	enum:CXTypeKind
+CXType_Char_S	.\lib\include\clang-c\Index.h	/^  CXType_Char_S = 13,$/;"	e	enum:CXTypeKind
+CXType_Char_U	.\lib\include\clang-c\Index.h	/^  CXType_Char_U = 4,$/;"	e	enum:CXTypeKind
+CXType_Complex	.\lib\include\clang-c\Index.h	/^  CXType_Complex = 100,$/;"	e	enum:CXTypeKind
+CXType_ConstantArray	.\lib\include\clang-c\Index.h	/^  CXType_ConstantArray = 112,$/;"	e	enum:CXTypeKind
+CXType_Dependent	.\lib\include\clang-c\Index.h	/^  CXType_Dependent = 26,$/;"	e	enum:CXTypeKind
+CXType_DependentSizedArray	.\lib\include\clang-c\Index.h	/^  CXType_DependentSizedArray = 116,$/;"	e	enum:CXTypeKind
+CXType_Double	.\lib\include\clang-c\Index.h	/^  CXType_Double = 22,$/;"	e	enum:CXTypeKind
+CXType_Enum	.\lib\include\clang-c\Index.h	/^  CXType_Enum = 106,$/;"	e	enum:CXTypeKind
+CXType_FirstBuiltin	.\lib\include\clang-c\Index.h	/^  CXType_FirstBuiltin = CXType_Void,$/;"	e	enum:CXTypeKind
+CXType_Float	.\lib\include\clang-c\Index.h	/^  CXType_Float = 21,$/;"	e	enum:CXTypeKind
+CXType_FunctionNoProto	.\lib\include\clang-c\Index.h	/^  CXType_FunctionNoProto = 110,$/;"	e	enum:CXTypeKind
+CXType_FunctionProto	.\lib\include\clang-c\Index.h	/^  CXType_FunctionProto = 111,$/;"	e	enum:CXTypeKind
+CXType_IncompleteArray	.\lib\include\clang-c\Index.h	/^  CXType_IncompleteArray = 114,$/;"	e	enum:CXTypeKind
+CXType_Int	.\lib\include\clang-c\Index.h	/^  CXType_Int = 17,$/;"	e	enum:CXTypeKind
+CXType_Int128	.\lib\include\clang-c\Index.h	/^  CXType_Int128 = 20,$/;"	e	enum:CXTypeKind
+CXType_Invalid	.\lib\include\clang-c\Index.h	/^  CXType_Invalid = 0,$/;"	e	enum:CXTypeKind
+CXType_LValueReference	.\lib\include\clang-c\Index.h	/^  CXType_LValueReference = 103,$/;"	e	enum:CXTypeKind
+CXType_LastBuiltin	.\lib\include\clang-c\Index.h	/^  CXType_LastBuiltin  = CXType_ObjCSel,$/;"	e	enum:CXTypeKind
+CXType_Long	.\lib\include\clang-c\Index.h	/^  CXType_Long = 18,$/;"	e	enum:CXTypeKind
+CXType_LongDouble	.\lib\include\clang-c\Index.h	/^  CXType_LongDouble = 23,$/;"	e	enum:CXTypeKind
+CXType_LongLong	.\lib\include\clang-c\Index.h	/^  CXType_LongLong = 19,$/;"	e	enum:CXTypeKind
+CXType_MemberPointer	.\lib\include\clang-c\Index.h	/^  CXType_MemberPointer = 117$/;"	e	enum:CXTypeKind
+CXType_NullPtr	.\lib\include\clang-c\Index.h	/^  CXType_NullPtr = 24,$/;"	e	enum:CXTypeKind
+CXType_ObjCClass	.\lib\include\clang-c\Index.h	/^  CXType_ObjCClass = 28,$/;"	e	enum:CXTypeKind
+CXType_ObjCId	.\lib\include\clang-c\Index.h	/^  CXType_ObjCId = 27,$/;"	e	enum:CXTypeKind
+CXType_ObjCInterface	.\lib\include\clang-c\Index.h	/^  CXType_ObjCInterface = 108,$/;"	e	enum:CXTypeKind
+CXType_ObjCObjectPointer	.\lib\include\clang-c\Index.h	/^  CXType_ObjCObjectPointer = 109,$/;"	e	enum:CXTypeKind
+CXType_ObjCSel	.\lib\include\clang-c\Index.h	/^  CXType_ObjCSel = 29,$/;"	e	enum:CXTypeKind
+CXType_Overload	.\lib\include\clang-c\Index.h	/^  CXType_Overload = 25,$/;"	e	enum:CXTypeKind
+CXType_Pointer	.\lib\include\clang-c\Index.h	/^  CXType_Pointer = 101,$/;"	e	enum:CXTypeKind
+CXType_RValueReference	.\lib\include\clang-c\Index.h	/^  CXType_RValueReference = 104,$/;"	e	enum:CXTypeKind
+CXType_Record	.\lib\include\clang-c\Index.h	/^  CXType_Record = 105,$/;"	e	enum:CXTypeKind
+CXType_SChar	.\lib\include\clang-c\Index.h	/^  CXType_SChar = 14,$/;"	e	enum:CXTypeKind
+CXType_Short	.\lib\include\clang-c\Index.h	/^  CXType_Short = 16,$/;"	e	enum:CXTypeKind
+CXType_Typedef	.\lib\include\clang-c\Index.h	/^  CXType_Typedef = 107,$/;"	e	enum:CXTypeKind
+CXType_UChar	.\lib\include\clang-c\Index.h	/^  CXType_UChar = 5,$/;"	e	enum:CXTypeKind
+CXType_UInt	.\lib\include\clang-c\Index.h	/^  CXType_UInt = 9,$/;"	e	enum:CXTypeKind
+CXType_UInt128	.\lib\include\clang-c\Index.h	/^  CXType_UInt128 = 12,$/;"	e	enum:CXTypeKind
+CXType_ULong	.\lib\include\clang-c\Index.h	/^  CXType_ULong = 10,$/;"	e	enum:CXTypeKind
+CXType_ULongLong	.\lib\include\clang-c\Index.h	/^  CXType_ULongLong = 11,$/;"	e	enum:CXTypeKind
+CXType_UShort	.\lib\include\clang-c\Index.h	/^  CXType_UShort = 8,$/;"	e	enum:CXTypeKind
+CXType_Unexposed	.\lib\include\clang-c\Index.h	/^  CXType_Unexposed = 1,$/;"	e	enum:CXTypeKind
+CXType_VariableArray	.\lib\include\clang-c\Index.h	/^  CXType_VariableArray = 115,$/;"	e	enum:CXTypeKind
+CXType_Vector	.\lib\include\clang-c\Index.h	/^  CXType_Vector = 113,$/;"	e	enum:CXTypeKind
+CXType_Void	.\lib\include\clang-c\Index.h	/^  CXType_Void = 2,$/;"	e	enum:CXTypeKind
+CXType_WChar	.\lib\include\clang-c\Index.h	/^  CXType_WChar = 15,$/;"	e	enum:CXTypeKind
+CXUnsavedFile	.\cc.py	/^from .clang import CXUnsavedFile, CXCompletionChunkKind, CXCursorKind$/;"	i
+CXUnsavedFile	.\clang.py	/^class CXUnsavedFile(Structure):$/;"	c
+CXUnsavedFile	.\lib\include\clang-c\Index.h	/^struct CXUnsavedFile {$/;"	s
+CXVersion	.\lib\include\clang-c\Index.h	/^typedef struct CXVersion {$/;"	s
+CXVersion	.\lib\include\clang-c\Index.h	/^} CXVersion;$/;"	t	typeref:struct:CXVersion
+CXVirtualFileOverlay	.\lib\include\clang-c\BuildSystem.h	/^typedef struct CXVirtualFileOverlayImpl *CXVirtualFileOverlay;$/;"	t	typeref:struct:CXVirtualFileOverlayImpl
+CXVisit_Break	.\lib\include\clang-c\Index.h	/^  CXVisit_Break,$/;"	e	enum:CXVisitorResult
+CXVisit_Continue	.\lib\include\clang-c\Index.h	/^  CXVisit_Continue$/;"	e	enum:CXVisitorResult
+CXVisitorResult	.\lib\include\clang-c\Index.h	/^enum CXVisitorResult {$/;"	g
+CXX_ACCESS_SPEC_DECL	.\clang.py	/^  CXX_ACCESS_SPEC_DECL =  39 $/;"	v	class:CXCursorKind
+CXX_BASE_SPECIFIER	.\clang.py	/^  CXX_BASE_SPECIFIER =  44 $/;"	v	class:CXCursorKind
+CXX_BOOL_LITERAL_EXPR	.\clang.py	/^  CXX_BOOL_LITERAL_EXPR =  130 $/;"	v	class:CXCursorKind
+CXX_CATCH_STMT	.\clang.py	/^  CXX_CATCH_STMT =  223 $/;"	v	class:CXCursorKind
+CXX_CONST_CAST_EXPR	.\clang.py	/^  CXX_CONST_CAST_EXPR =  127 $/;"	v	class:CXCursorKind
+CXX_DELETE_EXPR	.\clang.py	/^  CXX_DELETE_EXPR =  135 $/;"	v	class:CXCursorKind
+CXX_DYNAMIC_CAST_EXPR	.\clang.py	/^  CXX_DYNAMIC_CAST_EXPR =  125 $/;"	v	class:CXCursorKind
+CXX_FOR_RANGE_STMT	.\clang.py	/^  CXX_FOR_RANGE_STMT =  225 $/;"	v	class:CXCursorKind
+CXX_FUNCTIONAL_CAST_EXPR	.\clang.py	/^  CXX_FUNCTIONAL_CAST_EXPR =  128 $/;"	v	class:CXCursorKind
+CXX_METHOD	.\clang.py	/^  CXX_METHOD =  21 $/;"	v	class:CXCursorKind
+CXX_NEW_EXPR	.\clang.py	/^  CXX_NEW_EXPR =  134 $/;"	v	class:CXCursorKind
+CXX_NULL_PTR_LITERAL_EXPR	.\clang.py	/^  CXX_NULL_PTR_LITERAL_EXPR =  131 $/;"	v	class:CXCursorKind
+CXX_REINTERPRET_CAST_EXPR	.\clang.py	/^  CXX_REINTERPRET_CAST_EXPR =  126 $/;"	v	class:CXCursorKind
+CXX_STATIC_CAST_EXPR	.\clang.py	/^  CXX_STATIC_CAST_EXPR =  124 $/;"	v	class:CXCursorKind
+CXX_THIS_EXPR	.\clang.py	/^  CXX_THIS_EXPR =  132 $/;"	v	class:CXCursorKind
+CXX_THROW_EXPR	.\clang.py	/^  CXX_THROW_EXPR =  133 $/;"	v	class:CXCursorKind
+CXX_TRY_STMT	.\clang.py	/^  CXX_TRY_STMT =  224 $/;"	v	class:CXCursorKind
+CXX_TYPEID_EXPR	.\clang.py	/^  CXX_TYPEID_EXPR =  129 $/;"	v	class:CXCursorKind
+CXX_UNARY_EXPR	.\clang.py	/^  CXX_UNARY_EXPR =  136 $/;"	v	class:CXCursorKind
+CX_CXXAccessSpecifier	.\lib\include\clang-c\Index.h	/^enum CX_CXXAccessSpecifier {$/;"	g
+CX_CXXInvalidAccessSpecifier	.\lib\include\clang-c\Index.h	/^  CX_CXXInvalidAccessSpecifier,$/;"	e	enum:CX_CXXAccessSpecifier
+CX_CXXPrivate	.\lib\include\clang-c\Index.h	/^  CX_CXXPrivate$/;"	e	enum:CX_CXXAccessSpecifier
+CX_CXXProtected	.\lib\include\clang-c\Index.h	/^  CX_CXXProtected,$/;"	e	enum:CX_CXXAccessSpecifier
+CX_CXXPublic	.\lib\include\clang-c\Index.h	/^  CX_CXXPublic,$/;"	e	enum:CX_CXXAccessSpecifier
+ClangClean	.\st_cc.py	/^class ClangClean(sublime_plugin.TextCommand):$/;"	c
+ClangErrorPanel	.\clang_error.py	/^class ClangErrorPanel(object):$/;"	c
+ClangErrorPanelFlush	.\clang_error.py	/^class ClangErrorPanelFlush(sublime_plugin.TextCommand):$/;"	c
+ClangGotoDef	.\st_cc.py	/^class ClangGotoDef(sublime_plugin.TextCommand):$/;"	c
+ClangTogglePanel	.\clang_error.py	/^class ClangTogglePanel(sublime_plugin.WindowCommand):$/;"	c
+Colon	.\clang.py	/^  Colon = 16$/;"	v	class:CXCompletionChunkKind
+Comma	.\clang.py	/^  Comma = 14$/;"	v	class:CXCompletionChunkKind
+Complete	.\st_cc.py	/^class Complete(object):$/;"	c
+CompletionString	.\lib\include\clang-c\Index.h	/^  CXCompletionString CompletionString;$/;"	m	struct:__anon14
+Contents	.\lib\include\clang-c\Index.h	/^  const char *Contents;$/;"	m	struct:CXUnsavedFile
+CurrentParameter	.\clang.py	/^  CurrentParameter = 5$/;"	v	class:CXCompletionChunkKind
+CursorKind	.\lib\include\clang-c\Index.h	/^  enum CXCursorKind CursorKind;$/;"	m	struct:__anon14	typeref:enum:__anon14::CXCursorKind
+DECL_REF_EXPR	.\clang.py	/^  DECL_REF_EXPR =  101 $/;"	v	class:CXCursorKind
+DECL_STMT	.\clang.py	/^  DECL_STMT =  231 $/;"	v	class:CXCursorKind
+DEFAULT_STMT	.\clang.py	/^  DEFAULT_STMT =  204 $/;"	v	class:CXCursorKind
+DEF_CACHE_SIZE	.\src\cc_resultcache.c	12;"	d	file:
+DEF_POOL_SIZE	.\src\cc_trie.c	58;"	d	file:
+DESTRUCTOR	.\clang.py	/^  DESTRUCTOR =  25 $/;"	v	class:CXCursorKind
+DO_STMT	.\clang.py	/^  DO_STMT =  208 $/;"	v	class:CXCursorKind
+Deprecated	.\lib\include\clang-c\Index.h	/^  CXVersion Deprecated;$/;"	m	struct:CXPlatformAvailability
+ENUM_CONSTANT_DECL	.\clang.py	/^  ENUM_CONSTANT_DECL =  7 $/;"	v	class:CXCursorKind
+ENUM_DECL	.\clang.py	/^  ENUM_DECL =  5 $/;"	v	class:CXCursorKind
+EXPORT	.\src\py_bind.c	12;"	d	file:
+EXPORT	.\src\py_bind.c	14;"	d	file:
+Enum	.\clang.py	/^from .enum import Enum$/;"	i
+Enum	.\enum.py	/^Enum = EnumMeta('Enum', (object, ), temp_enum_dict)$/;"	v
+Enum	.\enum.py	/^Enum = None$/;"	v
+EnumMeta	.\enum.py	/^class EnumMeta(type):$/;"	c
+Equal	.\clang.py	/^  Equal = 18$/;"	v	class:CXCompletionChunkKind
+FIELD_DECL	.\clang.py	/^  FIELD_DECL =  6 $/;"	v	class:CXCursorKind
+FLOATING_LITERAL	.\clang.py	/^  FLOATING_LITERAL =  107 $/;"	v	class:CXCursorKind
+FOR_STMT	.\clang.py	/^  FOR_STMT =  209 $/;"	v	class:CXCursorKind
+FUNCTION_DECL	.\clang.py	/^  FUNCTION_DECL =  8 $/;"	v	class:CXCursorKind
+FUNCTION_TEMPLATE	.\clang.py	/^  FUNCTION_TEMPLATE =  30 $/;"	v	class:CXCursorKind
+Filename	.\lib\include\clang-c\Index.h	/^  const char *Filename;$/;"	m	struct:CXUnsavedFile
+GENERIC_SELECTION_EXPR	.\clang.py	/^  GENERIC_SELECTION_EXPR =  122 $/;"	v	class:CXCursorKind
+GNU_NULL_EXPR	.\clang.py	/^  GNU_NULL_EXPR =  123 $/;"	v	class:CXCursorKind
+GOTO_STMT	.\clang.py	/^  GOTO_STMT =  210 $/;"	v	class:CXCursorKind
+HorizontalSpace	.\clang.py	/^  HorizontalSpace = 19$/;"	v	class:CXCompletionChunkKind
+IB_ACTION_ATTR	.\clang.py	/^  IB_ACTION_ATTR =  401 $/;"	v	class:CXCursorKind
+IB_OUTLET_ATTR	.\clang.py	/^  IB_OUTLET_ATTR =  402 $/;"	v	class:CXCursorKind
+IB_OUTLET_COLLECTION_ATTR	.\clang.py	/^  IB_OUTLET_COLLECTION_ATTR =  403 $/;"	v	class:CXCursorKind
+IF_STMT	.\clang.py	/^  IF_STMT =  205 $/;"	v	class:CXCursorKind
+IMAGINARY_LITERAL	.\clang.py	/^  IMAGINARY_LITERAL =  108 $/;"	v	class:CXCursorKind
+INCLUSION_DIRECTIVE	.\clang.py	/^  INCLUSION_DIRECTIVE =  503 $/;"	v	class:CXCursorKind
+INDIRECT_GOTO_STMT	.\clang.py	/^  INDIRECT_GOTO_STMT =  211 $/;"	v	class:CXCursorKind
+INIT_LIST_EXPR	.\clang.py	/^  INIT_LIST_EXPR =  119 $/;"	v	class:CXCursorKind
+INTEGER_LITERAL	.\clang.py	/^  INTEGER_LITERAL =  106 $/;"	v	class:CXCursorKind
+INVALID_CODE	.\clang.py	/^  INVALID_CODE =  73 $/;"	v	class:CXCursorKind
+INVALID_FILE	.\clang.py	/^  INVALID_FILE =  70 $/;"	v	class:CXCursorKind
+IndexerCallbacks	.\lib\include\clang-c\Index.h	/^} IndexerCallbacks;$/;"	t	typeref:struct:__anon42
+Informative	.\clang.py	/^  Informative = 4$/;"	v	class:CXCompletionChunkKind
+IntEnum	.\enum.py	/^class IntEnum(int, Enum):$/;"	c
+Introduced	.\lib\include\clang-c\Index.h	/^  CXVersion Introduced;$/;"	m	struct:CXPlatformAvailability
+LABEL_REF	.\clang.py	/^  LABEL_REF =  48 $/;"	v	class:CXCursorKind
+LABEL_STMT	.\clang.py	/^  LABEL_STMT =  201 $/;"	v	class:CXCursorKind
+LINKAGE_SPEC	.\clang.py	/^  LINKAGE_SPEC =  23 $/;"	v	class:CXCursorKind
+LeftAngle	.\clang.py	/^  LeftAngle = 12$/;"	v	class:CXCompletionChunkKind
+LeftBrace	.\clang.py	/^  LeftBrace = 10$/;"	v	class:CXCompletionChunkKind
+LeftBracket	.\clang.py	/^  LeftBracket = 8$/;"	v	class:CXCompletionChunkKind
+LeftParen	.\clang.py	/^  LeftParen = 6$/;"	v	class:CXCompletionChunkKind
+Length	.\lib\include\clang-c\Index.h	/^  unsigned long Length;$/;"	m	struct:CXUnsavedFile
+MACRO_DEFINITION	.\clang.py	/^  MACRO_DEFINITION =  501 $/;"	v	class:CXCursorKind
+MACRO_INSTANTIATION	.\clang.py	/^  MACRO_INSTANTIATION =  502 $/;"	v	class:CXCursorKind
+MEMBER_REF	.\clang.py	/^  MEMBER_REF =  47 $/;"	v	class:CXCursorKind
+MEMBER_REF_EXPR	.\clang.py	/^  MEMBER_REF_EXPR =  102 $/;"	v	class:CXCursorKind
+MINGWSUPPORT	.\src\py_bind.c	17;"	d	file:
+MINGWSUPPORT	.\src\py_bind.c	19;"	d	file:
+Major	.\lib\include\clang-c\Index.h	/^  int Major;$/;"	m	struct:CXVersion
+MatchResult	.\cc.py	/^class MatchResult(Structure):$/;"	c
+Message	.\lib\include\clang-c\Index.h	/^  CXString Message;$/;"	m	struct:CXPlatformAvailability
+Minor	.\lib\include\clang-c\Index.h	/^  int Minor;$/;"	m	struct:CXVersion
+NAMESPACE	.\clang.py	/^  NAMESPACE =  22 $/;"	v	class:CXCursorKind
+NAMESPACE_ALIAS	.\clang.py	/^  NAMESPACE_ALIAS =  33 $/;"	v	class:CXCursorKind
+NAMESPACE_REF	.\clang.py	/^  NAMESPACE_REF =  46 $/;"	v	class:CXCursorKind
+NOT_IMPLEMENTED	.\clang.py	/^  NOT_IMPLEMENTED =  72 $/;"	v	class:CXCursorKind
+NO_DECL_FOUND	.\clang.py	/^  NO_DECL_FOUND =  71 $/;"	v	class:CXCursorKind
+NULL_STMT	.\clang.py	/^  NULL_STMT =  230 $/;"	v	class:CXCursorKind
+NumResults	.\lib\include\clang-c\Index.h	/^  unsigned NumResults;$/;"	m	struct:__anon15
+OBJC_AT_CATCH_STMT	.\clang.py	/^  OBJC_AT_CATCH_STMT =  217 $/;"	v	class:CXCursorKind
+OBJC_AT_FINALLY_STMT	.\clang.py	/^  OBJC_AT_FINALLY_STMT =  218 $/;"	v	class:CXCursorKind
+OBJC_AT_SYNCHRONIZED_STMT	.\clang.py	/^  OBJC_AT_SYNCHRONIZED_STMT =  220 $/;"	v	class:CXCursorKind
+OBJC_AT_THROW_STMT	.\clang.py	/^  OBJC_AT_THROW_STMT =  219 $/;"	v	class:CXCursorKind
+OBJC_AT_TRY_STMT	.\clang.py	/^  OBJC_AT_TRY_STMT =  216 $/;"	v	class:CXCursorKind
+OBJC_AUTORELEASE_POOL_STMT	.\clang.py	/^  OBJC_AUTORELEASE_POOL_STMT =  221 $/;"	v	class:CXCursorKind
+OBJC_BRIDGE_CAST_EXPR	.\clang.py	/^  OBJC_BRIDGE_CAST_EXPR =  141 $/;"	v	class:CXCursorKind
+OBJC_CATEGORY_DECL	.\clang.py	/^  OBJC_CATEGORY_DECL =  12 $/;"	v	class:CXCursorKind
+OBJC_CATEGORY_IMPL_DECL	.\clang.py	/^  OBJC_CATEGORY_IMPL_DECL =  19 $/;"	v	class:CXCursorKind
+OBJC_CLASS_METHOD_DECL	.\clang.py	/^  OBJC_CLASS_METHOD_DECL =  17 $/;"	v	class:CXCursorKind
+OBJC_CLASS_REF	.\clang.py	/^  OBJC_CLASS_REF =  42 $/;"	v	class:CXCursorKind
+OBJC_DYNAMIC_DECL	.\clang.py	/^  OBJC_DYNAMIC_DECL =  38 $/;"	v	class:CXCursorKind
+OBJC_ENCODE_EXPR	.\clang.py	/^  OBJC_ENCODE_EXPR =  138 $/;"	v	class:CXCursorKind
+OBJC_FOR_COLLECTION_STMT	.\clang.py	/^  OBJC_FOR_COLLECTION_STMT =  222 $/;"	v	class:CXCursorKind
+OBJC_IMPLEMENTATION_DECL	.\clang.py	/^  OBJC_IMPLEMENTATION_DECL =  18 $/;"	v	class:CXCursorKind
+OBJC_INSTANCE_METHOD_DECL	.\clang.py	/^  OBJC_INSTANCE_METHOD_DECL =  16 $/;"	v	class:CXCursorKind
+OBJC_INTERFACE_DECL	.\clang.py	/^  OBJC_INTERFACE_DECL =  11 $/;"	v	class:CXCursorKind
+OBJC_IVAR_DECL	.\clang.py	/^  OBJC_IVAR_DECL =  15 $/;"	v	class:CXCursorKind
+OBJC_MESSAGE_EXPR	.\clang.py	/^  OBJC_MESSAGE_EXPR =  104 $/;"	v	class:CXCursorKind
+OBJC_PROPERTY_DECL	.\clang.py	/^  OBJC_PROPERTY_DECL =  14 $/;"	v	class:CXCursorKind
+OBJC_PROTOCOL_DECL	.\clang.py	/^  OBJC_PROTOCOL_DECL =  13 $/;"	v	class:CXCursorKind
+OBJC_PROTOCOL_EXPR	.\clang.py	/^  OBJC_PROTOCOL_EXPR =  140 $/;"	v	class:CXCursorKind
+OBJC_PROTOCOL_REF	.\clang.py	/^  OBJC_PROTOCOL_REF =  41 $/;"	v	class:CXCursorKind
+OBJC_SELECTOR_EXPR	.\clang.py	/^  OBJC_SELECTOR_EXPR =  139 $/;"	v	class:CXCursorKind
+OBJC_STRING_LITERAL	.\clang.py	/^  OBJC_STRING_LITERAL =  137 $/;"	v	class:CXCursorKind
+OBJC_SUPER_CLASS_REF	.\clang.py	/^  OBJC_SUPER_CLASS_REF =  40 $/;"	v	class:CXCursorKind
+OBJC_SYNTHESIZE_DECL	.\clang.py	/^  OBJC_SYNTHESIZE_DECL =  37 $/;"	v	class:CXCursorKind
+OVERLOADED_DECL_REF	.\clang.py	/^  OVERLOADED_DECL_REF =  49 $/;"	v	class:CXCursorKind
+Obsoleted	.\lib\include\clang-c\Index.h	/^  CXVersion Obsoleted;$/;"	m	struct:CXPlatformAvailability
+Optional	.\clang.py	/^  Optional = 0$/;"	v	class:CXCompletionChunkKind
+OrderedDict	.\enum.py	/^    OrderedDict = None$/;"	v
+OrderedDict	.\enum.py	/^    from collections import OrderedDict$/;"	i
+PACK_EXPANSION_EXPR	.\clang.py	/^  PACK_EXPANSION_EXPR =  142 $/;"	v	class:CXCursorKind
+PAREN_EXPR	.\clang.py	/^  PAREN_EXPR =  111 $/;"	v	class:CXCursorKind
+PARM_DECL	.\clang.py	/^  PARM_DECL =  10 $/;"	v	class:CXCursorKind
+POINTER	.\cc.py	/^from ctypes import cdll, Structure, POINTER, c_char_p, c_void_p, c_uint, c_bool, c_ulong, c_int$/;"	i
+POINTER	.\clang.py	/^from ctypes import Structure, POINTER, c_char_p, c_void_p, c_uint, c_bool, c_ulong, c_int$/;"	i
+PREPROCESSING_DIRECTIVE	.\clang.py	/^  PREPROCESSING_DIRECTIVE =  500 $/;"	v	class:CXCursorKind
+Placeholder	.\clang.py	/^  Placeholder = 3$/;"	v	class:CXCompletionChunkKind
+Platform	.\lib\include\clang-c\Index.h	/^  CXString Platform;$/;"	m	struct:CXPlatformAvailability
+RETURN_STMT	.\clang.py	/^  RETURN_STMT =  214 $/;"	v	class:CXCursorKind
+ResultType	.\clang.py	/^  ResultType = 15$/;"	v	class:CXCompletionChunkKind
+Results	.\lib\include\clang-c\Index.h	/^  CXCompletionResult *Results;$/;"	m	struct:__anon15
+RightAngle	.\clang.py	/^  RightAngle = 13$/;"	v	class:CXCompletionChunkKind
+RightBrace	.\clang.py	/^  RightBrace = 11$/;"	v	class:CXCompletionChunkKind
+RightBracket	.\clang.py	/^  RightBracket = 9$/;"	v	class:CXCompletionChunkKind
+RightParen	.\clang.py	/^  RightParen = 7$/;"	v	class:CXCompletionChunkKind
+SEH_EXCEPT_STMT	.\clang.py	/^  SEH_EXCEPT_STMT =  227 $/;"	v	class:CXCursorKind
+SEH_FINALLY_STMT	.\clang.py	/^  SEH_FINALLY_STMT =  228 $/;"	v	class:CXCursorKind
+SEH_TRY_STMT	.\clang.py	/^  SEH_TRY_STMT =  226 $/;"	v	class:CXCursorKind
+SIZE_OF_PACK_EXPR	.\clang.py	/^  SIZE_OF_PACK_EXPR =  143 $/;"	v	class:CXCursorKind
+STRING_LITERAL	.\clang.py	/^  STRING_LITERAL =  109 $/;"	v	class:CXCursorKind
+STRUCT_DECL	.\clang.py	/^  STRUCT_DECL =  2 $/;"	v	class:CXCursorKind
+SWITCH_STMT	.\clang.py	/^  SWITCH_STMT =  206 $/;"	v	class:CXCursorKind
+SemiColon	.\clang.py	/^  SemiColon = 17$/;"	v	class:CXCompletionChunkKind
+StmtExpr	.\clang.py	/^  StmtExpr =  121 $/;"	v	class:CXCursorKind
+Structure	.\cc.py	/^from ctypes import cdll, Structure, POINTER, c_char_p, c_void_p, c_uint, c_bool, c_ulong, c_int$/;"	i
+Structure	.\clang.py	/^from ctypes import Structure, POINTER, c_char_p, c_void_p, c_uint, c_bool, c_ulong, c_int$/;"	i
+Subminor	.\lib\include\clang-c\Index.h	/^  int Subminor;$/;"	m	struct:CXVersion
+TEMPLATE_NON_TYPE_PARAMETER	.\clang.py	/^  TEMPLATE_NON_TYPE_PARAMETER =  28 $/;"	v	class:CXCursorKind
+TEMPLATE_REF	.\clang.py	/^  TEMPLATE_REF =  45 $/;"	v	class:CXCursorKind
+TEMPLATE_TEMPLATE_PARAMTER	.\clang.py	/^  TEMPLATE_TEMPLATE_PARAMTER =  29 $/;"	v	class:CXCursorKind
+TEMPLATE_TYPE_PARAMETER	.\clang.py	/^  TEMPLATE_TYPE_PARAMETER =  27 $/;"	v	class:CXCursorKind
+TRANSLATION_UNIT	.\clang.py	/^  TRANSLATION_UNIT =  300 $/;"	v	class:CXCursorKind
+TYPEDEF_DECL	.\clang.py	/^  TYPEDEF_DECL =  20 $/;"	v	class:CXCursorKind
+TYPE_ALIAS_DECL	.\clang.py	/^  TYPE_ALIAS_DECL =  36 $/;"	v	class:CXCursorKind
+TYPE_REF	.\clang.py	/^  TYPE_REF =  43 $/;"	v	class:CXCursorKind
+Text	.\clang.py	/^  Text = 2$/;"	v	class:CXCompletionChunkKind
+TranslationUnit	.\lib\include\clang-c\Documentation.h	/^  CXTranslationUnit TranslationUnit;$/;"	m	struct:__anon3
+TypedText	.\clang.py	/^  TypedText = 1$/;"	v	class:CXCompletionChunkKind
+UNARY_OPERATOR	.\clang.py	/^  UNARY_OPERATOR =  112 $/;"	v	class:CXCursorKind
+UNEXPOSED_ATTR	.\clang.py	/^  UNEXPOSED_ATTR =  400 $/;"	v	class:CXCursorKind
+UNEXPOSED_DECL	.\clang.py	/^  UNEXPOSED_DECL =  1 $/;"	v	class:CXCursorKind
+UNEXPOSED_EXPR	.\clang.py	/^  UNEXPOSED_EXPR =  100 $/;"	v	class:CXCursorKind
+UNEXPOSED_STMT	.\clang.py	/^  UNEXPOSED_STMT =  200 $/;"	v	class:CXCursorKind
+UNION_DECL	.\clang.py	/^  UNION_DECL =  3 $/;"	v	class:CXCursorKind
+USING_DECLARATION	.\clang.py	/^  USING_DECLARATION =  35 $/;"	v	class:CXCursorKind
+USING_DIRECTIVE	.\clang.py	/^  USING_DIRECTIVE =  34 $/;"	v	class:CXCursorKind
+USR	.\lib\include\clang-c\Index.h	/^  const char *USR;$/;"	m	struct:__anon26
+Unavailable	.\lib\include\clang-c\Index.h	/^  int Unavailable;$/;"	m	struct:CXPlatformAvailability
+VAR_DECL	.\clang.py	/^  VAR_DECL =  9 $/;"	v	class:CXCursorKind
+VerticalSpace	.\clang.py	/^  VerticalSpace = 20$/;"	v	class:CXCompletionChunkKind
+WHILE_STMT	.\clang.py	/^  WHILE_STMT =  207 $/;"	v	class:CXCursorKind
+WraperComplete	.\st_cc.py	/^class WraperComplete(object):$/;"	c
+_CC_RESULTCACHE_H_	.\src\cc_resultcache.h	2;"	d
+_CC_RESULT_H_	.\src\cc_result.h	2;"	d
+_CC_SYMBOL_H_	.\src\cc_symbol.h	2;"	d
+_CC_TRIE_H_	.\src\cc_trie.h	2;"	d
+_CHAR_COUNT	.\src\cc_trie.c	10;"	d	file:
+_COMPLETE_OPTIONS	.\src\cc_result.c	17;"	d	file:
+_EnumDict	.\enum.py	/^class _EnumDict(dict):$/;"	c
+_PARSE_OPTIONS	.\src\cc_symbol.c	13;"	d	file:
+_RouteClassAttributeToGetattr	.\enum.py	/^class _RouteClassAttributeToGetattr(object):$/;"	c
+__all__	.\cc.py	/^__all__ = ["CCSymbol", "CCResult", "CXDiagnosticSet", "CXUnsavedFile", "CXCompletionChunkKind", "CXCursorKind"]$/;"	v
+__all__	.\enum.py	/^__all__ = ['Enum', 'IntEnum', 'unique']$/;"	v
+__call__	.\enum.py	/^    def __call__(cls, value, names=None, module=None, type=None):$/;"	m	class:EnumMeta	file:
+__cmp__	.\enum.py	/^    def __cmp__(self, other):$/;"	f	file:
+__contains__	.\enum.py	/^    def __contains__(cls, member):$/;"	m	class:EnumMeta	file:
+__del__	.\cc.py	/^  def __del__(self):$/;"	m	class:CCResult	file:
+__del__	.\cc.py	/^  def __del__(self):$/;"	m	class:CCSymbol	file:
+__del__	.\cc.py	/^  def __del__(self):$/;"	m	class:CXDiagnosticSet	file:
+__delattr__	.\enum.py	/^    def __delattr__(cls, attr):$/;"	m	class:EnumMeta	file:
+__delete__	.\enum.py	/^    def __delete__(self, instance):$/;"	m	class:_RouteClassAttributeToGetattr	file:
+__dir__	.\enum.py	/^    def __dir__(self):$/;"	m	class:EnumMeta	file:
+__dir__	.\enum.py	/^def __dir__(self):$/;"	f	file:
+__eq__	.\enum.py	/^def __eq__(self, other):$/;"	f	file:
+__format__	.\enum.py	/^def __format__(self, format_spec):$/;"	f	file:
+__ge__	.\enum.py	/^    def __ge__(self, other):$/;"	f	file:
+__get__	.\enum.py	/^    def __get__(self, instance, ownerclass=None):$/;"	m	class:_RouteClassAttributeToGetattr	file:
+__getattr__	.\enum.py	/^    def __getattr__(cls, name):$/;"	m	class:EnumMeta	file:
+__getitem__	.\cc.py	/^  def __getitem__(self, key):$/;"	m	class:CXCompletionResult	file:
+__getitem__	.\cc.py	/^  def __getitem__(self, key):$/;"	m	class:CXDiagnosticSet	file:
+__getitem__	.\cc.py	/^  def __getitem__(self, key):$/;"	m	class:MatchResult	file:
+__getitem__	.\enum.py	/^    def __getitem__(cls, name):$/;"	m	class:EnumMeta	file:
+__gt__	.\enum.py	/^    def __gt__(self, other):$/;"	f	file:
+__hash__	.\enum.py	/^def __hash__(self):$/;"	f	file:
+__init__	.\cc.py	/^  def __init__(self, c_obj):$/;"	m	class:CCResult
+__init__	.\cc.py	/^  def __init__(self, filename, opt, unsaved_files = []):$/;"	m	class:CCSymbol
+__init__	.\clang_error.py	/^    def __init__(self):$/;"	m	class:ClangErrorPanel
+__init__	.\enum.py	/^    def __init__(self):$/;"	m	class:_EnumDict
+__init__	.\enum.py	/^    def __init__(self, fget=None):$/;"	m	class:_RouteClassAttributeToGetattr
+__init__	.\st_cc.py	/^  def __init__(self):$/;"	m	class:WraperComplete
+__iter__	.\cc.py	/^  def __iter__(self):$/;"	m	class:CXCompletionResult	file:
+__iter__	.\cc.py	/^  def __iter__(self):$/;"	m	class:CXDiagnosticSet	file:
+__iter__	.\cc.py	/^  def __iter__(self):$/;"	m	class:MatchResult	file:
+__iter__	.\enum.py	/^    def __iter__(cls):$/;"	m	class:EnumMeta	file:
+__le__	.\enum.py	/^    def __le__(self, other):$/;"	f	file:
+__len__	.\cc.py	/^  def __len__(self):$/;"	m	class:CXCompletionResult	file:
+__len__	.\cc.py	/^  def __len__(self):$/;"	m	class:CXDiagnosticSet	file:
+__len__	.\cc.py	/^  def __len__(self):$/;"	m	class:MatchResult	file:
+__len__	.\enum.py	/^    def __len__(cls):$/;"	m	class:EnumMeta	file:
+__lt__	.\enum.py	/^    def __lt__(self, other):$/;"	f	file:
+__members__	.\enum.py	/^    def __members__(cls):$/;"	m	class:EnumMeta	file:
+__ne__	.\enum.py	/^def __ne__(self, other):$/;"	f	file:
+__new__	.\enum.py	/^    def __new__(metacls, cls, bases, classdict):$/;"	m	class:EnumMeta	file:
+__new__	.\enum.py	/^def __new__(cls, value):$/;"	f	file:
+__next__	.\cc.py	/^  def __next__(self):$/;"	m	class:CXDiagnosticSet	file:
+__next__	.\cc.py	/^  def __next__(self):$/;"	m	class:MatchResult	file:
+__prepare__	.\enum.py	/^    def __prepare__(metacls, cls, bases):$/;"	m	class:EnumMeta	file:
+__reduce_ex__	.\enum.py	/^def __reduce_ex__(self, proto):$/;"	f	file:
+__repr__	.\enum.py	/^    def __repr__(cls):$/;"	m	class:EnumMeta	file:
+__repr__	.\enum.py	/^def __repr__(self):$/;"	f	file:
+__reversed__	.\enum.py	/^    def __reversed__(cls):$/;"	m	class:EnumMeta	file:
+__set__	.\enum.py	/^    def __set__(self, instance, value):$/;"	m	class:_RouteClassAttributeToGetattr	file:
+__setattr__	.\enum.py	/^    def __setattr__(cls, name, value):$/;"	m	class:EnumMeta	file:
+__setitem__	.\enum.py	/^    def __setitem__(self, key, value):$/;"	m	class:_EnumDict	file:
+__str__	.\enum.py	/^def __str__(self):$/;"	f	file:
+_attach	.\st_cc.py	/^  def _attach(self, v, begin_idx=0):$/;"	m	class:WraperComplete
+_break_on_call_reduce	.\enum.py	/^    def _break_on_call_reduce(self, protocol=None):$/;"	f	function:_make_class_unpicklable
+_cc_result	.\cc.py	/^class _cc_result(Structure):$/;"	c
+_cc_symbol	.\cc.py	/^class _cc_symbol(Structure):$/;"	c
+_char2pos	.\src\cc_trie.c	/^static int _char2pos[] = {$/;"	v	file:
+_create_	.\enum.py	/^    def _create_(cls, class_name, names=None, module=None, type=None):$/;"	m	class:EnumMeta
+_dump_node	.\src\cc_trie.c	/^_dump_node(struct cc_trie* tp, struct cc_node* root, trie_visit func, void* ud) {$/;"	f	file:
+_field	.\st_cc.py	/^  def _field(self, v):$/;"	m	class:WraperComplete
+_fields_	.\cc.py	/^  _fields_ = [("CursorKind", c_int), ("CompletionString", c_void_p)]$/;"	v	class:CXCompletionResult
+_fields_	.\cc.py	/^  _fields_ = [("_kind", c_int), ("_value", c_char_p)]$/;"	v	class:CCTrunk
+_fields_	.\cc.py	/^  _fields_ = [("_point", c_void_p)]$/;"	v	class:CXDiagnosticSet
+_fields_	.\cc.py	/^  _fields_ = [("table", POINTER(POINTER(CXCompletionResult))), ("size", c_uint)]$/;"	v	class:MatchResult
+_fields_	.\cc.py	/^  _fields_ = [('_filename', c_char_p), ('line', c_uint), ('col', c_uint)]$/;"	v	class:CCdef
+_fields_	.\clang.py	/^  _fields_ = [("name", c_char_p), ("contents", c_char_p), ('length', c_ulong)]$/;"	v	class:CXUnsavedFile
+_find_new_	.\enum.py	/^        def _find_new_(classdict, member_type, first_enum):$/;"	f	function:EnumMeta._get_mixins_
+_function	.\st_cc.py	/^  def _function(self, v):$/;"	m	class:WraperComplete
+_get_mixins_	.\enum.py	/^    def _get_mixins_(bases):$/;"	m	class:EnumMeta
+_idx2s	.\test\test_trie.c	8;"	d	file:
+_insert	.\src\cc_result.c	/^_insert(struct cc_result* rp, unsigned int entry_idx) {$/;"	f	file:
+_is_descriptor	.\enum.py	/^def _is_descriptor(obj):$/;"	f
+_is_dunder	.\enum.py	/^def _is_dunder(name):$/;"	f
+_is_sunder	.\enum.py	/^def _is_sunder(name):$/;"	f
+_len	.\test\test_trie.c	7;"	d	file:
+_macro	.\st_cc.py	/^  def _macro(self, v):$/;"	m	class:WraperComplete
+_make_class_unpicklable	.\enum.py	/^def _make_class_unpicklable(cls):$/;"	f
+_namespace	.\st_cc.py	/^  def _namespace(self, v):$/;"	m	class:WraperComplete
+_not_implemented	.\st_cc.py	/^  def _not_implemented(self, v):$/;"	m	class:WraperComplete
+_platform	.\cc.py	/^from sys import platform as _platform$/;"	i
+_struct	.\st_cc.py	/^  def _struct(self, v, t="struct"):$/;"	m	class:WraperComplete
+_sys	.\enum.py	/^import sys as _sys$/;"	i
+_tdump	.\src\cc_trie.c	/^_tdump(struct cc_trie* tp, struct cc_node* node, uint32_t pos) {$/;"	f	file:
+_typdef	.\st_cc.py	/^  def _typdef(self, v):$/;"	m	class:WraperComplete
+_unknow	.\st_cc.py	/^  def _unknow(self, v):$/;"	m	class:WraperComplete
+_var	.\st_cc.py	/^  def _var(self, v):$/;"	m	class:WraperComplete
+_visit_func	.\src\cc_result.c	/^_visit_func(unsigned int v, void* ud) {$/;"	f	file:
+abortQuery	.\lib\include\clang-c\Index.h	/^  int (*abortQuery)(CXClientData client_data, void *reserved);$/;"	m	struct:__anon42
+amount	.\lib\include\clang-c\Index.h	/^  unsigned long amount;$/;"	m	struct:CXTUResourceUsageEntry
+any	.\enum.py	/^    def any(iterable):$/;"	f
+attrInfo	.\lib\include\clang-c\Index.h	/^  const CXIdxAttrInfo *attrInfo;$/;"	m	struct:__anon28
+attributes	.\lib\include\clang-c\Index.h	/^  const CXIdxAttrInfo *const *attributes;$/;"	m	struct:__anon26
+attributes	.\lib\include\clang-c\Index.h	/^  const CXIdxAttrInfo *const *attributes;$/;"	m	struct:__anon30
+base	.\lib\include\clang-c\Index.h	/^  const CXIdxEntityInfo *base;$/;"	m	struct:__anon33
+bases	.\lib\include\clang-c\Index.h	/^  const CXIdxBaseClassInfo *const *bases;$/;"	m	struct:__anon39
+basestring	.\enum.py	/^    basestring = str$/;"	v
+begin_int_data	.\lib\include\clang-c\Index.h	/^  unsigned begin_int_data;$/;"	m	struct:__anon7
+c2idx	.\src\cc_trie.c	35;"	d	file:
+c_bool	.\cc.py	/^from ctypes import cdll, Structure, POINTER, c_char_p, c_void_p, c_uint, c_bool, c_ulong, c_int$/;"	i
+c_bool	.\clang.py	/^from ctypes import Structure, POINTER, c_char_p, c_void_p, c_uint, c_bool, c_ulong, c_int$/;"	i
+c_char_p	.\cc.py	/^from ctypes import cdll, Structure, POINTER, c_char_p, c_void_p, c_uint, c_bool, c_ulong, c_int$/;"	i
+c_char_p	.\clang.py	/^from ctypes import Structure, POINTER, c_char_p, c_void_p, c_uint, c_bool, c_ulong, c_int$/;"	i
+c_int	.\cc.py	/^from ctypes import cdll, Structure, POINTER, c_char_p, c_void_p, c_uint, c_bool, c_ulong, c_int$/;"	i
+c_int	.\clang.py	/^from ctypes import Structure, POINTER, c_char_p, c_void_p, c_uint, c_bool, c_ulong, c_int$/;"	i
+c_uint	.\cc.py	/^from ctypes import cdll, Structure, POINTER, c_char_p, c_void_p, c_uint, c_bool, c_ulong, c_int$/;"	i
+c_uint	.\clang.py	/^from ctypes import Structure, POINTER, c_char_p, c_void_p, c_uint, c_bool, c_ulong, c_int$/;"	i
+c_ulong	.\cc.py	/^from ctypes import cdll, Structure, POINTER, c_char_p, c_void_p, c_uint, c_bool, c_ulong, c_int$/;"	i
+c_ulong	.\clang.py	/^from ctypes import Structure, POINTER, c_char_p, c_void_p, c_uint, c_bool, c_ulong, c_int$/;"	i
+c_void_p	.\cc.py	/^from ctypes import cdll, Structure, POINTER, c_char_p, c_void_p, c_uint, c_bool, c_ulong, c_int$/;"	i
+c_void_p	.\clang.py	/^from ctypes import Structure, POINTER, c_char_p, c_void_p, c_uint, c_bool, c_ulong, c_int$/;"	i
+cache	.\src\cc_symbol.h	/^	struct cc_resultcache* cache;$/;"	m	struct:cc_symbol	typeref:struct:cc_symbol::cc_resultcache
+cache_info	.\cc.py	/^  cache_info = None$/;"	v	class:CXCompletionResult
+can_complete	.\st_cc.py	/^def can_complete(view):$/;"	f
+cc_def	.\src\cc_symbol.h	/^struct  cc_def{$/;"	s
+cc_node	.\src\cc_trie.c	/^struct cc_node {$/;"	s	file:
+cc_result	.\src\cc_result.c	/^struct cc_result {$/;"	s	file:
+cc_result_dump	.\src\cc_result.c	/^cc_result_dump(struct cc_result* rp,  struct match_result result) {$/;"	f
+cc_result_entryname	.\src\cc_result.c	/^cc_result_entryname(CXCompletionString cs) {$/;"	f
+cc_result_free	.\src\cc_result.c	/^cc_result_free(struct cc_result* rp) {$/;"	f
+cc_result_match	.\src\cc_result.c	/^cc_result_match(struct cc_result* rp, const char* prefix) {$/;"	f
+cc_result_new	.\src\cc_result.c	/^cc_result_new(CXTranslationUnit tu, struct cc_trie* tp, struct cc_resultcache* cache, const char* filename, unsigned int line, unsigned int col, struct CXUnsavedFile* unsaved_files, unsigned int num_unsaved_files) {$/;"	f
+cc_resultcache	.\src\cc_resultcache.c	/^struct cc_resultcache {$/;"	s	file:
+cc_resultcache_clear	.\src\cc_resultcache.c	/^cc_resultcache_clear(struct cc_resultcache* cache) {$/;"	f
+cc_resultcache_free	.\src\cc_resultcache.c	/^cc_resultcache_free(struct cc_resultcache* cache) {$/;"	f
+cc_resultcache_get	.\src\cc_resultcache.c	/^cc_resultcache_get(struct cc_resultcache* cache) {$/;"	f
+cc_resultcache_head	.\src\cc_resultcache.c	/^cc_resultcache_head(struct cc_resultcache* cache) {$/;"	f
+cc_resultcache_new	.\src\cc_resultcache.c	/^cc_resultcache_new() {$/;"	f
+cc_resultcache_pos	.\src\cc_resultcache.c	/^cc_resultcache_pos(struct cc_resultcache* cache) {$/;"	f
+cc_symbol	.\src\cc_symbol.h	/^struct cc_symbol {$/;"	s
+cc_symbol_complete_at	.\src\cc_symbol.c	/^cc_symbol_complete_at(struct cc_symbol* sp, unsigned int line, unsigned int col, struct CXUnsavedFile* unsaved_files, unsigned int num_unsaved_files) {$/;"	f
+cc_symbol_def	.\src\cc_symbol.c	/^cc_symbol_def(struct cc_symbol* sp, const char* file_name, unsigned int line, unsigned int col, struct cc_def* out_def) {$/;"	f
+cc_symbol_diagnostic	.\src\cc_symbol.c	/^cc_symbol_diagnostic(struct cc_symbol* sp, diagnostic_visit func, void* ud) {$/;"	f
+cc_symbol_free	.\src\cc_symbol.c	/^cc_symbol_free(struct cc_symbol* sp) {$/;"	f
+cc_symbol_new	.\src\cc_symbol.c	/^cc_symbol_new(const char* filename, const char* opt[], int opt_len, struct CXUnsavedFile*  unsaved_files, unsigned num_unsaved_files) {$/;"	f
+cc_symbol_reparse	.\src\cc_symbol.c	/^cc_symbol_reparse(struct cc_symbol* sp, struct CXUnsavedFile*  unsaved_files, unsigned num_unsaved_files) {$/;"	f
+cc_symbol_tu	.\src\cc_symbol.c	/^cc_symbol_tu(struct cc_symbol* sp) {$/;"	f
+cc_trie	.\src\cc_trie.c	/^struct cc_trie {$/;"	s	file:
+cc_trie_clear	.\src\cc_trie.c	/^cc_trie_clear(struct cc_trie* tp) {$/;"	f
+cc_trie_free	.\src\cc_trie.c	/^cc_trie_free(struct cc_trie* tp) {$/;"	f
+cc_trie_insert	.\src\cc_trie.c	/^cc_trie_insert(struct cc_trie* tp, const char* str, unsigned int ud) {$/;"	f
+cc_trie_match	.\src\cc_trie.c	/^cc_trie_match(struct cc_trie* tp, const char* prefix, trie_visit func, void* ud) {$/;"	f
+cc_trie_new	.\src\cc_trie.c	/^cc_trie_new() {$/;"	f
+cc_trie_size	.\src\cc_trie.c	/^cc_trie_size(struct cc_trie* tp) {$/;"	f
+cc_trunk	.\src\py_bind.c	/^struct cc_trunk {$/;"	s	file:
+cdll	.\cc.py	/^from ctypes import cdll, Structure, POINTER, c_char_p, c_void_p, c_uint, c_bool, c_ulong, c_int$/;"	i
+childs	.\src\cc_trie.c	/^  uint32_t childs[_CHAR_COUNT];$/;"	m	struct:cc_node	file:
+clang_error_panel	.\clang_error.py	/^clang_error_panel = ClangErrorPanel()$/;"	v
+classCursor	.\lib\include\clang-c\Index.h	/^  CXCursor classCursor;$/;"	m	struct:__anon28
+classCursor	.\lib\include\clang-c\Index.h	/^  CXCursor classCursor;$/;"	m	struct:__anon37
+classLoc	.\lib\include\clang-c\Index.h	/^  CXIdxLoc classLoc;$/;"	m	struct:__anon28
+classLoc	.\lib\include\clang-c\Index.h	/^  CXIdxLoc classLoc;$/;"	m	struct:__anon37
+clean	.\st_cc.py	/^  def clean():$/;"	m	class:Complete
+close	.\clang_error.py	/^    def close(self):$/;"	m	class:ClangErrorPanel
+col	.\src\cc_symbol.h	/^  unsigned int col;$/;"	m	struct:cc_def
+complete_at	.\cc.py	/^  def complete_at(self, line, col, unsaved_files = []):$/;"	m	class:CCSymbol
+complete_result	.\st_cc.py	/^  complete_result = None$/;"	v	class:CCAutoComplete
+container	.\lib\include\clang-c\Index.h	/^  const CXIdxContainerInfo *container;$/;"	m	struct:__anon41
+containerInfo	.\lib\include\clang-c\Index.h	/^  const CXIdxObjCContainerDeclInfo *containerInfo;$/;"	m	struct:__anon36
+containerInfo	.\lib\include\clang-c\Index.h	/^  const CXIdxObjCContainerDeclInfo *containerInfo;$/;"	m	struct:__anon37
+context	.\lib\include\clang-c\Index.h	/^  void *context;$/;"	m	struct:__anon16
+count	.\lib\include\clang-c\Index.h	/^  unsigned count;$/;"	m	struct:__anon8
+count	.\src\cc_trie.c	/^  uint8_t count;$/;"	m	struct:cc_node	file:
+current_path	.\cc.py	/^current_path = os.path.dirname(os.path.abspath(__file__))$/;"	v
+cursor	.\lib\include\clang-c\Index.h	/^     (^CXCursorVisitorBlock)(CXCursor cursor, CXCursor parent);$/;"	v
+cursor	.\lib\include\clang-c\Index.h	/^  CXCursor cursor;$/;"	m	struct:__anon25
+cursor	.\lib\include\clang-c\Index.h	/^  CXCursor cursor;$/;"	m	struct:__anon26
+cursor	.\lib\include\clang-c\Index.h	/^  CXCursor cursor;$/;"	m	struct:__anon27
+cursor	.\lib\include\clang-c\Index.h	/^  CXCursor cursor;$/;"	m	struct:__anon30
+cursor	.\lib\include\clang-c\Index.h	/^  CXCursor cursor;$/;"	m	struct:__anon33
+cursor	.\lib\include\clang-c\Index.h	/^  CXCursor cursor;$/;"	m	struct:__anon34
+cursor	.\lib\include\clang-c\Index.h	/^  CXCursor cursor;$/;"	m	struct:__anon41
+data	.\lib\include\clang-c\CXString.h	/^  const void *data;$/;"	m	struct:__anon2
+data	.\lib\include\clang-c\Index.h	/^  const void *data[3];$/;"	m	struct:__anon9
+data	.\lib\include\clang-c\Index.h	/^  unsigned long long data[3];$/;"	m	struct:__anon5
+data	.\lib\include\clang-c\Index.h	/^  void *data;$/;"	m	struct:CXTUResourceUsage
+data	.\lib\include\clang-c\Index.h	/^  void *data[2];$/;"	m	struct:__anon10
+declAsContainer	.\lib\include\clang-c\Index.h	/^  const CXIdxContainerInfo *declAsContainer;$/;"	m	struct:__anon30
+declInfo	.\lib\include\clang-c\Index.h	/^  const CXIdxDeclInfo *declInfo;$/;"	m	struct:__anon32
+declInfo	.\lib\include\clang-c\Index.h	/^  const CXIdxDeclInfo *declInfo;$/;"	m	struct:__anon38
+declInfo	.\lib\include\clang-c\Index.h	/^  const CXIdxDeclInfo *declInfo;$/;"	m	struct:__anon39
+del_symbol	.\st_cc.py	/^  def del_symbol(file_name):$/;"	m	class:Complete
+diagnostic	.\cc.py	/^  def diagnostic(self):$/;"	m	class:CCSymbol
+diagnostic	.\lib\include\clang-c\Index.h	/^  void (*diagnostic)(CXClientData client_data,$/;"	m	struct:__anon42
+diagnostic_visit	.\src\cc_symbol.h	/^typedef void(*diagnostic_visit)(const char* info, void* ud);$/;"	t
+digst_regex	.\cc.py	/^digst_regex = re.compile("^(.+?):(\\d+):(\\d+): (.+?):.*$")$/;"	v
+dirty	.\st_cc.py	/^  dirty = False$/;"	v	class:CCAutoComplete
+do_complete	.\st_cc.py	/^      def do_complete():$/;"	f	function:CCAutoComplete.on_query_completions
+drivers	.\st_cc.py	/^drivers = {$/;"	v
+end_int_data	.\lib\include\clang-c\Index.h	/^  unsigned end_int_data;$/;"	m	struct:__anon7
+enteredMainFile	.\lib\include\clang-c\Index.h	/^  CXIdxClientFile (*enteredMainFile)(CXClientData client_data,$/;"	m	struct:__anon42
+entityInfo	.\lib\include\clang-c\Index.h	/^  const CXIdxEntityInfo *entityInfo;$/;"	m	struct:__anon30
+entries	.\lib\include\clang-c\Index.h	/^  CXTUResourceUsageEntry *entries;$/;"	m	struct:CXTUResourceUsage
+erase_error_marks	.\clang_error.py	/^    def erase_error_marks(self, view):$/;"	m	class:ClangErrorPanel
+error_marks	.\clang_error.py	/^    def error_marks(self, view, digst, display):$/;"	m	class:ClangErrorPanel
+file	.\lib\include\clang-c\Index.h	/^  CXFile file;$/;"	m	struct:__anon19
+file	.\lib\include\clang-c\Index.h	/^  CXFile file;$/;"	m	struct:__anon20
+fileName	.\cc.py	/^  fileName = "%s\/lib\/libcc.dll" % current_path$/;"	v
+filename	.\cc.py	/^  def filename(self):$/;"	m	class:CCdef
+filename	.\lib\include\clang-c\Index.h	/^  const char *filename;$/;"	m	struct:__anon19
+filename	.\src\cc_symbol.h	/^	char* filename;$/;"	m	struct:cc_symbol
+filename	.\src\cc_symbol.h	/^  const char* filename;$/;"	m	struct:cc_def
+flags	.\lib\include\clang-c\Index.h	/^  unsigned flags;$/;"	m	struct:__anon30
+flush	.\clang_error.py	/^    def flush(self):$/;"	m	class:ClangErrorPanel
+func	.\test\test_trie.c	/^void func(unsigned int idx, void* ud) {$/;"	f
+get_def	.\cc.py	/^  def get_def(self, filename, line, col):$/;"	m	class:CCSymbol
+get_entry	.\st_cc.py	/^  def get_entry(self, v):$/;"	m	class:WraperComplete
+get_language	.\st_cc.py	/^def get_language(view):$/;"	f
+get_opt	.\st_cc.py	/^  def get_opt(view):$/;"	m	class:Complete
+get_settings	.\st_cc.py	/^  def get_settings():$/;"	m	class:Complete
+get_symbol	.\st_cc.py	/^  def get_symbol(file_name, view, unsaved_files=[]):$/;"	m	class:Complete
+get_unsaved_files	.\st_cc.py	/^def get_unsaved_files(view):$/;"	f
+get_view	.\clang_error.py	/^    def get_view(self):$/;"	m	class:ClangErrorPanel
+getter	.\lib\include\clang-c\Index.h	/^  const CXIdxEntityInfo *getter;$/;"	m	struct:__anon38
+hack2	.\st_cc.py	/^    def hack2():$/;"	f	function:CCAutoComplete.per_complete
+has	.\cc.py	/^  def has(self):$/;"	m	class:CCdef
+has_ud	.\src\cc_trie.c	/^  bool has_ud;$/;"	m	struct:cc_node	file:
+hashLoc	.\lib\include\clang-c\Index.h	/^  CXIdxLoc hashLoc;$/;"	m	struct:__anon19
+idx2char	.\src\cc_trie.c	/^static int idx2char[] = {$/;"	v	file:
+importedASTFile	.\lib\include\clang-c\Index.h	/^  CXIdxClientASTFile (*importedASTFile)(CXClientData client_data,$/;"	m	struct:__anon42
+indexDeclaration	.\lib\include\clang-c\Index.h	/^  void (*indexDeclaration)(CXClientData client_data,$/;"	m	struct:__anon42
+indexEntityReference	.\lib\include\clang-c\Index.h	/^  void (*indexEntityReference)(CXClientData client_data,$/;"	m	struct:__anon42
+info	.\cc.py	/^  def info(self):$/;"	m	class:CXCompletionResult
+int_data	.\lib\include\clang-c\Index.h	/^  unsigned int_data;$/;"	m	struct:__anon18
+int_data	.\lib\include\clang-c\Index.h	/^  unsigned int_data;$/;"	m	struct:__anon6
+int_data	.\lib\include\clang-c\Index.h	/^  unsigned int_data[4];$/;"	m	struct:__anon13
+isAngled	.\lib\include\clang-c\Index.h	/^  int isAngled;$/;"	m	struct:__anon19
+isContainer	.\lib\include\clang-c\Index.h	/^  int isContainer;$/;"	m	struct:__anon30
+isDefinition	.\lib\include\clang-c\Index.h	/^  int isDefinition;$/;"	m	struct:__anon30
+isImplicit	.\lib\include\clang-c\Index.h	/^  int isImplicit;$/;"	m	struct:__anon20
+isImplicit	.\lib\include\clang-c\Index.h	/^  int isImplicit;$/;"	m	struct:__anon30
+isImport	.\lib\include\clang-c\Index.h	/^  int isImport;$/;"	m	struct:__anon19
+isModuleImport	.\lib\include\clang-c\Index.h	/^  int isModuleImport;$/;"	m	struct:__anon19
+isRedeclaration	.\lib\include\clang-c\Index.h	/^  int isRedeclaration;$/;"	m	struct:__anon30
+is_inhibit	.\st_cc.py	/^  def is_inhibit():$/;"	m	class:Complete
+is_member_completion	.\st_cc.py	/^  def is_member_completion(view):$/;"	m	class:Complete
+is_view_visible	.\clang_error.py	/^def is_view_visible(view, window=None):$/;"	f
+is_visible	.\clang_error.py	/^    def is_visible(self, window=None):$/;"	m	class:ClangErrorPanel
+kind	.\cc.py	/^  def kind(self):$/;"	m	class:CCTrunk
+kind	.\cc.py	/^  def kind(self):$/;"	m	class:CXCompletionResult
+kind	.\lib\include\clang-c\Index.h	/^  CXIdxAttrKind kind;$/;"	m	struct:__anon25
+kind	.\lib\include\clang-c\Index.h	/^  CXIdxEntityKind kind;$/;"	m	struct:__anon26
+kind	.\lib\include\clang-c\Index.h	/^  CXIdxEntityRefKind kind;$/;"	m	struct:__anon41
+kind	.\lib\include\clang-c\Index.h	/^  CXIdxObjCContainerKind kind;$/;"	m	struct:__anon32
+kind	.\lib\include\clang-c\Index.h	/^  enum CXCursorKind kind;$/;"	m	struct:__anon9	typeref:enum:__anon9::CXCursorKind
+kind	.\lib\include\clang-c\Index.h	/^  enum CXTUResourceUsageKind kind;  $/;"	m	struct:CXTUResourceUsageEntry	typeref:enum:CXTUResourceUsageEntry::CXTUResourceUsageKind
+kind	.\lib\include\clang-c\Index.h	/^  enum CXTypeKind kind;$/;"	m	struct:__anon10	typeref:enum:__anon10::CXTypeKind
+kind	.\src\py_bind.c	/^  enum CXCompletionChunkKind kind;$/;"	m	struct:cc_trunk	typeref:enum:cc_trunk::CXCompletionChunkKind	file:
+lang	.\lib\include\clang-c\Index.h	/^  CXIdxEntityLanguage lang;$/;"	m	struct:__anon26
+language_regex	.\st_cc.py	/^language_regex = re.compile("(?<=source\\.)[\\w+#]+")$/;"	v
+length	.\cc.py	/^  def length(self):$/;"	m	class:CXCompletionResult
+length	.\cc.py	/^  def length(self):$/;"	m	class:CXDiagnosticSet
+length	.\cc.py	/^  def length(self):$/;"	m	class:MatchResult
+lexicalContainer	.\lib\include\clang-c\Index.h	/^  const CXIdxContainerInfo *lexicalContainer;$/;"	m	struct:__anon30
+libcc	.\cc.py	/^  libcc = cdll.LoadLibrary("%s\/lib\/libcc.so" % current_path)$/;"	v
+libcc	.\cc.py	/^  libcc = cdll.LoadLibrary(fileName)$/;"	v
+libcc_cs_count	.\cc.py	/^libcc_cs_count = libcc.py_cs_count$/;"	v
+libcc_cs_entryname	.\cc.py	/^libcc_cs_entryname = libcc.py_cs_entryname$/;"	v
+libcc_cs_trunk	.\cc.py	/^libcc_cs_trunk = libcc.py_cs_trunk$/;"	v
+libcc_diagnostic	.\cc.py	/^libcc_diagnostic = libcc.py_diagnostic$/;"	v
+libcc_diagnostic_count	.\cc.py	/^libcc_diagnostic_count = libcc.py_diagnostic_num$/;"	v
+libcc_diagnostic_free	.\cc.py	/^libcc_diagnostic_free = libcc.py_diagnostic_free$/;"	v
+libcc_diagnostic_new	.\cc.py	/^libcc_diagnostic_new = libcc.py_diagnostic_new$/;"	v
+libcc_result_free	.\cc.py	/^libcc_result_free = libcc.py_result_free$/;"	v
+libcc_result_match	.\cc.py	/^libcc_result_match = libcc.py_result_match$/;"	v
+libcc_symbol_complete_at	.\cc.py	/^libcc_symbol_complete_at = libcc.py_symbol_complete_at$/;"	v
+libcc_symbol_def	.\cc.py	/^libcc_symbol_def = libcc.py_symbol_def$/;"	v
+libcc_symbol_free	.\cc.py	/^libcc_symbol_free = libcc.py_symbol_free$/;"	v
+libcc_symbol_new	.\cc.py	/^libcc_symbol_new = libcc.py_symbol_new$/;"	v
+libcc_symbol_reparse	.\cc.py	/^libcc_symbol_reparse = libcc.py_symbol_reparse$/;"	v
+line	.\src\cc_symbol.h	/^  unsigned int line;$/;"	m	struct:cc_def
+list	.\src\cc_trie.c	/^  uint8_t list[_CHAR_COUNT];$/;"	m	struct:cc_node	file:
+loc	.\lib\include\clang-c\Index.h	/^  CXIdxLoc loc;$/;"	m	struct:__anon20
+loc	.\lib\include\clang-c\Index.h	/^  CXIdxLoc loc;$/;"	m	struct:__anon25
+loc	.\lib\include\clang-c\Index.h	/^  CXIdxLoc loc;$/;"	m	struct:__anon30
+loc	.\lib\include\clang-c\Index.h	/^  CXIdxLoc loc;$/;"	m	struct:__anon33
+loc	.\lib\include\clang-c\Index.h	/^  CXIdxLoc loc;$/;"	m	struct:__anon34
+loc	.\lib\include\clang-c\Index.h	/^  CXIdxLoc loc;$/;"	m	struct:__anon41
+main	.\src\main.c	/^int main()$/;"	f
+main	.\test\test_cc.c	/^int main(int argc, char const *argv[]){$/;"	f
+main	.\test\test_trie.c	/^int main(int argc, char const *argv[]) {$/;"	f
+markers	.\clang_error.py	/^    markers = {'warning': 'comment', 'error': 'invalid', 'fatal error': 'invalid'}$/;"	v	class:ClangErrorPanel
+match	.\cc.py	/^  def match(self, prefix):$/;"	m	class:CCResult
+match_result	.\src\cc_result.h	/^struct match_result {$/;"	s
+member_regex	.\st_cc.py	/^  member_regex = re.compile(r"(([a-zA-Z_]+[0-9_]*)|([\\)\\]])+)((\\.)|(->)|(::))$")$/;"	v	class:Complete
+module	.\lib\include\clang-c\Index.h	/^  CXModule module;$/;"	m	struct:__anon20
+name	.\cc.py	/^  def name(self):$/;"	m	class:CXCompletionResult
+name	.\enum.py	/^def name(self):$/;"	f
+name	.\lib\include\clang-c\Index.h	/^  const char *name;$/;"	m	struct:__anon26
+next	.\cc.py	/^  def next(self):$/;"	m	class:CXCompletionResult
+next	.\cc.py	/^  def next(self):$/;"	m	class:CXDiagnosticSet
+next	.\cc.py	/^  def next(self):$/;"	m	class:MatchResult
+node_insert	.\src\cc_trie.c	/^node_insert(struct cc_trie* tp, uint32_t node_pos, char c) {$/;"	f	file:
+node_next	.\src\cc_trie.c	/^node_next(struct cc_trie* tp, struct cc_node* node, char c) {$/;"	f	file:
+numAttributes	.\lib\include\clang-c\Index.h	/^  unsigned numAttributes;$/;"	m	struct:__anon26
+numAttributes	.\lib\include\clang-c\Index.h	/^  unsigned numAttributes;$/;"	m	struct:__anon30
+numBases	.\lib\include\clang-c\Index.h	/^  unsigned numBases;$/;"	m	struct:__anon39
+numEntries	.\lib\include\clang-c\Index.h	/^  unsigned numEntries;$/;"	m	struct:CXTUResourceUsage
+numProtocols	.\lib\include\clang-c\Index.h	/^  unsigned numProtocols;$/;"	m	struct:__anon35
+objcClass	.\lib\include\clang-c\Index.h	/^  const CXIdxEntityInfo *objcClass;$/;"	m	struct:__anon28
+objcClass	.\lib\include\clang-c\Index.h	/^  const CXIdxEntityInfo *objcClass;$/;"	m	struct:__anon37
+on_modified	.\st_cc.py	/^  def on_modified(self, view):$/;"	m	class:CCAutoComplete
+on_post_save_async	.\st_cc.py	/^  def on_post_save_async(self, view):$/;"	m	class:CCAutoComplete
+on_query_completions	.\st_cc.py	/^  def on_query_completions(self, view, prefix, locations):$/;"	m	class:CCAutoComplete
+open	.\clang_error.py	/^    def open(self, window=None):$/;"	m	class:ClangErrorPanel
+os	.\cc.py	/^import os$/;"	i
+os	.\st_cc.py	/^import os$/;"	i
+p	.\src\cc_resultcache.c	/^  CXCompletionResult** p;$/;"	m	struct:cc_resultcache	file:
+p	.\src\cc_trie.c	/^    struct cc_node* p;$/;"	m	struct:cc_trie::__anon44	typeref:struct:cc_trie::__anon44::cc_node	file:
+parent	.\lib\include\clang-c\Index.h	/^     (^CXCursorVisitorBlock)(CXCursor cursor, CXCursor parent);$/;"	v
+parentEntity	.\lib\include\clang-c\Index.h	/^  const CXIdxEntityInfo *parentEntity;$/;"	m	struct:__anon41
+per_complete	.\st_cc.py	/^  def per_complete(self):$/;"	m	class:CCAutoComplete
+pool	.\src\cc_trie.c	/^  }pool;$/;"	m	struct:cc_trie	typeref:struct:cc_trie::__anon44	file:
+pool_get	.\src\cc_trie.c	/^pool_get(struct cc_trie* tp) {$/;"	f	file:
+pos	.\src\cc_resultcache.c	/^  size_t pos;$/;"	m	struct:cc_resultcache	file:
+pos	.\src\cc_trie.c	/^    uint32_t pos;$/;"	m	struct:cc_trie::__anon44	file:
+pos2node	.\src\cc_trie.c	36;"	d	file:
+ppIncludedFile	.\lib\include\clang-c\Index.h	/^  CXIdxClientFile (*ppIncludedFile)(CXClientData client_data,$/;"	m	struct:__anon42
+private_flags	.\lib\include\clang-c\CXString.h	/^  unsigned private_flags;$/;"	m	struct:__anon2
+protocol	.\lib\include\clang-c\Index.h	/^  const CXIdxEntityInfo *protocol;$/;"	m	struct:__anon34
+protocols	.\lib\include\clang-c\Index.h	/^  const CXIdxObjCProtocolRefInfo *const *protocols;$/;"	m	struct:__anon35
+protocols	.\lib\include\clang-c\Index.h	/^  const CXIdxObjCProtocolRefListInfo *protocols;$/;"	m	struct:__anon36
+protocols	.\lib\include\clang-c\Index.h	/^  const CXIdxObjCProtocolRefListInfo *protocols;$/;"	m	struct:__anon37
+ptr_data	.\lib\include\clang-c\Index.h	/^  const void *ptr_data[2];$/;"	m	struct:__anon6
+ptr_data	.\lib\include\clang-c\Index.h	/^  const void *ptr_data[2];$/;"	m	struct:__anon7
+ptr_data	.\lib\include\clang-c\Index.h	/^  void *ptr_data;$/;"	m	struct:__anon13
+ptr_data	.\lib\include\clang-c\Index.h	/^  void *ptr_data[2];$/;"	m	struct:__anon18
+py_cs_count	.\src\py_bind.c	/^py_cs_count(CXCompletionString cs) {$/;"	f
+py_cs_entryname	.\src\py_bind.c	/^py_cs_entryname(CXCompletionString cs) {$/;"	f
+py_cs_trunk	.\src\py_bind.c	/^py_cs_trunk(CXCompletionString cs, unsigned int idx) {$/;"	f
+py_diagnostic	.\src\py_bind.c	/^py_diagnostic(CXDiagnosticSet set, unsigned int idx) {$/;"	f
+py_diagnostic_free	.\src\py_bind.c	/^py_diagnostic_free(CXDiagnosticSet set) {$/;"	f
+py_diagnostic_new	.\src\py_bind.c	/^py_diagnostic_new(struct cc_symbol* sp) {$/;"	f
+py_diagnostic_num	.\src\py_bind.c	/^py_diagnostic_num(CXDiagnosticSet set) {$/;"	f
+py_result_free	.\src\py_bind.c	/^py_result_free(struct cc_result* rp) {$/;"	f
+py_result_match	.\src\py_bind.c	/^py_result_match(struct cc_result* rp, const char* prefix) {$/;"	f
+py_symbol_complete_at	.\src\py_bind.c	/^py_symbol_complete_at(struct cc_symbol* sp, unsigned int line, unsigned int col, struct CXUnsavedFile* unsaved_files, unsigned int num_unsaved_files) {$/;"	f
+py_symbol_def	.\src\py_bind.c	/^py_symbol_def(struct cc_symbol* sp, const char* filename, unsigned line, unsigned col) {$/;"	f
+py_symbol_free	.\src\py_bind.c	/^py_symbol_free(struct cc_symbol* sp) {$/;"	f
+py_symbol_new	.\src\py_bind.c	/^py_symbol_new(const char* filename, const char* opt[], unsigned int opt_len, struct CXUnsavedFile*  unsaved_files, unsigned num_unsaved_files) {$/;"	f
+py_symbol_reparse	.\src\py_bind.c	/^py_symbol_reparse(struct cc_symbol* sp, struct CXUnsavedFile*  unsaved_files, unsigned num_unsaved_files) {$/;"	f
+pyver	.\enum.py	/^pyver = float('%s.%s' % _sys.version_info[:2])$/;"	v
+ranges	.\lib\include\clang-c\Index.h	/^  CXSourceRange *ranges;$/;"	m	struct:__anon8
+re	.\cc.py	/^import re$/;"	i
+re	.\st_cc.py	/^import re$/;"	i
+ref_cache	.\src\cc_result.c	/^  struct cc_resultcache* ref_cache;   \/\/ the struct ccresultcache reference, not need free$/;"	m	struct:cc_result	typeref:struct:cc_result::cc_resultcache	file:
+ref_tp	.\src\cc_result.c	/^  struct cc_trie* ref_tp;             \/\/ the struct cc_trie reference, not need free$/;"	m	struct:cc_result	typeref:struct:cc_result::cc_trie	file:
+referencedEntity	.\lib\include\clang-c\Index.h	/^  const CXIdxEntityInfo *referencedEntity;$/;"	m	struct:__anon41
+reparse	.\cc.py	/^  def reparse(self, unsaved_files=[]):$/;"	m	class:CCSymbol
+result	.\src\cc_result.c	/^  CXCodeCompleteResults* result;$/;"	m	struct:cc_result	file:
+root	.\src\cc_trie.c	/^  uint32_t root;$/;"	m	struct:cc_trie	file:
+run	.\clang_error.py	/^    def run(self, **args):$/;"	m	class:ClangTogglePanel
+run	.\clang_error.py	/^    def run(self, edit, data):$/;"	m	class:ClangErrorPanelFlush
+run	.\st_cc.py	/^  def run(self, edit):$/;"	m	class:ClangClean
+run	.\st_cc.py	/^  def run(self, edit):$/;"	m	class:ClangGotoDef
+semanticContainer	.\lib\include\clang-c\Index.h	/^  const CXIdxContainerInfo *semanticContainer;$/;"	m	struct:__anon30
+set_data	.\clang_error.py	/^    def set_data(self, data):$/;"	m	class:ClangErrorPanel
+set_view	.\clang_error.py	/^    def set_view(self, view):$/;"	m	class:ClangErrorPanel
+setter	.\lib\include\clang-c\Index.h	/^  const CXIdxEntityInfo *setter;$/;"	m	struct:__anon38
+size	.\src\cc_result.h	/^  unsigned int size;$/;"	m	struct:match_result
+size	.\src\cc_resultcache.c	/^  size_t size;$/;"	m	struct:cc_resultcache	file:
+size	.\src\cc_trie.c	/^    uint32_t size;$/;"	m	struct:cc_trie::__anon44	file:
+snprintf	.\src\py_bind.c	10;"	d	file:
+startedTranslationUnit	.\lib\include\clang-c\Index.h	/^  CXIdxClientContainer (*startedTranslationUnit)(CXClientData client_data,$/;"	m	struct:__anon42
+sublime	.\clang_error.py	/^import sublime, sublime_plugin$/;"	i
+sublime	.\st_cc.py	/^import sublime, sublime_plugin$/;"	i
+sublime_plugin	.\clang_error.py	/^import sublime, sublime_plugin$/;"	i
+sublime_plugin	.\st_cc.py	/^import sublime, sublime_plugin$/;"	i
+superInfo	.\lib\include\clang-c\Index.h	/^  const CXIdxBaseClassInfo *superInfo;$/;"	m	struct:__anon36
+symbol_map	.\st_cc.py	/^  symbol_map = {}$/;"	v	class:Complete
+t	.\st_cc.py	/^  t = False$/;"	v	class:CCAutoComplete
+table	.\src\cc_result.h	/^  CXCompletionResult** table;$/;"	m	struct:match_result
+target	.\cc.py	/^  def target(self):$/;"	m	class:CCdef
+temp_enum_dict	.\enum.py	/^temp_enum_dict = {}$/;"	v
+templateKind	.\lib\include\clang-c\Index.h	/^  CXIdxEntityCXXTemplateKind templateKind;$/;"	m	struct:__anon26
+threading	.\st_cc.py	/^import threading$/;"	i
+to_file_list	.\cc.py	/^  def to_file_list(self, file_list):$/;"	m	class:CCHelper
+to_string_list	.\cc.py	/^  def to_string_list(self, str_list):$/;"	m	class:CCHelper
+tokens	.\test\token.h	/^static const char* tokens[] = {$/;"	v
+tp	.\src\cc_symbol.h	/^	struct cc_trie* tp;$/;"	m	struct:cc_symbol	typeref:struct:cc_symbol::cc_trie
+trie_dump	.\src\cc_trie.c	/^trie_dump(struct cc_trie* tp) {$/;"	f
+trie_visit	.\src\cc_trie.h	/^typedef void (*trie_visit)(unsigned int v, void* ud);$/;"	t
+tu	.\src\cc_symbol.h	/^	CXTranslationUnit tu;$/;"	m	struct:cc_symbol
+ud	.\src\cc_trie.c	/^  unsigned int ud;$/;"	m	struct:cc_node	file:
+unicode	.\enum.py	/^    unicode = str$/;"	v
+unique	.\enum.py	/^def unique(enumeration):$/;"	f
+value	.\cc.py	/^  def value(self):$/;"	m	class:CCTrunk
+value	.\enum.py	/^def value(self):$/;"	f
+value	.\src\py_bind.c	/^  const char* value;$/;"	m	struct:cc_trunk	file:
+version	.\enum.py	/^version = 1, 0, 4$/;"	v
+visit	.\lib\include\clang-c\Index.h	/^  enum CXVisitorResult (*visit)(void *context, CXCursor, CXSourceRange);$/;"	m	struct:__anon16	typeref:enum:__anon16::visit
+vit	.\src\main.c	/^enum CXChildVisitResult vit(CXCursor cursor,$/;"	f
+wraper	.\st_cc.py	/^  wraper = WraperComplete()$/;"	v	class:Complete
+xdata	.\lib\include\clang-c\Index.h	/^  int xdata;$/;"	m	struct:__anon9

@@ -3,17 +3,22 @@
 	[
 		"hxx",
 		"cpp",
-		"cp",
-		"hpp",
-		"h++",
-		"hh",
-		"cxx",
-		"cc",
-		"ipp",
-		"h",
-		"c++",
+		"tcc",
 		"thh",
-		"inl",
-		"tcc"
+		"ipp",
+		"cc",
+		"c++",
+		"hpp",
+		"hh",
+		"h",
+		"cxx",
+		"cp",
+		"c",
+		"h++",
+		"inl"
+	],
+	"ignored_packages":
+	[
+		"SublimeCodeIntel"
 	]
 }

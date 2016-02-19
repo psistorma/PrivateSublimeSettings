@@ -169,7 +169,7 @@
       <key>name</key>
       <string>function name</string>
       <key>scope</key>
-      <string>entity.name.function, variable.entity.name.function, support.function, keyword.function</string>
+      <string>entity.name.function - meta.tip.highlight, variable.entity.name.function - meta.tip.highlight, support.function, keyword.function</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -339,6 +339,17 @@
       <dict>
         <key>foreground</key>
         <string>#FFD700</string>
+      </dict>
+    </dict>
+    <dict><!--tip highlight warm-->
+      <key>name</key>
+      <string>tip highlight warm</string>
+      <key>scope</key>
+      <string>meta.tip.highlight.warm</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#BDB76B</string>
       </dict>
     </dict>
     <dict><!--tip embed-->

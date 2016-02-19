@@ -19,7 +19,7 @@
     "html": false,
     "lodash": false,
     "javascript": false,
-    "jquery": true,
+    "jquery": false,
     "jquery-sq": false, // Single Quote
     "php": false,
     "phpci": false,

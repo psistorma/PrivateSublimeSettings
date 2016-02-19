@@ -29,7 +29,7 @@ variables:
     (?:
       m_{{svIdent}}|
       _[A-Za-z][A-Za-z_0-9]*+|
-      [A-Za-z][A-Za-z_0-9]*?+[A-Za-z]_|
+      [A-Za-z][A-Za-z_0-9]*?+[A-Za-z]_(?!\w)|
       (?<={{svMemberAccess}}){{svIdent}}
     )
   svNsSep: '(?<!:)::(?!:)'
@@ -52,10 +52,10 @@ contexts:
     - match: ，|。|（|）|“|”
       scope: invalid.illegal.punctuation
   main:
-    - include: __rule-preprocessor-include
     - include: rule-declaration-preprocessor-safe
 # declaration
   rule-declaration-preprocessor-safe:
+    - include: rule-preprocessor-include
     - include: rule-pragma-region
     - include: rule-preprocessor-condition
     - include: rule-preprocessor-directive
@@ -69,6 +69,7 @@ contexts:
     - include: rule-statement-declaration
     - include: rule-statement-empty
     - include: rule-invalid-statement-symbol
+    - include: lex-declaration-type
 
   rule-declaration-block:
     - match: (?=\s*\{)
@@ -200,6 +201,7 @@ contexts:
     - include: rule-memory-control
     - include: rule-macro-expandsion
     - include: rule-expression-impl-function-call
+    - include: rule-expression-index-visit
     - include: lex-variable
     - include: lex-operator
     - include: lex-sep
@@ -245,7 +247,7 @@ contexts:
           pop: true
         - match: ;
           scope: invalid.illegal.semicolon.end
-        - match: (?=\w|\()
+        - match: (?=\w|\(|\")
           push:
             - match: (?=\s*\{)
               push:
@@ -324,20 +326,29 @@ contexts:
       scope: storage.type.c
       set:
         - match: (?=\s*\{)
-          set:
-            - include: step-declaration-block
+          set: step-declaration-block
         - include: lex-declaration-type
+    - match: (?=;)
+      pop: true
     - match: (?=\s*{{svIdent}};)
       pop: true
+    - match: (?=\s*\(?\s*\*?{{svCtxType}}\s*\)?\()
+      push:
+        - match: (?=;)
+          pop: true
+        - match: (?=\s*\()
+          push:
+           - include: __step-parens-definition
+        - include: lex-declaration-type
     - include: lex-declaration-type
 
   __step-typedef-after-typename:
     - meta_scope: meta.typedef
     - include: step-finish-at-end-of-statement
-    - match: '\s*(,)?\s*(\*)?\s*({{svIdent}})'
+    - match: '\s*(,)?\s*(\*+)?\s*({{svIdent}})'
       captures:
         1: punctuation.comma.typedef.target
-        2: meta.tip.highlight keyword.operator.pointer
+        2: keyword.operator.pointer meta.tip.highlight
         3: entity.type.name.typedef.target
     - include: lex-declaration-type
 
@@ -379,7 +390,7 @@ contexts:
           pop: true
         - include: lex-continuation
 # include
-  __rule-preprocessor-include:
+  rule-preprocessor-include:
     - match: (?=^\s*(#)(include)\s+)
       push: __step-preprocessor-include
 
@@ -519,16 +530,20 @@ contexts:
     - include: lex-continuation
 # class definition
   rule-definition-class:
-    - match: (?=\bclass\s+{{svIdent}}\s*:)
+    - match: (?=\b(?:class|struct)\s+{{svIdent}}(?!\s*\*)\s*(?::)?)
       push:
         - match: (?=.?)
           set: [__step-definition-class-body, __step-definition-class-header]
 
   __step-definition-class-header:
     - meta_scope: meta.header
+    - match: (?=;)
+      pop: true
     - match: (?=\s*\{)
       pop: true
-    - match: \b(class)\s+({{svIdent}})\s*(:)\s*
+    - match: (?={{svIdent}}\s*\()
+      pop: true
+    - match: \b(class|struct)\s+({{svIdent}})\s*(:)?\s*
       captures:
         1: storage.type.c
         2: entity.name.type.class.c
@@ -538,6 +553,9 @@ contexts:
     - include: rule-declaration-type
 
   __step-definition-class-body:
+    - include: step-finish-at-end-of-statement
+    - match: (?={{svIdent}}\s*\()
+      pop: true
     - match: (?=\s*\{)
       set:
         - meta_scope: meta.definition.class
@@ -547,6 +565,7 @@ contexts:
   rule-definition-enum:
     - match: (?=\s*\b(enum)\s*(?:{{svIdent}})?)
       push:
+        - include: step-finish-at-end-of-statement
         - match: \s*(enum)\s*({{svIdent}})?
           captures:
             1: storage.type.c
@@ -576,7 +595,7 @@ contexts:
         - include: step-finish-now
 # function definition
   rule-definition-function:
-    - match: (?=.*?\boperator\b.*?\()|(?=.*?\b{{svIdent}}\s*\()
+    - match: (?=.*?\boperator\b.*?\()|(?=\s*~?(?:{{svCtxType}}\s*)+\s*\()
       push:
         - meta_scope: meta.definition.function
         - include: step-finish-at-end-of-statement
@@ -587,13 +606,13 @@ contexts:
         - match: \s*\b(operator)\s*(\S*?)(?=\()
           captures:
             1: keyword.operator.operator
-            2: meta.tip.highlight entity.name.operator
+            2: entity.name.operator meta.tip.highlight
         - match: (~)(?=\s*{{svIdent}}\s*\()
           captures:
-            1: punctuation.definition.wave.class.destruction
-        - match: \s*\b({{svIdent}})\s*(?=\()
+            1: punctuation.definition.wave.class.destruction meta.tip.highlight
+        - match: \s*({{svIdent}})\s*(?=\()
           captures:
-            1: entity.name.function
+            1: entity.name.function meta.tip.highlight.warm
 #return type
         - include: lex-keyword-modifier
         - include: lex-declaration-type
@@ -617,7 +636,7 @@ contexts:
         - match: \b(const_cast|dynamic_cast|reinterpret_cast|static_cast)\b
           scope: meta.tip.notify keyword.operator.cast.c++
         - match: \<
-          scope: meta.tip.highlight punctuation.lt-gt.template.type
+          scope: punctuation.lt-gt.template.type meta.tip.highlight
           set:
             - match: (?=\s*\()
               set: step-parens-invoke
@@ -652,9 +671,31 @@ contexts:
               pop: true
             - include: lex-literal-value
             - include: lex-declaration-type
-
+# expression index visit
+  rule-expression-index-visit:
+    - match: (?=\s*\[)
+      push:
+        - match: \[
+          scope: punctuation.square.begin
+        - match: \]
+          scope: punctuation.square.end
+          pop: true
+        - include: step-expression-statement
+# brace init
+  rule-expression-brace-init:
+    - match: (?=\s*\{)
+      push:
+        - match: \s*\{
+          scope: punctuation.brace.begin
+        - match: (?=.?)
+          set:
+          - match: \s*\}
+            scope: punctuation.brace.end
+            pop: true
+          - include: step-expression-statement
 # statement flow
   rule-statement-flow:
+    - include: rule-statement-flow-for
     - match: (?=\s*\b(?:else\s+if|if|else|for|while)\b)
       push:
         - meta_scope: meta.flow
@@ -662,12 +703,45 @@ contexts:
           scope: keyword.control.c
         - match: (?=\s*\()
           push: step-parens-invoke
-        - match: (?=\s*\{)
-          set:
-            - meta_scope: meta.flow
-            - include: step-impl-inner-block
-        - match: (?=\w)
-          pop: true
+        - include: step-flow-block
+  step-flow-block:
+    - match: (?=\w)
+      pop: true
+    - match: (?=\s*\{)
+      set:
+        - meta_scope: meta.flow
+        - include: step-impl-inner-block
+  rule-statement-flow-for:
+      - match: (?=\s*\bfor\s*\()
+        push:
+          - match: \bfor\b
+            scope: keyword.control.c
+          - match: \(
+            scope: punctuation.bracket.parens.begin
+            set: [step-flow-block, for_stmt_expr1]
+  for_stmt_expr1:
+    - match: ";"
+      scope: punctuation.semicolon.statement.end
+      set: for_stmt_expr2
+    - match: \)
+      scope: punctuation.bracket.parens.end
+      pop: true
+    - include: step-expression-statement
+  for_stmt_expr2:
+    - match: ";"
+      scope: punctuation.semicolon.statement.end
+      set: for_stmt_expr3
+    - match: \)
+      scope: punctuation.bracket.parens.end
+      pop: true
+    - include: step-expression-statement
+  for_stmt_expr3:
+    - match: \)
+      scope: punctuation.bracket.parens.end
+      pop: true
+    - match: ";"
+      scope: invalid.illegal.stray-semi-colon
+    - include: step-expression-statement
 # statement try
   rule-statement-try:
     - match: (?=^\s*\b(?:try)\b)
@@ -690,10 +764,10 @@ contexts:
             - include: step-impl-inner-block
 # statement declaration
   rule-statement-declaration:
-    - match: (?=^\s*{{svCtxType}}\s*{{svIdent}})
+    - match: (?=^\s*{{svCtxType}}\s*{{svIdent}}.*?(?=,|;|=|\())
       push:
         - meta_scope: meta.impl.declaration
-        - match: (?=\s*{{svIdent}}\s*(?=,|;|$|=|\())
+        - match: (?=\s*{{svIdent}}\s*(?=,|;|=|\())
           set: __step-varaible-declaration
         - include: lex-slack-pointer-type
         - include: lex-declaration-type
@@ -703,12 +777,12 @@ contexts:
     - meta_scope: meta.impl.declaration
     - include: step-finish-at-end-of-statement
       pop: true
-    - match: (?=\s*(\*?{{svIdent}})\s*(?=,|;|=|\())
+    - match: (?=\s*(\*?{{svIdent}})\s*(?=,|;|=|\(|\{))
       push:
         - match: (?=\s*\()
           push: step-parens-invoke
-        - match: \s*\*
-          scope: meta.tip.highlight keyword.operator.pointer
+        - match: \s*\*+
+          scope: keyword.operator.pointer meta.tip.highlight
         - match: =
           scope: keyword.operator.assignment.c
           push:
@@ -716,6 +790,7 @@ contexts:
               pop: true
             - match: \s*\)
               scope: invalid.illegal.stray-bracket-end
+            - include: rule-expression-brace-init
             - include: step-expression
         - match: (?=,|;)
           pop: true
@@ -772,8 +847,13 @@ contexts:
   __lex-chain-type:
     - match: '\s*{{svNsSep}}'
       scope: punctuation.sep.ctx-chain
-    - match: \s*(?:\<|\>)\s*(?=\w|\*|\(|\>|$|\:)
-      scope: meta.tip.highlight punctuation.lt-gt.template.type
+    - match: \s*(?:\<)\s*(?=[\w\*\(\<\>\:\s]+?\>|$)
+      scope: punctuation.lt-gt.template.type meta.tip.highlight
+      push:
+        - match: \s*(?:\>)
+          scope: punctuation.lt-gt.template.type meta.tip.highlight
+          pop: true
+        - include: __lex-chain-type
     - match: '\s*{{svIdent}}'
       scope: variable.entity.name.type
   lex-pointer-type:
@@ -785,14 +865,15 @@ contexts:
     - match: (?=\s*{{svCtxTypeNoPointer}}\s*\*\s*)
       push:
         - meta_scope: meta.type.pointer
-        - match: \s*\*
-          scope: meta.tip.highlight keyword.operator.pointer
+        - match: \s*\*+
+          scope: keyword.operator.pointer meta.tip.highlight
           pop: true
         - include: __lex-declaration-type
   lex-declaration-type:
     - include: lex-pointer-type
     - include: __lex-declaration-type
   __lex-declaration-type:
+    - include: lex-storage-type
     - include: lex-keyword-type
     - include: lex-keyword-modifier
     - include: lex-support-macro-name
@@ -1117,13 +1198,13 @@ contexts:
       scope: storage.modifier.c++
   lex-operator:
     - match: \s*(->)(?={{svCanEmbedSpaceAndComment}}{{svIdent}})
-      scope: meta.tip.highlight keyword.operator.dereference.c
+      scope: keyword.operator.dereference.c meta.tip.highlight
     - match: \s*(==|(?<!<)<=|(?<!>)>=)
-      scope: meta.tip.highlight keyword.operator.comparison.c
+      scope: keyword.operator.comparison.c meta.tip.highlight
     - match: \s*(\-|\+|\*|\/|%|&|\||\^|<<|>>)?=
       scope: keyword.operator.assignment.c
     - match: \s*(!=|<>|(?<!<)<(?!<)|(?<!>)>(?!>))
-      scope: meta.tip.highlight keyword.operator.comparison.c
+      scope: keyword.operator.comparison.c meta.tip.highlight
     - match: \s*(\-\-|\+\+)
       scope: keyword.operator.increment-decrement.c
     - match: \s*(\?|(?<!:):(?!:))
@@ -1131,14 +1212,14 @@ contexts:
     - match: \s*(\-|\+|\*|\/|%)
       scope: keyword.operator.arithmetic.c
     - match: \s*(!|&&|\|\|)
-      scope: meta.tip.highlight keyword.operator.logical.c
+      scope: keyword.operator.logical.c meta.tip.highlight
     - match: \s*(~|&|\||\^|<<|>>)
       scope: keyword.operator.bitwise.c
     - match: '\s*(\.)(?={{svCanEmbedSpaceAndComment}}{{svIdent}})'
-      scope: meta.tip.highlight keyword.operator.dereference.c
+      scope: keyword.operator.dereference.c meta.tip.highlight
   lex-memory-operator:
-    - match: \s*(?:(?<!&)&(?!&)|\*)
-      scope: meta.tip.highlight keyword.operator.pointer
+    - match: \s*(?:(?<!&)&(?!&)|\*+)
+      scope: keyword.operator.pointer meta.tip.highlight
   lex-sep:
     - match: \,
       scope: punctuation.comma.sep
@@ -1164,7 +1245,7 @@ contexts:
 
   lex-continuation:
     - match: (\\)(?=$\n?)
-      scope: meta.tip.highlight punctuation.separator.continuation.c
+      scope: punctuation.separator.continuation.c meta.tip.highlight
     - match: \\(\s+?)(?=$\n?)
       captures:
         1: invalid.deprecated.space-after-continuation.c

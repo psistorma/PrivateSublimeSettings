@@ -913,7 +913,6 @@ class CTagsAutoComplete(sublime_plugin.EventListener):
         if setting('autocomplete'):
             prefix = prefix.strip().lower()
             tags_path = view.window().folders()[0] + '/' + setting('tag_file')
-            print(prefix)
             sub_results = [v.extract_completions(prefix)
                            for v in sublime.active_window().views()]
             sub_results = [(item, item) for sublist in sub_results

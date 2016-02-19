@@ -1,0 +1,12 @@
+[
+//SublimeLinter
+    {"keys": ["f6"], "command": "sublimelinter_goto_error", "args": {"direction": "next"} ,"context": [
+      {"key": "selector", "operator": "equal", "operand": "source"}
+    ]},
+    {"keys": ["shift+f6"], "command": "sublimelinter_goto_error", "args": {"direction": "previous"} ,"context": [
+      {"key": "selector", "operator": "equal", "operand": "source"}
+    ]},
+    {"keys": ["ctrl+f6"], "command": "sublimelinter_show_all_errors" ,"context": [
+      {"key": "selector", "operator": "equal", "operand": "source"}
+    ]},
+]

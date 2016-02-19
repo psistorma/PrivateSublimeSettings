@@ -1,0 +1,744 @@
+CLANG_C_BUILD_SYSTEM_H	BuildSystem.h	15;"	d
+CXModuleMapDescriptor	BuildSystem.h	/^typedef struct CXModuleMapDescriptorImpl *CXModuleMapDescriptor;$/;"	t	typeref:struct:CXModuleMapDescriptorImpl
+CXVirtualFileOverlay	BuildSystem.h	/^typedef struct CXVirtualFileOverlayImpl *CXVirtualFileOverlay;$/;"	t	typeref:struct:CXVirtualFileOverlayImpl
+CLANG_CXCOMPILATIONDATABASE_H	CXCompilationDatabase.h	16;"	d
+CXCompilationDatabase	CXCompilationDatabase.h	/^typedef void * CXCompilationDatabase;$/;"	t
+CXCompilationDatabase_CanNotLoadDatabase	CXCompilationDatabase.h	/^  CXCompilationDatabase_CanNotLoadDatabase = 1$/;"	e	enum:__anon1
+CXCompilationDatabase_Error	CXCompilationDatabase.h	/^} CXCompilationDatabase_Error;$/;"	t	typeref:enum:__anon1
+CXCompilationDatabase_NoError	CXCompilationDatabase.h	/^  CXCompilationDatabase_NoError = 0,$/;"	e	enum:__anon1
+CXCompileCommand	CXCompilationDatabase.h	/^typedef void * CXCompileCommand;$/;"	t
+CXCompileCommands	CXCompilationDatabase.h	/^typedef void * CXCompileCommands;$/;"	t
+CLANG_C_CXERRORCODE_H	CXErrorCode.h	15;"	d
+CXErrorCode	CXErrorCode.h	/^enum CXErrorCode {$/;"	g
+CXError_ASTReadError	CXErrorCode.h	/^  CXError_ASTReadError = 4$/;"	e	enum:CXErrorCode
+CXError_Crashed	CXErrorCode.h	/^  CXError_Crashed = 2,$/;"	e	enum:CXErrorCode
+CXError_Failure	CXErrorCode.h	/^  CXError_Failure = 1,$/;"	e	enum:CXErrorCode
+CXError_InvalidArguments	CXErrorCode.h	/^  CXError_InvalidArguments = 3,$/;"	e	enum:CXErrorCode
+CXError_Success	CXErrorCode.h	/^  CXError_Success = 0,$/;"	e	enum:CXErrorCode
+CLANG_CXSTRING_H	CXString.h	15;"	d
+CXString	CXString.h	/^} CXString;$/;"	t	typeref:struct:__anon2
+data	CXString.h	/^  const void *data;$/;"	m	struct:__anon2
+private_flags	CXString.h	/^  unsigned private_flags;$/;"	m	struct:__anon2
+ASTNode	Documentation.h	/^  const void *ASTNode;$/;"	m	struct:__anon3
+CLANG_C_DOCUMENTATION_H	Documentation.h	16;"	d
+CXComment	Documentation.h	/^} CXComment;$/;"	t	typeref:struct:__anon3
+CXCommentInlineCommandRenderKind	Documentation.h	/^enum CXCommentInlineCommandRenderKind {$/;"	g
+CXCommentInlineCommandRenderKind_Bold	Documentation.h	/^  CXCommentInlineCommandRenderKind_Bold,$/;"	e	enum:CXCommentInlineCommandRenderKind
+CXCommentInlineCommandRenderKind_Emphasized	Documentation.h	/^  CXCommentInlineCommandRenderKind_Emphasized$/;"	e	enum:CXCommentInlineCommandRenderKind
+CXCommentInlineCommandRenderKind_Monospaced	Documentation.h	/^  CXCommentInlineCommandRenderKind_Monospaced,$/;"	e	enum:CXCommentInlineCommandRenderKind
+CXCommentInlineCommandRenderKind_Normal	Documentation.h	/^  CXCommentInlineCommandRenderKind_Normal,$/;"	e	enum:CXCommentInlineCommandRenderKind
+CXCommentKind	Documentation.h	/^enum CXCommentKind {$/;"	g
+CXCommentParamPassDirection	Documentation.h	/^enum CXCommentParamPassDirection {$/;"	g
+CXCommentParamPassDirection_In	Documentation.h	/^  CXCommentParamPassDirection_In,$/;"	e	enum:CXCommentParamPassDirection
+CXCommentParamPassDirection_InOut	Documentation.h	/^  CXCommentParamPassDirection_InOut$/;"	e	enum:CXCommentParamPassDirection
+CXCommentParamPassDirection_Out	Documentation.h	/^  CXCommentParamPassDirection_Out,$/;"	e	enum:CXCommentParamPassDirection
+CXComment_BlockCommand	Documentation.h	/^  CXComment_BlockCommand = 6,$/;"	e	enum:CXCommentKind
+CXComment_FullComment	Documentation.h	/^  CXComment_FullComment = 12$/;"	e	enum:CXCommentKind
+CXComment_HTMLEndTag	Documentation.h	/^  CXComment_HTMLEndTag = 4,$/;"	e	enum:CXCommentKind
+CXComment_HTMLStartTag	Documentation.h	/^  CXComment_HTMLStartTag = 3,$/;"	e	enum:CXCommentKind
+CXComment_InlineCommand	Documentation.h	/^  CXComment_InlineCommand = 2,$/;"	e	enum:CXCommentKind
+CXComment_Null	Documentation.h	/^  CXComment_Null = 0,$/;"	e	enum:CXCommentKind
+CXComment_Paragraph	Documentation.h	/^  CXComment_Paragraph = 5,$/;"	e	enum:CXCommentKind
+CXComment_ParamCommand	Documentation.h	/^  CXComment_ParamCommand = 7,$/;"	e	enum:CXCommentKind
+CXComment_TParamCommand	Documentation.h	/^  CXComment_TParamCommand = 8,$/;"	e	enum:CXCommentKind
+CXComment_Text	Documentation.h	/^  CXComment_Text = 1,$/;"	e	enum:CXCommentKind
+CXComment_VerbatimBlockCommand	Documentation.h	/^  CXComment_VerbatimBlockCommand = 9,$/;"	e	enum:CXCommentKind
+CXComment_VerbatimBlockLine	Documentation.h	/^  CXComment_VerbatimBlockLine = 10,$/;"	e	enum:CXCommentKind
+CXComment_VerbatimLine	Documentation.h	/^  CXComment_VerbatimLine = 11,$/;"	e	enum:CXCommentKind
+TranslationUnit	Documentation.h	/^  CXTranslationUnit TranslationUnit;$/;"	m	struct:__anon3
+CINDEX_VERSION	Index.h	41;"	d
+CINDEX_VERSION_ENCODE	Index.h	37;"	d
+CINDEX_VERSION_MAJOR	Index.h	34;"	d
+CINDEX_VERSION_MINOR	Index.h	35;"	d
+CINDEX_VERSION_STRING	Index.h	50;"	d
+CINDEX_VERSION_STRINGIZE	Index.h	47;"	d
+CINDEX_VERSION_STRINGIZE_	Index.h	45;"	d
+CLANG_C_INDEX_H	Index.h	17;"	d
+CXAvailabilityKind	Index.h	/^enum CXAvailabilityKind {$/;"	g
+CXAvailability_Available	Index.h	/^  CXAvailability_Available,$/;"	e	enum:CXAvailabilityKind
+CXAvailability_Deprecated	Index.h	/^  CXAvailability_Deprecated,$/;"	e	enum:CXAvailabilityKind
+CXAvailability_NotAccessible	Index.h	/^  CXAvailability_NotAccessible$/;"	e	enum:CXAvailabilityKind
+CXAvailability_NotAvailable	Index.h	/^  CXAvailability_NotAvailable,$/;"	e	enum:CXAvailabilityKind
+CXCallingConv	Index.h	/^enum CXCallingConv {$/;"	g
+CXCallingConv_AAPCS	Index.h	/^  CXCallingConv_AAPCS = 6,$/;"	e	enum:CXCallingConv
+CXCallingConv_AAPCS_VFP	Index.h	/^  CXCallingConv_AAPCS_VFP = 7,$/;"	e	enum:CXCallingConv
+CXCallingConv_C	Index.h	/^  CXCallingConv_C = 1,$/;"	e	enum:CXCallingConv
+CXCallingConv_Default	Index.h	/^  CXCallingConv_Default = 0,$/;"	e	enum:CXCallingConv
+CXCallingConv_IntelOclBicc	Index.h	/^  CXCallingConv_IntelOclBicc = 9,$/;"	e	enum:CXCallingConv
+CXCallingConv_Invalid	Index.h	/^  CXCallingConv_Invalid = 100,$/;"	e	enum:CXCallingConv
+CXCallingConv_PnaclCall	Index.h	/^  CXCallingConv_PnaclCall = 8,$/;"	e	enum:CXCallingConv
+CXCallingConv_Unexposed	Index.h	/^  CXCallingConv_Unexposed = 200$/;"	e	enum:CXCallingConv
+CXCallingConv_X86FastCall	Index.h	/^  CXCallingConv_X86FastCall = 3,$/;"	e	enum:CXCallingConv
+CXCallingConv_X86Pascal	Index.h	/^  CXCallingConv_X86Pascal = 5,$/;"	e	enum:CXCallingConv
+CXCallingConv_X86StdCall	Index.h	/^  CXCallingConv_X86StdCall = 2,$/;"	e	enum:CXCallingConv
+CXCallingConv_X86ThisCall	Index.h	/^  CXCallingConv_X86ThisCall = 4,$/;"	e	enum:CXCallingConv
+CXCallingConv_X86_64SysV	Index.h	/^  CXCallingConv_X86_64SysV = 11,$/;"	e	enum:CXCallingConv
+CXCallingConv_X86_64Win64	Index.h	/^  CXCallingConv_X86_64Win64 = 10,$/;"	e	enum:CXCallingConv
+CXChildVisitResult	Index.h	/^enum CXChildVisitResult {$/;"	g
+CXChildVisit_Break	Index.h	/^  CXChildVisit_Break,$/;"	e	enum:CXChildVisitResult
+CXChildVisit_Continue	Index.h	/^  CXChildVisit_Continue,$/;"	e	enum:CXChildVisitResult
+CXChildVisit_Recurse	Index.h	/^  CXChildVisit_Recurse$/;"	e	enum:CXChildVisitResult
+CXClientData	Index.h	/^typedef void *CXClientData;$/;"	t
+CXCodeCompleteResults	Index.h	/^} CXCodeCompleteResults;$/;"	t	typeref:struct:__anon15
+CXCodeComplete_Flags	Index.h	/^enum CXCodeComplete_Flags {$/;"	g
+CXCodeComplete_IncludeBriefComments	Index.h	/^  CXCodeComplete_IncludeBriefComments = 0x04$/;"	e	enum:CXCodeComplete_Flags
+CXCodeComplete_IncludeCodePatterns	Index.h	/^  CXCodeComplete_IncludeCodePatterns = 0x02,$/;"	e	enum:CXCodeComplete_Flags
+CXCodeComplete_IncludeMacros	Index.h	/^  CXCodeComplete_IncludeMacros = 0x01,$/;"	e	enum:CXCodeComplete_Flags
+CXCompletionChunkKind	Index.h	/^enum CXCompletionChunkKind {$/;"	g
+CXCompletionChunk_Colon	Index.h	/^  CXCompletionChunk_Colon,$/;"	e	enum:CXCompletionChunkKind
+CXCompletionChunk_Comma	Index.h	/^  CXCompletionChunk_Comma,$/;"	e	enum:CXCompletionChunkKind
+CXCompletionChunk_CurrentParameter	Index.h	/^  CXCompletionChunk_CurrentParameter,$/;"	e	enum:CXCompletionChunkKind
+CXCompletionChunk_Equal	Index.h	/^  CXCompletionChunk_Equal,$/;"	e	enum:CXCompletionChunkKind
+CXCompletionChunk_HorizontalSpace	Index.h	/^  CXCompletionChunk_HorizontalSpace,$/;"	e	enum:CXCompletionChunkKind
+CXCompletionChunk_Informative	Index.h	/^  CXCompletionChunk_Informative,$/;"	e	enum:CXCompletionChunkKind
+CXCompletionChunk_LeftAngle	Index.h	/^  CXCompletionChunk_LeftAngle,$/;"	e	enum:CXCompletionChunkKind
+CXCompletionChunk_LeftBrace	Index.h	/^  CXCompletionChunk_LeftBrace,$/;"	e	enum:CXCompletionChunkKind
+CXCompletionChunk_LeftBracket	Index.h	/^  CXCompletionChunk_LeftBracket,$/;"	e	enum:CXCompletionChunkKind
+CXCompletionChunk_LeftParen	Index.h	/^  CXCompletionChunk_LeftParen,$/;"	e	enum:CXCompletionChunkKind
+CXCompletionChunk_Optional	Index.h	/^  CXCompletionChunk_Optional,$/;"	e	enum:CXCompletionChunkKind
+CXCompletionChunk_Placeholder	Index.h	/^  CXCompletionChunk_Placeholder,$/;"	e	enum:CXCompletionChunkKind
+CXCompletionChunk_ResultType	Index.h	/^  CXCompletionChunk_ResultType,$/;"	e	enum:CXCompletionChunkKind
+CXCompletionChunk_RightAngle	Index.h	/^  CXCompletionChunk_RightAngle,$/;"	e	enum:CXCompletionChunkKind
+CXCompletionChunk_RightBrace	Index.h	/^  CXCompletionChunk_RightBrace,$/;"	e	enum:CXCompletionChunkKind
+CXCompletionChunk_RightBracket	Index.h	/^  CXCompletionChunk_RightBracket,$/;"	e	enum:CXCompletionChunkKind
+CXCompletionChunk_RightParen	Index.h	/^  CXCompletionChunk_RightParen,$/;"	e	enum:CXCompletionChunkKind
+CXCompletionChunk_SemiColon	Index.h	/^  CXCompletionChunk_SemiColon,$/;"	e	enum:CXCompletionChunkKind
+CXCompletionChunk_Text	Index.h	/^  CXCompletionChunk_Text,$/;"	e	enum:CXCompletionChunkKind
+CXCompletionChunk_TypedText	Index.h	/^  CXCompletionChunk_TypedText,$/;"	e	enum:CXCompletionChunkKind
+CXCompletionChunk_VerticalSpace	Index.h	/^  CXCompletionChunk_VerticalSpace$/;"	e	enum:CXCompletionChunkKind
+CXCompletionContext	Index.h	/^enum CXCompletionContext {$/;"	g
+CXCompletionContext_AnyType	Index.h	/^  CXCompletionContext_AnyType = 1 << 0,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_AnyValue	Index.h	/^  CXCompletionContext_AnyValue = 1 << 1,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_ArrowMemberAccess	Index.h	/^  CXCompletionContext_ArrowMemberAccess = 1 << 6,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_CXXClassTypeValue	Index.h	/^  CXCompletionContext_CXXClassTypeValue = 1 << 4,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_ClassTag	Index.h	/^  CXCompletionContext_ClassTag = 1 << 11,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_DotMemberAccess	Index.h	/^  CXCompletionContext_DotMemberAccess = 1 << 5,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_EnumTag	Index.h	/^  CXCompletionContext_EnumTag = 1 << 8,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_MacroName	Index.h	/^  CXCompletionContext_MacroName = 1 << 20,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_Namespace	Index.h	/^  CXCompletionContext_Namespace = 1 << 12,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_NaturalLanguage	Index.h	/^  CXCompletionContext_NaturalLanguage = 1 << 21,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_NestedNameSpecifier	Index.h	/^  CXCompletionContext_NestedNameSpecifier = 1 << 13,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_ObjCCategory	Index.h	/^  CXCompletionContext_ObjCCategory = 1 << 16,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_ObjCClassMessage	Index.h	/^  CXCompletionContext_ObjCClassMessage = 1 << 18,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_ObjCInstanceMessage	Index.h	/^  CXCompletionContext_ObjCInstanceMessage = 1 << 17,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_ObjCInterface	Index.h	/^  CXCompletionContext_ObjCInterface = 1 << 14,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_ObjCObjectValue	Index.h	/^  CXCompletionContext_ObjCObjectValue = 1 << 2,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_ObjCPropertyAccess	Index.h	/^  CXCompletionContext_ObjCPropertyAccess = 1 << 7,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_ObjCProtocol	Index.h	/^  CXCompletionContext_ObjCProtocol = 1 << 15,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_ObjCSelectorName	Index.h	/^  CXCompletionContext_ObjCSelectorName = 1 << 19,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_ObjCSelectorValue	Index.h	/^  CXCompletionContext_ObjCSelectorValue = 1 << 3,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_StructTag	Index.h	/^  CXCompletionContext_StructTag = 1 << 10,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_Unexposed	Index.h	/^  CXCompletionContext_Unexposed = 0,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_UnionTag	Index.h	/^  CXCompletionContext_UnionTag = 1 << 9,$/;"	e	enum:CXCompletionContext
+CXCompletionContext_Unknown	Index.h	/^  CXCompletionContext_Unknown = ((1 << 22) - 1)$/;"	e	enum:CXCompletionContext
+CXCompletionResult	Index.h	/^} CXCompletionResult;$/;"	t	typeref:struct:__anon14
+CXCompletionString	Index.h	/^typedef void *CXCompletionString;$/;"	t
+CXCursor	Index.h	/^} CXCursor;$/;"	t	typeref:struct:__anon9
+CXCursorAndRangeVisitor	Index.h	/^} CXCursorAndRangeVisitor;$/;"	t	typeref:struct:__anon16
+CXCursorKind	Index.h	/^enum CXCursorKind {$/;"	g
+CXCursorSet	Index.h	/^typedef struct CXCursorSetImpl *CXCursorSet;$/;"	t	typeref:struct:CXCursorSetImpl
+CXCursorVisitor	Index.h	/^typedef enum CXChildVisitResult (*CXCursorVisitor)(CXCursor cursor,$/;"	t	typeref:enum:CXCursorVisitor
+CXCursor_AddrLabelExpr	Index.h	/^  CXCursor_AddrLabelExpr                 = 120,$/;"	e	enum:CXCursorKind
+CXCursor_AnnotateAttr	Index.h	/^  CXCursor_AnnotateAttr                  = 406,$/;"	e	enum:CXCursorKind
+CXCursor_ArraySubscriptExpr	Index.h	/^  CXCursor_ArraySubscriptExpr            = 113,$/;"	e	enum:CXCursorKind
+CXCursor_AsmLabelAttr	Index.h	/^  CXCursor_AsmLabelAttr                  = 407,$/;"	e	enum:CXCursorKind
+CXCursor_AsmStmt	Index.h	/^  CXCursor_AsmStmt                       = CXCursor_GCCAsmStmt,$/;"	e	enum:CXCursorKind
+CXCursor_BinaryOperator	Index.h	/^  CXCursor_BinaryOperator                = 114,$/;"	e	enum:CXCursorKind
+CXCursor_BlockExpr	Index.h	/^  CXCursor_BlockExpr                     = 105,$/;"	e	enum:CXCursorKind
+CXCursor_BreakStmt	Index.h	/^  CXCursor_BreakStmt                     = 213,$/;"	e	enum:CXCursorKind
+CXCursor_CStyleCastExpr	Index.h	/^  CXCursor_CStyleCastExpr                = 117,$/;"	e	enum:CXCursorKind
+CXCursor_CUDAConstantAttr	Index.h	/^  CXCursor_CUDAConstantAttr              = 412,$/;"	e	enum:CXCursorKind
+CXCursor_CUDADeviceAttr	Index.h	/^  CXCursor_CUDADeviceAttr                = 413,$/;"	e	enum:CXCursorKind
+CXCursor_CUDAGlobalAttr	Index.h	/^  CXCursor_CUDAGlobalAttr                = 414,$/;"	e	enum:CXCursorKind
+CXCursor_CUDAHostAttr	Index.h	/^  CXCursor_CUDAHostAttr                  = 415,$/;"	e	enum:CXCursorKind
+CXCursor_CXXAccessSpecifier	Index.h	/^  CXCursor_CXXAccessSpecifier            = 39,$/;"	e	enum:CXCursorKind
+CXCursor_CXXBaseSpecifier	Index.h	/^  CXCursor_CXXBaseSpecifier              = 44,$/;"	e	enum:CXCursorKind
+CXCursor_CXXBoolLiteralExpr	Index.h	/^  CXCursor_CXXBoolLiteralExpr            = 130,$/;"	e	enum:CXCursorKind
+CXCursor_CXXCatchStmt	Index.h	/^  CXCursor_CXXCatchStmt                  = 223,$/;"	e	enum:CXCursorKind
+CXCursor_CXXConstCastExpr	Index.h	/^  CXCursor_CXXConstCastExpr              = 127,$/;"	e	enum:CXCursorKind
+CXCursor_CXXDeleteExpr	Index.h	/^  CXCursor_CXXDeleteExpr                 = 135,$/;"	e	enum:CXCursorKind
+CXCursor_CXXDynamicCastExpr	Index.h	/^  CXCursor_CXXDynamicCastExpr            = 125,$/;"	e	enum:CXCursorKind
+CXCursor_CXXFinalAttr	Index.h	/^  CXCursor_CXXFinalAttr                  = 404,$/;"	e	enum:CXCursorKind
+CXCursor_CXXForRangeStmt	Index.h	/^  CXCursor_CXXForRangeStmt               = 225,$/;"	e	enum:CXCursorKind
+CXCursor_CXXFunctionalCastExpr	Index.h	/^  CXCursor_CXXFunctionalCastExpr         = 128,$/;"	e	enum:CXCursorKind
+CXCursor_CXXMethod	Index.h	/^  CXCursor_CXXMethod                     = 21,$/;"	e	enum:CXCursorKind
+CXCursor_CXXNewExpr	Index.h	/^  CXCursor_CXXNewExpr                    = 134,$/;"	e	enum:CXCursorKind
+CXCursor_CXXNullPtrLiteralExpr	Index.h	/^  CXCursor_CXXNullPtrLiteralExpr         = 131,$/;"	e	enum:CXCursorKind
+CXCursor_CXXOverrideAttr	Index.h	/^  CXCursor_CXXOverrideAttr               = 405,$/;"	e	enum:CXCursorKind
+CXCursor_CXXReinterpretCastExpr	Index.h	/^  CXCursor_CXXReinterpretCastExpr        = 126,$/;"	e	enum:CXCursorKind
+CXCursor_CXXStaticCastExpr	Index.h	/^  CXCursor_CXXStaticCastExpr             = 124,$/;"	e	enum:CXCursorKind
+CXCursor_CXXThisExpr	Index.h	/^  CXCursor_CXXThisExpr                   = 132,$/;"	e	enum:CXCursorKind
+CXCursor_CXXThrowExpr	Index.h	/^  CXCursor_CXXThrowExpr                  = 133,$/;"	e	enum:CXCursorKind
+CXCursor_CXXTryStmt	Index.h	/^  CXCursor_CXXTryStmt                    = 224,$/;"	e	enum:CXCursorKind
+CXCursor_CXXTypeidExpr	Index.h	/^  CXCursor_CXXTypeidExpr                 = 129,$/;"	e	enum:CXCursorKind
+CXCursor_CallExpr	Index.h	/^  CXCursor_CallExpr                      = 103,$/;"	e	enum:CXCursorKind
+CXCursor_CaseStmt	Index.h	/^  CXCursor_CaseStmt                      = 203,$/;"	e	enum:CXCursorKind
+CXCursor_CharacterLiteral	Index.h	/^  CXCursor_CharacterLiteral              = 110,$/;"	e	enum:CXCursorKind
+CXCursor_ClassDecl	Index.h	/^  CXCursor_ClassDecl                     = 4,$/;"	e	enum:CXCursorKind
+CXCursor_ClassTemplate	Index.h	/^  CXCursor_ClassTemplate                 = 31,$/;"	e	enum:CXCursorKind
+CXCursor_ClassTemplatePartialSpecialization	Index.h	/^  CXCursor_ClassTemplatePartialSpecialization = 32,$/;"	e	enum:CXCursorKind
+CXCursor_CompoundAssignOperator	Index.h	/^  CXCursor_CompoundAssignOperator        = 115,$/;"	e	enum:CXCursorKind
+CXCursor_CompoundLiteralExpr	Index.h	/^  CXCursor_CompoundLiteralExpr           = 118,$/;"	e	enum:CXCursorKind
+CXCursor_CompoundStmt	Index.h	/^  CXCursor_CompoundStmt                  = 202,$/;"	e	enum:CXCursorKind
+CXCursor_ConditionalOperator	Index.h	/^  CXCursor_ConditionalOperator           = 116,$/;"	e	enum:CXCursorKind
+CXCursor_ConstAttr	Index.h	/^  CXCursor_ConstAttr                     = 410,$/;"	e	enum:CXCursorKind
+CXCursor_Constructor	Index.h	/^  CXCursor_Constructor                   = 24,$/;"	e	enum:CXCursorKind
+CXCursor_ContinueStmt	Index.h	/^  CXCursor_ContinueStmt                  = 212,$/;"	e	enum:CXCursorKind
+CXCursor_ConversionFunction	Index.h	/^  CXCursor_ConversionFunction            = 26,$/;"	e	enum:CXCursorKind
+CXCursor_DeclRefExpr	Index.h	/^  CXCursor_DeclRefExpr                   = 101,$/;"	e	enum:CXCursorKind
+CXCursor_DeclStmt	Index.h	/^  CXCursor_DeclStmt                      = 231,$/;"	e	enum:CXCursorKind
+CXCursor_DefaultStmt	Index.h	/^  CXCursor_DefaultStmt                   = 204,$/;"	e	enum:CXCursorKind
+CXCursor_Destructor	Index.h	/^  CXCursor_Destructor                    = 25,$/;"	e	enum:CXCursorKind
+CXCursor_DoStmt	Index.h	/^  CXCursor_DoStmt                        = 208,$/;"	e	enum:CXCursorKind
+CXCursor_EnumConstantDecl	Index.h	/^  CXCursor_EnumConstantDecl              = 7,$/;"	e	enum:CXCursorKind
+CXCursor_EnumDecl	Index.h	/^  CXCursor_EnumDecl                      = 5,$/;"	e	enum:CXCursorKind
+CXCursor_FieldDecl	Index.h	/^  CXCursor_FieldDecl                     = 6,$/;"	e	enum:CXCursorKind
+CXCursor_FirstAttr	Index.h	/^  CXCursor_FirstAttr                     = 400,$/;"	e	enum:CXCursorKind
+CXCursor_FirstDecl	Index.h	/^  CXCursor_FirstDecl                     = CXCursor_UnexposedDecl,$/;"	e	enum:CXCursorKind
+CXCursor_FirstExpr	Index.h	/^  CXCursor_FirstExpr                     = 100,$/;"	e	enum:CXCursorKind
+CXCursor_FirstExtraDecl	Index.h	/^  CXCursor_FirstExtraDecl                = CXCursor_ModuleImportDecl,$/;"	e	enum:CXCursorKind
+CXCursor_FirstInvalid	Index.h	/^  CXCursor_FirstInvalid                  = 70,$/;"	e	enum:CXCursorKind
+CXCursor_FirstPreprocessing	Index.h	/^  CXCursor_FirstPreprocessing            = CXCursor_PreprocessingDirective,$/;"	e	enum:CXCursorKind
+CXCursor_FirstRef	Index.h	/^  CXCursor_FirstRef                      = 40, \/* Decl references *\/$/;"	e	enum:CXCursorKind
+CXCursor_FirstStmt	Index.h	/^  CXCursor_FirstStmt                     = 200,$/;"	e	enum:CXCursorKind
+CXCursor_FloatingLiteral	Index.h	/^  CXCursor_FloatingLiteral               = 107,$/;"	e	enum:CXCursorKind
+CXCursor_ForStmt	Index.h	/^  CXCursor_ForStmt                       = 209,$/;"	e	enum:CXCursorKind
+CXCursor_FunctionDecl	Index.h	/^  CXCursor_FunctionDecl                  = 8,$/;"	e	enum:CXCursorKind
+CXCursor_FunctionTemplate	Index.h	/^  CXCursor_FunctionTemplate              = 30,$/;"	e	enum:CXCursorKind
+CXCursor_GCCAsmStmt	Index.h	/^  CXCursor_GCCAsmStmt                    = 215,$/;"	e	enum:CXCursorKind
+CXCursor_GNUNullExpr	Index.h	/^  CXCursor_GNUNullExpr                   = 123,$/;"	e	enum:CXCursorKind
+CXCursor_GenericSelectionExpr	Index.h	/^  CXCursor_GenericSelectionExpr          = 122,$/;"	e	enum:CXCursorKind
+CXCursor_GotoStmt	Index.h	/^  CXCursor_GotoStmt                      = 210,$/;"	e	enum:CXCursorKind
+CXCursor_IBActionAttr	Index.h	/^  CXCursor_IBActionAttr                  = 401,$/;"	e	enum:CXCursorKind
+CXCursor_IBOutletAttr	Index.h	/^  CXCursor_IBOutletAttr                  = 402,$/;"	e	enum:CXCursorKind
+CXCursor_IBOutletCollectionAttr	Index.h	/^  CXCursor_IBOutletCollectionAttr        = 403,$/;"	e	enum:CXCursorKind
+CXCursor_IfStmt	Index.h	/^  CXCursor_IfStmt                        = 205,$/;"	e	enum:CXCursorKind
+CXCursor_ImaginaryLiteral	Index.h	/^  CXCursor_ImaginaryLiteral              = 108,$/;"	e	enum:CXCursorKind
+CXCursor_InclusionDirective	Index.h	/^  CXCursor_InclusionDirective            = 503,$/;"	e	enum:CXCursorKind
+CXCursor_IndirectGotoStmt	Index.h	/^  CXCursor_IndirectGotoStmt              = 211,$/;"	e	enum:CXCursorKind
+CXCursor_InitListExpr	Index.h	/^  CXCursor_InitListExpr                  = 119,$/;"	e	enum:CXCursorKind
+CXCursor_IntegerLiteral	Index.h	/^  CXCursor_IntegerLiteral                = 106,$/;"	e	enum:CXCursorKind
+CXCursor_InvalidCode	Index.h	/^  CXCursor_InvalidCode                   = 73,$/;"	e	enum:CXCursorKind
+CXCursor_InvalidFile	Index.h	/^  CXCursor_InvalidFile                   = 70,$/;"	e	enum:CXCursorKind
+CXCursor_LabelRef	Index.h	/^  CXCursor_LabelRef                      = 48,$/;"	e	enum:CXCursorKind
+CXCursor_LabelStmt	Index.h	/^  CXCursor_LabelStmt                     = 201,$/;"	e	enum:CXCursorKind
+CXCursor_LambdaExpr	Index.h	/^  CXCursor_LambdaExpr                    = 144,$/;"	e	enum:CXCursorKind
+CXCursor_LastAttr	Index.h	/^  CXCursor_LastAttr                      = CXCursor_CUDAHostAttr,$/;"	e	enum:CXCursorKind
+CXCursor_LastDecl	Index.h	/^  CXCursor_LastDecl                      = CXCursor_CXXAccessSpecifier,$/;"	e	enum:CXCursorKind
+CXCursor_LastExpr	Index.h	/^  CXCursor_LastExpr                      = CXCursor_ObjCSelfExpr,$/;"	e	enum:CXCursorKind
+CXCursor_LastExtraDecl	Index.h	/^  CXCursor_LastExtraDecl                 = CXCursor_ModuleImportDecl$/;"	e	enum:CXCursorKind
+CXCursor_LastInvalid	Index.h	/^  CXCursor_LastInvalid                   = CXCursor_InvalidCode,$/;"	e	enum:CXCursorKind
+CXCursor_LastPreprocessing	Index.h	/^  CXCursor_LastPreprocessing             = CXCursor_InclusionDirective,$/;"	e	enum:CXCursorKind
+CXCursor_LastRef	Index.h	/^  CXCursor_LastRef                       = CXCursor_VariableRef,$/;"	e	enum:CXCursorKind
+CXCursor_LastStmt	Index.h	/^  CXCursor_LastStmt                      = CXCursor_SEHLeaveStmt,$/;"	e	enum:CXCursorKind
+CXCursor_LinkageSpec	Index.h	/^  CXCursor_LinkageSpec                   = 23,$/;"	e	enum:CXCursorKind
+CXCursor_MSAsmStmt	Index.h	/^  CXCursor_MSAsmStmt                     = 229,$/;"	e	enum:CXCursorKind
+CXCursor_MacroDefinition	Index.h	/^  CXCursor_MacroDefinition               = 501,$/;"	e	enum:CXCursorKind
+CXCursor_MacroExpansion	Index.h	/^  CXCursor_MacroExpansion                = 502,$/;"	e	enum:CXCursorKind
+CXCursor_MacroInstantiation	Index.h	/^  CXCursor_MacroInstantiation            = CXCursor_MacroExpansion,$/;"	e	enum:CXCursorKind
+CXCursor_MemberRef	Index.h	/^  CXCursor_MemberRef                     = 47,$/;"	e	enum:CXCursorKind
+CXCursor_MemberRefExpr	Index.h	/^  CXCursor_MemberRefExpr                 = 102,$/;"	e	enum:CXCursorKind
+CXCursor_ModuleImportDecl	Index.h	/^  CXCursor_ModuleImportDecl              = 600,$/;"	e	enum:CXCursorKind
+CXCursor_Namespace	Index.h	/^  CXCursor_Namespace                     = 22,$/;"	e	enum:CXCursorKind
+CXCursor_NamespaceAlias	Index.h	/^  CXCursor_NamespaceAlias                = 33,$/;"	e	enum:CXCursorKind
+CXCursor_NamespaceRef	Index.h	/^  CXCursor_NamespaceRef                  = 46,$/;"	e	enum:CXCursorKind
+CXCursor_NoDeclFound	Index.h	/^  CXCursor_NoDeclFound                   = 71,$/;"	e	enum:CXCursorKind
+CXCursor_NoDuplicateAttr	Index.h	/^  CXCursor_NoDuplicateAttr               = 411,$/;"	e	enum:CXCursorKind
+CXCursor_NonTypeTemplateParameter	Index.h	/^  CXCursor_NonTypeTemplateParameter      = 28,$/;"	e	enum:CXCursorKind
+CXCursor_NotImplemented	Index.h	/^  CXCursor_NotImplemented                = 72,$/;"	e	enum:CXCursorKind
+CXCursor_NullStmt	Index.h	/^  CXCursor_NullStmt                      = 230,$/;"	e	enum:CXCursorKind
+CXCursor_OMPBarrierDirective	Index.h	/^  CXCursor_OMPBarrierDirective           = 244,$/;"	e	enum:CXCursorKind
+CXCursor_OMPCriticalDirective	Index.h	/^  CXCursor_OMPCriticalDirective          = 242,$/;"	e	enum:CXCursorKind
+CXCursor_OMPFlushDirective	Index.h	/^  CXCursor_OMPFlushDirective             = 246,$/;"	e	enum:CXCursorKind
+CXCursor_OMPForDirective	Index.h	/^  CXCursor_OMPForDirective               = 234,$/;"	e	enum:CXCursorKind
+CXCursor_OMPMasterDirective	Index.h	/^  CXCursor_OMPMasterDirective            = 241,$/;"	e	enum:CXCursorKind
+CXCursor_OMPParallelDirective	Index.h	/^  CXCursor_OMPParallelDirective          = 232,$/;"	e	enum:CXCursorKind
+CXCursor_OMPParallelForDirective	Index.h	/^  CXCursor_OMPParallelForDirective       = 238,$/;"	e	enum:CXCursorKind
+CXCursor_OMPParallelSectionsDirective	Index.h	/^  CXCursor_OMPParallelSectionsDirective  = 239,$/;"	e	enum:CXCursorKind
+CXCursor_OMPSectionDirective	Index.h	/^  CXCursor_OMPSectionDirective           = 236,$/;"	e	enum:CXCursorKind
+CXCursor_OMPSectionsDirective	Index.h	/^  CXCursor_OMPSectionsDirective          = 235,$/;"	e	enum:CXCursorKind
+CXCursor_OMPSimdDirective	Index.h	/^  CXCursor_OMPSimdDirective              = 233,$/;"	e	enum:CXCursorKind
+CXCursor_OMPSingleDirective	Index.h	/^  CXCursor_OMPSingleDirective            = 237,$/;"	e	enum:CXCursorKind
+CXCursor_OMPTaskDirective	Index.h	/^  CXCursor_OMPTaskDirective              = 240,$/;"	e	enum:CXCursorKind
+CXCursor_OMPTaskwaitDirective	Index.h	/^  CXCursor_OMPTaskwaitDirective          = 245,$/;"	e	enum:CXCursorKind
+CXCursor_OMPTaskyieldDirective	Index.h	/^  CXCursor_OMPTaskyieldDirective         = 243,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCAtCatchStmt	Index.h	/^  CXCursor_ObjCAtCatchStmt               = 217,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCAtFinallyStmt	Index.h	/^  CXCursor_ObjCAtFinallyStmt             = 218,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCAtSynchronizedStmt	Index.h	/^  CXCursor_ObjCAtSynchronizedStmt        = 220,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCAtThrowStmt	Index.h	/^  CXCursor_ObjCAtThrowStmt               = 219,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCAtTryStmt	Index.h	/^  CXCursor_ObjCAtTryStmt                 = 216,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCAutoreleasePoolStmt	Index.h	/^  CXCursor_ObjCAutoreleasePoolStmt       = 221,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCBoolLiteralExpr	Index.h	/^  CXCursor_ObjCBoolLiteralExpr           = 145,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCBridgedCastExpr	Index.h	/^  CXCursor_ObjCBridgedCastExpr           = 141,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCCategoryDecl	Index.h	/^  CXCursor_ObjCCategoryDecl              = 12,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCCategoryImplDecl	Index.h	/^  CXCursor_ObjCCategoryImplDecl          = 19,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCClassMethodDecl	Index.h	/^  CXCursor_ObjCClassMethodDecl           = 17,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCClassRef	Index.h	/^  CXCursor_ObjCClassRef                  = 42,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCDynamicDecl	Index.h	/^  CXCursor_ObjCDynamicDecl               = 38,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCEncodeExpr	Index.h	/^  CXCursor_ObjCEncodeExpr                = 138,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCForCollectionStmt	Index.h	/^  CXCursor_ObjCForCollectionStmt         = 222,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCImplementationDecl	Index.h	/^  CXCursor_ObjCImplementationDecl        = 18,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCInstanceMethodDecl	Index.h	/^  CXCursor_ObjCInstanceMethodDecl        = 16,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCInterfaceDecl	Index.h	/^  CXCursor_ObjCInterfaceDecl             = 11,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCIvarDecl	Index.h	/^  CXCursor_ObjCIvarDecl                  = 15,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCMessageExpr	Index.h	/^  CXCursor_ObjCMessageExpr               = 104,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCPropertyDecl	Index.h	/^  CXCursor_ObjCPropertyDecl              = 14,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCProtocolDecl	Index.h	/^  CXCursor_ObjCProtocolDecl              = 13,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCProtocolExpr	Index.h	/^  CXCursor_ObjCProtocolExpr              = 140,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCProtocolRef	Index.h	/^  CXCursor_ObjCProtocolRef               = 41,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCSelectorExpr	Index.h	/^  CXCursor_ObjCSelectorExpr              = 139,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCSelfExpr	Index.h	/^  CXCursor_ObjCSelfExpr                  = 146,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCStringLiteral	Index.h	/^  CXCursor_ObjCStringLiteral             = 137,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCSuperClassRef	Index.h	/^  CXCursor_ObjCSuperClassRef             = 40,$/;"	e	enum:CXCursorKind
+CXCursor_ObjCSynthesizeDecl	Index.h	/^  CXCursor_ObjCSynthesizeDecl            = 37,$/;"	e	enum:CXCursorKind
+CXCursor_OverloadedDeclRef	Index.h	/^  CXCursor_OverloadedDeclRef             = 49,$/;"	e	enum:CXCursorKind
+CXCursor_PackExpansionExpr	Index.h	/^  CXCursor_PackExpansionExpr             = 142,$/;"	e	enum:CXCursorKind
+CXCursor_PackedAttr	Index.h	/^  CXCursor_PackedAttr                    = 408,$/;"	e	enum:CXCursorKind
+CXCursor_ParenExpr	Index.h	/^  CXCursor_ParenExpr                     = 111,$/;"	e	enum:CXCursorKind
+CXCursor_ParmDecl	Index.h	/^  CXCursor_ParmDecl                      = 10,$/;"	e	enum:CXCursorKind
+CXCursor_PreprocessingDirective	Index.h	/^  CXCursor_PreprocessingDirective        = 500,$/;"	e	enum:CXCursorKind
+CXCursor_PureAttr	Index.h	/^  CXCursor_PureAttr                      = 409,$/;"	e	enum:CXCursorKind
+CXCursor_ReturnStmt	Index.h	/^  CXCursor_ReturnStmt                    = 214,$/;"	e	enum:CXCursorKind
+CXCursor_SEHExceptStmt	Index.h	/^  CXCursor_SEHExceptStmt                 = 227,$/;"	e	enum:CXCursorKind
+CXCursor_SEHFinallyStmt	Index.h	/^  CXCursor_SEHFinallyStmt                = 228,$/;"	e	enum:CXCursorKind
+CXCursor_SEHLeaveStmt	Index.h	/^  CXCursor_SEHLeaveStmt                  = 247,$/;"	e	enum:CXCursorKind
+CXCursor_SEHTryStmt	Index.h	/^  CXCursor_SEHTryStmt                    = 226,$/;"	e	enum:CXCursorKind
+CXCursor_SizeOfPackExpr	Index.h	/^  CXCursor_SizeOfPackExpr                = 143,$/;"	e	enum:CXCursorKind
+CXCursor_StmtExpr	Index.h	/^  CXCursor_StmtExpr                      = 121,$/;"	e	enum:CXCursorKind
+CXCursor_StringLiteral	Index.h	/^  CXCursor_StringLiteral                 = 109,$/;"	e	enum:CXCursorKind
+CXCursor_StructDecl	Index.h	/^  CXCursor_StructDecl                    = 2,$/;"	e	enum:CXCursorKind
+CXCursor_SwitchStmt	Index.h	/^  CXCursor_SwitchStmt                    = 206,$/;"	e	enum:CXCursorKind
+CXCursor_TemplateRef	Index.h	/^  CXCursor_TemplateRef                   = 45,$/;"	e	enum:CXCursorKind
+CXCursor_TemplateTemplateParameter	Index.h	/^  CXCursor_TemplateTemplateParameter     = 29,$/;"	e	enum:CXCursorKind
+CXCursor_TemplateTypeParameter	Index.h	/^  CXCursor_TemplateTypeParameter         = 27,$/;"	e	enum:CXCursorKind
+CXCursor_TranslationUnit	Index.h	/^  CXCursor_TranslationUnit               = 300,$/;"	e	enum:CXCursorKind
+CXCursor_TypeAliasDecl	Index.h	/^  CXCursor_TypeAliasDecl                 = 36,$/;"	e	enum:CXCursorKind
+CXCursor_TypeRef	Index.h	/^  CXCursor_TypeRef                       = 43,$/;"	e	enum:CXCursorKind
+CXCursor_TypedefDecl	Index.h	/^  CXCursor_TypedefDecl                   = 20,$/;"	e	enum:CXCursorKind
+CXCursor_UnaryExpr	Index.h	/^  CXCursor_UnaryExpr                     = 136,$/;"	e	enum:CXCursorKind
+CXCursor_UnaryOperator	Index.h	/^  CXCursor_UnaryOperator                 = 112,$/;"	e	enum:CXCursorKind
+CXCursor_UnexposedAttr	Index.h	/^  CXCursor_UnexposedAttr                 = 400,$/;"	e	enum:CXCursorKind
+CXCursor_UnexposedDecl	Index.h	/^  CXCursor_UnexposedDecl                 = 1,$/;"	e	enum:CXCursorKind
+CXCursor_UnexposedExpr	Index.h	/^  CXCursor_UnexposedExpr                 = 100,$/;"	e	enum:CXCursorKind
+CXCursor_UnexposedStmt	Index.h	/^  CXCursor_UnexposedStmt                 = 200,$/;"	e	enum:CXCursorKind
+CXCursor_UnionDecl	Index.h	/^  CXCursor_UnionDecl                     = 3,$/;"	e	enum:CXCursorKind
+CXCursor_UsingDeclaration	Index.h	/^  CXCursor_UsingDeclaration              = 35,$/;"	e	enum:CXCursorKind
+CXCursor_UsingDirective	Index.h	/^  CXCursor_UsingDirective                = 34,$/;"	e	enum:CXCursorKind
+CXCursor_VarDecl	Index.h	/^  CXCursor_VarDecl                       = 9,$/;"	e	enum:CXCursorKind
+CXCursor_VariableRef	Index.h	/^  CXCursor_VariableRef                   = 50,$/;"	e	enum:CXCursorKind
+CXCursor_WhileStmt	Index.h	/^  CXCursor_WhileStmt                     = 207,$/;"	e	enum:CXCursorKind
+CXDiagnostic	Index.h	/^typedef void *CXDiagnostic;$/;"	t
+CXDiagnosticDisplayOptions	Index.h	/^enum CXDiagnosticDisplayOptions {$/;"	g
+CXDiagnosticSet	Index.h	/^typedef void *CXDiagnosticSet;$/;"	t
+CXDiagnosticSeverity	Index.h	/^enum CXDiagnosticSeverity {$/;"	g
+CXDiagnostic_DisplayCategoryId	Index.h	/^  CXDiagnostic_DisplayCategoryId = 0x10,$/;"	e	enum:CXDiagnosticDisplayOptions
+CXDiagnostic_DisplayCategoryName	Index.h	/^  CXDiagnostic_DisplayCategoryName = 0x20$/;"	e	enum:CXDiagnosticDisplayOptions
+CXDiagnostic_DisplayColumn	Index.h	/^  CXDiagnostic_DisplayColumn = 0x02,$/;"	e	enum:CXDiagnosticDisplayOptions
+CXDiagnostic_DisplayOption	Index.h	/^  CXDiagnostic_DisplayOption = 0x08,$/;"	e	enum:CXDiagnosticDisplayOptions
+CXDiagnostic_DisplaySourceLocation	Index.h	/^  CXDiagnostic_DisplaySourceLocation = 0x01,$/;"	e	enum:CXDiagnosticDisplayOptions
+CXDiagnostic_DisplaySourceRanges	Index.h	/^  CXDiagnostic_DisplaySourceRanges = 0x04,$/;"	e	enum:CXDiagnosticDisplayOptions
+CXDiagnostic_Error	Index.h	/^  CXDiagnostic_Error   = 3,$/;"	e	enum:CXDiagnosticSeverity
+CXDiagnostic_Fatal	Index.h	/^  CXDiagnostic_Fatal   = 4$/;"	e	enum:CXDiagnosticSeverity
+CXDiagnostic_Ignored	Index.h	/^  CXDiagnostic_Ignored = 0,$/;"	e	enum:CXDiagnosticSeverity
+CXDiagnostic_Note	Index.h	/^  CXDiagnostic_Note    = 1,$/;"	e	enum:CXDiagnosticSeverity
+CXDiagnostic_Warning	Index.h	/^  CXDiagnostic_Warning = 2,$/;"	e	enum:CXDiagnosticSeverity
+CXFile	Index.h	/^typedef void *CXFile;$/;"	t
+CXFileUniqueID	Index.h	/^} CXFileUniqueID;$/;"	t	typeref:struct:__anon5
+CXGlobalOptFlags	Index.h	/^} CXGlobalOptFlags;$/;"	t	typeref:enum:__anon4
+CXGlobalOpt_None	Index.h	/^  CXGlobalOpt_None = 0x0,$/;"	e	enum:__anon4
+CXGlobalOpt_ThreadBackgroundPriorityForAll	Index.h	/^  CXGlobalOpt_ThreadBackgroundPriorityForAll =$/;"	e	enum:__anon4
+CXGlobalOpt_ThreadBackgroundPriorityForEditing	Index.h	/^  CXGlobalOpt_ThreadBackgroundPriorityForEditing = 0x2,$/;"	e	enum:__anon4
+CXGlobalOpt_ThreadBackgroundPriorityForIndexing	Index.h	/^  CXGlobalOpt_ThreadBackgroundPriorityForIndexing = 0x1,$/;"	e	enum:__anon4
+CXIdxAttrInfo	Index.h	/^} CXIdxAttrInfo;$/;"	t	typeref:struct:__anon25
+CXIdxAttrKind	Index.h	/^} CXIdxAttrKind;$/;"	t	typeref:enum:__anon24
+CXIdxAttr_IBAction	Index.h	/^  CXIdxAttr_IBAction      = 1,$/;"	e	enum:__anon24
+CXIdxAttr_IBOutlet	Index.h	/^  CXIdxAttr_IBOutlet      = 2,$/;"	e	enum:__anon24
+CXIdxAttr_IBOutletCollection	Index.h	/^  CXIdxAttr_IBOutletCollection = 3$/;"	e	enum:__anon24
+CXIdxAttr_Unexposed	Index.h	/^  CXIdxAttr_Unexposed     = 0,$/;"	e	enum:__anon24
+CXIdxBaseClassInfo	Index.h	/^} CXIdxBaseClassInfo;$/;"	t	typeref:struct:__anon33
+CXIdxCXXClassDeclInfo	Index.h	/^} CXIdxCXXClassDeclInfo;$/;"	t	typeref:struct:__anon39
+CXIdxClientASTFile	Index.h	/^typedef void *CXIdxClientASTFile;$/;"	t
+CXIdxClientContainer	Index.h	/^typedef void *CXIdxClientContainer;$/;"	t
+CXIdxClientEntity	Index.h	/^typedef void *CXIdxClientEntity;$/;"	t
+CXIdxClientFile	Index.h	/^typedef void *CXIdxClientFile;$/;"	t
+CXIdxContainerInfo	Index.h	/^} CXIdxContainerInfo;$/;"	t	typeref:struct:__anon27
+CXIdxDeclFlag_Skipped	Index.h	/^  CXIdxDeclFlag_Skipped = 0x1$/;"	e	enum:__anon29
+CXIdxDeclInfo	Index.h	/^} CXIdxDeclInfo;$/;"	t	typeref:struct:__anon30
+CXIdxDeclInfoFlags	Index.h	/^} CXIdxDeclInfoFlags;$/;"	t	typeref:enum:__anon29
+CXIdxEntityCXXTemplateKind	Index.h	/^} CXIdxEntityCXXTemplateKind;$/;"	t	typeref:enum:__anon23
+CXIdxEntityInfo	Index.h	/^} CXIdxEntityInfo;$/;"	t	typeref:struct:__anon26
+CXIdxEntityKind	Index.h	/^} CXIdxEntityKind;$/;"	t	typeref:enum:__anon21
+CXIdxEntityLang_C	Index.h	/^  CXIdxEntityLang_C    = 1,$/;"	e	enum:__anon22
+CXIdxEntityLang_CXX	Index.h	/^  CXIdxEntityLang_CXX  = 3$/;"	e	enum:__anon22
+CXIdxEntityLang_None	Index.h	/^  CXIdxEntityLang_None = 0,$/;"	e	enum:__anon22
+CXIdxEntityLang_ObjC	Index.h	/^  CXIdxEntityLang_ObjC = 2,$/;"	e	enum:__anon22
+CXIdxEntityLanguage	Index.h	/^} CXIdxEntityLanguage;$/;"	t	typeref:enum:__anon22
+CXIdxEntityRefInfo	Index.h	/^} CXIdxEntityRefInfo;$/;"	t	typeref:struct:__anon41
+CXIdxEntityRefKind	Index.h	/^} CXIdxEntityRefKind;$/;"	t	typeref:enum:__anon40
+CXIdxEntityRef_Direct	Index.h	/^  CXIdxEntityRef_Direct = 1,$/;"	e	enum:__anon40
+CXIdxEntityRef_Implicit	Index.h	/^  CXIdxEntityRef_Implicit = 2$/;"	e	enum:__anon40
+CXIdxEntity_CXXClass	Index.h	/^  CXIdxEntity_CXXClass              = 16,$/;"	e	enum:__anon21
+CXIdxEntity_CXXConstructor	Index.h	/^  CXIdxEntity_CXXConstructor        = 22,$/;"	e	enum:__anon21
+CXIdxEntity_CXXConversionFunction	Index.h	/^  CXIdxEntity_CXXConversionFunction = 24,$/;"	e	enum:__anon21
+CXIdxEntity_CXXDestructor	Index.h	/^  CXIdxEntity_CXXDestructor         = 23,$/;"	e	enum:__anon21
+CXIdxEntity_CXXInstanceMethod	Index.h	/^  CXIdxEntity_CXXInstanceMethod     = 21,$/;"	e	enum:__anon21
+CXIdxEntity_CXXInterface	Index.h	/^  CXIdxEntity_CXXInterface          = 26$/;"	e	enum:__anon21
+CXIdxEntity_CXXNamespace	Index.h	/^  CXIdxEntity_CXXNamespace          = 17,$/;"	e	enum:__anon21
+CXIdxEntity_CXXNamespaceAlias	Index.h	/^  CXIdxEntity_CXXNamespaceAlias     = 18,$/;"	e	enum:__anon21
+CXIdxEntity_CXXStaticMethod	Index.h	/^  CXIdxEntity_CXXStaticMethod       = 20,$/;"	e	enum:__anon21
+CXIdxEntity_CXXStaticVariable	Index.h	/^  CXIdxEntity_CXXStaticVariable     = 19,$/;"	e	enum:__anon21
+CXIdxEntity_CXXTypeAlias	Index.h	/^  CXIdxEntity_CXXTypeAlias          = 25,$/;"	e	enum:__anon21
+CXIdxEntity_Enum	Index.h	/^  CXIdxEntity_Enum          = 13,$/;"	e	enum:__anon21
+CXIdxEntity_EnumConstant	Index.h	/^  CXIdxEntity_EnumConstant  = 5,$/;"	e	enum:__anon21
+CXIdxEntity_Field	Index.h	/^  CXIdxEntity_Field         = 4,$/;"	e	enum:__anon21
+CXIdxEntity_Function	Index.h	/^  CXIdxEntity_Function      = 2,$/;"	e	enum:__anon21
+CXIdxEntity_NonTemplate	Index.h	/^  CXIdxEntity_NonTemplate   = 0,$/;"	e	enum:__anon23
+CXIdxEntity_ObjCCategory	Index.h	/^  CXIdxEntity_ObjCCategory  = 8,$/;"	e	enum:__anon21
+CXIdxEntity_ObjCClass	Index.h	/^  CXIdxEntity_ObjCClass     = 6,$/;"	e	enum:__anon21
+CXIdxEntity_ObjCClassMethod	Index.h	/^  CXIdxEntity_ObjCClassMethod    = 10,$/;"	e	enum:__anon21
+CXIdxEntity_ObjCInstanceMethod	Index.h	/^  CXIdxEntity_ObjCInstanceMethod = 9,$/;"	e	enum:__anon21
+CXIdxEntity_ObjCIvar	Index.h	/^  CXIdxEntity_ObjCIvar      = 12,$/;"	e	enum:__anon21
+CXIdxEntity_ObjCProperty	Index.h	/^  CXIdxEntity_ObjCProperty  = 11,$/;"	e	enum:__anon21
+CXIdxEntity_ObjCProtocol	Index.h	/^  CXIdxEntity_ObjCProtocol  = 7,$/;"	e	enum:__anon21
+CXIdxEntity_Struct	Index.h	/^  CXIdxEntity_Struct        = 14,$/;"	e	enum:__anon21
+CXIdxEntity_Template	Index.h	/^  CXIdxEntity_Template      = 1,$/;"	e	enum:__anon23
+CXIdxEntity_TemplatePartialSpecialization	Index.h	/^  CXIdxEntity_TemplatePartialSpecialization = 2,$/;"	e	enum:__anon23
+CXIdxEntity_TemplateSpecialization	Index.h	/^  CXIdxEntity_TemplateSpecialization = 3$/;"	e	enum:__anon23
+CXIdxEntity_Typedef	Index.h	/^  CXIdxEntity_Typedef       = 1,$/;"	e	enum:__anon21
+CXIdxEntity_Unexposed	Index.h	/^  CXIdxEntity_Unexposed     = 0,$/;"	e	enum:__anon21
+CXIdxEntity_Union	Index.h	/^  CXIdxEntity_Union         = 15,$/;"	e	enum:__anon21
+CXIdxEntity_Variable	Index.h	/^  CXIdxEntity_Variable      = 3,$/;"	e	enum:__anon21
+CXIdxIBOutletCollectionAttrInfo	Index.h	/^} CXIdxIBOutletCollectionAttrInfo;$/;"	t	typeref:struct:__anon28
+CXIdxImportedASTFileInfo	Index.h	/^} CXIdxImportedASTFileInfo;$/;"	t	typeref:struct:__anon20
+CXIdxIncludedFileInfo	Index.h	/^} CXIdxIncludedFileInfo;$/;"	t	typeref:struct:__anon19
+CXIdxLoc	Index.h	/^} CXIdxLoc;$/;"	t	typeref:struct:__anon18
+CXIdxObjCCategoryDeclInfo	Index.h	/^} CXIdxObjCCategoryDeclInfo;$/;"	t	typeref:struct:__anon37
+CXIdxObjCContainerDeclInfo	Index.h	/^} CXIdxObjCContainerDeclInfo;$/;"	t	typeref:struct:__anon32
+CXIdxObjCContainerKind	Index.h	/^} CXIdxObjCContainerKind;$/;"	t	typeref:enum:__anon31
+CXIdxObjCContainer_ForwardRef	Index.h	/^  CXIdxObjCContainer_ForwardRef = 0,$/;"	e	enum:__anon31
+CXIdxObjCContainer_Implementation	Index.h	/^  CXIdxObjCContainer_Implementation = 2$/;"	e	enum:__anon31
+CXIdxObjCContainer_Interface	Index.h	/^  CXIdxObjCContainer_Interface = 1,$/;"	e	enum:__anon31
+CXIdxObjCInterfaceDeclInfo	Index.h	/^} CXIdxObjCInterfaceDeclInfo;$/;"	t	typeref:struct:__anon36
+CXIdxObjCPropertyDeclInfo	Index.h	/^} CXIdxObjCPropertyDeclInfo;$/;"	t	typeref:struct:__anon38
+CXIdxObjCProtocolRefInfo	Index.h	/^} CXIdxObjCProtocolRefInfo;$/;"	t	typeref:struct:__anon34
+CXIdxObjCProtocolRefListInfo	Index.h	/^} CXIdxObjCProtocolRefListInfo;$/;"	t	typeref:struct:__anon35
+CXInclusionVisitor	Index.h	/^typedef void (*CXInclusionVisitor)(CXFile included_file,$/;"	t
+CXIndex	Index.h	/^typedef void *CXIndex;$/;"	t
+CXIndexAction	Index.h	/^typedef void *CXIndexAction;$/;"	t
+CXIndexOptFlags	Index.h	/^} CXIndexOptFlags;$/;"	t	typeref:enum:__anon43
+CXIndexOpt_IndexFunctionLocalSymbols	Index.h	/^  CXIndexOpt_IndexFunctionLocalSymbols = 0x2,$/;"	e	enum:__anon43
+CXIndexOpt_IndexImplicitTemplateInstantiations	Index.h	/^  CXIndexOpt_IndexImplicitTemplateInstantiations = 0x4,$/;"	e	enum:__anon43
+CXIndexOpt_None	Index.h	/^  CXIndexOpt_None = 0x0,$/;"	e	enum:__anon43
+CXIndexOpt_SkipParsedBodiesInSession	Index.h	/^  CXIndexOpt_SkipParsedBodiesInSession = 0x10$/;"	e	enum:__anon43
+CXIndexOpt_SuppressRedundantRefs	Index.h	/^  CXIndexOpt_SuppressRedundantRefs = 0x1,$/;"	e	enum:__anon43
+CXIndexOpt_SuppressWarnings	Index.h	/^  CXIndexOpt_SuppressWarnings = 0x8,$/;"	e	enum:__anon43
+CXLanguageKind	Index.h	/^enum CXLanguageKind {$/;"	g
+CXLanguage_C	Index.h	/^  CXLanguage_C,$/;"	e	enum:CXLanguageKind
+CXLanguage_CPlusPlus	Index.h	/^  CXLanguage_CPlusPlus$/;"	e	enum:CXLanguageKind
+CXLanguage_Invalid	Index.h	/^  CXLanguage_Invalid = 0,$/;"	e	enum:CXLanguageKind
+CXLanguage_ObjC	Index.h	/^  CXLanguage_ObjC,$/;"	e	enum:CXLanguageKind
+CXLinkageKind	Index.h	/^enum CXLinkageKind {$/;"	g
+CXLinkage_External	Index.h	/^  CXLinkage_External$/;"	e	enum:CXLinkageKind
+CXLinkage_Internal	Index.h	/^  CXLinkage_Internal,$/;"	e	enum:CXLinkageKind
+CXLinkage_Invalid	Index.h	/^  CXLinkage_Invalid,$/;"	e	enum:CXLinkageKind
+CXLinkage_NoLinkage	Index.h	/^  CXLinkage_NoLinkage,$/;"	e	enum:CXLinkageKind
+CXLinkage_UniqueExternal	Index.h	/^  CXLinkage_UniqueExternal,$/;"	e	enum:CXLinkageKind
+CXLoadDiag_CannotLoad	Index.h	/^  CXLoadDiag_CannotLoad = 2,$/;"	e	enum:CXLoadDiag_Error
+CXLoadDiag_Error	Index.h	/^enum CXLoadDiag_Error {$/;"	g
+CXLoadDiag_InvalidFile	Index.h	/^  CXLoadDiag_InvalidFile = 3$/;"	e	enum:CXLoadDiag_Error
+CXLoadDiag_None	Index.h	/^  CXLoadDiag_None = 0,$/;"	e	enum:CXLoadDiag_Error
+CXLoadDiag_Unknown	Index.h	/^  CXLoadDiag_Unknown = 1,$/;"	e	enum:CXLoadDiag_Error
+CXModule	Index.h	/^typedef void *CXModule;$/;"	t
+CXNameRange_WantQualifier	Index.h	/^  CXNameRange_WantQualifier = 0x1,$/;"	e	enum:CXNameRefFlags
+CXNameRange_WantSinglePiece	Index.h	/^  CXNameRange_WantSinglePiece = 0x4$/;"	e	enum:CXNameRefFlags
+CXNameRange_WantTemplateArgs	Index.h	/^  CXNameRange_WantTemplateArgs = 0x2,$/;"	e	enum:CXNameRefFlags
+CXNameRefFlags	Index.h	/^enum CXNameRefFlags {$/;"	g
+CXObjCDeclQualifierKind	Index.h	/^} CXObjCDeclQualifierKind;$/;"	t	typeref:enum:__anon12
+CXObjCDeclQualifier_Bycopy	Index.h	/^  CXObjCDeclQualifier_Bycopy = 0x8,$/;"	e	enum:__anon12
+CXObjCDeclQualifier_Byref	Index.h	/^  CXObjCDeclQualifier_Byref = 0x10,$/;"	e	enum:__anon12
+CXObjCDeclQualifier_In	Index.h	/^  CXObjCDeclQualifier_In = 0x1,$/;"	e	enum:__anon12
+CXObjCDeclQualifier_Inout	Index.h	/^  CXObjCDeclQualifier_Inout = 0x2,$/;"	e	enum:__anon12
+CXObjCDeclQualifier_None	Index.h	/^  CXObjCDeclQualifier_None = 0x0,$/;"	e	enum:__anon12
+CXObjCDeclQualifier_Oneway	Index.h	/^  CXObjCDeclQualifier_Oneway = 0x20$/;"	e	enum:__anon12
+CXObjCDeclQualifier_Out	Index.h	/^  CXObjCDeclQualifier_Out = 0x4,$/;"	e	enum:__anon12
+CXObjCPropertyAttrKind	Index.h	/^} CXObjCPropertyAttrKind;$/;"	t	typeref:enum:__anon11
+CXObjCPropertyAttr_assign	Index.h	/^  CXObjCPropertyAttr_assign    = 0x04,$/;"	e	enum:__anon11
+CXObjCPropertyAttr_atomic	Index.h	/^  CXObjCPropertyAttr_atomic    = 0x100,$/;"	e	enum:__anon11
+CXObjCPropertyAttr_copy	Index.h	/^  CXObjCPropertyAttr_copy      = 0x20,$/;"	e	enum:__anon11
+CXObjCPropertyAttr_getter	Index.h	/^  CXObjCPropertyAttr_getter    = 0x02,$/;"	e	enum:__anon11
+CXObjCPropertyAttr_noattr	Index.h	/^  CXObjCPropertyAttr_noattr    = 0x00,$/;"	e	enum:__anon11
+CXObjCPropertyAttr_nonatomic	Index.h	/^  CXObjCPropertyAttr_nonatomic = 0x40,$/;"	e	enum:__anon11
+CXObjCPropertyAttr_readonly	Index.h	/^  CXObjCPropertyAttr_readonly  = 0x01,$/;"	e	enum:__anon11
+CXObjCPropertyAttr_readwrite	Index.h	/^  CXObjCPropertyAttr_readwrite = 0x08,$/;"	e	enum:__anon11
+CXObjCPropertyAttr_retain	Index.h	/^  CXObjCPropertyAttr_retain    = 0x10,$/;"	e	enum:__anon11
+CXObjCPropertyAttr_setter	Index.h	/^  CXObjCPropertyAttr_setter    = 0x80,$/;"	e	enum:__anon11
+CXObjCPropertyAttr_strong	Index.h	/^  CXObjCPropertyAttr_strong    = 0x400,$/;"	e	enum:__anon11
+CXObjCPropertyAttr_unsafe_unretained	Index.h	/^  CXObjCPropertyAttr_unsafe_unretained = 0x800$/;"	e	enum:__anon11
+CXObjCPropertyAttr_weak	Index.h	/^  CXObjCPropertyAttr_weak      = 0x200,$/;"	e	enum:__anon11
+CXPlatformAvailability	Index.h	/^typedef struct CXPlatformAvailability {$/;"	s
+CXPlatformAvailability	Index.h	/^} CXPlatformAvailability;$/;"	t	typeref:struct:CXPlatformAvailability
+CXRefQualifierKind	Index.h	/^enum CXRefQualifierKind {$/;"	g
+CXRefQualifier_LValue	Index.h	/^  CXRefQualifier_LValue,$/;"	e	enum:CXRefQualifierKind
+CXRefQualifier_None	Index.h	/^  CXRefQualifier_None = 0,$/;"	e	enum:CXRefQualifierKind
+CXRefQualifier_RValue	Index.h	/^  CXRefQualifier_RValue$/;"	e	enum:CXRefQualifierKind
+CXRemapping	Index.h	/^typedef void *CXRemapping;$/;"	t
+CXReparse_Flags	Index.h	/^enum CXReparse_Flags {$/;"	g
+CXReparse_None	Index.h	/^  CXReparse_None = 0x0$/;"	e	enum:CXReparse_Flags
+CXResult	Index.h	/^} CXResult;$/;"	t	typeref:enum:__anon17
+CXResult_Invalid	Index.h	/^  CXResult_Invalid = 1,$/;"	e	enum:__anon17
+CXResult_Success	Index.h	/^  CXResult_Success = 0,$/;"	e	enum:__anon17
+CXResult_VisitBreak	Index.h	/^  CXResult_VisitBreak = 2$/;"	e	enum:__anon17
+CXSaveError	Index.h	/^enum CXSaveError {$/;"	g
+CXSaveError_InvalidTU	Index.h	/^  CXSaveError_InvalidTU = 3$/;"	e	enum:CXSaveError
+CXSaveError_None	Index.h	/^  CXSaveError_None = 0,$/;"	e	enum:CXSaveError
+CXSaveError_TranslationErrors	Index.h	/^  CXSaveError_TranslationErrors = 2,$/;"	e	enum:CXSaveError
+CXSaveError_Unknown	Index.h	/^  CXSaveError_Unknown = 1,$/;"	e	enum:CXSaveError
+CXSaveTranslationUnit_Flags	Index.h	/^enum CXSaveTranslationUnit_Flags {$/;"	g
+CXSaveTranslationUnit_None	Index.h	/^  CXSaveTranslationUnit_None = 0x0$/;"	e	enum:CXSaveTranslationUnit_Flags
+CXSourceLocation	Index.h	/^} CXSourceLocation;$/;"	t	typeref:struct:__anon6
+CXSourceRange	Index.h	/^} CXSourceRange;$/;"	t	typeref:struct:__anon7
+CXSourceRangeList	Index.h	/^} CXSourceRangeList;$/;"	t	typeref:struct:__anon8
+CXTUResourceUsage	Index.h	/^typedef struct CXTUResourceUsage {$/;"	s
+CXTUResourceUsage	Index.h	/^} CXTUResourceUsage;$/;"	t	typeref:struct:CXTUResourceUsage
+CXTUResourceUsageEntry	Index.h	/^typedef struct CXTUResourceUsageEntry {$/;"	s
+CXTUResourceUsageEntry	Index.h	/^} CXTUResourceUsageEntry;$/;"	t	typeref:struct:CXTUResourceUsageEntry
+CXTUResourceUsageKind	Index.h	/^enum CXTUResourceUsageKind {$/;"	g
+CXTUResourceUsage_AST	Index.h	/^  CXTUResourceUsage_AST = 1,$/;"	e	enum:CXTUResourceUsageKind
+CXTUResourceUsage_AST_SideTables	Index.h	/^  CXTUResourceUsage_AST_SideTables = 6,$/;"	e	enum:CXTUResourceUsageKind
+CXTUResourceUsage_ExternalASTSource_Membuffer_MMap	Index.h	/^  CXTUResourceUsage_ExternalASTSource_Membuffer_MMap = 10, $/;"	e	enum:CXTUResourceUsageKind
+CXTUResourceUsage_ExternalASTSource_Membuffer_Malloc	Index.h	/^  CXTUResourceUsage_ExternalASTSource_Membuffer_Malloc = 9, $/;"	e	enum:CXTUResourceUsageKind
+CXTUResourceUsage_First	Index.h	/^  CXTUResourceUsage_First = CXTUResourceUsage_AST,$/;"	e	enum:CXTUResourceUsageKind
+CXTUResourceUsage_GlobalCompletionResults	Index.h	/^  CXTUResourceUsage_GlobalCompletionResults = 4,$/;"	e	enum:CXTUResourceUsageKind
+CXTUResourceUsage_Identifiers	Index.h	/^  CXTUResourceUsage_Identifiers = 2,$/;"	e	enum:CXTUResourceUsageKind
+CXTUResourceUsage_Last	Index.h	/^  CXTUResourceUsage_Last = CXTUResourceUsage_Preprocessor_HeaderSearch$/;"	e	enum:CXTUResourceUsageKind
+CXTUResourceUsage_MEMORY_IN_BYTES_BEGIN	Index.h	/^  CXTUResourceUsage_MEMORY_IN_BYTES_BEGIN = CXTUResourceUsage_AST,$/;"	e	enum:CXTUResourceUsageKind
+CXTUResourceUsage_MEMORY_IN_BYTES_END	Index.h	/^  CXTUResourceUsage_MEMORY_IN_BYTES_END =$/;"	e	enum:CXTUResourceUsageKind
+CXTUResourceUsage_PreprocessingRecord	Index.h	/^  CXTUResourceUsage_PreprocessingRecord = 12,$/;"	e	enum:CXTUResourceUsageKind
+CXTUResourceUsage_Preprocessor	Index.h	/^  CXTUResourceUsage_Preprocessor = 11,$/;"	e	enum:CXTUResourceUsageKind
+CXTUResourceUsage_Preprocessor_HeaderSearch	Index.h	/^  CXTUResourceUsage_Preprocessor_HeaderSearch = 14,$/;"	e	enum:CXTUResourceUsageKind
+CXTUResourceUsage_Selectors	Index.h	/^  CXTUResourceUsage_Selectors = 3,$/;"	e	enum:CXTUResourceUsageKind
+CXTUResourceUsage_SourceManagerContentCache	Index.h	/^  CXTUResourceUsage_SourceManagerContentCache = 5,$/;"	e	enum:CXTUResourceUsageKind
+CXTUResourceUsage_SourceManager_DataStructures	Index.h	/^  CXTUResourceUsage_SourceManager_DataStructures = 13,$/;"	e	enum:CXTUResourceUsageKind
+CXTUResourceUsage_SourceManager_Membuffer_MMap	Index.h	/^  CXTUResourceUsage_SourceManager_Membuffer_MMap = 8,$/;"	e	enum:CXTUResourceUsageKind
+CXTUResourceUsage_SourceManager_Membuffer_Malloc	Index.h	/^  CXTUResourceUsage_SourceManager_Membuffer_Malloc = 7,$/;"	e	enum:CXTUResourceUsageKind
+CXToken	Index.h	/^} CXToken;$/;"	t	typeref:struct:__anon13
+CXTokenKind	Index.h	/^typedef enum CXTokenKind {$/;"	g
+CXTokenKind	Index.h	/^} CXTokenKind;$/;"	t	typeref:enum:CXTokenKind
+CXToken_Comment	Index.h	/^  CXToken_Comment$/;"	e	enum:CXTokenKind
+CXToken_Identifier	Index.h	/^  CXToken_Identifier,$/;"	e	enum:CXTokenKind
+CXToken_Keyword	Index.h	/^  CXToken_Keyword,$/;"	e	enum:CXTokenKind
+CXToken_Literal	Index.h	/^  CXToken_Literal,$/;"	e	enum:CXTokenKind
+CXToken_Punctuation	Index.h	/^  CXToken_Punctuation,$/;"	e	enum:CXTokenKind
+CXTranslationUnit	Index.h	/^typedef struct CXTranslationUnitImpl *CXTranslationUnit;$/;"	t	typeref:struct:CXTranslationUnitImpl
+CXTranslationUnit_CXXChainedPCH	Index.h	/^  CXTranslationUnit_CXXChainedPCH = 0x20,$/;"	e	enum:CXTranslationUnit_Flags
+CXTranslationUnit_CacheCompletionResults	Index.h	/^  CXTranslationUnit_CacheCompletionResults = 0x08,$/;"	e	enum:CXTranslationUnit_Flags
+CXTranslationUnit_DetailedPreprocessingRecord	Index.h	/^  CXTranslationUnit_DetailedPreprocessingRecord = 0x01,$/;"	e	enum:CXTranslationUnit_Flags
+CXTranslationUnit_Flags	Index.h	/^enum CXTranslationUnit_Flags {$/;"	g
+CXTranslationUnit_ForSerialization	Index.h	/^  CXTranslationUnit_ForSerialization = 0x10,$/;"	e	enum:CXTranslationUnit_Flags
+CXTranslationUnit_IncludeBriefCommentsInCodeCompletion	Index.h	/^  CXTranslationUnit_IncludeBriefCommentsInCodeCompletion = 0x80$/;"	e	enum:CXTranslationUnit_Flags
+CXTranslationUnit_Incomplete	Index.h	/^  CXTranslationUnit_Incomplete = 0x02,$/;"	e	enum:CXTranslationUnit_Flags
+CXTranslationUnit_None	Index.h	/^  CXTranslationUnit_None = 0x0,$/;"	e	enum:CXTranslationUnit_Flags
+CXTranslationUnit_PrecompiledPreamble	Index.h	/^  CXTranslationUnit_PrecompiledPreamble = 0x04,$/;"	e	enum:CXTranslationUnit_Flags
+CXTranslationUnit_SkipFunctionBodies	Index.h	/^  CXTranslationUnit_SkipFunctionBodies = 0x40,$/;"	e	enum:CXTranslationUnit_Flags
+CXType	Index.h	/^} CXType;$/;"	t	typeref:struct:__anon10
+CXTypeKind	Index.h	/^enum CXTypeKind {$/;"	g
+CXTypeLayoutError	Index.h	/^enum CXTypeLayoutError {$/;"	g
+CXTypeLayoutError_Dependent	Index.h	/^  CXTypeLayoutError_Dependent = -3,$/;"	e	enum:CXTypeLayoutError
+CXTypeLayoutError_Incomplete	Index.h	/^  CXTypeLayoutError_Incomplete = -2,$/;"	e	enum:CXTypeLayoutError
+CXTypeLayoutError_Invalid	Index.h	/^  CXTypeLayoutError_Invalid = -1,$/;"	e	enum:CXTypeLayoutError
+CXTypeLayoutError_InvalidFieldName	Index.h	/^  CXTypeLayoutError_InvalidFieldName = -5$/;"	e	enum:CXTypeLayoutError
+CXTypeLayoutError_NotConstantSize	Index.h	/^  CXTypeLayoutError_NotConstantSize = -4,$/;"	e	enum:CXTypeLayoutError
+CXType_BlockPointer	Index.h	/^  CXType_BlockPointer = 102,$/;"	e	enum:CXTypeKind
+CXType_Bool	Index.h	/^  CXType_Bool = 3,$/;"	e	enum:CXTypeKind
+CXType_Char16	Index.h	/^  CXType_Char16 = 6,$/;"	e	enum:CXTypeKind
+CXType_Char32	Index.h	/^  CXType_Char32 = 7,$/;"	e	enum:CXTypeKind
+CXType_Char_S	Index.h	/^  CXType_Char_S = 13,$/;"	e	enum:CXTypeKind
+CXType_Char_U	Index.h	/^  CXType_Char_U = 4,$/;"	e	enum:CXTypeKind
+CXType_Complex	Index.h	/^  CXType_Complex = 100,$/;"	e	enum:CXTypeKind
+CXType_ConstantArray	Index.h	/^  CXType_ConstantArray = 112,$/;"	e	enum:CXTypeKind
+CXType_Dependent	Index.h	/^  CXType_Dependent = 26,$/;"	e	enum:CXTypeKind
+CXType_DependentSizedArray	Index.h	/^  CXType_DependentSizedArray = 116,$/;"	e	enum:CXTypeKind
+CXType_Double	Index.h	/^  CXType_Double = 22,$/;"	e	enum:CXTypeKind
+CXType_Enum	Index.h	/^  CXType_Enum = 106,$/;"	e	enum:CXTypeKind
+CXType_FirstBuiltin	Index.h	/^  CXType_FirstBuiltin = CXType_Void,$/;"	e	enum:CXTypeKind
+CXType_Float	Index.h	/^  CXType_Float = 21,$/;"	e	enum:CXTypeKind
+CXType_FunctionNoProto	Index.h	/^  CXType_FunctionNoProto = 110,$/;"	e	enum:CXTypeKind
+CXType_FunctionProto	Index.h	/^  CXType_FunctionProto = 111,$/;"	e	enum:CXTypeKind
+CXType_IncompleteArray	Index.h	/^  CXType_IncompleteArray = 114,$/;"	e	enum:CXTypeKind
+CXType_Int	Index.h	/^  CXType_Int = 17,$/;"	e	enum:CXTypeKind
+CXType_Int128	Index.h	/^  CXType_Int128 = 20,$/;"	e	enum:CXTypeKind
+CXType_Invalid	Index.h	/^  CXType_Invalid = 0,$/;"	e	enum:CXTypeKind
+CXType_LValueReference	Index.h	/^  CXType_LValueReference = 103,$/;"	e	enum:CXTypeKind
+CXType_LastBuiltin	Index.h	/^  CXType_LastBuiltin  = CXType_ObjCSel,$/;"	e	enum:CXTypeKind
+CXType_Long	Index.h	/^  CXType_Long = 18,$/;"	e	enum:CXTypeKind
+CXType_LongDouble	Index.h	/^  CXType_LongDouble = 23,$/;"	e	enum:CXTypeKind
+CXType_LongLong	Index.h	/^  CXType_LongLong = 19,$/;"	e	enum:CXTypeKind
+CXType_MemberPointer	Index.h	/^  CXType_MemberPointer = 117$/;"	e	enum:CXTypeKind
+CXType_NullPtr	Index.h	/^  CXType_NullPtr = 24,$/;"	e	enum:CXTypeKind
+CXType_ObjCClass	Index.h	/^  CXType_ObjCClass = 28,$/;"	e	enum:CXTypeKind
+CXType_ObjCId	Index.h	/^  CXType_ObjCId = 27,$/;"	e	enum:CXTypeKind
+CXType_ObjCInterface	Index.h	/^  CXType_ObjCInterface = 108,$/;"	e	enum:CXTypeKind
+CXType_ObjCObjectPointer	Index.h	/^  CXType_ObjCObjectPointer = 109,$/;"	e	enum:CXTypeKind
+CXType_ObjCSel	Index.h	/^  CXType_ObjCSel = 29,$/;"	e	enum:CXTypeKind
+CXType_Overload	Index.h	/^  CXType_Overload = 25,$/;"	e	enum:CXTypeKind
+CXType_Pointer	Index.h	/^  CXType_Pointer = 101,$/;"	e	enum:CXTypeKind
+CXType_RValueReference	Index.h	/^  CXType_RValueReference = 104,$/;"	e	enum:CXTypeKind
+CXType_Record	Index.h	/^  CXType_Record = 105,$/;"	e	enum:CXTypeKind
+CXType_SChar	Index.h	/^  CXType_SChar = 14,$/;"	e	enum:CXTypeKind
+CXType_Short	Index.h	/^  CXType_Short = 16,$/;"	e	enum:CXTypeKind
+CXType_Typedef	Index.h	/^  CXType_Typedef = 107,$/;"	e	enum:CXTypeKind
+CXType_UChar	Index.h	/^  CXType_UChar = 5,$/;"	e	enum:CXTypeKind
+CXType_UInt	Index.h	/^  CXType_UInt = 9,$/;"	e	enum:CXTypeKind
+CXType_UInt128	Index.h	/^  CXType_UInt128 = 12,$/;"	e	enum:CXTypeKind
+CXType_ULong	Index.h	/^  CXType_ULong = 10,$/;"	e	enum:CXTypeKind
+CXType_ULongLong	Index.h	/^  CXType_ULongLong = 11,$/;"	e	enum:CXTypeKind
+CXType_UShort	Index.h	/^  CXType_UShort = 8,$/;"	e	enum:CXTypeKind
+CXType_Unexposed	Index.h	/^  CXType_Unexposed = 1,$/;"	e	enum:CXTypeKind
+CXType_VariableArray	Index.h	/^  CXType_VariableArray = 115,$/;"	e	enum:CXTypeKind
+CXType_Vector	Index.h	/^  CXType_Vector = 113,$/;"	e	enum:CXTypeKind
+CXType_Void	Index.h	/^  CXType_Void = 2,$/;"	e	enum:CXTypeKind
+CXType_WChar	Index.h	/^  CXType_WChar = 15,$/;"	e	enum:CXTypeKind
+CXUnsavedFile	Index.h	/^struct CXUnsavedFile {$/;"	s
+CXVersion	Index.h	/^typedef struct CXVersion {$/;"	s
+CXVersion	Index.h	/^} CXVersion;$/;"	t	typeref:struct:CXVersion
+CXVisit_Break	Index.h	/^  CXVisit_Break,$/;"	e	enum:CXVisitorResult
+CXVisit_Continue	Index.h	/^  CXVisit_Continue$/;"	e	enum:CXVisitorResult
+CXVisitorResult	Index.h	/^enum CXVisitorResult {$/;"	g
+CX_CXXAccessSpecifier	Index.h	/^enum CX_CXXAccessSpecifier {$/;"	g
+CX_CXXInvalidAccessSpecifier	Index.h	/^  CX_CXXInvalidAccessSpecifier,$/;"	e	enum:CX_CXXAccessSpecifier
+CX_CXXPrivate	Index.h	/^  CX_CXXPrivate$/;"	e	enum:CX_CXXAccessSpecifier
+CX_CXXProtected	Index.h	/^  CX_CXXProtected,$/;"	e	enum:CX_CXXAccessSpecifier
+CX_CXXPublic	Index.h	/^  CX_CXXPublic,$/;"	e	enum:CX_CXXAccessSpecifier
+CompletionString	Index.h	/^  CXCompletionString CompletionString;$/;"	m	struct:__anon14
+Contents	Index.h	/^  const char *Contents;$/;"	m	struct:CXUnsavedFile
+CursorKind	Index.h	/^  enum CXCursorKind CursorKind;$/;"	m	struct:__anon14	typeref:enum:__anon14::CXCursorKind
+Deprecated	Index.h	/^  CXVersion Deprecated;$/;"	m	struct:CXPlatformAvailability
+Filename	Index.h	/^  const char *Filename;$/;"	m	struct:CXUnsavedFile
+IndexerCallbacks	Index.h	/^} IndexerCallbacks;$/;"	t	typeref:struct:__anon42
+Introduced	Index.h	/^  CXVersion Introduced;$/;"	m	struct:CXPlatformAvailability
+Length	Index.h	/^  unsigned long Length;$/;"	m	struct:CXUnsavedFile
+Major	Index.h	/^  int Major;$/;"	m	struct:CXVersion
+Message	Index.h	/^  CXString Message;$/;"	m	struct:CXPlatformAvailability
+Minor	Index.h	/^  int Minor;$/;"	m	struct:CXVersion
+NumResults	Index.h	/^  unsigned NumResults;$/;"	m	struct:__anon15
+Obsoleted	Index.h	/^  CXVersion Obsoleted;$/;"	m	struct:CXPlatformAvailability
+Platform	Index.h	/^  CXString Platform;$/;"	m	struct:CXPlatformAvailability
+Results	Index.h	/^  CXCompletionResult *Results;$/;"	m	struct:__anon15
+Subminor	Index.h	/^  int Subminor;$/;"	m	struct:CXVersion
+USR	Index.h	/^  const char *USR;$/;"	m	struct:__anon26
+Unavailable	Index.h	/^  int Unavailable;$/;"	m	struct:CXPlatformAvailability
+abortQuery	Index.h	/^  int (*abortQuery)(CXClientData client_data, void *reserved);$/;"	m	struct:__anon42
+amount	Index.h	/^  unsigned long amount;$/;"	m	struct:CXTUResourceUsageEntry
+attrInfo	Index.h	/^  const CXIdxAttrInfo *attrInfo;$/;"	m	struct:__anon28
+attributes	Index.h	/^  const CXIdxAttrInfo *const *attributes;$/;"	m	struct:__anon26
+attributes	Index.h	/^  const CXIdxAttrInfo *const *attributes;$/;"	m	struct:__anon30
+base	Index.h	/^  const CXIdxEntityInfo *base;$/;"	m	struct:__anon33
+bases	Index.h	/^  const CXIdxBaseClassInfo *const *bases;$/;"	m	struct:__anon39
+begin_int_data	Index.h	/^  unsigned begin_int_data;$/;"	m	struct:__anon7
+classCursor	Index.h	/^  CXCursor classCursor;$/;"	m	struct:__anon28
+classCursor	Index.h	/^  CXCursor classCursor;$/;"	m	struct:__anon37
+classLoc	Index.h	/^  CXIdxLoc classLoc;$/;"	m	struct:__anon28
+classLoc	Index.h	/^  CXIdxLoc classLoc;$/;"	m	struct:__anon37
+container	Index.h	/^  const CXIdxContainerInfo *container;$/;"	m	struct:__anon41
+containerInfo	Index.h	/^  const CXIdxObjCContainerDeclInfo *containerInfo;$/;"	m	struct:__anon36
+containerInfo	Index.h	/^  const CXIdxObjCContainerDeclInfo *containerInfo;$/;"	m	struct:__anon37
+context	Index.h	/^  void *context;$/;"	m	struct:__anon16
+count	Index.h	/^  unsigned count;$/;"	m	struct:__anon8
+cursor	Index.h	/^     (^CXCursorVisitorBlock)(CXCursor cursor, CXCursor parent);$/;"	v
+cursor	Index.h	/^  CXCursor cursor;$/;"	m	struct:__anon25
+cursor	Index.h	/^  CXCursor cursor;$/;"	m	struct:__anon26
+cursor	Index.h	/^  CXCursor cursor;$/;"	m	struct:__anon27
+cursor	Index.h	/^  CXCursor cursor;$/;"	m	struct:__anon30
+cursor	Index.h	/^  CXCursor cursor;$/;"	m	struct:__anon33
+cursor	Index.h	/^  CXCursor cursor;$/;"	m	struct:__anon34
+cursor	Index.h	/^  CXCursor cursor;$/;"	m	struct:__anon41
+data	Index.h	/^  const void *data[3];$/;"	m	struct:__anon9
+data	Index.h	/^  unsigned long long data[3];$/;"	m	struct:__anon5
+data	Index.h	/^  void *data;$/;"	m	struct:CXTUResourceUsage
+data	Index.h	/^  void *data[2];$/;"	m	struct:__anon10
+declAsContainer	Index.h	/^  const CXIdxContainerInfo *declAsContainer;$/;"	m	struct:__anon30
+declInfo	Index.h	/^  const CXIdxDeclInfo *declInfo;$/;"	m	struct:__anon32
+declInfo	Index.h	/^  const CXIdxDeclInfo *declInfo;$/;"	m	struct:__anon38
+declInfo	Index.h	/^  const CXIdxDeclInfo *declInfo;$/;"	m	struct:__anon39
+diagnostic	Index.h	/^  void (*diagnostic)(CXClientData client_data,$/;"	m	struct:__anon42
+end_int_data	Index.h	/^  unsigned end_int_data;$/;"	m	struct:__anon7
+enteredMainFile	Index.h	/^  CXIdxClientFile (*enteredMainFile)(CXClientData client_data,$/;"	m	struct:__anon42
+entityInfo	Index.h	/^  const CXIdxEntityInfo *entityInfo;$/;"	m	struct:__anon30
+entries	Index.h	/^  CXTUResourceUsageEntry *entries;$/;"	m	struct:CXTUResourceUsage
+file	Index.h	/^  CXFile file;$/;"	m	struct:__anon19
+file	Index.h	/^  CXFile file;$/;"	m	struct:__anon20
+filename	Index.h	/^  const char *filename;$/;"	m	struct:__anon19
+flags	Index.h	/^  unsigned flags;$/;"	m	struct:__anon30
+getter	Index.h	/^  const CXIdxEntityInfo *getter;$/;"	m	struct:__anon38
+hashLoc	Index.h	/^  CXIdxLoc hashLoc;$/;"	m	struct:__anon19
+importedASTFile	Index.h	/^  CXIdxClientASTFile (*importedASTFile)(CXClientData client_data,$/;"	m	struct:__anon42
+indexDeclaration	Index.h	/^  void (*indexDeclaration)(CXClientData client_data,$/;"	m	struct:__anon42
+indexEntityReference	Index.h	/^  void (*indexEntityReference)(CXClientData client_data,$/;"	m	struct:__anon42
+int_data	Index.h	/^  unsigned int_data;$/;"	m	struct:__anon18
+int_data	Index.h	/^  unsigned int_data;$/;"	m	struct:__anon6
+int_data	Index.h	/^  unsigned int_data[4];$/;"	m	struct:__anon13
+isAngled	Index.h	/^  int isAngled;$/;"	m	struct:__anon19
+isContainer	Index.h	/^  int isContainer;$/;"	m	struct:__anon30
+isDefinition	Index.h	/^  int isDefinition;$/;"	m	struct:__anon30
+isImplicit	Index.h	/^  int isImplicit;$/;"	m	struct:__anon20
+isImplicit	Index.h	/^  int isImplicit;$/;"	m	struct:__anon30
+isImport	Index.h	/^  int isImport;$/;"	m	struct:__anon19
+isModuleImport	Index.h	/^  int isModuleImport;$/;"	m	struct:__anon19
+isRedeclaration	Index.h	/^  int isRedeclaration;$/;"	m	struct:__anon30
+kind	Index.h	/^  CXIdxAttrKind kind;$/;"	m	struct:__anon25
+kind	Index.h	/^  CXIdxEntityKind kind;$/;"	m	struct:__anon26
+kind	Index.h	/^  CXIdxEntityRefKind kind;$/;"	m	struct:__anon41
+kind	Index.h	/^  CXIdxObjCContainerKind kind;$/;"	m	struct:__anon32
+kind	Index.h	/^  enum CXCursorKind kind;$/;"	m	struct:__anon9	typeref:enum:__anon9::CXCursorKind
+kind	Index.h	/^  enum CXTUResourceUsageKind kind;  $/;"	m	struct:CXTUResourceUsageEntry	typeref:enum:CXTUResourceUsageEntry::CXTUResourceUsageKind
+kind	Index.h	/^  enum CXTypeKind kind;$/;"	m	struct:__anon10	typeref:enum:__anon10::CXTypeKind
+lang	Index.h	/^  CXIdxEntityLanguage lang;$/;"	m	struct:__anon26
+lexicalContainer	Index.h	/^  const CXIdxContainerInfo *lexicalContainer;$/;"	m	struct:__anon30
+loc	Index.h	/^  CXIdxLoc loc;$/;"	m	struct:__anon20
+loc	Index.h	/^  CXIdxLoc loc;$/;"	m	struct:__anon25
+loc	Index.h	/^  CXIdxLoc loc;$/;"	m	struct:__anon30
+loc	Index.h	/^  CXIdxLoc loc;$/;"	m	struct:__anon33
+loc	Index.h	/^  CXIdxLoc loc;$/;"	m	struct:__anon34
+loc	Index.h	/^  CXIdxLoc loc;$/;"	m	struct:__anon41
+module	Index.h	/^  CXModule module;$/;"	m	struct:__anon20
+name	Index.h	/^  const char *name;$/;"	m	struct:__anon26
+numAttributes	Index.h	/^  unsigned numAttributes;$/;"	m	struct:__anon26
+numAttributes	Index.h	/^  unsigned numAttributes;$/;"	m	struct:__anon30
+numBases	Index.h	/^  unsigned numBases;$/;"	m	struct:__anon39
+numEntries	Index.h	/^  unsigned numEntries;$/;"	m	struct:CXTUResourceUsage
+numProtocols	Index.h	/^  unsigned numProtocols;$/;"	m	struct:__anon35
+objcClass	Index.h	/^  const CXIdxEntityInfo *objcClass;$/;"	m	struct:__anon28
+objcClass	Index.h	/^  const CXIdxEntityInfo *objcClass;$/;"	m	struct:__anon37
+parent	Index.h	/^     (^CXCursorVisitorBlock)(CXCursor cursor, CXCursor parent);$/;"	v
+parentEntity	Index.h	/^  const CXIdxEntityInfo *parentEntity;$/;"	m	struct:__anon41
+ppIncludedFile	Index.h	/^  CXIdxClientFile (*ppIncludedFile)(CXClientData client_data,$/;"	m	struct:__anon42
+protocol	Index.h	/^  const CXIdxEntityInfo *protocol;$/;"	m	struct:__anon34
+protocols	Index.h	/^  const CXIdxObjCProtocolRefInfo *const *protocols;$/;"	m	struct:__anon35
+protocols	Index.h	/^  const CXIdxObjCProtocolRefListInfo *protocols;$/;"	m	struct:__anon36
+protocols	Index.h	/^  const CXIdxObjCProtocolRefListInfo *protocols;$/;"	m	struct:__anon37
+ptr_data	Index.h	/^  const void *ptr_data[2];$/;"	m	struct:__anon6
+ptr_data	Index.h	/^  const void *ptr_data[2];$/;"	m	struct:__anon7
+ptr_data	Index.h	/^  void *ptr_data;$/;"	m	struct:__anon13
+ptr_data	Index.h	/^  void *ptr_data[2];$/;"	m	struct:__anon18
+ranges	Index.h	/^  CXSourceRange *ranges;$/;"	m	struct:__anon8
+referencedEntity	Index.h	/^  const CXIdxEntityInfo *referencedEntity;$/;"	m	struct:__anon41
+semanticContainer	Index.h	/^  const CXIdxContainerInfo *semanticContainer;$/;"	m	struct:__anon30
+setter	Index.h	/^  const CXIdxEntityInfo *setter;$/;"	m	struct:__anon38
+startedTranslationUnit	Index.h	/^  CXIdxClientContainer (*startedTranslationUnit)(CXClientData client_data,$/;"	m	struct:__anon42
+superInfo	Index.h	/^  const CXIdxBaseClassInfo *superInfo;$/;"	m	struct:__anon36
+templateKind	Index.h	/^  CXIdxEntityCXXTemplateKind templateKind;$/;"	m	struct:__anon26
+visit	Index.h	/^  enum CXVisitorResult (*visit)(void *context, CXCursor, CXSourceRange);$/;"	m	struct:__anon16	typeref:enum:__anon16::visit
+xdata	Index.h	/^  int xdata;$/;"	m	struct:__anon9
+CINDEX_DEPRECATED	Platform.h	33;"	d
+CINDEX_DEPRECATED	Platform.h	36;"	d
+CINDEX_DEPRECATED	Platform.h	38;"	d
+CINDEX_LINKAGE	Platform.h	24;"	d
+CINDEX_LINKAGE	Platform.h	26;"	d
+CINDEX_LINKAGE	Platform.h	29;"	d
+CLANG_C_PLATFORM_H	Platform.h	15;"	d
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_PROGRAM_VERSION	5.8	//
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/

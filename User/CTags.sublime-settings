@@ -94,7 +94,7 @@
     //     [["language", "platform"], "path"]
     //
     "extra_tag_paths": [
-        [["source.python", "windows"], "C:\\Python27\\Lib\\tags"],
+        [["source.python", "windows"], "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python35"],
         [["source.c++", "windows"], "E:\\ForDevEnv\\myTags\\c++\\winsdk"],
         [["source.c++", "windows"], "E:\\ForDevEnv\\myTags\\c++\\vc"]
     ],

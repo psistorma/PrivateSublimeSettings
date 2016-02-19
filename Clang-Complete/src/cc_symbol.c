@@ -8,14 +8,6 @@
 #include "cc_trie.h"
 #include "cc_resultcache.h"
 
-struct cc_symbol {
-  CXTranslationUnit tu;
-  char* filename;
-
-  struct cc_trie* tp;
-  struct cc_resultcache* cache;
-};
-
 
 
 #define _PARSE_OPTIONS  CXTranslationUnit_DetailedPreprocessingRecord |  \

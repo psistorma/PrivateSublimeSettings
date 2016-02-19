@@ -6,12 +6,12 @@
 
 
 #if _WIN32
-    #if _MSC_VER
-       #define snprintf _snprintf_s
-    #endif
-    #define EXPORT __declspec(dllexport)
+  #if _MSC_VER
+     #define snprintf _snprintf_s
+  #endif
+  #define EXPORT __declspec(dllexport)
 #else
-   #define EXPORT
+  #define EXPORT
 #endif
 #if __MINGW32__
     #define MINGWSUPPORT __attribute__ ((callee_pop_aggregate_return(0)))
@@ -20,8 +20,7 @@
 #endif
 
 
-
-EXPORT struct cc_symbol* 
+EXPORT struct cc_symbol*
 py_symbol_new(const char* filename, const char* opt[], unsigned int opt_len, struct CXUnsavedFile*  unsaved_files, unsigned num_unsaved_files) {
   void* p = cc_symbol_new(filename, opt, opt_len, unsaved_files, num_unsaved_files);
   return p;
@@ -37,7 +36,7 @@ py_symbol_reparse(struct cc_symbol* sp, struct CXUnsavedFile*  unsaved_files, un
   cc_symbol_reparse(sp, unsaved_files, num_unsaved_files);
 }
 
-EXPORT struct cc_result* 
+EXPORT struct cc_result*
 py_symbol_complete_at(struct cc_symbol* sp, unsigned int line, unsigned int col, struct CXUnsavedFile* unsaved_files, unsigned int num_unsaved_files) {
   struct cc_result* ret = cc_symbol_complete_at(sp, line, col, unsaved_files, num_unsaved_files);
   return ret;

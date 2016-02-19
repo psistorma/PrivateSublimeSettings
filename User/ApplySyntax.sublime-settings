@@ -24,8 +24,8 @@
           "extensions": ["sublime-settings"]
       },
       {
-          "syntax": "CppByStorm/CppByStorm",
-          "extensions": ["cpp", "cc", "tcc", "cp", "cxx", "c++", "h", "hh", "thh", "hpp", "hxx", "h++", "inl", "ipp"]
+          "syntax": "UserSyntax/CppByStorm",
+          "extensions": ["c", "cpp", "cc", "tcc", "cp", "cxx", "c++", "h", "hh", "thh", "hpp", "hxx", "h++", "inl", "ipp"]
       },
       {
           "syntax": "UserSyntax/sublime-syntaxByStorm",

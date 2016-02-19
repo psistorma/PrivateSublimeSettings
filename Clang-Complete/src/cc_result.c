@@ -22,7 +22,7 @@ struct cc_result {
 static void _insert(struct cc_result* rp, unsigned int entry_idx);
 
 
-struct cc_result* 
+struct cc_result*
 cc_result_new(CXTranslationUnit tu, struct cc_trie* tp, struct cc_resultcache* cache, const char* filename, unsigned int line, unsigned int col, struct CXUnsavedFile* unsaved_files, unsigned int num_unsaved_files) {
   unsigned int i;
   CXCodeCompleteResults* result = clang_codeCompleteAt(tu, filename, line, col, unsaved_files, num_unsaved_files, _COMPLETE_OPTIONS);
@@ -40,7 +40,7 @@ cc_result_new(CXTranslationUnit tu, struct cc_trie* tp, struct cc_resultcache* c
 }
 
 
-void 
+void
 cc_result_free(struct cc_result* rp) {
   clang_disposeCodeCompleteResults(rp->result);
   free(rp);
@@ -70,6 +70,16 @@ static void
 _insert(struct cc_result* rp, unsigned int entry_idx) {
   assert(entry_idx < rp->result->NumResults);
   CXCompletionResult* entry = &rp->result->Results[entry_idx];
+  if (/*entry->CursorKind == CXCursor_ClassDecl || */
+	  entry->CursorKind == CXCursor_NotImplemented ||
+	  entry->CursorKind == CXCursor_MacroDefinition ||
+	  entry->CursorKind == CXCursor_EnumDecl ||
+	  entry->CursorKind == CXCursor_TypedefDecl ||
+	  entry->CursorKind == CXCursor_Namespace ||
+	  entry->CursorKind == CXCursor_UnionDecl ||
+	  entry->CursorKind == CXCursor_StructDecl ||
+	  entry->CursorKind == CXCursor_ClassTemplate)
+	  return;
   CXCompletionString cs = entry->CompletionString;
   const char* str = cc_result_entryname(cs);
   if (str) {

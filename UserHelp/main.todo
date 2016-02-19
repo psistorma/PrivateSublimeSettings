@@ -1,3 +1,13 @@
+Completion:
+  ☐ parse current line get key
+  ☐ parse clang -Xclang -ast-dump -fsyntax-only testmake.cpp > o.txt
+  ☐ parse ctags
+  ☐ search by key in ast for type
+  ☐ search by type in ctags for info
+  ☐ format info
+  ☐ insert completion as snippet
+
+
 Important:
   ☐ give qiang 15 yuan
 Sublime Text:

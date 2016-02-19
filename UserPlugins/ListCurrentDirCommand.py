@@ -36,6 +36,7 @@ def _list_path_file(path, ignore_patterns=[]):
 class ListCurrentDirCommand(sublime_plugin.TextCommand):
   def __init__(self, args):
     sublime_plugin.TextCommand.__init__(self, args)
+    self.quick_panel_files = None
 
   def run(self, edit):
     self.settings = sublime.load_settings("ListCurrentDir.sublime-settings")
@@ -45,14 +46,19 @@ class ListCurrentDirCommand(sublime_plugin.TextCommand):
     self.ignore_patterns = self.settings.get("ignore_patterns", ['.*?\.tags'])
     self.show_dir_file(os.path.dirname(current))
 
+  def get_parent_path(self, path):
+    path = path.strip('/')
+    parentPath = os.path.dirname(path)
+    return parentPath
   def show_dir_file(self, path):
     self.path = path
-    self.build_quick_panel_file_list()
 
-    if self.curName is not None:
+    if self.quick_panel_files is not None and self.curName in self.quick_panel_files:
       index = self.quick_panel_files.index(self.curName) + CUR_ITER_ORDER
     else:
       index = -1
+
+    self.build_quick_panel_file_list()
 
     if index >= len(self.quick_panel_files) or index <= 1:
       if CUR_ITER_ORDER == 1:
@@ -70,7 +76,7 @@ class ListCurrentDirCommand(sublime_plugin.TextCommand):
     else:
       self.quick_panel_files.append("/* change iter order to next */")
 
-    if os.path.exists(os.path.dirname(self.path)):
+    if os.path.exists(self.get_parent_path(self.path)):
       self.quick_panel_files.append("..")
 
     files_list = _list_path_file(self.path, self.ignore_patterns)
@@ -97,7 +103,7 @@ class ListCurrentDirCommand(sublime_plugin.TextCommand):
 
     if entry == "..":
       self.curName = None
-      self.show_dir_file(os.path.dirname(self.path))
+      self.show_dir_file(self.get_parent_path(self.path))
       return
     elif entry == "/* change iter order to prev */":
       CUR_ITER_ORDER = -1

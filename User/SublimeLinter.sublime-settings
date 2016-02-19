@@ -3,15 +3,28 @@
         "debug": false,
         "delay": 0.25,
         "error_color": "D02000",
-        "gutter_theme": "Packages/SublimeLinter/gutter-themes/Blueberry/cross/Blueberry - cross.gutter-theme",
+        "gutter_theme": "Packages/SublimeLinter/gutter-themes/Default/Default.gutter-theme",
         "gutter_theme_excludes": [],
         "lint_mode": "background",
         "linters": {
             "eslint": {
                 "@disable": false,
-                "args": [],
-                "chdir": "${project}",
+                "args": [
+                    "${packages}\\UserLinter\\pylint.rc"
+                ],
                 "excludes": []
+            },
+            "pylint": {
+                "@disable": false,
+                "args": [],
+                "disable": "",
+                "enable": "",
+                "excludes": [],
+                "paths": [
+                    "C:\\Program Files\\Sublime Text 3"
+                ],
+                "rcfile": "C:\\Users\\Administrator\\AppData\\Roaming\\Sublime Text 3\\Packages\\UserLinter\\pylint.rc",
+                "show-codes": false
             }
         },
         "mark_style": "outline",
@@ -38,7 +51,8 @@
             "javascript (babel)": "javascript",
             "magicpython": "python",
             "php": "html",
-            "python django": "python"
+            "python django": "python",
+            "pythonimproved": "python"
         },
         "warning_color": "DDB700",
         "wrap_find": true
