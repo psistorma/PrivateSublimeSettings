@@ -662,13 +662,14 @@ class SublimelinterToggleLinterCommand(sublime_plugin.WindowCommand):
 
             linters.sort()
             self.linters[which] = linters
-
         return len(self.linters[which]) > 0
 
     def run(self, **args):
         """Run the command."""
-        self.which = args['which']
+        if not self.is_visible(**args):
+            return
 
+        self.which = args['which']
         if self.linters[self.which]:
             self.window.show_quick_panel(self.linters[self.which], self.on_done)
 

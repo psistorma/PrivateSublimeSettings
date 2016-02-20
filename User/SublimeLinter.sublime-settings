@@ -10,7 +10,6 @@
             "eslint": {
                 "@disable": false,
                 "args": [
-                    "${packages}\\UserLinter\\pylint.rc"
                 ],
                 "excludes": []
             },
@@ -27,7 +26,7 @@
                 "show-codes": false
             }
         },
-        "mark_style": "outline",
+        "mark_style": "none",
         "no_column_highlights_line": false,
         "passive_warnings": false,
         "paths": {

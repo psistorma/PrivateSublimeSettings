@@ -32,7 +32,7 @@
     // user settings) it will not be enabled. In other words
     // this setting, when set to false, overrides whatever the
     // keyboard toggle is set to.
-    "enable_fast_completions": false,
+    "enable_fast_completions": true,
 
     // Delay in ms until recompiling the file after the buffer is modified
     // Set to 0 to disable.
@@ -45,7 +45,7 @@
     // Whether or not to automatically show the output panel.
     // If set to false, the default key-binding alt+d,alt+p
     // will show it
-    "show_output_panel": true,
+    "show_output_panel": false,
 
     // When set to true, the output panel will be updated with the active
     // view's errors/warnings as it is switched to. If set to false you will
@@ -146,7 +146,7 @@
     "additional_language_options":
     {
         // For example, you can use "c++": ["-std=c++11"] to enable C++11 features.
-        "c++" : [],
+        "c++" : ["-std=c++11"],
         "c": [],
         "objc": [],
         "objc++": []
@@ -270,11 +270,10 @@
     // For help getting up and running with iOS development see https://github.com/quarnster/SublimeClang/issues/52
     "options":
     [
-        "${project_path}",
-        "-std=c++11",
+        "-I${project_path}",
         "-Wall",
-        "-fmodules-ignore-macro=BEGIN_MESSAGE_MAP",
-        "-fmodules-ignore-macro=END_MESSAGE_MAP",
+        "-Wno-unknown-pragmas",
+        "-Wno-invalid-token-paste",
         "-DWIN32","-D_WINDOWS","-D_DEBUG","-D_AFXDLL","-D_UNICODE","-DUNICODE",
         "-isystem", "C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\um",
         "-isystem", "C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\shared",
@@ -338,6 +337,12 @@
     // All diagnostic errors from files in these directories or below will be ignored
     "diagnostic_ignore_dirs":
     [
+        "C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\um",
+        "C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\shared",
+        "C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\winrt",
+        "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\include",
+        "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\atlmfc\\includ",
+        "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10150.0\\ucrt",
     ],
 
     // Diagnostic errors/warnings matching this regex pattern will be ignored
