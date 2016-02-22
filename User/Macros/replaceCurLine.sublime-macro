@@ -15,12 +15,5 @@
   },
   {
     "command": "left_delete"
-  },
-  {
-  	"args":
-  	{
-  		"characters": "\t"
-  	},
-  	"command": "insert"
   }
 ]

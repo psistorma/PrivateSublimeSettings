@@ -4,6 +4,8 @@
   {"keys": ["ctrl+u"], "command": "move", "args": {"by": "characters", "forward": true, "extend": true}, "context":[
      { "key": "selection_empty", "operator": "equal", "operand": false },
   ] },
+  { "keys": ["ctrl+alt+shift+u"], "command": "move_to", "args": {"to": "bol", "extend": false} },
+  { "keys": ["ctrl+alt+u"], "command": "move_to", "args": {"to": "eol", "extend": false} },
   {"keys": ["ctrl+shift+u"], "command": "move", "args": {"by": "characters", "forward": false, "extend": false} },
   {"keys": ["ctrl+shift+u"], "command": "expand_sel_by_side", "args": {"side": "right", "count": -1}, "context":[
      { "key": "selection_empty", "operator": "equal", "operand": false  },

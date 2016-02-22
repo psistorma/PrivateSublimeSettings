@@ -1,11 +1,9 @@
-Completion:
-  ☐ parse current line get key
-  ☐ parse clang -Xclang -ast-dump -fsyntax-only testmake.cpp > o.txt
-  ☐ parse ctags
-  ☐ search by key in ast for type
-  ☐ search by type in ctags for info
-  ☐ format info
-  ☐ insert completion as snippet
+PythonDebug:
+  ☐ Start your python 3.3 program with winpdb in the "debugee" mode :
+  ☐ D:\work\winpdb\winpdb-git>C:\Python33\python.exe  rpdb2.py --debuggee --pwd=totoro toto.py
+
+Then start winpdb to attach to the running debugee :
+D:\work\winpdb\winpdb-git>C:\Python27\python.exe  winpdb.py --attach --pwd totoro --host localhost toto.py
 
 
 Important:

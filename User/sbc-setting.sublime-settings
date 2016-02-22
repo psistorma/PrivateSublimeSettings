@@ -19,7 +19,7 @@
     "html": false,
     "lodash": false,
     "javascript": false,
-    "jquery": false,
+    "jquery": true,
     "jquery-sq": false, // Single Quote
     "php": false,
     "phpci": false,
@@ -30,17 +30,9 @@
     "underscorejs": false,
     "react": false,
 
-    // Your own completions?
-    // ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/sbc-api-my-angularjs.sublime-settings
-    "my-angularjs": false,
 
-    // ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/sbc-api-my-glossary.sublime-settings
-    "my-glossary": false,
-
-    // ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/sbc-api-my-html.sublime-settings
-    "my-html": false,
-
-    // ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/sbc-api-my-javascript.sublime-settings
-    "my-javascript": false
+    ///////////////////////////////////////////////
+    "my-sublime": true,
+    "my-python": true,
   }
 }

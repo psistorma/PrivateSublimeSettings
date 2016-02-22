@@ -1,0 +1,61 @@
+AutoEscapeCommand	AutoEscapeCommand.py	/^class AutoEscapeCommand(sublime_plugin.TextCommand):$/;"	c
+ToggleCamelUnderscoreCommand	AutoEscapeCommand.py	/^class ToggleCamelUnderscoreCommand(sublime_plugin.TextCommand):$/;"	c
+run	AutoEscapeCommand.py	/^  def run(self, edit):$/;"	m	class:AutoEscapeCommand
+run	AutoEscapeCommand.py	/^  def run(self, edit):$/;"	m	class:ToggleCamelUnderscoreCommand
+sublime	AutoEscapeCommand.py	/^import sublime, sublime_plugin$/;"	i
+sublime_plugin	AutoEscapeCommand.py	/^import sublime, sublime_plugin$/;"	i
+ExpandSelBySideCommand	ExpandSelBySideCommand.py	/^class ExpandSelBySideCommand(sublime_plugin.TextCommand):$/;"	c
+run	ExpandSelBySideCommand.py	/^  def run(self, edit, count = 1, side = "both"):$/;"	m	class:ExpandSelBySideCommand
+sublime	ExpandSelBySideCommand.py	/^import sublime, sublime_plugin$/;"	i
+sublime_plugin	ExpandSelBySideCommand.py	/^import sublime, sublime_plugin$/;"	i
+EnsureInvokeKeyRefreshed	IndentOnOpen.py	/^class EnsureInvokeKeyRefreshed(sublime_plugin.EventListener):$/;"	c
+on_new	IndentOnOpen.py	/^  def on_new(self, view):$/;"	m	class:EnsureInvokeKeyRefreshed
+sublime	IndentOnOpen.py	/^import sublime, sublime_plugin$/;"	i
+sublime_plugin	IndentOnOpen.py	/^import sublime, sublime_plugin$/;"	i
+CUR_ITER_ORDER	ListCurrentDirCommand.py	/^CUR_ITER_ORDER = 1$/;"	v
+ListCurrentDirCommand	ListCurrentDirCommand.py	/^class ListCurrentDirCommand(sublime_plugin.TextCommand):$/;"	c
+VERSION	ListCurrentDirCommand.py	/^VERSION = int(sublime.version())$/;"	v
+__init__	ListCurrentDirCommand.py	/^  def __init__(self, args):$/;"	m	class:ListCurrentDirCommand
+_ignore_file	ListCurrentDirCommand.py	/^def _ignore_file(filename, ignore_patterns=[]):$/;"	f
+_list_path_file	ListCurrentDirCommand.py	/^def _list_path_file(path, ignore_patterns=[]):$/;"	f
+build_quick_panel_file_list	ListCurrentDirCommand.py	/^  def build_quick_panel_file_list(self):$/;"	m	class:ListCurrentDirCommand
+errno	ListCurrentDirCommand.py	/^import errno$/;"	i
+get_parent_path	ListCurrentDirCommand.py	/^  def get_parent_path(self, path):$/;"	m	class:ListCurrentDirCommand
+is_file	ListCurrentDirCommand.py	/^  def is_file(self, entry):$/;"	m	class:ListCurrentDirCommand
+os	ListCurrentDirCommand.py	/^import os$/;"	i
+path_file_callback	ListCurrentDirCommand.py	/^  def path_file_callback(self, index):$/;"	m	class:ListCurrentDirCommand
+re	ListCurrentDirCommand.py	/^import re$/;"	i
+run	ListCurrentDirCommand.py	/^  def run(self, edit):$/;"	m	class:ListCurrentDirCommand
+show_dir_file	ListCurrentDirCommand.py	/^  def show_dir_file(self, path):$/;"	m	class:ListCurrentDirCommand
+show_quick_panel	ListCurrentDirCommand.py	/^  def show_quick_panel(self, options, done_callback, index=None):$/;"	m	class:ListCurrentDirCommand
+sublime	ListCurrentDirCommand.py	/^import sublime$/;"	i
+sublime_plugin	ListCurrentDirCommand.py	/^import sublime_plugin$/;"	i
+MulRunCommand	MulRunCommand.py	/^class MulRunCommand(sublime_plugin.TextCommand):$/;"	c
+exec_command	MulRunCommand.py	/^  def exec_command(self, command):$/;"	m	class:MulRunCommand
+run	MulRunCommand.py	/^  def run(self, edit, commands = None):$/;"	m	class:MulRunCommand
+sublime	MulRunCommand.py	/^import sublime, sublime_plugin$/;"	i
+sublime_plugin	MulRunCommand.py	/^import sublime, sublime_plugin$/;"	i
+MulRunWindowCommand	MulRunWindowCommand.py	/^class MulRunWindowCommand(sublime_plugin.WindowCommand):$/;"	c
+exec_command	MulRunWindowCommand.py	/^  def exec_command(self, command):$/;"	m	class:MulRunWindowCommand
+run	MulRunWindowCommand.py	/^  def run(self, commands = None):$/;"	m	class:MulRunWindowCommand
+sublime	MulRunWindowCommand.py	/^import sublime, sublime_plugin$/;"	i
+sublime_plugin	MulRunWindowCommand.py	/^import sublime, sublime_plugin$/;"	i
+PickScopeNameCommand	PickScopeNameCommand.py	/^class PickScopeNameCommand(sublime_plugin.TextCommand):$/;"	c
+on_input_panel_done	PickScopeNameCommand.py	/^  def on_input_panel_done(self, scopeName):$/;"	m	class:PickScopeNameCommand
+run	PickScopeNameCommand.py	/^  def run(self, edit):$/;"	m	class:PickScopeNameCommand
+sublime	PickScopeNameCommand.py	/^import sublime, sublime_plugin$/;"	i
+sublime_plugin	PickScopeNameCommand.py	/^import sublime, sublime_plugin$/;"	i
+RunShellCommand	RunShellCommand.py	/^class RunShellCommand(sublime_plugin.WindowCommand):$/;"	c
+expandVariable	RunShellCommand.py	/^from .Scommon import expandVariable$/;"	i
+run	RunShellCommand.py	/^  def run(self, **args):$/;"	m	class:RunShellCommand
+shlex	RunShellCommand.py	/^import shlex$/;"	i
+sublime_plugin	RunShellCommand.py	/^import sublime_plugin$/;"	i
+expandVariable	Scommon.py	/^def expandVariable(window, *vals, forSublime=True, forEnv=True):$/;"	f
+expand_variables	Scommon.py	/^from sublime import expand_variables$/;"	i
+os	Scommon.py	/^import os$/;"	i
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_PROGRAM_VERSION	5.8	//
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/

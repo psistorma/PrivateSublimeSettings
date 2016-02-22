@@ -1,12 +1,16 @@
 [
 //SublimeLinter
-    {"keys": ["f6"], "command": "sublimelinter_goto_error", "args": {"direction": "next"} ,"context": [
-      {"key": "selector", "operator": "equal", "operand": "source"}
+    {"keys": ["alt+d", "alt+e"], "command": "sublimelinter_goto_error", "args": {"direction": "next"} ,"context": [
+      {"key": "selector", "operator": "equal", "operand": "source.python, source.js"}
     ]},
-    {"keys": ["shift+f6"], "command": "sublimelinter_goto_error", "args": {"direction": "previous"} ,"context": [
-      {"key": "selector", "operator": "equal", "operand": "source"}
+    {"keys": ["alt+shift+d", "alt+shift+e"], "command": "sublimelinter_goto_error", "args": {"direction": "previous"} ,"context": [
+      {"key": "selector", "operator": "equal", "operand": "source.python, source.js"}
     ]},
-    {"keys": ["ctrl+f6"], "command": "sublimelinter_show_all_errors" ,"context": [
-      {"key": "selector", "operator": "equal", "operand": "source"}
+    {"keys": ["alt+d", "alt+a"], "command": "sublimelinter_show_all_errors" ,"context": [
+      {"key": "selector", "operator": "equal", "operand": "source.python, source.js"}
+    ]},
+//SublimeCodeIntel
+    {"keys": ["alt+d", "alt+d"], "command": "goto_python_definition" ,"context": [
+      {"key": "selector", "operator": "equal", "operand": "source.python"}
     ]},
 ]

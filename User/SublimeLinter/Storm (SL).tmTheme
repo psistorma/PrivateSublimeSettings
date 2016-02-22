@@ -169,7 +169,7 @@
       <key>name</key>
       <string>function name</string>
       <key>scope</key>
-      <string>entity.name.function - meta.tip.highlight, variable.entity.name.function - meta.tip.highlight, support.function, keyword.function</string>
+      <string>meta.function-call - meta.tip.highlight, meta.function-call - meta.function-call.arguments, meta.function-call.arguments meta.function-call, support.function, keyword.function</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -180,7 +180,7 @@
       <key>name</key>
       <string>entity name type value</string>
       <key>scope</key>
-      <string>entity.name.type.value</string>
+      <string>entity.name.type.value, entity.name.function.c</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -235,7 +235,7 @@
       <key>name</key>
       <string>parameter</string>
       <key>scope</key>
-      <string>variable.parameter, entity.other.attribute-name</string>
+      <string>meta.function.parameters,entity.other.attribute-name,variable.parameter.function</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -244,24 +244,24 @@
     </dict>
     <dict>
       <key>name</key>
-      <string>variable other init</string>
+      <string>call parameter</string>
       <key>scope</key>
-      <string>variable.other.init</string>
+      <string>meta.function-call.arguments</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
-        <string>#F0E68C</string>
+        <string>#D3D3D3</string>
       </dict>
     </dict>
     <dict>
       <key>name</key>
-      <string>variable other ident upper</string>
+      <string>constant.other.allcaps</string>
       <key>scope</key>
-      <string>variable.other.ident.upper</string>
+      <string>constant.other.allcaps, constant.other.init</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
-        <string>#F0E68C</string>
+        <string>#ACAC00</string>
       </dict>
     </dict>
     <dict>
@@ -279,7 +279,7 @@
       <key>name</key>
       <string>variable other first upper</string>
       <key>scope</key>
-      <string>variable.other.ident.first-upper</string>
+      <string>variable.other.ident.first-upper,punctuation.definition.list</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -334,7 +334,7 @@
       <key>name</key>
       <string>tip highlight</string>
       <key>scope</key>
-      <string>meta.tip.highlight, punctuation.brace.impl - meta.flow, meta.block.statement punctuation.brace.block</string>
+      <string>meta.tip.highlight, punctuation.definition.brace.impl - meta.flow, meta.block.statement punctuation.definition.brace.block,punctuation.definition.brace.definition</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -367,7 +367,7 @@
       <key>name</key>
       <string>tip notify</string>
       <key>scope</key>
-      <string>meta.tip.notify</string>
+      <string>meta.tip.notify, support.function.builtin</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -692,13 +692,13 @@
 
   <dict>
             <key>name</key>
-            <string>SublimeLinter Warning</string>
+            <string>SublimeLinter Error</string>
             <key>scope</key>
-            <string>sublimelinter.mark.warning</string>
+            <string>sublimelinter.mark.error</string>
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#DDB700</string>
+                <string>#D02000</string>
             </dict>
         </dict><dict>
             <key>name</key>
@@ -712,13 +712,13 @@
             </dict>
         </dict><dict>
             <key>name</key>
-            <string>SublimeLinter Error</string>
+            <string>SublimeLinter Warning</string>
             <key>scope</key>
-            <string>sublimelinter.mark.error</string>
+            <string>sublimelinter.mark.warning</string>
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#D02000</string>
+                <string>#DDB700</string>
             </dict>
         </dict></array>
   <key>uuid</key>

@@ -1,7 +1,7 @@
 [
   { "keys": ["ctrl+shift+c"], "command": "copy" },
   { "keys": ["ctrl+shift+x"], "command": "cut" },
-//auto expand and copy if have selection is empty
+//auto expand and copy if selection is empty
   {"keys": ["alt+c"], "command": "mul_run", "args": {
     "commands" : [
         {"command": "expand_region"},
@@ -36,17 +36,6 @@
   },"context": [
       {"key": "selection_empty", "operator": "equal", "operand": true},
       {"key": "selector", "operator": "equal", "operand": "string - punctuation.definition.string.begin"}
-    ]
-  },
-//copy whole string with punctuation when src is already how src
-  {"keys": ["ctrl+c"], "command": "mul_run", "args": {
-    "commands" : [
-      {"command": "expand_selection",   "args": {"to": "scope"} },
-      {"command": "copy"}
-    ]
-  },"context": [
-      {"key": "selection_empty", "operator": "equal", "operand": false},
-      {"key": "selector", "operator": "equal", "operand": "punctuation.definition.string.end"}
     ]
   },
   //replace whole string when no dest
@@ -244,14 +233,33 @@
       {"key": "selector", "operator": "equal", "operand": "source.json - string, source.sublimekeymap"},
     ]
   },
-//when cursor is near to the quote ,just be normal behavior
+//when cursor is near to not word ,just be normal behavior
+  {"keys": ["ctrl+c"], "command": "mul_run", "args": {
+    "commands" : [
+      {"command": "copy"}
+    ]
+  },"context": [
+      {"key": "selection_empty", "operator": "equal", "operand": true},
+      {"key": "preceding_text", "operator": "regex_contains", "operand": "(?:\\W|^|$)$"},
+    ]
+  },
+  {"keys": ["ctrl+c"], "command": "mul_run", "args": {
+    "commands" : [
+      {"command": "copy"}
+    ]
+  },"context": [
+      {"key": "selection_empty", "operator": "equal", "operand": true},
+      {"key": "following_text", "operator": "regex_contains", "operand": "^(?:\\W|^|$)"},
+    ]
+  },
+//when cursor is near to the not word ,just be normal behavior
   {"keys": ["ctrl+v"], "command": "mul_run", "args": {
     "commands" : [
       {"command": "paste"}
     ]
   },"context": [
       {"key": "selection_empty", "operator": "equal", "operand": true},
-      {"key": "preceding_text", "operator": "regex_contains", "operand": "(?:'|\")$"},
+      {"key": "preceding_text", "operator": "regex_contains", "operand": "(?:\\W|^|$)$"},
     ]
   },
   {"keys": ["ctrl+v"], "command": "mul_run", "args": {
@@ -260,7 +268,26 @@
     ]
   },"context": [
       {"key": "selection_empty", "operator": "equal", "operand": true},
-      {"key": "following_text", "operator": "regex_contains", "operand": "^(?:'|\")"},
+      {"key": "following_text", "operator": "regex_contains", "operand": "^(?:\\W|^|$)"},
+    ]
+  },
+//when cursor is near to the not word ,just be normal behavior
+  {"keys": ["ctrl+x"], "command": "mul_run", "args": {
+    "commands" : [
+      {"command": "cut"}
+    ]
+  },"context": [
+      {"key": "selection_empty", "operator": "equal", "operand": true},
+      {"key": "preceding_text", "operator": "regex_contains", "operand": "(?:\\W|^|$)$"},
+    ]
+  },
+  {"keys": ["ctrl+x"], "command": "mul_run", "args": {
+    "commands" : [
+      {"command": "cut"}
+    ]
+  },"context": [
+      {"key": "selection_empty", "operator": "equal", "operand": true},
+      {"key": "following_text", "operator": "regex_contains", "operand": "^(?:\\W|^|$)"},
     ]
   },
 ]

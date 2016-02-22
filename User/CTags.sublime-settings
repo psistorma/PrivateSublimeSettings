@@ -95,6 +95,7 @@
     //
     "extra_tag_paths": [
         [["source.python", "windows"], "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python35"],
+        [["source.python", "windows"], "C:\\Program Files (x86)\\Sublime Text 3"],
         [["source.c++", "windows"], "E:\\ForDevEnv\\myTags\\c++\\winsdk"],
         [["source.c++", "windows"], "E:\\ForDevEnv\\myTags\\c++\\vc"]
     ],

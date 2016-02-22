@@ -48,8 +48,8 @@
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
-		"All Autocomplete",
 		"C++",
+		"Emmet",
 		"Vintage"
 	],
 	"line_numbers": true,

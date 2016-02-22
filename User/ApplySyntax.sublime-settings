@@ -35,5 +35,9 @@
           "syntax": "UserSyntax/CMakeByStorm",
           "extensions": ["CMakeLists.txt", "cmake"]
       },
+      {
+          "syntax": "UserSyntax/PythonByStorm",
+          "extensions": ["py"]
+      },
     ]
 }

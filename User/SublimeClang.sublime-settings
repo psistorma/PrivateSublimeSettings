@@ -305,7 +305,7 @@
     "dont_prepend_clang_includes": true,
 
     // When set to true will output the final options used to the python console
-    "debug_options": true,
+    "debug_options": false,
 
     // Scope used for markers in the clang output panel
     "marker_analyzer_output_panel_scope": "invalid",

@@ -1,4 +1,10 @@
 [
   {"keys": ["ctrl+alt+\\"], "command": "auto_escape" },
-  {"keys": ["ctrl+alt+u"], "command": "toggle_camel_underscore" },
+  {"keys": ["ctrl+alt+t"], "command": "toggle_camel_underscore" },
+  {"keys": ["ctrl+k", "ctrl+tab"], "command": "indent_space_change", "args": {
+      "from": "2", "to": 4
+  }},
+  {"keys": ["ctrl+k", "ctrl+shift+tab"], "command": "indent_space_change", "args": {
+      "from": "4", "to": 2
+  }},
 ]

@@ -9,8 +9,7 @@
         "linters": {
             "eslint": {
                 "@disable": false,
-                "args": [
-                ],
+                "args": [],
                 "excludes": []
             },
             "pylint": {
@@ -20,7 +19,7 @@
                 "enable": "",
                 "excludes": [],
                 "paths": [
-                    "C:\\Program Files\\Sublime Text 3"
+                    "C:\\Program Files (x86)\\Sublime Text 3"
                 ],
                 "rcfile": "C:\\Users\\Administrator\\AppData\\Roaming\\Sublime Text 3\\Packages\\UserLinter\\pylint.rc",
                 "show-codes": false
@@ -51,6 +50,7 @@
             "magicpython": "python",
             "php": "html",
             "python django": "python",
+            "pythonbystorm": "python",
             "pythonimproved": "python"
         },
         "warning_color": "DDB700",

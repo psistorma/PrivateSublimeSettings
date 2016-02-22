@@ -1,14 +1,14 @@
+import os
+import re
 import sublime
 import sublime_plugin
-import os
-import errno
-import re
 
 VERSION = int(sublime.version())
-IS_ST3 = VERSION >=3006
+IS_ST3 = VERSION >= 3006
 CUR_ITER_ORDER = 1
 
-def _ignore_file(filename, ignore_patterns=[]):
+def _ignore_file(filename, ignore_patterns=None):
+    ignore_patterns = ignore_patterns or []
     ignore = False
     directory, base = os.path.split(filename)
     for pattern in ignore_patterns:
@@ -20,106 +20,113 @@ def _ignore_file(filename, ignore_patterns=[]):
 
     return ignore
 
-def _list_path_file(path, ignore_patterns=[]):
-   file_list = []
-   if not os.path.exists(path):
-      sMsg = "{0} is not exist or can't visited!".format(path)
-      sublime.error_message(sMsg)
-      raise ValueError(sMsg)
+def _list_path_file(path, ignore_patterns=None):
+    ignore_patterns = ignore_patterns or []
+    file_list = []
+    if not os.path.exists(path):
+        sMsg = "{0} is not exist or can't visited!".format(path)
+        sublime.error_message(sMsg)
+        raise ValueError(sMsg)
 
-   for file in os.listdir(path):
-      if not _ignore_file(file, ignore_patterns):
-        file_list.append(file)
+    for file in os.listdir(path):
+        if not _ignore_file(file, ignore_patterns):
+            file_list.append(file)
 
-   return sorted(file_list)
+    return sorted(file_list)
 
 class ListCurrentDirCommand(sublime_plugin.TextCommand):
-  def __init__(self, args):
-    sublime_plugin.TextCommand.__init__(self, args)
-    self.quick_panel_files = None
+    def __init__(self, args):
+        sublime_plugin.TextCommand.__init__(self, args)
+        self.quick_panel_files = None
+        self.settings = None
+        self.curName = None
+        self.ignore_patterns = None
+        self.path = None
 
-  def run(self, edit):
-    self.settings = sublime.load_settings("ListCurrentDir.sublime-settings")
-    current = os.path.abspath(self.view.file_name())
-    self.curName = os.path.basename(current)
+    def run(self, edit):
+        self.settings = sublime.load_settings("ListCurrentDir.sublime-settings")
+        current = os.path.abspath(self.view.file_name())
+        self.curName = os.path.basename(current)
 
-    self.ignore_patterns = self.settings.get("ignore_patterns", ['.*?\.tags'])
-    self.show_dir_file(os.path.dirname(current))
+        self.ignore_patterns = self.settings.get("ignore_patterns", [r'.*?\.tags'])
+        self.show_dir_file(os.path.dirname(current))
 
-  def get_parent_path(self, path):
-    path = path.strip('/')
-    parentPath = os.path.dirname(path)
-    return parentPath
-  def show_dir_file(self, path):
-    self.path = path
+    @classmethod
+    def get_parent_path(cls, path):
+        path = path.strip('/')
+        parentPath = os.path.dirname(path)
+        return parentPath
 
-    if self.quick_panel_files is not None and self.curName in self.quick_panel_files:
-      index = self.quick_panel_files.index(self.curName) + CUR_ITER_ORDER
-    else:
-      index = -1
+    def show_dir_file(self, path):
+        self.path = path
 
-    self.build_quick_panel_file_list()
+        if self.quick_panel_files is not None and self.curName in self.quick_panel_files:
+          index = self.quick_panel_files.index(self.curName) + CUR_ITER_ORDER
+        else:
+          index = -1
 
-    if index >= len(self.quick_panel_files) or index <= 1:
-      if CUR_ITER_ORDER == 1:
-        index = 2
-    else:
-        index = len(self.quick_panel_files) - 1
+        self.build_quick_panel_file_list()
 
-    self.show_quick_panel(self.quick_panel_files, self.path_file_callback, index)
+        if index >= len(self.quick_panel_files) or index <= 1:
+          if CUR_ITER_ORDER == 1:
+            index = 2
+        else:
+            index = len(self.quick_panel_files) - 1
 
-  def build_quick_panel_file_list(self):
-    self.path_objs = {}
-    self.quick_panel_files = []
-    if CUR_ITER_ORDER == 1:
-      self.quick_panel_files.append("/* change iter order to prev */")
-    else:
-      self.quick_panel_files.append("/* change iter order to next */")
+        self.show_quick_panel(self.quick_panel_files, self.path_file_callback, index)
 
-    if os.path.exists(self.get_parent_path(self.path)):
-      self.quick_panel_files.append("..")
+    def build_quick_panel_file_list(self):
+        self.path_objs = {}
+        self.quick_panel_files = []
+        if CUR_ITER_ORDER == 1:
+          self.quick_panel_files.append("/* change iter order to prev */")
+        else:
+          self.quick_panel_files.append("/* change iter order to next */")
 
-    files_list = _list_path_file(self.path, self.ignore_patterns)
-    dirs = []
-    files = []
-    for file in files_list:
-      if os.path.isfile(os.path.join(self.path, file)):
-        files.append(file)
-      else:
-        dirs.append(file + '/')
+        if os.path.exists(self.get_parent_path(self.path)):
+          self.quick_panel_files.append("..")
 
-    self.quick_panel_files += dirs
-    self.quick_panel_files += files
+        files_list = _list_path_file(self.path, self.ignore_patterns)
+        dirs = []
+        files = []
+        for file in files_list:
+          if os.path.isfile(os.path.join(self.path, file)):
+            files.append(file)
+          else:
+            dirs.append(file + '/')
 
-  def is_file(self, entry):
-    return not entry.endswith('/')
+        self.quick_panel_files += dirs
+        self.quick_panel_files += files
 
-  def path_file_callback(self, index):
-    global CUR_ITER_ORDER
-    if index == -1:
-      return
+    def is_file(self, entry):
+        return not entry.endswith('/')
 
-    entry = self.quick_panel_files[index]
+    def path_file_callback(self, index):
+        global CUR_ITER_ORDER
+        if index == -1:
+          return
 
-    if entry == "..":
-      self.curName = None
-      self.show_dir_file(self.get_parent_path(self.path))
-      return
-    elif entry == "/* change iter order to prev */":
-      CUR_ITER_ORDER = -1
-      return
-    elif entry == "/* change iter order to next */":
-      CUR_ITER_ORDER = 1
-      return
-    else:
-      target = os.path.join(self.path, entry)
-      if self.is_file(entry):
-        self.view.window().open_file(target)
-      else:
-        self.show_dir_file(target)
+        entry = self.quick_panel_files[index]
 
-  def show_quick_panel(self, options, done_callback, index=None):
-    if index is None or not IS_ST3:
-      sublime.set_timeout(lambda: self.view.window().show_quick_panel(options, done_callback), 10)
-    else:
-      sublime.set_timeout(lambda: self.view.window().show_quick_panel(options, done_callback, selected_index=index), 10)
+        if entry == "..":
+          self.curName = None
+          self.show_dir_file(self.get_parent_path(self.path))
+          return
+        elif entry == "/* change iter order to prev */":
+          CUR_ITER_ORDER = -1
+          return
+        elif entry == "/* change iter order to next */":
+          CUR_ITER_ORDER = 1
+          return
+        else:
+          target = os.path.join(self.path, entry)
+          if self.is_file(entry):
+            self.view.window().open_file(target)
+          else:
+            self.show_dir_file(target)
+
+    def show_quick_panel(self, options, done_callback, index=None):
+        if index is None or not IS_ST3:
+          sublime.set_timeout(lambda: self.view.window().show_quick_panel(options, done_callback), 10)
+        else:
+          sublime.set_timeout(lambda: self.view.window().show_quick_panel(options, done_callback, selected_index=index), 10)

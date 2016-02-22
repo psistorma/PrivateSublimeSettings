@@ -8,16 +8,28 @@
 			"path": "E:\\Tmp\\TestMake"
 		},
 		{
+			"path": "E:\\ForDevEnv\\MyTmp"
+		},
+		{
 			"path": "E:\\Code\\Web\\ReactDev"
 		},
 		{
 			"path": "C:\\Users\\Administrator\\AppData\\Roaming\\Sublime Text 3\\Packages\\UserSmartCaret"
 		},
 		{
+			"path": "C:\\Users\\Administrator\\AppData\\Roaming\\Sublime Text 3\\Packages\\UserPlugins\\Utils"
+		},
+		{
+			"path": "C:\\Users\\Administrator\\AppData\\Roaming\\Sublime Text 3\\Packages\\UserPlugins"
+		},
+		{
 			"path": "C:\\Users\\Administrator\\AppData\\Roaming\\Sublime Text 3\\Packages\\UserMergeOther"
 		},
 		{
 			"path": "C:\\Users\\Administrator\\AppData\\Roaming\\Sublime Text 3\\Packages\\Clang-Complete"
+		},
+		{
+			"path": "C:\\Users\\Administrator\\AppData\\Roaming\\Sublime Text 3\\Packages"
 		},
 		{
 			"path": "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\include"
