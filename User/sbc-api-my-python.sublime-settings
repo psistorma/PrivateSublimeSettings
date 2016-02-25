@@ -4,8 +4,8 @@
   "completions":
   [
     // build in
-     [ "@staticmethod\tbuild in", "@staticmethod$0" ],
-     [ "@classmethod\tbuild in", "@classmethod$0" ],
+     [ "staticmethod\tbuild in", "@staticmethod$0" ],
+     [ "classmethod\tbuild in", "@classmethod$0" ],
      //  [ "prop\tjquery", "prop(\"$1\")$0" ],
     // lint
      [ "pylint\tlint", "#pylint: disable=$1"]

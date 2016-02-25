@@ -4,7 +4,7 @@
   "completions":
   [
     // sublime
-     [ "set_timeout\tsublime", "set_timeout(${1:callback}${2, :delay})$0" ],
+     [ "set_timeout [sublime]\tsublime", "set_timeout(${1:callback}${2, :delay})$0" ],
      [ "set_async_timeout\tsublime", "set_async_timeout(${1:callback}, ${2:delay})$0" ],
      [ "status_message\tsublime", "status_message(${1:string})$0" ],
      [ "error_message\tsublime", "error_message(${1:string})$0" ],

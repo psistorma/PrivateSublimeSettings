@@ -6,56 +6,65 @@
 !_TAG_PROGRAM_VERSION	5.8	//
 AutoEscapeCommand	.\AutoEscapeCommand.py	/^class AutoEscapeCommand(sublime_plugin.TextCommand):$/;"	c
 CUR_ITER_ORDER	.\ListCurrentDirCommand.py	/^CUR_ITER_ORDER = 1$/;"	v
-EnsureInvokeKeyRefreshed	.\IndentOnOpen.py	/^class EnsureInvokeKeyRefreshed(sublime_plugin.EventListener):$/;"	c
 ExpandSelBySideCommand	.\ExpandSelBySideCommand.py	/^class ExpandSelBySideCommand(sublime_plugin.TextCommand):$/;"	c
+IndentSpaceChangeCommand	.\IndentSpaceChangeCommand.py	/^class IndentSpaceChangeCommand(sublime_plugin.TextCommand):$/;"	c
 ListCurrentDirCommand	.\ListCurrentDirCommand.py	/^class ListCurrentDirCommand(sublime_plugin.TextCommand):$/;"	c
 MulRunCommand	.\MulRunCommand.py	/^class MulRunCommand(sublime_plugin.TextCommand):$/;"	c
 MulRunWindowCommand	.\MulRunWindowCommand.py	/^class MulRunWindowCommand(sublime_plugin.WindowCommand):$/;"	c
+Os	.\IndentSpaceChangeCommand.py	/^from .MUtils.Common import Os$/;"	i
+Os	.\MUtils\SublimeCommon\Basic.py	/^from ..Common import Os$/;"	i
 PickScopeNameCommand	.\PickScopeNameCommand.py	/^class PickScopeNameCommand(sublime_plugin.TextCommand):$/;"	c
 RunShellCommand	.\RunShellCommand.py	/^class RunShellCommand(sublime_plugin.WindowCommand):$/;"	c
+Scommon	.\RunShellCommand.py	/^from . import Scommon$/;"	i
 ToggleCamelUnderscoreCommand	.\AutoEscapeCommand.py	/^class ToggleCamelUnderscoreCommand(sublime_plugin.TextCommand):$/;"	c
 VERSION	.\ListCurrentDirCommand.py	/^VERSION = int(sublime.version())$/;"	v
-__init__	.\ListCurrentDirCommand.py	/^  def __init__(self, args):$/;"	m	class:ListCurrentDirCommand
-_ignore_file	.\ListCurrentDirCommand.py	/^def _ignore_file(filename, ignore_patterns=[]):$/;"	f
-_list_path_file	.\ListCurrentDirCommand.py	/^def _list_path_file(path, ignore_patterns=[]):$/;"	f
-build_quick_panel_file_list	.\ListCurrentDirCommand.py	/^  def build_quick_panel_file_list(self):$/;"	m	class:ListCurrentDirCommand
-errno	.\ListCurrentDirCommand.py	/^import errno$/;"	i
-exec_command	.\MulRunCommand.py	/^  def exec_command(self, command):$/;"	m	class:MulRunCommand
+__all__	.\MUtils\__init__.py	/^__all__ = ['Common', 'SublimeCommon']$/;"	v
+__init__	.\ListCurrentDirCommand.py	/^    def __init__(self, args):$/;"	m	class:ListCurrentDirCommand
+_ignore_file	.\ListCurrentDirCommand.py	/^def _ignore_file(filename, ignore_patterns=None):$/;"	f
+_list_path_file	.\ListCurrentDirCommand.py	/^def _list_path_file(path, ignore_patterns=None):$/;"	f
+build_quick_panel_file_list	.\ListCurrentDirCommand.py	/^    def build_quick_panel_file_list(self):$/;"	m	class:ListCurrentDirCommand
+exec_command	.\MulRunCommand.py	/^    def exec_command(self, command):$/;"	m	class:MulRunCommand
 exec_command	.\MulRunWindowCommand.py	/^  def exec_command(self, command):$/;"	m	class:MulRunWindowCommand
-expandVariable	.\RunShellCommand.py	/^from .Scommon import expandVariable$/;"	i
-expandVariable	.\Scommon.py	/^def expandVariable(window, *vals, forSublime=True, forEnv=True):$/;"	f
-expand_variables	.\Scommon.py	/^from sublime import expand_variables$/;"	i
-get_parent_path	.\ListCurrentDirCommand.py	/^  def get_parent_path(self, path):$/;"	m	class:ListCurrentDirCommand
-is_file	.\ListCurrentDirCommand.py	/^  def is_file(self, entry):$/;"	m	class:ListCurrentDirCommand
+expandVariable	.\MUtils\Common\Os.py	/^def expandVariable(*strs):$/;"	f
+expandVariable	.\MUtils\SublimeCommon\Basic.py	/^def expandVariable(window, *strs, forSublime=True, forEnv=True):$/;"	f
+expand_variables	.\MUtils\SublimeCommon\Basic.py	/^from sublime import expand_variables$/;"	i
+get_parent_path	.\ListCurrentDirCommand.py	/^    def get_parent_path(cls, path):$/;"	m	class:ListCurrentDirCommand
+is_file	.\ListCurrentDirCommand.py	/^    def is_file(self, entry):$/;"	m	class:ListCurrentDirCommand
 on_input_panel_done	.\PickScopeNameCommand.py	/^  def on_input_panel_done(self, scopeName):$/;"	m	class:PickScopeNameCommand
-on_new	.\IndentOnOpen.py	/^  def on_new(self, view):$/;"	m	class:EnsureInvokeKeyRefreshed
 os	.\ListCurrentDirCommand.py	/^import os$/;"	i
-os	.\Scommon.py	/^import os$/;"	i
-path_file_callback	.\ListCurrentDirCommand.py	/^  def path_file_callback(self, index):$/;"	m	class:ListCurrentDirCommand
+os	.\MUtils\Common\Basic.py	/^import os$/;"	i
+os	.\MUtils\Common\Os.py	/^import os$/;"	i
+path_file_callback	.\ListCurrentDirCommand.py	/^    def path_file_callback(self, index):$/;"	m	class:ListCurrentDirCommand
 re	.\ListCurrentDirCommand.py	/^import re$/;"	i
 run	.\AutoEscapeCommand.py	/^  def run(self, edit):$/;"	m	class:AutoEscapeCommand
 run	.\AutoEscapeCommand.py	/^  def run(self, edit):$/;"	m	class:ToggleCamelUnderscoreCommand
 run	.\ExpandSelBySideCommand.py	/^  def run(self, edit, count = 1, side = "both"):$/;"	m	class:ExpandSelBySideCommand
-run	.\ListCurrentDirCommand.py	/^  def run(self, edit):$/;"	m	class:ListCurrentDirCommand
-run	.\MulRunCommand.py	/^  def run(self, edit, commands = None):$/;"	m	class:MulRunCommand
+run	.\IndentSpaceChangeCommand.py	/^    def run(self, edit, **args):$/;"	m	class:IndentSpaceChangeCommand
+run	.\ListCurrentDirCommand.py	/^    def run(self, edit):$/;"	m	class:ListCurrentDirCommand
+run	.\MulRunCommand.py	/^    def run(self, edit, **args):$/;"	m	class:MulRunCommand
 run	.\MulRunWindowCommand.py	/^  def run(self, commands = None):$/;"	m	class:MulRunWindowCommand
 run	.\PickScopeNameCommand.py	/^  def run(self, edit):$/;"	m	class:PickScopeNameCommand
-run	.\RunShellCommand.py	/^  def run(self, **args):$/;"	m	class:RunShellCommand
+run	.\RunShellCommand.py	/^    def run(self, **args):$/;"	m	class:RunShellCommand
+runShellCmd	.\MUtils\Common\Basic.py	/^def runShellCmd(args, ):$/;"	f
 shlex	.\RunShellCommand.py	/^import shlex$/;"	i
-show_dir_file	.\ListCurrentDirCommand.py	/^  def show_dir_file(self, path):$/;"	m	class:ListCurrentDirCommand
-show_quick_panel	.\ListCurrentDirCommand.py	/^  def show_quick_panel(self, options, done_callback, index=None):$/;"	m	class:ListCurrentDirCommand
+show_dir_file	.\ListCurrentDirCommand.py	/^    def show_dir_file(self, path):$/;"	m	class:ListCurrentDirCommand
+show_quick_panel	.\ListCurrentDirCommand.py	/^    def show_quick_panel(self, options, done_callback, index=None):$/;"	m	class:ListCurrentDirCommand
 sublime	.\AutoEscapeCommand.py	/^import sublime, sublime_plugin$/;"	i
 sublime	.\ExpandSelBySideCommand.py	/^import sublime, sublime_plugin$/;"	i
-sublime	.\IndentOnOpen.py	/^import sublime, sublime_plugin$/;"	i
+sublime	.\IndentSpaceChangeCommand.py	/^import sublime$/;"	i
 sublime	.\ListCurrentDirCommand.py	/^import sublime$/;"	i
 sublime	.\MulRunCommand.py	/^import sublime, sublime_plugin$/;"	i
 sublime	.\MulRunWindowCommand.py	/^import sublime, sublime_plugin$/;"	i
 sublime	.\PickScopeNameCommand.py	/^import sublime, sublime_plugin$/;"	i
 sublime_plugin	.\AutoEscapeCommand.py	/^import sublime, sublime_plugin$/;"	i
 sublime_plugin	.\ExpandSelBySideCommand.py	/^import sublime, sublime_plugin$/;"	i
-sublime_plugin	.\IndentOnOpen.py	/^import sublime, sublime_plugin$/;"	i
+sublime_plugin	.\IndentSpaceChangeCommand.py	/^import sublime_plugin$/;"	i
 sublime_plugin	.\ListCurrentDirCommand.py	/^import sublime_plugin$/;"	i
 sublime_plugin	.\MulRunCommand.py	/^import sublime, sublime_plugin$/;"	i
 sublime_plugin	.\MulRunWindowCommand.py	/^import sublime, sublime_plugin$/;"	i
 sublime_plugin	.\PickScopeNameCommand.py	/^import sublime, sublime_plugin$/;"	i
 sublime_plugin	.\RunShellCommand.py	/^import sublime_plugin$/;"	i
+subprocess	.\MUtils\Common\Basic.py	/^import subprocess$/;"	i
+subprocess	.\RunShellCommand.py	/^import subprocess$/;"	i
+sys	.\MUtils\Common\Basic.py	/^import sys$/;"	i
+sys	.\MUtils\SublimeCommon\Setting.py	/^import sys$/;"	i

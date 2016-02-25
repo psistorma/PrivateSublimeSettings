@@ -1,0 +1,9 @@
+{
+   "scope": "source.json",
+
+   "completions":
+   [
+      { "trigger": "auerrreturn\tJson key value", "contents": "123aaa123"},
+      { "trigger": "auerrcontinue\tJson key object", "contents": "123bbb123"},
+   ]
+}

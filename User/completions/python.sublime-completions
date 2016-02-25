@@ -1,0 +1,8 @@
+{
+   "scope": "source.python",
+
+   "completions":
+   [
+      { "trigger": "fromi\tfrom .. import ..", "contents": "from ${1:MUtils} import ${2:Os}$0"},
+   ]
+}

@@ -130,8 +130,10 @@
 
     {"keys": ["ctrl+-"], "command": "show_panel", "args": {"panel": "console", "toggle": true} },
     {"keys": ["ctrl+="], "command": "show_overlay", "args": {"overlay": "command_palette"} },
-    {"keys": ["ctrl+m"], "command": "auto_complete" },
-    {"keys": ["ctrl+m"], "command": "replace_completion_with_auto_complete", "context":
+    {"keys": ["ctrl+i"], "command": "auto_complete", "context": [
+        {"key": "selector", "operator": "equal", "operand": "- text"}
+    ] },
+    {"keys": ["ctrl+i"], "command": "replace_completion_with_auto_complete", "context":
         [
             { "key": "last_command", "operator": "equal", "operand": "insert_best_completion" },
             { "key": "auto_complete_visible", "operator": "equal", "operand": false },

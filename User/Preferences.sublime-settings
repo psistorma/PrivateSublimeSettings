@@ -1,5 +1,6 @@
 {
-	"auto_complete": true,
+	"auto_complete_commit_on_tab": true,
+	"auto_complete_cycle": true,
 	"auto_complete_triggers":
 	[
 		{
@@ -50,7 +51,8 @@
 	[
 		"C++",
 		"Emmet",
-		"Vintage"
+		"Vintage",
+		"Zen Tabs"
 	],
 	"line_numbers": true,
 	"line_padding_bottom": 0,
@@ -62,6 +64,7 @@
 	"scroll_past_end": false,
 	"show_full_path": true,
 	"show_minimap": false,
+	"tab_completion": true,
 	"tab_size": 4,
 	"theme": "SoDaReloaded Dark.sublime-theme",
 	"translate_tabs_to_spaces": true,

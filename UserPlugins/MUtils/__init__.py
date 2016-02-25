@@ -1,2 +1,3 @@
-__all__ = ['Common', 'SublimeCommon']
+__all__ = ['Os']
 
+print("Common Inited")

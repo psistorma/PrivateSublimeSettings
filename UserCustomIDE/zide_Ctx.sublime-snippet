@@ -1,0 +1,12 @@
+<snippet>
+	<content><![CDATA[
+"context": [
+	{"key": "selection_empty", "operator": "equal", "operand": ${1:true}},
+	{"key": "preceding_text", "operator": "regex_contains", "operand": "$2"},
+	{"key": "following_text", "operator": "regex_contains", "operand": "$3"},
+	{"key": "selector", "operator": "equal", "operand": "$5"}
+]$0
+]]></content>
+	<tabTrigger>zide_Ctx</tabTrigger>
+	<!-- <scope>source.python</scope> -->
+</snippet>

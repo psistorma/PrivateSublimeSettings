@@ -1,9 +1,0 @@
-{
-   "scope": "source.js",
-
-   "completions":
-   [
-    //  { "trigger": "oo\tJson key value", "contents": "\n\"$1\" : $2,$0"},
-    //  { "trigger": "o\n\tJson key object", "contents": "\n\"$1\" : {$2},$0"},
-   ]
-}

@@ -8,31 +8,42 @@ ExpandSelBySideCommand	ExpandSelBySideCommand.py	/^class ExpandSelBySideCommand(
 run	ExpandSelBySideCommand.py	/^  def run(self, edit, count = 1, side = "both"):$/;"	m	class:ExpandSelBySideCommand
 sublime	ExpandSelBySideCommand.py	/^import sublime, sublime_plugin$/;"	i
 sublime_plugin	ExpandSelBySideCommand.py	/^import sublime, sublime_plugin$/;"	i
-EnsureInvokeKeyRefreshed	IndentOnOpen.py	/^class EnsureInvokeKeyRefreshed(sublime_plugin.EventListener):$/;"	c
-on_new	IndentOnOpen.py	/^  def on_new(self, view):$/;"	m	class:EnsureInvokeKeyRefreshed
-sublime	IndentOnOpen.py	/^import sublime, sublime_plugin$/;"	i
-sublime_plugin	IndentOnOpen.py	/^import sublime, sublime_plugin$/;"	i
+IndentSpaceChangeCommand	IndentSpaceChangeCommand.py	/^class IndentSpaceChangeCommand(sublime_plugin.TextCommand):$/;"	c
+Os	IndentSpaceChangeCommand.py	/^from .MUtils.Common import Os$/;"	i
+run	IndentSpaceChangeCommand.py	/^    def run(self, edit, **args):$/;"	m	class:IndentSpaceChangeCommand
+sublime	IndentSpaceChangeCommand.py	/^import sublime$/;"	i
+sublime_plugin	IndentSpaceChangeCommand.py	/^import sublime_plugin$/;"	i
 CUR_ITER_ORDER	ListCurrentDirCommand.py	/^CUR_ITER_ORDER = 1$/;"	v
 ListCurrentDirCommand	ListCurrentDirCommand.py	/^class ListCurrentDirCommand(sublime_plugin.TextCommand):$/;"	c
 VERSION	ListCurrentDirCommand.py	/^VERSION = int(sublime.version())$/;"	v
-__init__	ListCurrentDirCommand.py	/^  def __init__(self, args):$/;"	m	class:ListCurrentDirCommand
-_ignore_file	ListCurrentDirCommand.py	/^def _ignore_file(filename, ignore_patterns=[]):$/;"	f
-_list_path_file	ListCurrentDirCommand.py	/^def _list_path_file(path, ignore_patterns=[]):$/;"	f
-build_quick_panel_file_list	ListCurrentDirCommand.py	/^  def build_quick_panel_file_list(self):$/;"	m	class:ListCurrentDirCommand
-errno	ListCurrentDirCommand.py	/^import errno$/;"	i
-get_parent_path	ListCurrentDirCommand.py	/^  def get_parent_path(self, path):$/;"	m	class:ListCurrentDirCommand
-is_file	ListCurrentDirCommand.py	/^  def is_file(self, entry):$/;"	m	class:ListCurrentDirCommand
+__init__	ListCurrentDirCommand.py	/^    def __init__(self, args):$/;"	m	class:ListCurrentDirCommand
+_ignore_file	ListCurrentDirCommand.py	/^def _ignore_file(filename, ignore_patterns=None):$/;"	f
+_list_path_file	ListCurrentDirCommand.py	/^def _list_path_file(path, ignore_patterns=None):$/;"	f
+build_quick_panel_file_list	ListCurrentDirCommand.py	/^    def build_quick_panel_file_list(self):$/;"	m	class:ListCurrentDirCommand
+get_parent_path	ListCurrentDirCommand.py	/^    def get_parent_path(cls, path):$/;"	m	class:ListCurrentDirCommand
+is_file	ListCurrentDirCommand.py	/^    def is_file(self, entry):$/;"	m	class:ListCurrentDirCommand
 os	ListCurrentDirCommand.py	/^import os$/;"	i
-path_file_callback	ListCurrentDirCommand.py	/^  def path_file_callback(self, index):$/;"	m	class:ListCurrentDirCommand
+path_file_callback	ListCurrentDirCommand.py	/^    def path_file_callback(self, index):$/;"	m	class:ListCurrentDirCommand
 re	ListCurrentDirCommand.py	/^import re$/;"	i
-run	ListCurrentDirCommand.py	/^  def run(self, edit):$/;"	m	class:ListCurrentDirCommand
-show_dir_file	ListCurrentDirCommand.py	/^  def show_dir_file(self, path):$/;"	m	class:ListCurrentDirCommand
-show_quick_panel	ListCurrentDirCommand.py	/^  def show_quick_panel(self, options, done_callback, index=None):$/;"	m	class:ListCurrentDirCommand
+run	ListCurrentDirCommand.py	/^    def run(self, edit):$/;"	m	class:ListCurrentDirCommand
+show_dir_file	ListCurrentDirCommand.py	/^    def show_dir_file(self, path):$/;"	m	class:ListCurrentDirCommand
+show_quick_panel	ListCurrentDirCommand.py	/^    def show_quick_panel(self, options, done_callback, index=None):$/;"	m	class:ListCurrentDirCommand
 sublime	ListCurrentDirCommand.py	/^import sublime$/;"	i
 sublime_plugin	ListCurrentDirCommand.py	/^import sublime_plugin$/;"	i
+os	MUtils\Common\Basic.py	/^import os$/;"	i
+runShellCmd	MUtils\Common\Basic.py	/^def runShellCmd(args, ):$/;"	f
+subprocess	MUtils\Common\Basic.py	/^import subprocess$/;"	i
+sys	MUtils\Common\Basic.py	/^import sys$/;"	i
+expandVariable	MUtils\Common\Os.py	/^def expandVariable(*strs):$/;"	f
+os	MUtils\Common\Os.py	/^import os$/;"	i
+Os	MUtils\SublimeCommon\Basic.py	/^from ..Common import Os$/;"	i
+expandVariable	MUtils\SublimeCommon\Basic.py	/^def expandVariable(window, *strs, forSublime=True, forEnv=True):$/;"	f
+expand_variables	MUtils\SublimeCommon\Basic.py	/^from sublime import expand_variables$/;"	i
+sys	MUtils\SublimeCommon\Setting.py	/^import sys$/;"	i
+__all__	MUtils\__init__.py	/^__all__ = ['Common', 'SublimeCommon']$/;"	v
 MulRunCommand	MulRunCommand.py	/^class MulRunCommand(sublime_plugin.TextCommand):$/;"	c
-exec_command	MulRunCommand.py	/^  def exec_command(self, command):$/;"	m	class:MulRunCommand
-run	MulRunCommand.py	/^  def run(self, edit, commands = None):$/;"	m	class:MulRunCommand
+exec_command	MulRunCommand.py	/^    def exec_command(self, command):$/;"	m	class:MulRunCommand
+run	MulRunCommand.py	/^    def run(self, edit, **args):$/;"	m	class:MulRunCommand
 sublime	MulRunCommand.py	/^import sublime, sublime_plugin$/;"	i
 sublime_plugin	MulRunCommand.py	/^import sublime, sublime_plugin$/;"	i
 MulRunWindowCommand	MulRunWindowCommand.py	/^class MulRunWindowCommand(sublime_plugin.WindowCommand):$/;"	c
@@ -46,13 +57,11 @@ run	PickScopeNameCommand.py	/^  def run(self, edit):$/;"	m	class:PickScopeNameCo
 sublime	PickScopeNameCommand.py	/^import sublime, sublime_plugin$/;"	i
 sublime_plugin	PickScopeNameCommand.py	/^import sublime, sublime_plugin$/;"	i
 RunShellCommand	RunShellCommand.py	/^class RunShellCommand(sublime_plugin.WindowCommand):$/;"	c
-expandVariable	RunShellCommand.py	/^from .Scommon import expandVariable$/;"	i
-run	RunShellCommand.py	/^  def run(self, **args):$/;"	m	class:RunShellCommand
+Scommon	RunShellCommand.py	/^from . import Scommon$/;"	i
+run	RunShellCommand.py	/^    def run(self, **args):$/;"	m	class:RunShellCommand
 shlex	RunShellCommand.py	/^import shlex$/;"	i
 sublime_plugin	RunShellCommand.py	/^import sublime_plugin$/;"	i
-expandVariable	Scommon.py	/^def expandVariable(window, *vals, forSublime=True, forEnv=True):$/;"	f
-expand_variables	Scommon.py	/^from sublime import expand_variables$/;"	i
-os	Scommon.py	/^import os$/;"	i
+subprocess	RunShellCommand.py	/^import subprocess$/;"	i
 !_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
 !_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
 !_TAG_PROGRAM_VERSION	5.8	//
