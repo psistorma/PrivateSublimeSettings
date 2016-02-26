@@ -3,6 +3,9 @@
 
    "completions":
    [
-      { "trigger": "fromi\tfrom .. import ..", "contents": "from ${1:MUtils} import ${2:Os}$0"},
+      { "trigger": "@staticmethod", "contents": "@staticmethod"},
+      { "trigger": "@classmethod", "contents": "@classmethod"},
+      { "trigger": "fromCompletionImport\tfrom .. import ..", "contents": "from ${1:MUtils} import ${2:Os}$0"},
+      { "trigger": "lambdaCompletionX\tlambda x: ..", "contents": "lambda ${1:x}: ${2:x}$0"},
    ]
 }

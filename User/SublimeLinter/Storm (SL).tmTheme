@@ -114,7 +114,7 @@
       <key>name</key>
       <string>Comment</string>
       <key>scope</key>
-      <string>comment, meta.comment</string>
+      <string>comment, meta.comment, source.diff meta.diff</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -125,7 +125,7 @@
       <key>name</key>
       <string>Comment title</string>
       <key>scope</key>
-      <string>meta.toc-list</string>
+      <string>meta.toc-list - source.diff</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -136,7 +136,7 @@
       <key>name</key>
       <string>punctuation</string>
       <key>scope</key>
-      <string>punctuation - punctuation.definition.comment - meta.tip.notify - meta.tip.highlight, source.sublimecompletions,meta.completion.trigger-based.sublimecompletions</string>
+      <string>punctuation - punctuation.definition.comment - meta.tip.notify - meta.tip.highlight - source.diff, source.sublimecompletions,meta.completion.trigger-based.sublimecompletions</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -191,7 +191,7 @@
       <key>name</key>
       <string>entity section name</string>
       <key>scope</key>
-      <string>entity.name.section, meta.tag</string>
+      <string>entity.name.section, meta.tag, entity.name.function.decorator</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -343,6 +343,28 @@
     </dict>
     <dict>
       <key>name</key>
+      <string>tip insert</string>
+      <key>scope</key>
+      <string>meta.tip,source.diff markup.inserted.diff</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#FFD700</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>tip delete</string>
+      <key>scope</key>
+      <string>meta.tip,source.diff markup.deleted.diff</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#FF7F7F</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
       <string>tip highlight warm</string>
       <key>scope</key>
       <string>meta.tip.highlight.warm</string>
@@ -356,7 +378,7 @@
       <key>name</key>
       <string>tip embed</string>
       <key>scope</key>
-      <string>meta.tip.embed</string>
+      <string>meta.tip.embed, source.diff markup</string>
       <key>settings</key>
       <dict>
         <key>background</key>
@@ -692,13 +714,13 @@
 
   <dict>
             <key>name</key>
-            <string>SublimeLinter Error</string>
+            <string>SublimeLinter Warning</string>
             <key>scope</key>
-            <string>sublimelinter.mark.error</string>
+            <string>sublimelinter.mark.warning</string>
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#D02000</string>
+                <string>#DDB700</string>
             </dict>
         </dict><dict>
             <key>name</key>
@@ -712,13 +734,13 @@
             </dict>
         </dict><dict>
             <key>name</key>
-            <string>SublimeLinter Warning</string>
+            <string>SublimeLinter Error</string>
             <key>scope</key>
-            <string>sublimelinter.mark.warning</string>
+            <string>sublimelinter.mark.error</string>
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#DDB700</string>
+                <string>#D02000</string>
             </dict>
         </dict></array>
   <key>uuid</key>

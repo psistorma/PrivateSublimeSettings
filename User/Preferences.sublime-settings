@@ -12,6 +12,10 @@
 			"selector": "source.js"
 		},
 		{
+			"characters": ".",
+			"selector": "source.python"
+		},
+		{
 			"characters": ".:>,",
 			"selector": "source.c++ - string - comment - constant.numeric"
 		}
@@ -51,8 +55,8 @@
 	[
 		"C++",
 		"Emmet",
-		"Vintage",
-		"Zen Tabs"
+		"SublimeCodeIntel",
+		"Vintage"
 	],
 	"line_numbers": true,
 	"line_padding_bottom": 0,

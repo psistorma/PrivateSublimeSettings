@@ -2,3 +2,5 @@
 from MUtils import Os
 
 print(Os.expandVariable("%APPDATA%"))
+
+

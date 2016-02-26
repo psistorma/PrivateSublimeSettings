@@ -1,235 +1,246 @@
 {
   "item_recorder": {
-    "def_short": "_s.w.o \"${file}\"",
+    "def_short": "_s.w.o \"${file}\"", 
     "def_long": ""
-  },
+  }, 
   "invoker_info": [
     {
-      "key": "_c",
-      "invoker": "Cmd",
+      "key": "_c", 
+      "invoker": "Cmd", 
       "optMap": {
-        "w": "wait",
-        "s": "shell",
+        "w": "wait", 
+        "s": "shell", 
         "h": "hide"
-      },
+      }, 
       "_def_short": "_c.s cmd /c start $_ ${file}"
-    },
+    }, 
     {
-      "key": "_s",
-      "invoker": "Sublime",
+      "key": "_s", 
+      "invoker": "Sublime", 
       "optMap": {
-        "w": "Window",
-        "v": "View",
-        "o": "open_file",
+        "w": "Window", 
+        "v": "View", 
+        "o": "open_file", 
         "r": "run_command"
-      },
+      }, 
       "_def_short": "_s.w.o \"${file}\""
     }
-  ],
+  ], 
   "items": [
     {
-      "invoker": "Cmd",
-      "opts": [],
+      "invoker": "Cmd", 
+      "opts": [], 
       "args": [
-        "node",
+        "node", 
         "${file}"
-      ],
+      ], 
       "key": "n"
-    },
+    }, 
     {
-      "invoker": "Cmd",
+      "invoker": "Cmd", 
       "opts": [
         "wait"
-      ],
+      ], 
       "args": [
-        "python",
+        "python", 
         "${file}"
-      ],
+      ], 
       "key": "p3"
-    },
+    }, 
     {
-      "invoker": "Cmd",
+      "invoker": "Cmd", 
       "opts": [
         "wait"
-      ],
+      ], 
       "args": [
-        "C:\\Python27\\python.exe",
+        "C:\\Python27\\python.exe", 
         "${file}"
-      ],
+      ], 
       "key": "p2"
-    },
+    }, 
     {
-      "invoker": "Cmd",
-      "opts": [],
+      "invoker": "Cmd", 
+      "opts": [], 
       "args": [
-        "cmd",
-        "/k",
-        "cd",
-        "/D",
+        "cmd", 
+        "/k", 
+        "cd", 
+        "/D", 
         "${file_path}"
-      ],
-      "key": "c",
+      ], 
+      "key": "c", 
       "tip": "cmd.exe and cd current file path"
-    },
+    }, 
     {
-      "invoker": "Sublime",
+      "invoker": "Sublime", 
       "opts": [
-        "Window",
+        "Window", 
         "open_file"
-      ],
+      ], 
       "args": [
         "\"${packages}\\UserEasyInvoker\\easyInvoker.invokeKey.json\""
-      ],
+      ], 
       "key": "="
-    },
+    }, 
     {
       "args": [
-        "cmd",
-        "/c",
-        "start",
-        "",
+        "cmd", 
+        "/c", 
+        "start", 
+        "", 
         "${packages}"
-      ],
-      "key": "u",
-      "invoker": "Cmd",
+      ], 
+      "key": "u", 
+      "invoker": "Cmd", 
       "opts": [
         "shell"
       ]
-    },
+    }, 
     {
       "args": [
-        "cmd",
-        "/c",
-        "start",
-        "",
+        "cmd", 
+        "/c", 
+        "start", 
+        "", 
         "${project_path}"
-      ],
-      "key": "project",
-      "invoker": "Cmd",
+      ], 
+      "key": "project", 
+      "invoker": "Cmd", 
       "opts": [
         "shell"
       ]
-    },
+    }, 
     {
-      "invoker": "Sublime",
+      "invoker": "Sublime", 
       "args": [
         "\"E:\\ForDevEnv\\MyAssset\\TestColorScheme\\test.xml\""
-      ],
+      ], 
       "opts": [
-        "Window",
+        "Window", 
         "open_file"
-      ],
+      ], 
       "key": "tmxml"
-    },
+    }, 
     {
-      "key": "tm",
+      "key": "tm", 
       "opts": [
-        "Window",
+        "Window", 
         "open_file"
-      ],
-      "invoker": "Sublime",
+      ], 
+      "invoker": "Sublime", 
       "args": [
         "\"${packages}\\User\\Storm.tmTheme\""
       ]
-    },
+    }, 
     {
-      "key": "tmjson",
-      "invoker": "Sublime",
+      "key": "tmjson", 
+      "invoker": "Sublime", 
       "args": [
         "\"E:\\ForDevEnv\\MyAssset\\TestColorScheme\\test.json\""
-      ],
+      ], 
       "opts": [
-        "Window",
+        "Window", 
         "open_file"
       ]
-    },
+    }, 
     {
-      "key": "tmcpp",
-      "invoker": "Sublime",
+      "key": "tmcpp", 
+      "invoker": "Sublime", 
       "args": [
         "\"E:\\ForDevEnv\\MyAssset\\TestColorScheme\\test.cpp\""
-      ],
+      ], 
       "opts": [
-        "Window",
+        "Window", 
         "open_file"
       ]
-    },
+    }, 
     {
-      "key": "tmh",
-      "invoker": "Sublime",
+      "key": "tmh", 
+      "invoker": "Sublime", 
       "args": [
         "\"E:\\ForDevEnv\\MyAssset\\TestColorScheme\\test.h\""
-      ],
+      ], 
       "opts": [
-        "Window",
+        "Window", 
         "open_file"
       ]
-    },
+    }, 
     {
       "opts": [
-        "Window",
+        "Window", 
         "open_file"
-      ],
-      "invoker": "Sublime",
-      "key": "tmsyntax",
+      ], 
+      "invoker": "Sublime", 
+      "key": "tmsyntax", 
       "args": [
         "\"E:\\ForDevEnv\\MyAssset\\TestColorScheme\\test.sublime-syntax\""
       ]
-    },
+    }, 
     {
-      "invoker": "Sublime",
+      "invoker": "Sublime", 
       "opts": [
-        "Window",
+        "Window", 
         "run_command"
-      ],
+      ], 
       "args": [
         "\"show_overlay\", {\"overlay\": \"command_palette\"}"
-      ],
+      ], 
       "key": "switch_to_command_palette"
-    },
+    }, 
     {
       "args": [
         "\"C:\\Users\\Administrator\\AppData\\Roaming\\Sublime Text 3\\Packages\\UserC++AutoCompletion\\StormCppAutoCompletionCommand.py\""
-      ],
+      ], 
       "opts": [
-        "Window",
+        "Window", 
         "open_file"
-      ],
-      "invoker": "Sublime",
+      ], 
+      "invoker": "Sublime", 
       "key": "g"
-    },
+    }, 
     {
-      "key": "syntaxcpp",
-      "invoker": "Sublime",
+      "key": "syntaxcpp", 
+      "invoker": "Sublime", 
       "opts": [
-        "Window",
+        "Window", 
         "open_file"
-      ],
+      ], 
       "args": [
         "\"C:\\Users\\Administrator\\AppData\\Roaming\\Sublime Text 3\\Packages\\UserSyntax\\CppByStorm.sublime-syntax\""
       ]
-    },
+    }, 
     {
-      "key": "maintodo",
-      "invoker": "Sublime",
+      "key": "maintodo", 
+      "invoker": "Sublime", 
       "opts": [
-        "Window",
+        "Window", 
         "open_file"
-      ],
+      ], 
       "args": [
         "\"C:\\Users\\Administrator\\AppData\\Roaming\\Sublime Text 3\\Packages\\UserHelp\\main.todo\""
       ]
-    },
+    }, 
     {
       "opts": [
-        "Window",
+        "Window", 
         "open_file"
-      ],
-      "invoker": "Sublime",
-      "key": "t",
+      ], 
+      "invoker": "Sublime", 
+      "key": "t", 
       "args": [
         "\"C:\\Users\\Administrator\\AppData\\Roaming\\Sublime Text 3\\Packages\\UserHelp\\tmp\""
       ]
+    }, 
+    {
+      "invoker": "Sublime", 
+      "args": [
+        "\"C:\\Users\\Administrator\\AppData\\Roaming\\Sublime Text 3\\Packages\\User\\completions\\python.sublime-completions\""
+      ], 
+      "opts": [
+        "Window", 
+        "open_file"
+      ], 
+      "key": "completion_python"
     }
   ]
 }

@@ -240,7 +240,7 @@
     ]
   },"context": [
       {"key": "selection_empty", "operator": "equal", "operand": true},
-      {"key": "preceding_text", "operator": "regex_contains", "operand": "(?:\\W|^|$)$"},
+      {"key": "preceding_text", "operator": "regex_match", "operand": ".*(?:\\W|^)"},
     ]
   },
   {"keys": ["ctrl+c"], "command": "mul_run", "args": {
@@ -249,7 +249,7 @@
     ]
   },"context": [
       {"key": "selection_empty", "operator": "equal", "operand": true},
-      {"key": "following_text", "operator": "regex_contains", "operand": "^(?:\\W|^|$)"},
+      {"key": "following_text", "operator": "regex_match", "operand": "^(?:\\W|$).*"},
     ]
   },
 //when cursor is near to the not word ,just be normal behavior
@@ -259,7 +259,7 @@
     ]
   },"context": [
       {"key": "selection_empty", "operator": "equal", "operand": true},
-      {"key": "preceding_text", "operator": "regex_contains", "operand": "(?:\\W|^|$)$"},
+      {"key": "preceding_text", "operator": "regex_match", "operand": ".*(?:\\W|^)"},
     ]
   },
   {"keys": ["ctrl+v"], "command": "mul_run", "args": {
@@ -268,7 +268,7 @@
     ]
   },"context": [
       {"key": "selection_empty", "operator": "equal", "operand": true},
-      {"key": "following_text", "operator": "regex_contains", "operand": "^(?:\\W|^|$)"},
+      {"key": "following_text", "operator": "regex_match", "operand": "^(?:\\W|$).*"},
     ]
   },
 //when cursor is near to the not word ,just be normal behavior
@@ -278,7 +278,7 @@
     ]
   },"context": [
       {"key": "selection_empty", "operator": "equal", "operand": true},
-      {"key": "preceding_text", "operator": "regex_contains", "operand": "(?:\\W|^|$)$"},
+      {"key": "preceding_text", "operator": "regex_match", "operand": ".*(?:\\W|^)"},
     ]
   },
   {"keys": ["ctrl+x"], "command": "mul_run", "args": {
@@ -287,7 +287,7 @@
     ]
   },"context": [
       {"key": "selection_empty", "operator": "equal", "operand": true},
-      {"key": "following_text", "operator": "regex_contains", "operand": "^(?:\\W|^|$)"},
+      {"key": "following_text", "operator": "regex_match", "operand": "^(?:\\W|$).*"},
     ]
   },
 ]

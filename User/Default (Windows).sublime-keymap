@@ -8,6 +8,8 @@
 //alligment
       {"keys": ["alt+f1"], "command": "alignment" },
   //  {"keys": ["ctrl+shift+f1"], "command": "cpp_auto_completion_by_storm" },
+//Got to documentation
+    { "keys": ["f1"], "command": "goto_documentation" },
 //Zen Tabs
     { "keys": ["ctrl+shift+tab"], "command": "switch_tabs"},
 //SublimeCodeIntel
