@@ -42,6 +42,8 @@ class ListCurrentDirCommand(sublime_plugin.TextCommand):
         self.curName = None
         self.ignore_patterns = None
         self.path = None
+        self.path_objs = None
+        self.quick_panel_files = None
 
     def run(self, edit):
         self.settings = sublime.load_settings("ListCurrentDir.sublime-settings")
@@ -61,15 +63,15 @@ class ListCurrentDirCommand(sublime_plugin.TextCommand):
         self.path = path
 
         if self.quick_panel_files is not None and self.curName in self.quick_panel_files:
-          index = self.quick_panel_files.index(self.curName) + CUR_ITER_ORDER
+            index = self.quick_panel_files.index(self.curName) + CUR_ITER_ORDER
         else:
-          index = -1
+            index = -1
 
         self.build_quick_panel_file_list()
 
         if index >= len(self.quick_panel_files) or index <= 1:
-          if CUR_ITER_ORDER == 1:
-            index = 2
+            if CUR_ITER_ORDER == 1:
+                index = 2
         else:
             index = len(self.quick_panel_files) - 1
 
@@ -79,54 +81,60 @@ class ListCurrentDirCommand(sublime_plugin.TextCommand):
         self.path_objs = {}
         self.quick_panel_files = []
         if CUR_ITER_ORDER == 1:
-          self.quick_panel_files.append("/* change iter order to prev */")
+            self.quick_panel_files.append("/* change iter order to prev */")
         else:
-          self.quick_panel_files.append("/* change iter order to next */")
+            self.quick_panel_files.append("/* change iter order to next */")
 
         if os.path.exists(self.get_parent_path(self.path)):
-          self.quick_panel_files.append("..")
+            self.quick_panel_files.append("..")
 
         files_list = _list_path_file(self.path, self.ignore_patterns)
         dirs = []
         files = []
         for file in files_list:
-          if os.path.isfile(os.path.join(self.path, file)):
-            files.append(file)
-          else:
-            dirs.append(file + '/')
+            if os.path.isfile(os.path.join(self.path, file)):
+                files.append(file)
+            else:
+                dirs.append(file + '/')
 
         self.quick_panel_files += dirs
         self.quick_panel_files += files
 
-    def is_file(self, entry):
+    @staticmethod
+    def is_file(entry):
         return not entry.endswith('/')
 
     def path_file_callback(self, index):
         global CUR_ITER_ORDER
         if index == -1:
-          return
+            return
 
         entry = self.quick_panel_files[index]
 
         if entry == "..":
-          self.curName = None
-          self.show_dir_file(self.get_parent_path(self.path))
-          return
+            self.curName = None
+            self.show_dir_file(self.get_parent_path(self.path))
+            return
         elif entry == "/* change iter order to prev */":
-          CUR_ITER_ORDER = -1
-          return
+            CUR_ITER_ORDER = -1
+            return
         elif entry == "/* change iter order to next */":
-          CUR_ITER_ORDER = 1
-          return
+            CUR_ITER_ORDER = 1
+            return
         else:
-          target = os.path.join(self.path, entry)
-          if self.is_file(entry):
-            self.view.window().open_file(target)
-          else:
-            self.show_dir_file(target)
+            target = os.path.join(self.path, entry)
+            if self.is_file(entry):
+                self.view.window().open_file(target)
+            else:
+                self.show_dir_file(target)
 
     def show_quick_panel(self, options, done_callback, index=None):
         if index is None or not IS_ST3:
-          sublime.set_timeout(lambda: self.view.window().show_quick_panel(options, done_callback), 10)
+            sublime.set_timeout(
+                lambda: self.view.window().show_quick_panel(options, done_callback),
+                10)
         else:
-          sublime.set_timeout(lambda: self.view.window().show_quick_panel(options, done_callback, selected_index=index), 10)
+            sublime.set_timeout(
+                lambda: self.view.window().show_quick_panel(
+                    options, done_callback, selected_index=index),
+                10)

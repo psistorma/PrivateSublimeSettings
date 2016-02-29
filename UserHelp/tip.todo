@@ -1,0 +1,1 @@
+view.settings().erase("color_scheme")

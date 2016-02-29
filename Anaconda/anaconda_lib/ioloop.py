@@ -104,7 +104,6 @@ class EventHandler(object):
         if sock is None:
             self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-        print("gg:"+str(address))
         self.sock.connect(address)
         self.connected = True
         self.sock.setblocking(False)

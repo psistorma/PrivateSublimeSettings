@@ -1,12 +1,12 @@
-from MUtils     import Os
-from sublime    import expand_variables
+from ..MUtils import Os
+import sublime
 
 def expandVariable(window, *strs, forSublime=True, forEnv=True):
     sublimeVariables = window.extract_variables()
-    retStrs = [lambda s: expand_variables(s, sublimeVariables)
-               for s in strs] if forSublime else strs
 
-    retStrs = Os.expandVariable(retStrs) if forEnv else retStrs
+    retStrs = [sublime.expand_variables(s, sublimeVariables)
+               for s in strs] if forSublime else strs
+    retStrs = Os.expandVariable(*retStrs) if forEnv else retStrs
 
     return retStrs
 

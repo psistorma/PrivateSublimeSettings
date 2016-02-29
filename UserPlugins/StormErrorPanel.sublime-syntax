@@ -1,0 +1,31 @@
+%YAML 1.2
+---
+# http://www.sublimetext.com/docs/3/syntax.html
+name: StormErrorPanel
+file_extensions: []
+scope: text.userstormError
+contexts:
+  main:
+    - match: ^\*+\s(= error =)\s\*+$
+      captures:
+        0: meta.section.error invalid.warning
+        1: meta.tip.highlight
+
+    - match: ^\*+\s(=.*?=)\s\*+$
+      captures:
+        0: meta.section.info
+        1: meta.toc-list.banner.line
+
+    - match: ^-+\s(= command =)\s-+$
+      captures:
+        0: meta.section.sec
+        1: meta.toc-list.banner.line
+      push:
+        - meta_scope: meta.function-call
+        - match: (?=^-+\s(=.*?=)\s-+$)
+          pop: true
+
+    - match: ^-+\s(=.*?=)\s-+$
+      captures:
+        0: meta.section.sec
+        1: meta.toc-list.banner.line

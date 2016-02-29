@@ -1,15 +1,48 @@
 AutoEscapeCommand	AutoEscapeCommand.py	/^class AutoEscapeCommand(sublime_plugin.TextCommand):$/;"	c
+Str	AutoEscapeCommand.py	/^from .MUtils import Str$/;"	i
 ToggleCamelUnderscoreCommand	AutoEscapeCommand.py	/^class ToggleCamelUnderscoreCommand(sublime_plugin.TextCommand):$/;"	c
-run	AutoEscapeCommand.py	/^  def run(self, edit):$/;"	m	class:AutoEscapeCommand
-run	AutoEscapeCommand.py	/^  def run(self, edit):$/;"	m	class:ToggleCamelUnderscoreCommand
-sublime	AutoEscapeCommand.py	/^import sublime, sublime_plugin$/;"	i
-sublime_plugin	AutoEscapeCommand.py	/^import sublime, sublime_plugin$/;"	i
+re	AutoEscapeCommand.py	/^import re$/;"	i
+run	AutoEscapeCommand.py	/^    def run(self, edit):$/;"	m	class:AutoEscapeCommand
+run	AutoEscapeCommand.py	/^    def run(self, edit):$/;"	m	class:ToggleCamelUnderscoreCommand
+sublime_plugin	AutoEscapeCommand.py	/^import sublime_plugin$/;"	i
+toggleCamelUnderscore	AutoEscapeCommand.py	/^    def toggleCamelUnderscore(text):$/;"	m	class:ToggleCamelUnderscoreCommand
+FILL_CHAR	ErrorPanel.py	/^    FILL_CHAR = "*"$/;"	v	class:Info
+Info	ErrorPanel.py	/^class Info(object):$/;"	c
+InfoSection	ErrorPanel.py	/^InfoSection = namedtuple("InfoSection", "title, content, isOutput")$/;"	v
+SECTION_FILL_CHAR	ErrorPanel.py	/^    SECTION_FILL_CHAR = "-"$/;"	v	class:Info
+UserStormErrorPanel	ErrorPanel.py	/^class UserStormErrorPanel(object):$/;"	c
+UserstormErrorPanelFlushCommand	ErrorPanel.py	/^class UserstormErrorPanelFlushCommand(sublime_plugin.TextCommand):$/;"	c
+UserstormErrorPanelShowCommand	ErrorPanel.py	/^class UserstormErrorPanelShowCommand(sublime_plugin.WindowCommand):$/;"	c
+WIDTH	ErrorPanel.py	/^    WIDTH = 80$/;"	v	class:Info
+__init__	ErrorPanel.py	/^    def __init__(self):$/;"	m	class:UserStormErrorPanel
+__init__	ErrorPanel.py	/^    def __init__(self, header, *sections):$/;"	m	class:Info
+close	ErrorPanel.py	/^    def close():$/;"	m	class:UserStormErrorPanel
+errorPanel	ErrorPanel.py	/^errorPanel = UserStormErrorPanel()$/;"	v
+flush	ErrorPanel.py	/^    def flush(self):$/;"	m	class:UserStormErrorPanel
+formatHeaderLine	ErrorPanel.py	/^    def formatHeaderLine(self):$/;"	m	class:Info
+formatSectionLines	ErrorPanel.py	/^    def formatSectionLines(cls, sec):$/;"	m	class:Info
+ft	ErrorPanel.py	/^import functools as ft$/;"	i
+fwNotify	ErrorPanel.py	/^def fwNotify(f):$/;"	f
+get_view	ErrorPanel.py	/^    def get_view(self):$/;"	m	class:UserStormErrorPanel
+hasOutput	ErrorPanel.py	/^    def hasOutput(self):$/;"	m	class:Info
+isVisible	ErrorPanel.py	/^    def isVisible(self, window=None):$/;"	m	class:UserStormErrorPanel
+namedtuple	ErrorPanel.py	/^from collections import namedtuple$/;"	i
+open	ErrorPanel.py	/^    def open(self, window=None):$/;"	m	class:UserStormErrorPanel
+re	ErrorPanel.py	/^import re$/;"	i
+run	ErrorPanel.py	/^    def run(self, **kwds):$/;"	m	class:UserstormErrorPanelShowCommand
+run	ErrorPanel.py	/^    def run(self, edit, **kwds):$/;"	m	class:UserstormErrorPanelFlushCommand
+show	ErrorPanel.py	/^    def show(self, data=None, window=None):$/;"	m	class:UserStormErrorPanel
+sublime	ErrorPanel.py	/^import sublime$/;"	i
+sublime_plugin	ErrorPanel.py	/^import sublime_plugin$/;"	i
+updateData	ErrorPanel.py	/^    def updateData(self, data):$/;"	m	class:UserStormErrorPanel
+wrapTitle	ErrorPanel.py	/^    def wrapTitle(cls, title):$/;"	m	class:Info
+wrapper	ErrorPanel.py	/^    def wrapper(*args, **kwds):$/;"	f	function:fwNotify
 ExpandSelBySideCommand	ExpandSelBySideCommand.py	/^class ExpandSelBySideCommand(sublime_plugin.TextCommand):$/;"	c
-run	ExpandSelBySideCommand.py	/^  def run(self, edit, count = 1, side = "both"):$/;"	m	class:ExpandSelBySideCommand
-sublime	ExpandSelBySideCommand.py	/^import sublime, sublime_plugin$/;"	i
-sublime_plugin	ExpandSelBySideCommand.py	/^import sublime, sublime_plugin$/;"	i
+run	ExpandSelBySideCommand.py	/^    def run(self, edit, **args):$/;"	m	class:ExpandSelBySideCommand
+sublime	ExpandSelBySideCommand.py	/^import sublime$/;"	i
+sublime_plugin	ExpandSelBySideCommand.py	/^import sublime_plugin$/;"	i
+Cmd	IndentSpaceChangeCommand.py	/^from .SublimeUtils import Cmd$/;"	i
 IndentSpaceChangeCommand	IndentSpaceChangeCommand.py	/^class IndentSpaceChangeCommand(sublime_plugin.TextCommand):$/;"	c
-Os	IndentSpaceChangeCommand.py	/^from .MUtils.Common import Os$/;"	i
 run	IndentSpaceChangeCommand.py	/^    def run(self, edit, **args):$/;"	m	class:IndentSpaceChangeCommand
 sublime	IndentSpaceChangeCommand.py	/^import sublime$/;"	i
 sublime_plugin	IndentSpaceChangeCommand.py	/^import sublime_plugin$/;"	i
@@ -21,7 +54,7 @@ _ignore_file	ListCurrentDirCommand.py	/^def _ignore_file(filename, ignore_patter
 _list_path_file	ListCurrentDirCommand.py	/^def _list_path_file(path, ignore_patterns=None):$/;"	f
 build_quick_panel_file_list	ListCurrentDirCommand.py	/^    def build_quick_panel_file_list(self):$/;"	m	class:ListCurrentDirCommand
 get_parent_path	ListCurrentDirCommand.py	/^    def get_parent_path(cls, path):$/;"	m	class:ListCurrentDirCommand
-is_file	ListCurrentDirCommand.py	/^    def is_file(self, entry):$/;"	m	class:ListCurrentDirCommand
+is_file	ListCurrentDirCommand.py	/^    def is_file(entry):$/;"	m	class:ListCurrentDirCommand
 os	ListCurrentDirCommand.py	/^import os$/;"	i
 path_file_callback	ListCurrentDirCommand.py	/^    def path_file_callback(self, index):$/;"	m	class:ListCurrentDirCommand
 re	ListCurrentDirCommand.py	/^import re$/;"	i
@@ -30,38 +63,49 @@ show_dir_file	ListCurrentDirCommand.py	/^    def show_dir_file(self, path):$/;"	
 show_quick_panel	ListCurrentDirCommand.py	/^    def show_quick_panel(self, options, done_callback, index=None):$/;"	m	class:ListCurrentDirCommand
 sublime	ListCurrentDirCommand.py	/^import sublime$/;"	i
 sublime_plugin	ListCurrentDirCommand.py	/^import sublime_plugin$/;"	i
-os	MUtils\Common\Basic.py	/^import os$/;"	i
-runShellCmd	MUtils\Common\Basic.py	/^def runShellCmd(args, ):$/;"	f
-subprocess	MUtils\Common\Basic.py	/^import subprocess$/;"	i
-sys	MUtils\Common\Basic.py	/^import sys$/;"	i
-expandVariable	MUtils\Common\Os.py	/^def expandVariable(*strs):$/;"	f
-os	MUtils\Common\Os.py	/^import os$/;"	i
-Os	MUtils\SublimeCommon\Basic.py	/^from ..Common import Os$/;"	i
-expandVariable	MUtils\SublimeCommon\Basic.py	/^def expandVariable(window, *strs, forSublime=True, forEnv=True):$/;"	f
-expand_variables	MUtils\SublimeCommon\Basic.py	/^from sublime import expand_variables$/;"	i
-sys	MUtils\SublimeCommon\Setting.py	/^import sys$/;"	i
-__all__	MUtils\__init__.py	/^__all__ = ['Common', 'SublimeCommon']$/;"	v
-MulRunCommand	MulRunCommand.py	/^class MulRunCommand(sublime_plugin.TextCommand):$/;"	c
-exec_command	MulRunCommand.py	/^    def exec_command(self, command):$/;"	m	class:MulRunCommand
-run	MulRunCommand.py	/^    def run(self, edit, **args):$/;"	m	class:MulRunCommand
-sublime	MulRunCommand.py	/^import sublime, sublime_plugin$/;"	i
-sublime_plugin	MulRunCommand.py	/^import sublime, sublime_plugin$/;"	i
+namedtuple	MUtils\Basic.py	/^from collections import namedtuple$/;"	i
+toNamedTuple	MUtils\Basic.py	/^def toNamedTuple(dataNameInfo, *data):$/;"	f
+_CMD_KWDS_MAP	MUtils\Os.py	/^_CMD_KWDS_MAP = {$/;"	v
+_CMD_MODE_MAP	MUtils\Os.py	/^_CMD_MODE_MAP = {$/;"	v
+expandVariable	MUtils\Os.py	/^def expandVariable(*strs):$/;"	f
+os	MUtils\Os.py	/^import os$/;"	i
+runShellCmd	MUtils\Os.py	/^def runShellCmd(args, mode="capture_both", **kwds):$/;"	f
+sarge	MUtils\Os.py	/^import sarge$/;"	i
+sublime	MUtils\Os.py	/^import sublime$/;"	i
+subprocess	MUtils\Os.py	/^import subprocess$/;"	i
+getUtil	MUtils\Str.py	/^def getUtil(s, condifionFun, reverse=False):$/;"	f
+toUTF8	MUtils\Str.py	/^def toUTF8(s):$/;"	f
 MulRunWindowCommand	MulRunWindowCommand.py	/^class MulRunWindowCommand(sublime_plugin.WindowCommand):$/;"	c
-exec_command	MulRunWindowCommand.py	/^  def exec_command(self, command):$/;"	m	class:MulRunWindowCommand
-run	MulRunWindowCommand.py	/^  def run(self, commands = None):$/;"	m	class:MulRunWindowCommand
-sublime	MulRunWindowCommand.py	/^import sublime, sublime_plugin$/;"	i
-sublime_plugin	MulRunWindowCommand.py	/^import sublime, sublime_plugin$/;"	i
+exec_command	MulRunWindowCommand.py	/^    def exec_command(self, command):$/;"	m	class:MulRunWindowCommand
+run	MulRunWindowCommand.py	/^    def run(self, **args):$/;"	m	class:MulRunWindowCommand
+sublime	MulRunWindowCommand.py	/^import sublime$/;"	i
+sublime_plugin	MulRunWindowCommand.py	/^import sublime_plugin$/;"	i
 PickScopeNameCommand	PickScopeNameCommand.py	/^class PickScopeNameCommand(sublime_plugin.TextCommand):$/;"	c
-on_input_panel_done	PickScopeNameCommand.py	/^  def on_input_panel_done(self, scopeName):$/;"	m	class:PickScopeNameCommand
-run	PickScopeNameCommand.py	/^  def run(self, edit):$/;"	m	class:PickScopeNameCommand
-sublime	PickScopeNameCommand.py	/^import sublime, sublime_plugin$/;"	i
-sublime_plugin	PickScopeNameCommand.py	/^import sublime, sublime_plugin$/;"	i
-RunShellCommand	RunShellCommand.py	/^class RunShellCommand(sublime_plugin.WindowCommand):$/;"	c
-Scommon	RunShellCommand.py	/^from . import Scommon$/;"	i
-run	RunShellCommand.py	/^    def run(self, **args):$/;"	m	class:RunShellCommand
+on_input_panel_done	PickScopeNameCommand.py	/^    def on_input_panel_done(**args):$/;"	m	class:PickScopeNameCommand
+run	PickScopeNameCommand.py	/^    def run(self, edit):$/;"	m	class:PickScopeNameCommand
+sublime	PickScopeNameCommand.py	/^import sublime$/;"	i
+sublime_plugin	PickScopeNameCommand.py	/^import sublime_plugin$/;"	i
+ErrorPanel	RunShellCommand.py	/^from . import ErrorPanel$/;"	i
+Os	RunShellCommand.py	/^from .MUtils import Os$/;"	i
+PrintSublimeVariableCommand	RunShellCommand.py	/^class PrintSublimeVariableCommand(sublime_plugin.WindowCommand):$/;"	c
+RunShellCmdCommand	RunShellCommand.py	/^class RunShellCmdCommand(sublime_plugin.WindowCommand):$/;"	c
+Setting	RunShellCommand.py	/^from .SublimeUtils import Setting$/;"	i
+run	RunShellCommand.py	/^    def run(self):$/;"	m	class:PrintSublimeVariableCommand
+run	RunShellCommand.py	/^    def run(self, **kwds):$/;"	m	class:RunShellCmdCommand
 shlex	RunShellCommand.py	/^import shlex$/;"	i
+sublime	RunShellCommand.py	/^import sublime$/;"	i
 sublime_plugin	RunShellCommand.py	/^import sublime_plugin$/;"	i
-subprocess	RunShellCommand.py	/^import subprocess$/;"	i
+runCommands	SublimeUtils\Cmd.py	/^def runCommands(ctx, *cmds):$/;"	f
+Os	SublimeUtils\Setting.py	/^from ..MUtils import Os$/;"	i
+expandVariable	SublimeUtils\Setting.py	/^def expandVariable(window, *strs, forSublime=True, forEnv=True):$/;"	f
+sublime	SublimeUtils\Setting.py	/^import sublime$/;"	i
+subprocess	Test.py	/^import subprocess$/;"	i
+sys	__init__.py	/^import sys$/;"	i
+MulRunCommand	mulRunCommand.py	/^class MulRunCommand(sublime_plugin.TextCommand):$/;"	c
+exec_command	mulRunCommand.py	/^    def exec_command(self, command):$/;"	m	class:MulRunCommand
+run	mulRunCommand.py	/^    def run(self, edit, **args):$/;"	m	class:MulRunCommand
+sublime	mulRunCommand.py	/^import sublime$/;"	i
+sublime_plugin	mulRunCommand.py	/^import sublime_plugin$/;"	i
 !_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
 !_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
 !_TAG_PROGRAM_VERSION	5.8	//

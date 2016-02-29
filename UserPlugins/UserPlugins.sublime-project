@@ -18,8 +18,8 @@
 			"path": "."
 		}
 	],
-    "settings":
-        {
-            "python_interpreter": "python"
-        }
+	"settings":
+	{
+		"python_interpreter": "python"
+	}
 }

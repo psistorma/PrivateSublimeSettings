@@ -21,8 +21,6 @@ contexts:
       scope: invalid.illegal.punctuation
     - match: \,
       scope: punctuation.definition.comma.python
-    - match: \.
-      scope: punctuation.definition.dot.python
   main:
     - match: '(?<!^from\s|^import\s)(\.{3})'
       scope: support.type.ellipsis.python

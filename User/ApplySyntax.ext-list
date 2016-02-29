@@ -1,8 +1,8 @@
 {
 	"CMakeByStorm":
 	[
-		"CMakeLists.txt",
-		"cmake"
+		"cmake",
+		"cmakelists.txt"
 	],
 	"CppByStorm":
 	[

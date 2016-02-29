@@ -1,4 +1,5 @@
-import sublime, sublime_plugin
+import sublime
+import sublime_plugin
 
 # Takes an array of commands (same as those you'd provide to a key binding) with
 # an optional context (defaults to view commands) & runs each command in order.

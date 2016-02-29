@@ -3,5 +3,7 @@
 	[
 		"py"
 	],
-    "ignored_packages": []
+	"ignored_packages":
+	[
+	]
 }

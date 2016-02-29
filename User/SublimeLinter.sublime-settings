@@ -19,6 +19,7 @@
                 "enable": "",
                 "excludes": [],
                 "paths": [
+                    "C:\\Program Files (x86)\\Sublime Text 3",
                     "${project}",
                     "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python35-32"
                 ],

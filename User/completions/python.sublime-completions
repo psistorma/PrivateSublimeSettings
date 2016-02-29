@@ -5,7 +5,8 @@
    [
       { "trigger": "@staticmethod", "contents": "@staticmethod"},
       { "trigger": "@classmethod", "contents": "@classmethod"},
-      { "trigger": "fromCompletionImport\tfrom .. import ..", "contents": "from ${1:MUtils} import ${2:Os}$0"},
-      { "trigger": "lambdaCompletionX\tlambda x: ..", "contents": "lambda ${1:x}: ${2:x}$0"},
+      { "trigger": "from_ICompletion_Import\tfrom .. import ..", "contents": "from ${1:MUtils} import ${2:Os}$0"},
+      { "trigger": "lambda_ICompletion_X\tlambda x: ..", "contents": "lambda ${1:x}: $1$0"},
+      { "trigger": "forIter_ICompletion_in\tforIter x: ..", "contents": "${1:x} $2 for $1 in ${3:iterable}$0"},
    ]
 }

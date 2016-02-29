@@ -5,6 +5,6 @@
 		"xml",
 		"xml.dist",
 		"xsd",
-		"svg"
+        "svg"
 	]
 }

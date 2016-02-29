@@ -1,5 +1,6 @@
 
 
-def runCommands(view, *cmds):
+def runCommands(ctx, *cmds):
     for cmdName, cmdArgs in cmds:
-        view.run_command(cmdName, cmdArgs)
+        ctx.run_command(cmdName, cmdArgs)
+

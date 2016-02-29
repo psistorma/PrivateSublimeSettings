@@ -1,3 +1,4 @@
+import re
 import sublime_plugin
 from .MUtils import Str
 
@@ -23,41 +24,14 @@ class ToggleCamelUnderscoreCommand(sublime_plugin.TextCommand):
     def toggleCamelUnderscore(text):
         headKeepText = Str.getUtil(text, lambda c: c != "_")
         tailKeepText = Str.getUtil(text, lambda c: c != "_", reverse=True)
+        careText = text.strip("_")
 
+        isUnderscore = any(c == "_" for c in careText)
 
-        careText = text.strip('_')
-        careText.
-
-        isUnderscore = careText
-        for srcC in careText:
-            if srcC == "_":
-                isUnderscore = True
-                break
-
-        newText = ""
         if isUnderscore:
-            careText.lower()
-            needUpper = True
-            for idx, srcC in enumerate(careText):
-                if srcC == "_":
-                    needUpper = True
-                    continue
-
-                if needUpper:
-                    if idx != 0:
-                        srcC = srcC.upper()
-                        needUpper = False
-
-                newText += srcC
+            newText = re.sub(r"_([a-z])", lambda pat: pat.group(1).upper(), careText)
         else:
-            for idx, srcC in enumerate(careText):
-                if srcC.isupper():
-                    if idx != 0:
-                        newText += "_"
-
-                    newText += srcC.lower()
-                else:
-                    srcC.lower()
-                newText += srcC
+            newText = re.sub(r"([A-Z])", lambda pat: "_"+pat.group(1).lower(), careText)
+            newText = newText.strip("_")
 
         return headKeepText + newText + tailKeepText

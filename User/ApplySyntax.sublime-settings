@@ -33,11 +33,11 @@
       },
       {
           "syntax": "UserSyntax/CMakeByStorm",
-          "extensions": ["CMakeLists.txt", "cmake"]
+          "extensions": ["cmakelists.txt", "cmake"]
       },
       {
           "syntax": "UserSyntax/PythonByStorm",
           "extensions": ["py"]
-      },
+      }
     ]
 }

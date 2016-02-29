@@ -2,6 +2,6 @@
 	"extensions":
 	[
 		"cmake",
-		"CMakeLists.txt"
+		"cmakelists.txt"
 	]
 }

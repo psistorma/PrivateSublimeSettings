@@ -68,6 +68,28 @@
     </dict>
     <dict>
       <key>name</key>
+      <string>function name</string>
+      <key>scope</key>
+      <string>meta.function-call - meta.tip.highlight, meta.function-call meta.function-call.arguments meta.function-call - meta.tip.highlight,meta.function-call meta.function-call.arguments meta.function-call meta.function-call.arguments meta.function-call meta.function-call - meta.tip.highlight,support.function - support.function.builtin, keyword.function</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#D9962E</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
+      <string>function call parameter</string>
+      <key>scope</key>
+      <string>meta.function-call meta.function-call.arguments,meta.function-call meta.function-call.arguments meta.function-call meta.function-call.arguments,meta.function-call meta.function-call.arguments meta.function-call meta.function-call.arguments meta.function-call meta.function-call.arguments</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#DCDCDC</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
       <string>preprocessor Keyword</string>
       <key>scope</key>
       <string>meta.preprocessor keyword - meta.preprocessor.macro</string>
@@ -167,17 +189,6 @@
     </dict>
     <dict>
       <key>name</key>
-      <string>function name</string>
-      <key>scope</key>
-      <string>meta.function-call - meta.tip.highlight, meta.function-call - meta.function-call.arguments, meta.function-call.arguments meta.function-call, support.function, keyword.function</string>
-      <key>settings</key>
-      <dict>
-        <key>foreground</key>
-        <string>#D9962E</string>
-      </dict>
-    </dict>
-    <dict>
-      <key>name</key>
       <string>entity name type value</string>
       <key>scope</key>
       <string>entity.name.type.value, entity.name.function.c</string>
@@ -191,7 +202,7 @@
       <key>name</key>
       <string>entity section name</string>
       <key>scope</key>
-      <string>entity.name.section, meta.tag, entity.name.function.decorator</string>
+      <string>meta.section - meta.tip.highlight, entity.name.section, meta.tag, entity.name.function.decorator, support.function.magic</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -389,7 +400,7 @@
       <key>name</key>
       <string>tip notify</string>
       <key>scope</key>
-      <string>meta.tip.notify, support.function.builtin</string>
+      <string>meta.tip.notify, support.function.builtin - entity.name.function.decorator, support.type - entity.name.function.decorator</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -714,13 +725,13 @@
 
   <dict>
             <key>name</key>
-            <string>SublimeLinter Warning</string>
+            <string>SublimeLinter Error</string>
             <key>scope</key>
-            <string>sublimelinter.mark.warning</string>
+            <string>sublimelinter.mark.error</string>
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#DDB700</string>
+                <string>#D02000</string>
             </dict>
         </dict><dict>
             <key>name</key>
@@ -734,13 +745,13 @@
             </dict>
         </dict><dict>
             <key>name</key>
-            <string>SublimeLinter Error</string>
+            <string>SublimeLinter Warning</string>
             <key>scope</key>
-            <string>sublimelinter.mark.error</string>
+            <string>sublimelinter.mark.warning</string>
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#D02000</string>
+                <string>#DDB700</string>
             </dict>
         </dict></array>
   <key>uuid</key>
