@@ -1,0 +1,14 @@
+<snippet>
+	<content><![CDATA[
+def fw$1(f):
+	@ft.wraps(f)
+	def wapper(*args, **kwds):
+		$0
+		return f(*args, **mapKwds)
+
+	return wapper
+]]></content>
+	<tabTrigger>def_function_decorator</tabTrigger>
+	<description>snippet function decorator</description>
+	<scope>source.python</scope>
+	</snippet>

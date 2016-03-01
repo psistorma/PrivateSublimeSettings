@@ -1,8 +1,8 @@
 import subprocess
 import os
 import sarge
-import sublime
 import win32con
+from . import Basic
 
 def expandVariable(*strs):
     retStrs = []
@@ -27,23 +27,21 @@ _CMD_KWDS_MAP = {
     "PIPE": subprocess.PIPE,
 }
 
-def runShellCmd(args, mode="capture_both", hide=True, **kwds):
+@Basic.fwKeyWordMap(_CMD_KWDS_MAP, ["run_mode", "win_mode"])
+def runShellCmd(args, run_mode="capture_both", win_mode="hide", **kwds):
     # startupinfo = subprocess.STARTUPINFO()
     # startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
-    runner = _CMD_MODE_MAP[mode]
-    mapKwds = {k: _CMD_KWDS_MAP.get(v, v) for k, v in kwds.items()}
+    runner = _CMD_MODE_MAP[run_mode]
     startupinfo = None
-    if hide:
+    if win_mode == "hide":
         startupinfo = subprocess.STARTUPINFO()
         startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
-        startupinfo.wShowWindow = win32con.SW_SHOWMINIMIZED
-    try:
-        out = runner(args, startupinfo=startupinfo, **mapKwds)
-        return (out.returncode,
-                out.stdout.text if out.stdout else "!!can't get stdout",
-                out.stderr.text if out.stderr else "!!can't get stderr")
-    except Exception as e:
-        sublime.error_message(str(e))
-        raise e
+        startupinfo.wShowWindow = win32con.SW_HIDE
+
+
+    out = runner(args, startupinfo=startupinfo, **kwds)
+    return (out.returncode,
+            out.stdout.text if out.stdout else "!!can't get stdout",
+            out.stderr.text if out.stderr else "!!can't get stderr")
 
 

@@ -18,4 +18,4 @@
 # R0913 Too many arguments
 # R0904 Too many public methods
 # disable=I0011,C0111,C0410,C0103
-disable=C0111,C0103
+disable=C0111,C0103,I0011

@@ -1,7 +1,7 @@
 import shlex
 import sublime
 import sublime_plugin
-from .MUtils import Os
+from .MUtils import Basic, Os
 from .SublimeUtils import Setting
 from . import ErrorPanel
 
@@ -10,20 +10,48 @@ class PrintSublimeVariableCommand(sublime_plugin.WindowCommand):
         print(self.window.extract_variables())
 
 
-class RunShellCmdCommand(sublime_plugin.WindowCommand):
-    @ErrorPanel.fwNotify
-    def run(self, **kwds):
-        commands = kwds["commands"]
-        hide = kwds.get("hide", True)
-        runOpts = kwds.get("runOpts", {})
+ASYNC_STATUS_KEY = "userplugin_runcmd_async"
 
-        infos = []
-        withErr = False
+class RunShellCmdCommand(sublime_plugin.WindowCommand):
+    def __init__(self, *args):
+        super().__init__(*args)
+        self.asncCmdCount = 0
+
+    def run(self, **kwds):
+        _async = kwds.pop("async", True)
+        if _async:
+            view = self.window.active_view()
+            self.asncCmdCount += 1
+            view.set_status(ASYNC_STATUS_KEY, "***asnc command running***")
+            self.doWorkAsnc(view, **kwds)
+        else:
+            self.doWork(**kwds)
+
+    @Basic.fwRunInThread
+    def doWorkAsnc(self, view, **kwds):
+        self.doWork(**kwds)
+        self.asncCmdCount -= 1
+        if self.asncCmdCount == 0:
+            view.erase_status(ASYNC_STATUS_KEY)
+
+    @ErrorPanel.fwNotify
+    @Basic.fwReportException(sublime.error_message)
+    def doWork(self, **kwds):
+        commands = kwds.pop("commands")
+        run_mode = kwds.pop("run_mode", "capture_both")
+        win_mode = kwds.pop("win_mode", "hide")
+        run_opts = kwds.pop("run_opts", {})
+
+        withErr, infos = False, []
         for cmd in commands:
             cmdArgs = shlex.split(cmd)
             cmdArgs = Setting.expandVariable(self.window, *cmdArgs)
 
-            rc, stdout, stderr = Os.runShellCmd(cmdArgs, hide=hide, **runOpts)
+            rc, stdout, stderr = Os.runShellCmd(
+                cmdArgs,
+                run_mode=run_mode, win_mode=win_mode,
+                **run_opts)
+
             if not rc:
                 withErr = False
 
@@ -34,4 +62,5 @@ class RunShellCmdCommand(sublime_plugin.WindowCommand):
 
             infos.append(ErrorPanel.Info("success" if rc else "error", *secs))
 
-        return withErr, infos
+        return (withErr, infos, kwds) if run_mode != "run" else None
+

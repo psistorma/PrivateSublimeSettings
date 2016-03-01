@@ -4,22 +4,27 @@ import re
 import sublime
 import sublime_plugin
 
+DEF_RESULT_FILE_REGEX = r'''^\s*File\s*:?\s*"?(.+?)"?,\s*line\s*:?\s*([0-9]+)'''
 
 def fwNotify(f):
     @ft.wraps(f)
     def wrapper(*args, **kwds):
-        result_file_regex = kwds.get("result_file_regex", r'''^\s*File\s*:?\s*"?(.+?)"?,\s*line\s*:?\s*([0-9]+)''')
-        replace_regex = kwds.get("replace_regex", (r"\r(?=$)", ""))
-        show_result = kwds.get("show_result", "has_output")
+        ret = f(*args, **kwds)
+        if ret is None:
+            return
 
+        withErr, infos, notifyKwds = ret
+
+        show_result = notifyKwds.get("show_result", "has_output")
         if show_result not in ["allways", "error", "has_output"]:
             raise ValueError("userStorm: value {} of show_result is not support!"
                              .format(show_result))
 
-        errorPanel.result_file_regex = result_file_regex
-        errorPanel.replace_regex = replace_regex
+        errorPanel.result_file_regex = notifyKwds.get("result_file_regex", DEF_RESULT_FILE_REGEX)
+        errorPanel.replace_regex = notifyKwds.get("replace_regex", (r"\r(?=$)", ""))
+        errorPanel.erasePanelContent = notifyKwds.get("erase_panel_content", True)
 
-        withErr, infos = f(*args, **kwds)
+
         errorPanel.updateData(infos)
 
         if show_result == "allways" or (show_result == "error" and withErr):
@@ -65,6 +70,7 @@ class UserStormErrorPanel(object):
         self.data = None
         self.result_file_regex = ""
         self.replace_regex = ""
+        self.erasePanelContent = True
 
     def show(self, data=None, window=None):
         window = window or sublime.active_window()
@@ -102,7 +108,7 @@ class UserStormErrorPanel(object):
 
     def flush(self):
         errorPanel.view.settings().set("result_file_regex", self.result_file_regex)
-        self.view.run_command("userstorm_error_panel_flush", {"data": self.data})
+        self.view.run_command("userstorm_error_panel_flush", {"data": self.data, "erase": self.erasePanelContent})
 
     def open(self, window=None):
         window = window or sublime.active_window()

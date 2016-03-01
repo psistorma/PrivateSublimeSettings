@@ -1,3 +1,36 @@
 [
-    {"keys": ["f5"], "command": "run_shell_command", "args": {"cmd": [""]} },
+//html
+    {"keys": ["f5"], "command": "side_bar_open_in_browser" , "args":{"paths":[], "type":"testing", "browser":""}, "context": [
+        {"key": "selector", "operator": "equal", "operand": "text.html, text.xml"}
+    ]},
+    {"keys": ["ctrl+f5"], "command": "side_bar_open_in_browser", "args":{"paths":[], "type":"production", "browser":""}, "context": [
+        {"key": "selector", "operator": "equal", "operand": "text.html, text.xml"}
+    ]},
+//python
+    {"keys": ["f5"], "command": "run_shell_cmd", "args": {
+            "commands": ["python.exe \"${file}\""],
+            "async": false,
+        },
+        "context": [
+            {"key": "selector", "operator": "equal", "operand": "source.python"}
+        ]
+    },
+    {"keys": ["ctrl+f5"], "command": "run_shell_cmd", "args": {
+            "commands": ["python.exe \"${file}\""],
+            "async": true,
+        },
+        "context": [
+            {"key": "selector", "operator": "equal", "operand": "source.python"}
+        ]
+    },
+    {"keys": ["alt+f5"], "command": "run_shell_cmd", "args": {
+            "commands": ["python.exe \"${file}\""],
+            "async": true,
+            "run_mode": "run",
+            "win_mode": "show"
+        },
+        "context": [
+            {"key": "selector", "operator": "equal", "operand": "source.python"}
+        ]
+    },
 ]
