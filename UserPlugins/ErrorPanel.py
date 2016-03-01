@@ -4,7 +4,7 @@ import re
 import sublime
 import sublime_plugin
 
-DEF_RESULT_FILE_REGEX = r'''^\s*File\s*:?\s*"?(.+?)"?,\s*line\s*:?\s*([0-9]+)'''
+DEF_RESULT_FILE_REGEX = r'''^\s*File\s*:?\s*(?:"|')?(.+?)(?:"|')?,\s*line\s*:?\s*([0-9]+)'''
 
 def fwNotify(f):
     @ft.wraps(f)
@@ -24,13 +24,13 @@ def fwNotify(f):
         errorPanel.replace_regex = notifyKwds.get("replace_regex", (r"\r(?=$)", ""))
         errorPanel.erasePanelContent = notifyKwds.get("erase_panel_content", True)
 
-
-        errorPanel.updateData(infos)
-
+        lines = errorPanel.formatTolineData(infos)
         if show_result == "allways" or (show_result == "error" and withErr):
-            errorPanel.show(infos)
+            errorPanel.update(data=lines)
         elif show_result == "has_output" and any(info.hasOutput() for info in infos):
-            errorPanel.show(errorPanel.formatTolineData(infos))
+            errorPanel.update(data=lines)
+        else:
+            errorPanel.update(data=lines, show=False)
 
         if withErr:
             sublime.error_message("meet error!")
@@ -59,9 +59,9 @@ class UserstormErrorPanelShowCommand(sublime_plugin.WindowCommand):
             if errorPanel.isVisible(self.window):
                 errorPanel.close()
             else:
-                errorPanel.show(errorPanel.data, self.window)
+                errorPanel.update(data=errorPanel.data, window=self.window)
         else:
-            errorPanel.show(errorPanel.data, window=self.window)
+            errorPanel.update(data=errorPanel.data, window=self.window)
 
 
 class UserStormErrorPanel(object):
@@ -72,7 +72,7 @@ class UserStormErrorPanel(object):
         self.replace_regex = ""
         self.erasePanelContent = True
 
-    def show(self, data=None, window=None):
+    def update(self, *, data=None, window=None, show=True):
         window = window or sublime.active_window()
         if not self.isVisible():
             self.open(window)
@@ -81,7 +81,8 @@ class UserStormErrorPanel(object):
             self.updateData(data)
             self.flush()
 
-        window.run_command("show_panel", {"panel": "output.userstorm"})
+        if show:
+            window.run_command("show_panel", {"panel": "output.userstorm"})
 
 
     def updateData(self, data):
@@ -90,10 +91,11 @@ class UserStormErrorPanel(object):
     def get_view(self):
         return self.view
 
-    def isVisible(self, window=None):
-        ret = self.view != None and self.view.window() != None
+    @staticmethod
+    def isVisible(window=None):
+        ret = errorPanel.view != None and errorPanel.view.window() != None
         if ret and window:
-            ret = self.view.window().id() == window.id()
+            ret = errorPanel.view.window().id() == window.id()
         return ret
 
     @staticmethod
@@ -108,7 +110,10 @@ class UserStormErrorPanel(object):
 
     def flush(self):
         errorPanel.view.settings().set("result_file_regex", self.result_file_regex)
-        self.view.run_command("userstorm_error_panel_flush", {"data": self.data, "erase": self.erasePanelContent})
+
+        self.view.run_command(
+            "userstorm_error_panel_flush",
+            {"data": self.data, "erase": self.erasePanelContent})
 
     def open(self, window=None):
         window = window or sublime.active_window()

@@ -2,13 +2,16 @@ import re
 import sublime_plugin
 from .MUtils import Str
 
-class AutoEscapeCommand(sublime_plugin.TextCommand):
-    def run(self, edit):
+class ReplaceWithCommand(sublime_plugin.TextCommand):
+    def run(self, edit, **kwds):
+        _from = kwds["from"]
+        to = kwds["to"]
+
         selections = self.view.sel()
 
         for region in selections:
             selText = self.view.substr(region)
-            selText = selText.replace("\\", "\\\\")
+            selText = selText.replace(_from, to)
             self.view.replace(edit, region, selText)
 
 class ToggleCamelUnderscoreCommand(sublime_plugin.TextCommand):

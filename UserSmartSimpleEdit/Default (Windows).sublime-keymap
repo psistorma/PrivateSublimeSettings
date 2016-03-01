@@ -1,5 +1,6 @@
 [
-  {"keys": ["ctrl+alt+\\"], "command": "auto_escape" },
+  {"keys": ["ctrl+alt+\\"], "command": "replace_with", "args": {"from": "\\", "to": "\\\\"} },
+  {"keys": ["ctrl+alt+shift+\\"], "command": "replace_with", "args": {"from": "\\\\", "to": "\\"} },
   {"keys": ["ctrl+alt+t"], "command": "toggle_camel_underscore" },
   {"keys": ["ctrl+k", "ctrl+tab"], "command": "indent_space_change", "args": {
       "from": "2", "to": 4
@@ -7,4 +8,5 @@
   {"keys": ["ctrl+k", "ctrl+shift+tab"], "command": "indent_space_change", "args": {
       "from": "4", "to": 2
   }},
+  {"keys": ["ctrl+k", "ctrl+t"], "command": "run_macro_file", "args": {"file": "res://Packages/User/Macros/clipboard_to_json.sublime-macro"}},
 ]

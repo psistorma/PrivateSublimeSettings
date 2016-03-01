@@ -38,7 +38,6 @@ def runShellCmd(args, run_mode="capture_both", win_mode="hide", **kwds):
         startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
         startupinfo.wShowWindow = win32con.SW_HIDE
 
-
     out = runner(args, startupinfo=startupinfo, **kwds)
     return (out.returncode,
             out.stdout.text if out.stdout else "!!can't get stdout",

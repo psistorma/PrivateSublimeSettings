@@ -54,7 +54,6 @@
 	"ignored_packages":
 	[
 		"C++",
-		"SublimeCodeIntel",
 		"Vintage"
 	],
 	"line_numbers": true,

@@ -1,34 +1,115 @@
 [
 //html
-    {"keys": ["f5"], "command": "side_bar_open_in_browser" , "args":{"paths":[], "type":"testing", "browser":""}, "context": [
-        {"key": "selector", "operator": "equal", "operand": "text.html, text.xml"}
-    ]},
-    {"keys": ["ctrl+f5"], "command": "side_bar_open_in_browser", "args":{"paths":[], "type":"production", "browser":""}, "context": [
-        {"key": "selector", "operator": "equal", "operand": "text.html, text.xml"}
-    ]},
+    {"keys": ["f5"], "command": "mul_run" , "args": {
+        "commands" : [
+            {"command": "save"},
+            {"command": "side_bar_open_in_browser",
+                "args":{
+                    "paths":[], "type":"testing", "browser":""
+                }
+            },
+        ]},
+        "context": [
+            {"key": "selector", "operator": "equal", "operand": "text.html, text.xml"}
+        ]
+    },
+    {"keys": ["ctrl+f5"], "command": "mul_run" , "args": {
+        "commands" : [
+            {"command": "save"},
+            {"command": "side_bar_open_in_browser",
+                "args":{
+                    "paths":[], "type":"production", "browser":""
+                }
+            },
+        ]},
+        "context": [
+            {"key": "selector", "operator": "equal", "operand": "text.html, text.xml"}
+        ]
+    },
+//nodejs
+    {"keys": ["f5"], "command": "mul_run" , "args": {
+        "commands" : [
+            {"command": "save"},
+            {"command": "run_shell_cmd",
+                "args":{
+                    "commands": ["node.exe \"${file}\""],"async": false
+                },
+                "context": "window"
+            },
+        ]},
+        "context": [
+            {"key": "selector", "operator": "equal", "operand": "source.js"}
+        ]
+    },
+    {"keys": ["ctrl+f5"], "command": "mul_run" , "args": {
+        "commands" : [
+            {"command": "save"},
+            {"command": "run_shell_cmd",
+                "args":{
+                    "commands": ["node.exe \"${file}\""],"async": true
+                },
+                "context": "window"
+            },
+        ]},
+        "context": [
+            {"key": "selector", "operator": "equal", "operand": "source.js"}
+        ]
+    },
+    {"keys": ["alt+f5"], "command": "mul_run" , "args": {
+        "commands" : [
+            {"command": "save"},
+            {"command": "run_shell_cmd",
+                "args":{
+                    "commands": ["node.exe \"${file}\""],"async": true,
+                    "run_mode": "run","win_mode": "show"
+                },
+                "context": "window"
+            },
+        ]},
+        "context": [
+            {"key": "selector", "operator": "equal", "operand": "source.js"}
+        ]
+    },
 //python
-    {"keys": ["f5"], "command": "run_shell_cmd", "args": {
-            "commands": ["python.exe \"${file}\""],
-            "async": false,
-        },
+    {"keys": ["f5"], "command": "mul_run" , "args": {
+        "commands" : [
+            {"command": "save"},
+            {"command": "run_shell_cmd",
+                "args":{
+                    "commands": ["python.exe \"${file}\""],"async": false
+                },
+                "context": "window"
+            },
+        ]},
         "context": [
             {"key": "selector", "operator": "equal", "operand": "source.python"}
         ]
     },
-    {"keys": ["ctrl+f5"], "command": "run_shell_cmd", "args": {
-            "commands": ["python.exe \"${file}\""],
-            "async": true,
-        },
+    {"keys": ["ctrl+f5"], "command": "mul_run" , "args": {
+        "commands" : [
+            {"command": "save"},
+            {"command": "run_shell_cmd",
+                "args":{
+                    "commands": ["python.exe \"${file}\""],"async": true
+                },
+                "context": "window"
+            },
+        ]},
         "context": [
             {"key": "selector", "operator": "equal", "operand": "source.python"}
         ]
     },
-    {"keys": ["alt+f5"], "command": "run_shell_cmd", "args": {
-            "commands": ["python.exe \"${file}\""],
-            "async": true,
-            "run_mode": "run",
-            "win_mode": "show"
-        },
+    {"keys": ["alt+f5"], "command": "mul_run" , "args": {
+        "commands" : [
+            {"command": "save"},
+            {"command": "run_shell_cmd",
+                "args":{
+                    "commands": ["python.exe \"${file}\""],"async": true,
+                    "run_mode": "run","win_mode": "show"
+                },
+                "context": "window"
+            },
+        ]},
         "context": [
             {"key": "selector", "operator": "equal", "operand": "source.python"}
         ]

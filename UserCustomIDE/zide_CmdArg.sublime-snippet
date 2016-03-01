@@ -3,5 +3,5 @@
 "args": {"$1": "$2"}$0
 ]]></content>
 	<tabTrigger>zide_CmdArgs</tabTrigger>
-	<!-- <scope>source.python</scope> -->
+	<scope>source.sublimekeymap</scope>
 </snippet>

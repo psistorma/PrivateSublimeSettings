@@ -60,7 +60,7 @@ class RunShellCmdCommand(sublime_plugin.WindowCommand):
                 secs.append(("error info", stderr, True))
             secs.append(("output info", stdout, True))
 
-            infos.append(ErrorPanel.Info("success" if rc else "error", *secs))
+            infos.append(ErrorPanel.Info("success" if rc==0 else "error", *secs))
 
         return (withErr, infos, kwds) if run_mode != "run" else None
 

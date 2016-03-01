@@ -1,0 +1,26 @@
+[
+	{
+		"args":
+		{
+			"commands":
+			[
+				{
+					"command": "paste"
+				}
+			]
+		},
+		"command": "mul_run"
+	},
+    {
+        "args": {"syntax": "Packages/UserSyntax/JSONByStorm.sublime-syntax"},
+        "command": "set_file_type"
+    },
+    {
+        "args": null,
+        "command": "select_all"
+    },
+	{
+		"args": null,
+		"command": "pretty_json"
+	}
+]

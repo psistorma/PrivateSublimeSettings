@@ -8,5 +8,5 @@
 },$0
 ]]></content>
 	<tabTrigger>zide_Mulrun</tabTrigger>
-	<!-- <scope>source.python</scope> -->
+	<scope>source.sublimekeymap</scope>
 </snippet>
