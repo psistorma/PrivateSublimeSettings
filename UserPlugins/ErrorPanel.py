@@ -1,11 +1,14 @@
 import functools as ft
+import dpath.util
 from collections import namedtuple
 import re
 import sublime
 import sublime_plugin
+from .SublimeUtils import Setting
 
-DEF_RESULT_FILE_REGEX = r'''(?i)^\s*File\s*:?\s*(?:"|')?(.+?)(?:"|')?,\s*line\s*:?\s*([0-9]+)'''
+plugin = Setting.PluginSetting("UserPlugins")
 
+SKEY_ERRORPANEL = "ErrorPanel"
 def fwNotify(f):
     @ft.wraps(f)
     def wrapper(*args, **kwds):
@@ -20,7 +23,11 @@ def fwNotify(f):
             raise ValueError("userStorm: value {} of show_result is not support!"
                              .format(show_result))
 
-        errorPanel.result_file_regex = notifyKwds.get("result_file_regex", DEF_RESULT_FILE_REGEX)
+        plugin.load()
+        getSetting = plugin.forTarget(SKEY_ERRORPANEL, {})
+        [default_result_file_regex] = getSetting("default_result_file_regex") or [""]
+
+        errorPanel.result_file_regex = notifyKwds.get("result_file_regex", default_result_file_regex)
         errorPanel.replace_regex = notifyKwds.get("replace_regex", (r"\r(?=$)", ""))
         errorPanel.erasePanelContent = notifyKwds.get("erase_panel_content", True)
 
@@ -109,7 +116,8 @@ class UserStormErrorPanel(object):
         return "\n".join(lines)
 
     def flush(self):
-        errorPanel.view.settings().set("result_file_regex", self.result_file_regex)
+        if self.result_file_regex:
+            errorPanel.view.settings().set("result_file_regex", self.result_file_regex)
 
         self.view.run_command(
             "userstorm_error_panel_flush",

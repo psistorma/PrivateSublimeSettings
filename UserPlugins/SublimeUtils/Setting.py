@@ -1,5 +1,8 @@
+import functools as ft
 from ..MUtils import Os
 import sublime
+import dpath.util
+
 
 def expandVariables(window, *strs, forSublime=True, forEnv=True):
     sublimeVariables = window.extract_variables()
@@ -9,5 +12,32 @@ def expandVariables(window, *strs, forSublime=True, forEnv=True):
     retStrs = Os.expandVariables(*retStrs) if forEnv else retStrs
 
     return retStrs
+
+
+class PluginSetting(object):
+    def __init__(self, baseName, ext='sublime-settings'):
+        self.settings = None
+        self.settingFileName = ".".join([baseName, ext])
+
+    def load(self):
+        self.settings = sublime.load_settings(self.settingFileName)
+        return self
+
+    def __getattr__(self, name):
+        try:
+            return getattr(self.settings, name)
+        except KeyError:
+            raise AttributeError
+
+    def forTarget(self, target, defVal = None):
+        if defVal is None:
+            setting = self.load().get(target)
+        else:
+            setting = self.load().get(target, defVal)
+
+        return ft.partial(dpath.util.values, setting)
+
+
+
 
 

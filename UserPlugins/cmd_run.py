@@ -5,41 +5,25 @@ from .MUtils import Basic, Os
 from .SublimeUtils import Setting, Panel
 from . import ErrorPanel
 
+plugin = Setting.PluginSetting("UserPlugins")
+
 class PrintSublimeVariableCommand(sublime_plugin.WindowCommand):
     def run(self):
         print(self.window.extract_variables())
 
-
-ASYNC_STATUS_KEY = "userplugin_runcmd_async"
-RE_LEXICAL_RUN_MODE_SYNC = r"(?i)^\s*@s\s*(.*)"
-RE_LEXICAL_RUN_MODE_ASYNC = r"(?i)^\s*@a\s*(.*)"
-RE_LEXICAL_RUN_MODE_SHOW_IN_SHELL = r"(?i)^\s*@\s*(.*)"
-
-class RunShellCmdPropmtCommand(sublime_plugin.WindowCommand):
+SKEY_RUN_SHELL_CMD_PROMPT = "run_shell_cmd_prompt"
+class RunShellCmdPromptCommand(sublime_plugin.WindowCommand):
     def __init__(self, *args):
         super().__init__(*args)
         self.lastInput = ""
         self.cmdKwds = None
-        self.lexicalKwdsModes = [
-            {"pat": re.compile(RE_LEXICAL_RUN_MODE_SYNC),
-             "kwds": {"run_mode": "capture_both",
-                      "win_mode": "hide",
-                      "async": False},
-            },
-            {"pat": re.compile(RE_LEXICAL_RUN_MODE_ASYNC),
-             "kwds": {"run_mode": "capture_both",
-                      "win_mode": "hide",
-                      "async": True},
-            },
-            {"pat": re.compile(RE_LEXICAL_RUN_MODE_SHOW_IN_SHELL),
-             "kwds": {"run_mode": "run",
-                      "win_mode": "show",
-                      "async": True},
-             "transform": "cmd /k {}"
-            },
-        ]
+        self.lexical_kwds_modes = None
+        self.getSetting = None
+
 
     def run(self, **kwds):
+        self.getSetting = plugin.forTarget(SKEY_RUN_SHELL_CMD_PROMPT, {})
+
         self.cmdKwds = kwds
         Panel.showInputPanel(self.window, self.onGotInput, "cmd:", self.lastInput)
 
@@ -48,18 +32,31 @@ class RunShellCmdPropmtCommand(sublime_plugin.WindowCommand):
         if not content:
             return
 
-        for mode in self.lexicalKwdsModes:
-            m = mode["pat"].match(content)
+        [self.lexical_kwds_modes] = self.getSetting("lexical_kwds_modes")
+        matched = None
+        for mode in self.lexical_kwds_modes:
+            m = re.match(mode["pattern"], content)
+            if mode.get("default", False):
+                matched = mode, m
+            if m:
+                matched = mode, m
+                break
+
+        if matched:
+            mode, m = matched
+
+            self.cmdKwds.update(mode["kwds"])
             if m:
                 content = m.group(1)
-                self.cmdKwds.update(mode["kwds"])
-                if "transform" in mode:
-                    content = mode["transform"].format(content)
-                break
+
+            if "transform" in mode:
+                content = mode["transform"].format(content)
+
 
         self.cmdKwds["commands"] = content.split(";;")
         self.window.run_command("run_shell_cmd", self.cmdKwds)
 
+ASYNC_STATUS_KEY = "userstorm_async_status_key"
 class RunShellCmdCommand(sublime_plugin.WindowCommand):
     def __init__(self, *args):
         super().__init__(*args)
