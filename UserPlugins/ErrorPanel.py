@@ -4,7 +4,7 @@ import re
 import sublime
 import sublime_plugin
 
-DEF_RESULT_FILE_REGEX = r'''^\s*File\s*:?\s*(?:"|')?(.+?)(?:"|')?,\s*line\s*:?\s*([0-9]+)'''
+DEF_RESULT_FILE_REGEX = r'''(?i)^\s*File\s*:?\s*(?:"|')?(.+?)(?:"|')?,\s*line\s*:?\s*([0-9]+)'''
 
 def fwNotify(f):
     @ft.wraps(f)

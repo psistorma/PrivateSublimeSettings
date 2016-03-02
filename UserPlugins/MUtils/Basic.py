@@ -20,7 +20,7 @@ def fwKeyWordMap(mapping, *ignoreKeys, **defaults):
 
     return decorator
 
-def fwReportException(reportFun, expType=Exception):
+def fwReportException(reportFun, expType=Exception, reThrow=True):
     def decorator(f):
         @ft.wraps(f)
         def wrapper(*args, **kwds):
@@ -28,6 +28,7 @@ def fwReportException(reportFun, expType=Exception):
                 return f(*args, **kwds)
             except expType as e: # pylint: disable=W0703
                 reportFun(str(e))
+                raise e
 
         return wrapper
 
@@ -43,3 +44,31 @@ def fwRunInThread(f):
         threading.Thread(target=_f, args=(f, args, kwds)).start()
 
     return wapper
+
+
+    class TryDecodingError(Exception):
+        def __init__(self, hasTryEncodings, *args):
+            super().__init__(*args)
+
+            self.hasTryEncodings = hasTryEncodings
+
+        def __str__(self):
+            return repr(self.hasTryEncodings)
+
+def fwTryDecodings(defaultEncodings):
+    def decorator(f):
+        @ft.wraps(f)
+        def wrapper(*args, **kwds):
+            orgDecodeExeption = None
+            maybe_encodings = kwds.pop("maybe_encodings", defaultEncodings)
+            for encoding in maybe_encodings:
+                try:
+                    return f(*args, encoding=encoding, **kwds)
+                except UnicodeDecodeError as e:
+                    orgDecodeExeption = e
+
+            raise TryDecodingError(maybe_encodings, orgDecodeExeption)
+
+        return wrapper
+
+    return decorator

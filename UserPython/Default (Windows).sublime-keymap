@@ -5,7 +5,7 @@
         "args": {"characters": ":\n"},
         "keys": [":"], "context": [
             {"key": "selection_empty", "operator": "equal", "operand": true},
-            {"key": "preceding_text", "operator": "not_regex_contains", "operand": "(?:\\blambda\\s*|:)$"},
+            {"key": "preceding_text", "operator": "not_regex_contains", "operand": "(?:\\blambda\\s*|:|\"|')$"},
             {"key": "following_text", "operator": "regex_match", "operand": "$"},
             {"key": "selector", "operator": "equal", "operand": "source.python"}
         ]

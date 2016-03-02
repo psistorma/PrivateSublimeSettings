@@ -1,10 +1,9 @@
 import subprocess
 import os
-import sarge
 import win32con
-from . import Basic
+from . import Basic, sargeWrapper
 
-def expandVariable(*strs):
+def expandVariables(*strs):
     retStrs = []
 
     for s in strs:
@@ -17,10 +16,10 @@ def expandVariable(*strs):
     return tuple(retStrs)
 
 _CMD_MODE_MAP = {
-    "run": sarge.run,
-    "capture_stdout": sarge.capture_stdout,
-    "capture_stderr": sarge.capture_stderr,
-    "capture_both": sarge.capture_both,
+    "run": sargeWrapper.run,
+    "capture_stdout": sargeWrapper.capture_stdout,
+    "capture_stderr": sargeWrapper.capture_stderr,
+    "capture_both": sargeWrapper.capture_both,
 
 }
 _CMD_KWDS_MAP = {
@@ -28,7 +27,7 @@ _CMD_KWDS_MAP = {
 }
 
 @Basic.fwKeyWordMap(_CMD_KWDS_MAP, ["run_mode", "win_mode"])
-def runShellCmd(args, run_mode="capture_both", win_mode="hide", **kwds):
+def runShellCmd(cmd, run_mode="capture_both", win_mode="hide", **kwds):
     # startupinfo = subprocess.STARTUPINFO()
     # startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
     runner = _CMD_MODE_MAP[run_mode]
@@ -38,9 +37,10 @@ def runShellCmd(args, run_mode="capture_both", win_mode="hide", **kwds):
         startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
         startupinfo.wShowWindow = win32con.SW_HIDE
 
-    out = runner(args, startupinfo=startupinfo, **kwds)
+    out = runner(cmd, startupinfo=startupinfo, **kwds)
     return (out.returncode,
-            out.stdout.text if out.stdout else "!!can't get stdout",
-            out.stderr.text if out.stderr else "!!can't get stderr")
+            out.encoding,
+            out.stdoutText if out.stdoutText is not None else "!!can't get stdout",
+            out.stderrText if out.stderrText is not None else "!!can't get stderr")
 
 
