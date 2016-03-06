@@ -1,5 +1,4 @@
 import functools as ft
-import dpath.util
 from collections import namedtuple
 import re
 import sublime
@@ -12,6 +11,7 @@ SKEY_ERRORPANEL = "ErrorPanel"
 def fwNotify(f):
     @ft.wraps(f)
     def wrapper(*args, **kwds):
+        errorPanel.initOptions()
         ret = f(*args, **kwds)
         if ret is None:
             return
@@ -23,13 +23,7 @@ def fwNotify(f):
             raise ValueError("userStorm: value {} of show_result is not support!"
                              .format(show_result))
 
-        getSetting = pluginSetting.forTarget(SKEY_ERRORPANEL, {})
-        [default_result_file_regex] = getSetting("default_result_file_regex") or [""]
-
-        errorPanel.result_file_regex = notifyKwds.get("result_file_regex", default_result_file_regex)
-        errorPanel.replace_regex = notifyKwds.get("replace_regex", (r"\r(?=$)", ""))
-        errorPanel.erasePanelContent = notifyKwds.get("erase_panel_content", True)
-        errorPanel.scroll_end = notifyKwds.get("scroll_end", True)
+        errorPanel.updateOptions(**notifyKwds)
 
 
         lines = errorPanel.formatTolineData(infos)
@@ -82,10 +76,34 @@ class UserStormErrorPanel(object):
     def __init__(self):
         self.view = None
         self.data = None
-        self.result_file_regex = ""
-        self.replace_regex = ""
-        self.erasePanelContent = True
-        self.scroll_end = True
+        self.default = {}
+        self.options = {}
+
+
+    def initOptions(self):
+        getSetting = pluginSetting.forTarget(SKEY_ERRORPANEL, {})
+        defaultSettings = (
+            ("syntax_file",
+             "Packages/UserPlugins/StormErrorPanel.sublime-syntax"),
+
+            ("result_file_regex",
+             "(?i)^\\s*File\\s*:?\\s*(?:\"|')?(.+?)(?:\"|')?,\\s*line\\s*:?\\s*([0-9]+)"),
+
+            ("replace_regex",
+             {"from": "\\r(?=$)", "to": ""}),
+
+            ("erase_panel_content",
+             True),
+
+            ("scroll_end",
+             True),
+        )
+        for k, defVal in defaultSettings:
+            [self.default[k]] = getSetting(k) or [defVal]
+
+    def updateOptions(self, **notifyKwds):
+        self.options = {k: notifyKwds.get(k, v) for k, v in self.default.items()}
+
 
     def update(self, *, data=None, window=None, show=True):
         window = window or sublime.active_window()
@@ -124,23 +142,24 @@ class UserStormErrorPanel(object):
         return "\n".join(lines)
 
     def flush(self):
-        if self.result_file_regex:
-            errorPanel.view.settings().set("result_file_regex", self.result_file_regex)
+        result_file_regex = self.options["result_file_regex"]
+        if result_file_regex:
+            errorPanel.view.settings().set("result_file_regex", result_file_regex)
 
         self.view.run_command(
             "userstorm_error_panel_flush",
             {"data": self.data,
-             "erase": self.erasePanelContent,
-             "scroll_end": self.scroll_end,
+             "erase": self.options["erase_panel_content"],
+             "scroll_end": self.options["scroll_end"],
             })
 
     def open(self, window=None):
         window = window or sublime.active_window()
         if not self.isVisible(window):
             self.view = window.get_output_panel("userstorm")
-            errorPanel.view.settings().set("result_file_regex", self.result_file_regex)
+            self.view.settings().set("result_file_regex", self.options["result_file_regex"])
             self.view.set_scratch(True)
-            fileName = "Packages/UserPlugins/StormErrorPanel.sublime-syntax"
+            fileName = self.options["syntax_file"]
             self.view.set_syntax_file(fileName)
             self.view.set_read_only(False)
 
@@ -174,8 +193,20 @@ class Info(object):
     @classmethod
     def formatSectionLines(cls, sec):
         lines = sec.content.split("\n")
-        if errorPanel.replace_regex:
-            pat = re.compile(errorPanel.replace_regex[0])
-            lines = [pat.sub(errorPanel.replace_regex[1], line) for line in lines]
+        replace_regex = errorPanel.options["replace_regex"]
+        if replace_regex:
+            pat = re.compile(replace_regex["from"])
+            lines = [pat.sub(replace_regex["to"], line) for line in lines]
 
         return [Info.wrapTitle(sec.title).center(Info.WIDTH, Info.SECTION_FILL_CHAR)] + lines
+
+def DynamicUpdate(infos, **notifyKwds):
+    errorPanel.updateOptions(**notifyKwds)
+    if "erase_panel_content" not in notifyKwds:
+        errorPanel.options["erase_panel_content"] = False
+
+    if "scroll_end" not in notifyKwds:
+        errorPanel.options["scroll_end"] = False
+
+    lines = errorPanel.formatTolineData(infos)
+    errorPanel.update(data=lines)

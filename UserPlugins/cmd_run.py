@@ -74,6 +74,8 @@ class RunShellCmdCommand(sublime_plugin.WindowCommand):
         run_mode = kwds.pop("run_mode", "capture_both")
         win_mode = kwds.pop("win_mode", "hide")
         run_opts = kwds.pop("run_opts", {})
+        dyn_report_mul = kwds.pop("dyn_report_mul", True)
+
         if qAndaDict:
             commands = [Basic.renderText(cmd, **qAndaDict) for cmd in commands]
 
@@ -84,7 +86,8 @@ class RunShellCmdCommand(sublime_plugin.WindowCommand):
         workParams = dict(commands=commands,
                           run_mode=run_mode,
                           win_mode=win_mode,
-                          run_opts=run_opts
+                          run_opts=run_opts,
+                          dyn_report_mul=dyn_report_mul
                          )
         if _async:
             view = self.window.active_view()
@@ -108,8 +111,9 @@ class RunShellCmdCommand(sublime_plugin.WindowCommand):
     @staticmethod
     @ErrorPanel.fwNotify
     @Basic.fwReportException(sublime.error_message)
-    def doWork(commands, run_mode, win_mode, run_opts, **kwds):
+    def doWork(commands, run_mode, win_mode, run_opts, dyn_report_mul, **kwds):
         withErr, infos = False, []
+        isMulCmd = len(commands) > 1
         for cmd in commands:
             rc, encoding, stdout, stderr = Os.runShellCmd(
                 cmd,
@@ -127,7 +131,10 @@ class RunShellCmdCommand(sublime_plugin.WindowCommand):
                 secs.append(("error/notify", stderr, True))
             secs.append(("output", stdout, True))
 
-            infos.append(ErrorPanel.Info("success" if rc == 0 else "error", *secs))
+            info = ErrorPanel.Info("success" if rc == 0 else "error", *secs)
+            infos.append(info)
+            if isMulCmd and dyn_report_mul:
+                ErrorPanel.DynamicUpdate([info])
 
         return (withErr, infos, kwds) if run_mode != "run" else None
 
