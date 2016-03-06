@@ -22,6 +22,7 @@
 		"MUtils/__init__.py",
 		"MUtils/Str.py",
 		"MUtils/Os.py",
+		"MUtils/Input.py",
 		"MUtils/Basic.py",
 		"ErrorPanel.py"
 	]

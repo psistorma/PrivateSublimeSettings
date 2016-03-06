@@ -168,5 +168,12 @@
             "commands": ["git add -A", "git commit -m \"{{message}}\"", "git push"],
             "run_opts": {"cwd": "${packages}"}}
         },
+        // {"keys": ["alt+t"], "command": "run_shell_cmd",  "args": {
+        //     "questions": [{"key": "message", "title": "commit message",
+        //                   "pattern": "(?P<message>\\S+)?", "answer_tempate": "{{message}}",
+        //                   "default_dict": {"message": "auto commit"}}],
+        //     "commands": ["echo {{message}}"],
+        //     "run_opts": {"cwd": "${packages}"}}
+        // },
         {"keys": ["ctrl+alt+shift+v"], "command": "print_sublime_variable"},
 ]
