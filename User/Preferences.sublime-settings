@@ -48,12 +48,13 @@
 	[
 		"directwrite"
 	],
-	"font_size": 16,
+	"font_size": 17,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
 		"C++",
+		"SublimeCodeIntel",
 		"Vintage"
 	],
 	"line_numbers": true,

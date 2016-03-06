@@ -29,11 +29,14 @@ class PluginSetting(object):
         except KeyError:
             raise AttributeError
 
-    def forTarget(self, target, defVal = None):
+    def forTarget(self, target, defVal = None, reLoad=True):
+        if reLoad:
+            self.load()
+
         if defVal is None:
-            setting = self.load().get(target)
+            setting = self.settings.get(target)
         else:
-            setting = self.load().get(target, defVal)
+            setting = self.settings.get(target, defVal)
 
         return ft.partial(dpath.util.values, setting)
 

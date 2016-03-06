@@ -6,7 +6,7 @@ import sublime
 import sublime_plugin
 from .SublimeUtils import Setting
 
-plugin = Setting.PluginSetting("UserPlugins")
+pluginSetting = Setting.PluginSetting("UserPlugins")
 
 SKEY_ERRORPANEL = "ErrorPanel"
 def fwNotify(f):
@@ -23,23 +23,27 @@ def fwNotify(f):
             raise ValueError("userStorm: value {} of show_result is not support!"
                              .format(show_result))
 
-        plugin.load()
-        getSetting = plugin.forTarget(SKEY_ERRORPANEL, {})
+        getSetting = pluginSetting.forTarget(SKEY_ERRORPANEL, {})
         [default_result_file_regex] = getSetting("default_result_file_regex") or [""]
 
         errorPanel.result_file_regex = notifyKwds.get("result_file_regex", default_result_file_regex)
         errorPanel.replace_regex = notifyKwds.get("replace_regex", (r"\r(?=$)", ""))
         errorPanel.erasePanelContent = notifyKwds.get("erase_panel_content", True)
+        errorPanel.scroll_end = notifyKwds.get("scroll_end", True)
+
 
         lines = errorPanel.formatTolineData(infos)
+        isInfoShowed = errorPanel.isVisible()
         if show_result == "allways" or (show_result == "error" and withErr):
             errorPanel.update(data=lines)
+            isInfoShowed = True
         elif show_result == "has_output" and any(info.hasOutput() for info in infos):
             errorPanel.update(data=lines)
+            isInfoShowed = True
         else:
             errorPanel.update(data=lines, show=False)
 
-        if withErr:
+        if withErr and not isInfoShowed:
             sublime.error_message("meet error!")
         else:
             sublime.status_message("cmd run success")
@@ -50,10 +54,13 @@ class UserstormErrorPanelFlushCommand(sublime_plugin.TextCommand):
     def run(self, edit, **kwds):
         data = kwds["data"]
         erase = kwds.get("erase", True)
+        scroll_end = kwds.get("scroll_end", True)
 
         if erase:
             self.view.erase(edit, sublime.Region(0, self.view.size()))
         self.view.insert(edit, 0, data)
+        if scroll_end:
+            self.view.show(self.view.size())
 
 class UserstormErrorPanelHideCommand(sublime_plugin.TextCommand):
     def run(self, edit):
@@ -78,6 +85,7 @@ class UserStormErrorPanel(object):
         self.result_file_regex = ""
         self.replace_regex = ""
         self.erasePanelContent = True
+        self.scroll_end = True
 
     def update(self, *, data=None, window=None, show=True):
         window = window or sublime.active_window()
@@ -121,7 +129,10 @@ class UserStormErrorPanel(object):
 
         self.view.run_command(
             "userstorm_error_panel_flush",
-            {"data": self.data, "erase": self.erasePanelContent})
+            {"data": self.data,
+             "erase": self.erasePanelContent,
+             "scroll_end": self.scroll_end,
+            })
 
     def open(self, window=None):
         window = window or sublime.active_window()

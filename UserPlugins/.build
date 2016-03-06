@@ -3,6 +3,7 @@
 	"iterations": 1,
 	"mods_load_order":
 	[
+		"tests_MUtils_Basic.py",
 		"cmd_simple_transform.py",
 		"cmd_selection.py",
 		"cmd_run.py",
@@ -11,6 +12,7 @@
 		"cmd_mul_run.py",
 		"cmd_list_current_dir.py",
 		"cmd_indent_space_change.py",
+		"cmd_eval.py",
 		"__init__.py",
 		"SublimeUtils/__init__.py",
 		"SublimeUtils/Setting.py",

@@ -176,6 +176,7 @@ W0122: Use of exec
 E0107: Use of the non-existent %s operator
 W0333: Use of the `` operator
 W0121: Use raise ErrorClass(args) instead of raise ErrorClass, args.
+W0123: Use of eval
 E1002: Use of super on an old style class
 E1001: Use of __slots__ on an old style class
 W0142: Used * or ** magic

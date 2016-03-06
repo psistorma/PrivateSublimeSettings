@@ -159,9 +159,14 @@
 //__EasyInvoker
         {"keys": ["ctrl+g"], "command": "easy_invoke" },
         {"keys": ["alt+g"], "command": "run_shell_cmd_prompt"},
+        {"keys": ["ctrl+alt+g"], "command": "eval_python_code_prompt"},
 //__BindToMacros
-        // {"keys": ["alt+t"], "command": "run_shell_cmd",  "args": {
-        //     "commands": ["python.exe \"${file}\""]}
-        // },
+        {"keys": ["alt+t"], "command": "run_shell_cmd",  "args": {
+            "questions": [{"key": "message", "title": "commit message",
+                          "pattern": "(?P<message>\\S+)?", "answer_tempate": "{{message}}",
+                          "default_dict": {"message": "auto commit"}}],
+            "commands": ["git add -A", "git commit -m \"{{message}}\"", "git push"],
+            "run_opts": {"cwd": "${packages}"}}
+        },
         {"keys": ["ctrl+alt+shift+v"], "command": "print_sublime_variable"},
 ]

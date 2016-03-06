@@ -114,4 +114,19 @@
             {"key": "selector", "operator": "equal", "operand": "source.python"}
         ]
     },
+////
+    {"keys": ["shift+space"], "command": "mul_run" , "args": {
+        "commands" : [
+            {"command": "save"},
+            {"command": "run_shell_cmd",
+                "args":{
+                    "commands": ["python.exe \"C:\\Users\\Administrator\\AppData\\Roaming\\Sublime Text 3\\Packages\\UserPlugins\\tests_MUtils_Basic.py\""],"async": false
+                },
+                "context": "window"
+            },
+        ]},
+        "context": [
+            {"key": "selector", "operator": "equal", "operand": "source.python"}
+        ]
+    },
 ]
