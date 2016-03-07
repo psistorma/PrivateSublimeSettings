@@ -9,7 +9,6 @@ def askQuestions(showInputPanel, onDone, *questions, onChange=None, onCancel=Non
         raise ValueError("questions is Empty!")
 
     qas = {}
-
     def _askCurQuestion():
         curQuestion = questions.pop()
         key = curQuestion["key"]
@@ -44,7 +43,6 @@ def askQuestions(showInputPanel, onDone, *questions, onChange=None, onCancel=Non
         showInputPanel(
             _oneQuestionDone, title, init_text,
             onChange=onChange, onCancel=onCancel)
-
 
     _askCurQuestion()
 

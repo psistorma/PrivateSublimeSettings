@@ -134,7 +134,7 @@ class RunShellCmdCommand(sublime_plugin.WindowCommand):
             info = ErrorPanel.Info("success" if rc == 0 else "error", *secs)
             infos.append(info)
             if isMulCmd and dyn_report_mul:
-                ErrorPanel.DynamicUpdate([info])
+                ErrorPanel.DynamicUpdate([info], **kwds)
 
         return (withErr, infos, kwds) if run_mode != "run" else None
 
