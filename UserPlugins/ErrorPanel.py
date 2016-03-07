@@ -81,25 +81,23 @@ class UserStormErrorPanel(object):
 
 
     def initOptions(self):
-        getSetting = pluginSetting.forTarget(SKEY_ERRORPANEL, {})
-        defaultSettings = (
-            ("syntax_file",
-             "Packages/UserPlugins/StormErrorPanel.sublime-syntax"),
+        defaultSettings = {
+            "syntax_file":
+            "Packages/UserPlugins/StormErrorPanel.sublime-syntax",
 
-            ("result_file_regex",
-             "(?i)^\\s*File\\s*:?\\s*(?:\"|')?(.+?)(?:\"|')?,\\s*line\\s*:?\\s*([0-9]+)"),
+            "result_file_regex":
+            "(?i)^\\s*File\\s*:?\\s*(?:\"|')?(.+?)(?:\"|')?,\\s*line\\s*:?\\s*([0-9]+)",
 
-            ("replace_regex",
-             {"from": "\\r(?=$)", "to": ""}),
+            "replace_regex":
+            {"from": "\\r(?=$)", "to": ""},
 
-            ("erase_panel_content",
-             True),
+            "erase_panel_content":
+            True,
 
-            ("scroll_end",
-             True),
-        )
-        for k, defVal in defaultSettings:
-            [self.default[k]] = getSetting(k) or [defVal]
+            "scroll_end":
+            True,
+        }
+        self.default = pluginSetting.getSetting(SKEY_ERRORPANEL, **defaultSettings)
 
     def updateOptions(self, **notifyKwds):
         self.options = {k: notifyKwds.get(k, v) for k, v in self.default.items()}

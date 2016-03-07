@@ -40,7 +40,12 @@ class PluginSetting(object):
 
         return ft.partial(dpath.util.values, setting)
 
+    def getSetting(self, target, **defaultSettings):
+        _getSetting = self.forTarget(target, {})
+        settings = {}
+        for k, defVal in defaultSettings.items():
+            [val] = _getSetting(k) or [defVal]
+            settings[k] = val
 
-
-
+        return settings
 
