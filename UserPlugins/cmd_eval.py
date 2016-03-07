@@ -1,7 +1,8 @@
 import traceback
+import fn
 import sublime
 import sublime_plugin
-from .MUtils import Basic, Os
+from .MUtils import Basic, Os, Input
 from .SublimeUtils import Setting, Panel
 from . import ErrorPanel
 
@@ -33,9 +34,15 @@ class EvalPythonCodeCommand(sublime_plugin.WindowCommand):
         self.asncCmdCount = 0
         self.code = None
 
-    def run(self, **kwds):
+    @Input.fwAskQuestions(
+        fn.F(Panel.showInputPanel, None),
+        fn.F(sublime.error_message, "Canceled on answering question!"))
+    def run(self, qAndaDict=None, **kwds):
         _async = kwds.pop("async", True)
         self.code = kwds.pop("code")
+
+        if qAndaDict:
+            self.code = Basic.renderText(self.code, **qAndaDict)
 
         if _async:
             view = self.window.active_view()
