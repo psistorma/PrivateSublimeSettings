@@ -76,6 +76,16 @@ contexts:
     - match: (?=\s*\bextern\s+\"C\")
       push:
         - include: lex-variable
+        - match: $\n?
+          set:
+            - match: (?=^\s*\w)
+              pop: true
+            - match: (?=\s*\{)
+              set:
+                - meta_scope: meta.extern.c
+                - include: step-declaration-block
+        - match: (?=^.*?\()
+          pop: true
         - match: (?=\s*\{)
           set:
             - meta_scope: meta.extern.c
@@ -853,9 +863,11 @@ contexts:
       scope: punctuation.definition.semicolon.statement.end
 # statement flee
   rule-statement-flee:
-    - match: (?=\s*(?:goto|return|throw)\b)
+    - match: (?=\s*\b(?:goto|return|throw)\b)
       push:
         - meta_scope: meta.flee
+        - match: \s*\b(?:goto|return|throw)\b
+          scope: meta.tip.notify keyword.control.flee.c
         - include: step-expression-statement
 # statement expression
   rule-statement-expression:
