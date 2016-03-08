@@ -26,16 +26,14 @@ class promiseInput_TestCase(unittest.TestCase):
 
 
     def test_matchWithDefaultDict(self):
-        case = ({"inStr": "Basic.sub",
-                 "pattern": r"^(?P<info>\S*)(\s+:\s+(?P<tip>.*))?$",
+        case = ({"inStr": "Basic.sub with default",
+                 "pattern": r"^(?P<info>[^:]*)(\s+:\s+(?P<tip>.*))?$",
                  "transTemplate": "info: {{info}}\ntip: {{tip}}",
                  "defaultDict": {"tip": "normal case"}
                 },
-                "info: Basic.sub\ntip: normal case")
+                "info: Basic.sub with default\ntip: normal case")
 
         self.assertEqual(Basic.promiseInput(**case[0]), case[1])
-
-
 
 if __name__ == '__main__':
     unittest.main()

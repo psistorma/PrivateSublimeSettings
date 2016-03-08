@@ -2,7 +2,6 @@ import functools as ft
 import fn
 from . import Basic
 
-
 def askQuestions(showInputPanel, onDone, *questions, onChange=None, onCancel=None):
     questions = list(questions)
     if not questions:
