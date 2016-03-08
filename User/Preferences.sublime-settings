@@ -48,7 +48,7 @@
 	[
 		"directwrite"
 	],
-	"font_size": 17,
+	"font_size": 18,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
@@ -67,7 +67,7 @@
 	"scroll_past_end": false,
 	"show_full_path": true,
 	"show_minimap": false,
-	"tab_completion": true,
+	"tab_completion": false,
 	"tab_size": 4,
 	"theme": "SoDaReloaded Dark.sublime-theme",
 	"translate_tabs_to_spaces": true,

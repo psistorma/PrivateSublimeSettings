@@ -806,13 +806,15 @@ contexts:
                   set:
                     - meta_scope: meta.catch
                     - include: step-impl-inner-block
-            - include: step-impl-inner-block
+            - match: (?=\s*\{)
+              push:
+                - include: step-impl-inner-block
 # statement declaration
   rule-statement-declaration:
     - match: (?=^\s*{{svCtxType}}\s*{{svIdent}}.*?(?=,|;|=|\())
       push:
         - meta_scope: meta.impl.declaration
-        - match: (?=\s*{{svIdent}}\s*(?=,|;|=|\())
+        - match: (?=\s*{{svIdent}}\s*(?=,|;|=|\(|\{|\[))
           set: __step-varaible-declaration
         - include: lex-slack-pointer-type
         - include: lex-declaration-type
@@ -822,10 +824,11 @@ contexts:
     - meta_scope: meta.impl.declaration
     - include: step-finish-at-end-of-statement
       pop: true
-    - match: (?=\s*(\*?{{svIdent}})\s*(?=,|;|=|\(|\{))
+    - match: (?=\s*\*?{{svIdent}}\s*(?=,|;|=|\(|\{|\[))
       push:
         - match: (?=\s*\()
           push: step-parens-invoke
+        - include: rule-expression-index-visit
         - match: \s*\*+
           scope: keyword.operator.pointer meta.tip.highlight
         - match: =
