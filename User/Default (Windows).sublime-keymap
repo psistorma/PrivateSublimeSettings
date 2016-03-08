@@ -163,7 +163,7 @@
 //__BindToMacros
         {"keys": ["alt+t"], "command": "run_shell_cmd",  "args": {
             "questions": [{"key": "message", "title": "commit message",
-                          "pattern": "^\\s*(?P<message>.+)?\\s*$", "answer_tempate": "{{message}}",
+                          "pattern": "^\\s*(?P<message>.+?)?\\s*$", "answer_tempate": "{{message}}",
                           "default_dict": {"message": "auto commit"}}],
             "commands": ["git add -A", "git commit -m \"{{message}}\"", "git push"],
             "run_opts": {"cwd": "${packages}"}}
@@ -171,7 +171,7 @@
 
         // {"keys": ["alt+t"], "command": "run_shell_cmd",  "args": {
         //     "questions": [{"key": "message", "title": "commit message",
-        //                   "pattern": "^\\s*(?P<message>.+)?\\s*$", "answer_tempate": "{{message}}",
+        //                   "pattern": "^\\s*(?P<message>.+?)?\\s*$", "answer_tempate": "{{message}}",
         //                   "default_dict": {"message": "auto commit"}}],
         //     "commands": ["echo {{message}}"],
         //     "run_opts": {"cwd": "${packages}"}}
