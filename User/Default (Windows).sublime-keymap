@@ -124,7 +124,7 @@
 
         {"keys": ["ctrl+`"], "command": "show_panel", "args": {"panel": "console", "toggle": true} },
         {"keys": ["ctrl+="], "command": "show_overlay", "args": {"overlay": "command_palette"} },
-        {"keys": ["ctrl+i"], "command": "auto_complete", "context": [
+        {"keys": ["ctrl+space"], "command": "auto_complete", "context": [
                 {"key": "selector", "operator": "equal", "operand": "- text"}
         ] },
         {"keys": ["ctrl+i"], "command": "replace_completion_with_auto_complete", "context":
@@ -155,7 +155,6 @@
         {"keys": ["ctrl+5"], "command": "move_to", "args": {"to": "eof", "extend": false} },
         {"keys": ["alt+."],  "command": "soft_undo" },
         {"keys": ["ctrl+,"], "command": "insert", "args": {"characters": ", "} },
-        {"keys": ["ctrl+j"], "command": "insert", "args": {"characters": " = "} },
 //__EasyInvoker
         {"keys": ["ctrl+g"], "command": "easy_invoke" },
         {"keys": ["alt+g"], "command": "run_shell_cmd_prompt"},
@@ -169,12 +168,7 @@
             "run_opts": {"cwd": "${packages}"}}
         },
 
-        // {"keys": ["alt+t"], "command": "run_shell_cmd",  "args": {
-        //     "questions": [{"key": "message", "title": "commit message",
-        //                   "pattern": "^\\s*(?P<message>.+?)?\\s*$", "answer_tempate": "{{message}}",
-        //                   "default_dict": {"message": "auto commit"}}],
-        //     "commands": ["echo {{message}}"],
-        //     "run_opts": {"cwd": "${packages}"}}
+        // {"keys": ["alt+t"], "command": "another_palette",  "args": {}
         // },
         {"keys": ["ctrl+alt+shift+v"], "command": "print_sublime_variable"},
 ]

@@ -1,13 +1,15 @@
 import functools as ft
 import sublime
 
-def fwShowQuickPanel(on_done, on_highlighted=None, timeout=10):
+def fwShowQuickPanel(timeout=10):
     def decorator(f):
         @ft.wraps(f)
         def wrapper(*args, **kwds):
-            items, selected_index, *flags = f(*args, **kwds)
+            self, items, selected_index, *flags = f(*args, **kwds)
             if flags:
                 flags, = flags
+
+
 
             showQuickPanel(None, items, on_done, timeout,
                            on_highlighted=on_highlighted, selected_index=selected_index)

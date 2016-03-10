@@ -268,20 +268,40 @@
     // For help getting up and running with MinGW see https://github.com/quarnster/SublimeClang/issues/122
     // For help getting up and running with the AVR toolchain see https://github.com/quarnster/SublimeClang/issues/134
     // For help getting up and running with iOS development see https://github.com/quarnster/SublimeClang/issues/52
+
+    //MFC
+    // "options":
+    // [
+    //     "-I${project_path}",
+    //     "-Wall",
+    //     "-Wno-unknown-pragmas",
+    //     "-Wno-invalid-token-paste",
+    //     "-DWIN32","-D_WINDOWS","-D_DEBUG","-D_AFXDLL","-D_UNICODE","-DUNICODE",
+    //     "-isystem", "C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\um",
+    //     "-isystem", "C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\shared",
+    //     "-isystem", "C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\winrt",
+    //     "-isystem", "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\include",
+    //     "-isystem", "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\atlmfc\\include",
+    //     "-isystem", "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10150.0\\ucrt",
+    // ],
+
+    //QT
     "options":
     [
-        "-I${project_path}",
-        "-Wall",
-        "-Wno-unknown-pragmas",
-        "-Wno-invalid-token-paste",
-        "-DWIN32","-D_WINDOWS","-D_DEBUG","-D_AFXDLL","-D_UNICODE","-DUNICODE",
-        "-isystem", "C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\um",
-        "-isystem", "C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\shared",
-        "-isystem", "C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\winrt",
-        "-isystem", "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\include",
-        "-isystem", "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\atlmfc\\include",
-        "-isystem", "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10150.0\\ucrt",
+        // "-I${project_path}",
+        // "-Wall",
+        // "-Wno-unknown-pragmas",
+        // "-Wno-invalid-token-paste",
+        // "-DWIN32","-D_WINDOWS","-D_DEBUG","-D_AFXDLL","-D_UNICODE","-DUNICODE",
+        // "-DQT_WIDGETS_LIB","-DQT_GUI_LIB","-DQT_CORE_LIB",
+        // "-isystem", "D:\\QtDesktop\\Qt5.6.0\\5.6\\msvc2015_64\\include",
+        // "-isystem", "D:\\QtDesktop\\Qt5.6.0\\5.6\\msvc2015_64\\include\\QtWidgets",
+        // "-isystem", "D:\\QtDesktop\\Qt5.6.0\\5.6\\msvc2015_64\\include\\QtGui",
+        // "-isystem", "D:\\QtDesktop\\Qt5.6.0\\5.6\\msvc2015_64\\include\\QtANGLE",
+        // "-isystem", "D:\\QtDesktop\\Qt5.6.0\\5.6\\msvc2015_64\\include\\QtCore",
+        // "-isystem", "",
     ],
+
 
     // A command that can be run to fetch actual options for a source file in a build system.
     // The script should print on stdout a list of space or newline separated options

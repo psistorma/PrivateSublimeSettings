@@ -1,0 +1,209 @@
+[
+//c/c++
+    {
+      "command": "clang_goto_def",
+      "context": [{"key": "clang_supported_language"}],
+      "keys": ["alt+d", "alt+d"]
+    },
+    {
+      "command": "clang_goto_implementation",
+      "context": [{"key": "clang_supported_language"}],
+      "keys": ["alt+d", "alt+i"]
+    },
+    {
+      "command": "clang_go_back",
+      "context": [{"key": "clang_supported_language"}],
+      "keys": ["alt+d", "alt+b"]
+    },
+    {
+      "command": "clang_clear_cache",
+      "context": [{"key": "clang_supported_language"}],
+      "keys": ["alt+d", "alt+c"]
+    },
+    {
+      "command": "clang_warmup_cache",
+      "context": [{"key": "clang_supported_language"}],
+      "keys": ["alt+d", "alt+w"]
+    },
+    {
+      "command": "clang_reparse",
+      "context": [{"key": "clang_supported_language"}],
+      "keys": ["alt+d", "alt+r"]
+    },
+    {
+      "command": "clang_toggle_complete_enabled",
+      "context": [{"key": "clang_supported_language"}],
+      "keys": ["alt+d", "alt+t"]
+    },
+    {
+      "command": "clang_toggle_panel",
+      "keys": ["alt+d", "alt+p"]
+    },
+      {
+      "command": "clang_previous",
+      "context": [{"key": "clang_supported_language"}],
+      "keys": ["alt+shift+d", "alt+shift+e"]
+    },
+    {
+      "command": "clang_next",
+      "context": [{"key": "clang_supported_language"}],
+      "keys": ["alt+d", "alt+e"]
+    },
+    {
+      "command": "clang_analyze_file",
+      "context": [{"key": "clang_supported_language"}],
+      "keys": ["alt+d","alt+s"]
+    },
+    {
+      "command": "clang_analyze_project",
+      "keys": ["alt+d","alt+o"]
+    },
+    {
+      "command": "clang_toggle_fast_completions",
+      "keys": ["alt+d","alt+f"]
+    },
+    {
+      "command": "clang_complete",
+      "args": {"characters": "."},
+      "keys": ["."],
+      "context": [ {"key": "clang_supported_language"}, {"key": "clang_is_code"}, {"key": "clang_complete_enabled"}, {"key": "clang_automatic_completion_popup"}]
+    },
+    {
+      "command": "clang_complete",
+      "args": {"characters": " "},
+      "keys": [" "],
+      "context": [ {"key": "clang_supported_language"}, {"key": "clang_is_code"}, {"key": "clang_complete_enabled"}, {"key": "clang_automatic_completion_popup"}, { "key": "auto_complete_visible", "operator": "equal", "operand": false }]
+    },
+    {
+      "command": "clang_complete",
+      "args": {"characters": ":"},
+      "keys": [":"],
+      "context": [ {"key": "clang_supported_language"}, {"key": "clang_is_code"}, {"key": "clang_complete_enabled"}, {"key": "clang_automatic_completion_popup"}]
+    },
+    {
+      "command": "clang_complete",
+      "args": {"characters": ">"},
+      "keys": [">"],
+      "context": [ {"key": "clang_supported_language"}, {"key": "clang_is_code"}, {"key": "clang_complete_enabled"}, {"key": "clang_automatic_completion_popup"}]
+    },
+    {
+      "command": "clang_toggle_panel",
+      "keys": ["escape"],
+      "context": [{"key": "clang_panel_visible"}]
+    },
+    //smart quick autocompletion
+    //; auto new line
+    {
+        "keys": [";"],
+        "command": "insert",
+        "args": {"characters": ";\n"},
+        "context": [
+            {"key": "selection_empty", "operator": "equal", "operand": true},
+            {"key": "following_text", "operator": "regex_match", "operand": "$"},
+            {"key": "selector", "operator": "equal", "operand": "source.c,source.c++"}
+        ]
+    },
+    //; in empty line auto delete this line and move to next line
+    {"keys": [";"], "command": "mul_run", "args": {
+        "commands" : [
+            {"command": "run_macro_file", "args": {"file": "res://Packages/User/Macros/replaceCurLine.sublime-macro"}},
+            {"command": "left_delete"},
+            {"command": "move", "args": {"by": "lines", "forward": true}},
+            {"command": "move_to", "args": {"to": "eol", "extend": false}},
+        ]},
+        "context": [
+            {"key": "selection_empty", "operator": "equal", "operand": true},
+            {"key": "following_text", "operator": "regex_match", "operand": "$"},
+            {"key": "preceding_text", "operator": "regex_match", "operand": "^\\s*$"},
+            {"key": "selector", "operator": "equal", "operand": "source.c,source.c++"}
+        ]
+    },
+    //{ for { --> { new line }
+    {
+        "keys": ["{"],
+        "command": "insert_snippet",
+        "args": {"contents": " {\n\t$0\n}"},
+        "context": [
+            {"key": "selection_empty", "operator": "equal", "operand": true},
+            {"key": "following_text", "operator": "regex_match", "operand": "$"},
+            {"key": "selector", "operator": "equal", "operand": "source.c,source.c++"}
+        ]
+    },
+    {
+        "keys": ["{"],
+        "command": "insert_snippet",
+        "args": {"contents": "{\n\t$0\n}"},
+        "context": [
+            {"key": "selection_empty", "operator": "equal", "operand": true},
+            {"key": "following_text", "operator": "regex_match", "operand": "\\s$"},
+            {"key": "selector", "operator": "equal", "operand": "source.c,source.c++"}
+        ]
+    },
+    //e for }e --> } else {}
+    {"keys": ["e"], "command": "insert_snippet", "args": {"contents": " else {\n\t$0\n}"},
+        "context": [
+            {"key": "selection_empty", "operator": "equal", "operand": true},
+            {"key": "following_text", "operator": "regex_match", "operand": "$"},
+            {"key": "preceding_text", "operator": "regex_match", "operand": "^\\s*}$"},
+            {"key": "selector", "operator": "equal", "operand": "source.c,source.c++"}
+        ]
+    },
+    {"keys": ["e"], "command": "insert_snippet", "args": {"contents": "else {\n\t$0\n}"},
+        "context": [
+            {"key": "selection_empty", "operator": "equal", "operand": true},
+            {"key": "following_text", "operator": "regex_match", "operand": "$"},
+            {"key": "preceding_text", "operator": "regex_match", "operand": "^\\s*}\\s+$"},
+            {"key": "selector", "operator": "equal", "operand": "source.c,source.c++"}
+        ]
+    },
+    //i for }i --> } else if {}
+    {"keys": ["i"], "command": "insert_snippet", "args": {"contents": " else if {\n\t$0\n}"},
+        "context": [
+            {"key": "selection_empty", "operator": "equal", "operand": true},
+            {"key": "following_text", "operator": "regex_match", "operand": "$"},
+            {"key": "preceding_text", "operator": "regex_match", "operand": "^\\s*}$"},
+            {"key": "selector", "operator": "equal", "operand": "source.c,source.c++"}
+        ]
+    },
+    {"keys": ["i"], "command": "insert_snippet", "args": {"contents": "else if {\n\t$0\n}"},
+        "context": [
+            {"key": "selection_empty", "operator": "equal", "operand": true},
+            {"key": "following_text", "operator": "regex_match", "operand": "$"},
+            {"key": "preceding_text", "operator": "regex_match", "operand": "^\\s*}\\s+$"},
+            {"key": "selector", "operator": "equal", "operand": "source.c,source.c++"}
+        ]
+    },
+    //auto visit pointer
+    {
+        "keys": ["ctrl+j"],
+        "command": "mul_run",
+        "args": {
+            "commands" : [
+                {"command": "insert_best_completion", "args": {"default": "\t", "exact": true}},
+                {"command": "insert", "args": {"characters": "-"}},
+                {"command": "clang_complete", "args": {"characters": ">"}}
+            ]
+        },
+        "context": [
+            {"key": "selection_empty", "operator": "equal", "operand": true},
+            { "key": "auto_complete_visible", "operator": "equal", "operand": true },
+            {"key": "selector", "operator": "equal", "operand": "source.c,source.c++"}
+        ]
+    },
+    {
+        "keys": ["ctrl+j"],
+        "command": "mul_run",
+        "args": {
+            "commands" : [
+                {"command": "insert", "args": {"characters": "-"}},
+                {"command": "clang_complete", "args": {"characters": ">"}}
+            ]
+        },
+        "context": [
+            {"key": "selection_empty", "operator": "equal", "operand": true},
+            {"key": "preceding_text", "operator": "regex_contains", "operand": "(?:this|\\bp\\w*)$"},
+            { "key": "auto_complete_visible", "operator": "equal", "operand": false },
+            {"key": "selector", "operator": "equal", "operand": "source.c,source.c++"}
+        ]
+    },
+]
