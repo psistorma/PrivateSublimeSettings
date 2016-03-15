@@ -1,7 +1,8 @@
 import re
 import itertools
-from fn import _
+import fn
 import sublime_plugin
+import sublime
 
 class ReplaceWithCommand(sublime_plugin.TextCommand):
     def run(self, edit, **kwds):
@@ -26,8 +27,8 @@ class ToggleCamelUnderscoreCommand(sublime_plugin.TextCommand):
 
     @staticmethod
     def toggleCamelUnderscore(text):
-        headKeepText = ''.join(itertools.takewhile(_ == "_", text))
-        tailKeepText = ''.join(itertools.takewhile(_ == "_", text[::-1]))
+        headKeepText = ''.join(itertools.takewhile(fn._ == "_", text))
+        tailKeepText = ''.join(itertools.takewhile(fn._ == "_", text[::-1]))
         careText = text.strip("_")
 
         isUnderscore = any(c == "_" for c in careText)

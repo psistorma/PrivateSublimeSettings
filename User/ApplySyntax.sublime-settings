@@ -21,7 +21,7 @@
     "syntaxes": [
       {
           "syntax": "UserSyntax/JSONByStorm",
-          "extensions": ["sublime-settings"]
+          "extensions": ["sublime-settings", "anotherpal.key"]
       },
       {
           "syntax": "UserSyntax/CppByStorm",

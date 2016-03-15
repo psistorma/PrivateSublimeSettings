@@ -92,32 +92,6 @@
       "context": [{"key": "clang_panel_visible"}]
     },
     //smart quick autocompletion
-    //; auto new line
-    {
-        "keys": [";"],
-        "command": "insert",
-        "args": {"characters": ";\n"},
-        "context": [
-            {"key": "selection_empty", "operator": "equal", "operand": true},
-            {"key": "following_text", "operator": "regex_match", "operand": "$"},
-            {"key": "selector", "operator": "equal", "operand": "source.c,source.c++"}
-        ]
-    },
-    //; in empty line auto delete this line and move to next line
-    {"keys": [";"], "command": "mul_run", "args": {
-        "commands" : [
-            {"command": "run_macro_file", "args": {"file": "res://Packages/User/Macros/replaceCurLine.sublime-macro"}},
-            {"command": "left_delete"},
-            {"command": "move", "args": {"by": "lines", "forward": true}},
-            {"command": "move_to", "args": {"to": "eol", "extend": false}},
-        ]},
-        "context": [
-            {"key": "selection_empty", "operator": "equal", "operand": true},
-            {"key": "following_text", "operator": "regex_match", "operand": "$"},
-            {"key": "preceding_text", "operator": "regex_match", "operand": "^\\s*$"},
-            {"key": "selector", "operator": "equal", "operand": "source.c,source.c++"}
-        ]
-    },
     //{ for { --> { new line }
     {
         "keys": ["{"],

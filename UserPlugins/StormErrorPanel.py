@@ -5,13 +5,36 @@ import sublime
 import sublime_plugin
 from .SublimeUtils import Setting
 
-pluginSetting = Setting.PluginSetting("UserPlugins")
+SKEY = "StormErrorPanel"
+ps = Setting.PluginSetting(SKEY)
+def plugin_loaded():
+    initSettings()
 
-SKEY_ERRORPANEL = "ErrorPanel"
+def plugin_unloaded():
+    ps.onPluginUnload()
+
+def initSettings():
+    defaultOptions = {
+        "syntax_file":
+        "Packages/UserPlugins/StormErrorPanel.sublime-syntax",
+
+        "result_file_regex":
+        "(?i)^\\s*File\\s*:?\\s*(?:\"|')?(.+?)(?:\"|')?,\\s*line\\s*:?\\s*([0-9]+)",
+
+        "replace_regex":
+        {"from": "\\r(?=$)", "to": ""},
+
+        "erase_panel_content":
+        True,
+
+        "scroll_end":
+        True,
+    }
+    ps.loadWithDefault(defaultOptions)
+
 def fwNotify(f):
     @ft.wraps(f)
     def wrapper(*args, **kwds):
-        errorPanel.initOptions()
         ret = f(*args, **kwds)
         if ret is None:
             return
@@ -23,7 +46,7 @@ def fwNotify(f):
             raise ValueError("userStorm: value {} of show_result is not support!"
                              .format(show_result))
 
-        errorPanel.updateOptions(**notifyKwds)
+        ps.updateDynOpts(**notifyKwds)
 
 
         lines = errorPanel.formatTolineData(infos)
@@ -76,32 +99,6 @@ class UserStormErrorPanel(object):
     def __init__(self):
         self.view = None
         self.data = None
-        self.default = {}
-        self.options = {}
-
-
-    def initOptions(self):
-        defaultSettings = {
-            "syntax_file":
-            "Packages/UserPlugins/StormErrorPanel.sublime-syntax",
-
-            "result_file_regex":
-            "(?i)^\\s*File\\s*:?\\s*(?:\"|')?(.+?)(?:\"|')?,\\s*line\\s*:?\\s*([0-9]+)",
-
-            "replace_regex":
-            {"from": "\\r(?=$)", "to": ""},
-
-            "erase_panel_content":
-            True,
-
-            "scroll_end":
-            True,
-        }
-        self.default = pluginSetting.getSetting(SKEY_ERRORPANEL, **defaultSettings)
-
-    def updateOptions(self, **notifyKwds):
-        self.options = {k: notifyKwds.get(k, v) for k, v in self.default.items()}
-
 
     def update(self, *, data=None, window=None, show=True):
         window = window or sublime.active_window()
@@ -140,24 +137,24 @@ class UserStormErrorPanel(object):
         return "\n".join(lines)
 
     def flush(self):
-        result_file_regex = self.options["result_file_regex"]
+        result_file_regex = ps.dynOpts["result_file_regex"]
         if result_file_regex:
             errorPanel.view.settings().set("result_file_regex", result_file_regex)
 
         self.view.run_command(
             "userstorm_error_panel_flush",
             {"data": self.data,
-             "erase": self.options["erase_panel_content"],
-             "scroll_end": self.options["scroll_end"],
+             "erase": ps.dynOpts["erase_panel_content"],
+             "scroll_end": ps.dynOpts["scroll_end"],
             })
 
     def open(self, window=None):
         window = window or sublime.active_window()
         if not self.isVisible(window):
             self.view = window.get_output_panel("userstorm")
-            self.view.settings().set("result_file_regex", self.options["result_file_regex"])
+            self.view.settings().set("result_file_regex", ps.dynOpts["result_file_regex"])
             self.view.set_scratch(True)
-            fileName = self.options["syntax_file"]
+            fileName = ps.dynOpts["syntax_file"]
             self.view.set_syntax_file(fileName)
             self.view.set_read_only(False)
 
@@ -191,7 +188,7 @@ class Info(object):
     @classmethod
     def formatSectionLines(cls, sec):
         lines = sec.content.split("\n")
-        replace_regex = errorPanel.options["replace_regex"]
+        replace_regex = ps.dynOpts["replace_regex"]
         if replace_regex:
             pat = re.compile(replace_regex["from"])
             lines = [pat.sub(replace_regex["to"], line) for line in lines]
@@ -199,12 +196,12 @@ class Info(object):
         return [Info.wrapTitle(sec.title).center(Info.WIDTH, Info.SECTION_FILL_CHAR)] + lines
 
 def DynamicUpdate(infos, **notifyKwds):
-    errorPanel.updateOptions(**notifyKwds)
+    ps.updateDynOpts(**notifyKwds)
     if "erase_panel_content" not in notifyKwds:
-        errorPanel.options["erase_panel_content"] = False
+        ps.dynOpts["erase_panel_content"] = False
 
     if "scroll_end" not in notifyKwds:
-        errorPanel.options["scroll_end"] = False
+        ps.dynOpts["scroll_end"] = False
 
     lines = errorPanel.formatTolineData(infos)
     errorPanel.update(data=lines)

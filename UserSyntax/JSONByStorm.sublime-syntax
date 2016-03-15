@@ -15,6 +15,10 @@ file_extensions:
   - sublime-completions
 scope: source.json
 contexts:
+  prototype:
+    - include: comments
+    - match: ，|。|（|）|“|”
+      scope: invalid.illegal.punctuation
   main:
     - include: value
   array:
@@ -51,7 +55,7 @@ contexts:
           captures:
             0: punctuation.definition.comment.json
           pop: true
-    - match: (//).*$\n?
+    - match: (?<!")\s*(//).*$\n?
       scope: comment.line.double-slash.js
       captures:
         1: punctuation.definition.comment.json
@@ -94,7 +98,6 @@ contexts:
             0: punctuation.definition.dictionary.end.json
           pop: true
         - include: string
-        - include: comments
         - match: ":"
           captures:
             0: punctuation.separator.dictionary.key-value.json
@@ -112,6 +115,7 @@ contexts:
   string:
     - match: (?="[^"]*"\s*:)
       push:
+        - meta_include_prototype: false
         - meta_scope: meta.node.value
         - include: string-internal
         - match: (?=:)
@@ -146,4 +150,3 @@ contexts:
     - include: string
     - include: array
     - include: object
-    - include: comments

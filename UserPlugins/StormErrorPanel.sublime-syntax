@@ -29,3 +29,33 @@ contexts:
       captures:
         0: meta.section.sec
         1: meta.toc-list.banner.line
+
+    - match: \b(File|line|keyword|argument|call|Ran|in)\b
+      scope: keyword
+
+    - match: (?<!=)=(?!=)|(?<!\*)\*(?!\*)|(?<!\*)\*\*(?!\*)|(?<!>)>(?!>)|(?<!<)<(?!<)|(?<!-)-(?!-)
+      scope: keyword
+
+    - match: \"[^\"]*\"
+      scope: string.quoted.double
+
+    - match: \s*(Traceback|missing|EOF)\b
+      scope: keyword meta.tip.notify
+
+    - match: \b([A-Z]\w+?Error|ERROR|FAILED)
+      scope: support.type.exception
+
+    - match: \b(self|this)\b
+      scope: variable.parameter.function.language.python
+
+    - match: '([A-Za-z_][A-Za-z_0-9]*+)(?=\(.*?\))'
+      scope: meta.function-call
+
+    - match: '__[A-Za-z_0-9]*?__'
+      scope: meta.preprocessor.macro
+
+    - match: \W
+      scope: punctuation
+
+    - match: '[0-9]'
+      scope: constant.numeric

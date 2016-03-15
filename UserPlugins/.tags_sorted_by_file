@@ -1,111 +1,525 @@
-AutoEscapeCommand	AutoEscapeCommand.py	/^class AutoEscapeCommand(sublime_plugin.TextCommand):$/;"	c
-Str	AutoEscapeCommand.py	/^from .MUtils import Str$/;"	i
-ToggleCamelUnderscoreCommand	AutoEscapeCommand.py	/^class ToggleCamelUnderscoreCommand(sublime_plugin.TextCommand):$/;"	c
-re	AutoEscapeCommand.py	/^import re$/;"	i
-run	AutoEscapeCommand.py	/^    def run(self, edit):$/;"	m	class:AutoEscapeCommand
-run	AutoEscapeCommand.py	/^    def run(self, edit):$/;"	m	class:ToggleCamelUnderscoreCommand
-sublime_plugin	AutoEscapeCommand.py	/^import sublime_plugin$/;"	i
-toggleCamelUnderscore	AutoEscapeCommand.py	/^    def toggleCamelUnderscore(text):$/;"	m	class:ToggleCamelUnderscoreCommand
+DynamicUpdate	ErrorPanel.py	/^def DynamicUpdate(infos, **notifyKwds):$/;"	f
 FILL_CHAR	ErrorPanel.py	/^    FILL_CHAR = "*"$/;"	v	class:Info
 Info	ErrorPanel.py	/^class Info(object):$/;"	c
 InfoSection	ErrorPanel.py	/^InfoSection = namedtuple("InfoSection", "title, content, isOutput")$/;"	v
 SECTION_FILL_CHAR	ErrorPanel.py	/^    SECTION_FILL_CHAR = "-"$/;"	v	class:Info
+SKEY	ErrorPanel.py	/^SKEY = "ErrorPanel"$/;"	v
+Setting	ErrorPanel.py	/^from .SublimeUtils import Setting$/;"	i
 UserStormErrorPanel	ErrorPanel.py	/^class UserStormErrorPanel(object):$/;"	c
 UserstormErrorPanelFlushCommand	ErrorPanel.py	/^class UserstormErrorPanelFlushCommand(sublime_plugin.TextCommand):$/;"	c
+UserstormErrorPanelHideCommand	ErrorPanel.py	/^class UserstormErrorPanelHideCommand(sublime_plugin.TextCommand):$/;"	c
 UserstormErrorPanelShowCommand	ErrorPanel.py	/^class UserstormErrorPanelShowCommand(sublime_plugin.WindowCommand):$/;"	c
 WIDTH	ErrorPanel.py	/^    WIDTH = 80$/;"	v	class:Info
 __init__	ErrorPanel.py	/^    def __init__(self):$/;"	m	class:UserStormErrorPanel
 __init__	ErrorPanel.py	/^    def __init__(self, header, *sections):$/;"	m	class:Info
 close	ErrorPanel.py	/^    def close():$/;"	m	class:UserStormErrorPanel
+defaultOptions	ErrorPanel.py	/^defaultOptions = None$/;"	v
 errorPanel	ErrorPanel.py	/^errorPanel = UserStormErrorPanel()$/;"	v
 flush	ErrorPanel.py	/^    def flush(self):$/;"	m	class:UserStormErrorPanel
 formatHeaderLine	ErrorPanel.py	/^    def formatHeaderLine(self):$/;"	m	class:Info
 formatSectionLines	ErrorPanel.py	/^    def formatSectionLines(cls, sec):$/;"	m	class:Info
+formatTolineData	ErrorPanel.py	/^    def formatTolineData(infos):$/;"	m	class:UserStormErrorPanel
 ft	ErrorPanel.py	/^import functools as ft$/;"	i
 fwNotify	ErrorPanel.py	/^def fwNotify(f):$/;"	f
+getSetting	ErrorPanel.py	/^getSetting = None$/;"	v
 get_view	ErrorPanel.py	/^    def get_view(self):$/;"	m	class:UserStormErrorPanel
 hasOutput	ErrorPanel.py	/^    def hasOutput(self):$/;"	m	class:Info
-isVisible	ErrorPanel.py	/^    def isVisible(self, window=None):$/;"	m	class:UserStormErrorPanel
+isVisible	ErrorPanel.py	/^    def isVisible(window=None):$/;"	m	class:UserStormErrorPanel
 namedtuple	ErrorPanel.py	/^from collections import namedtuple$/;"	i
 open	ErrorPanel.py	/^    def open(self, window=None):$/;"	m	class:UserStormErrorPanel
+pluginSetting	ErrorPanel.py	/^pluginSetting = Setting.PluginSetting("UserPlugins")$/;"	v
+plugin_loaded	ErrorPanel.py	/^def plugin_loaded():$/;"	f
+plugin_unloaded	ErrorPanel.py	/^def plugin_unloaded():$/;"	f
 re	ErrorPanel.py	/^import re$/;"	i
+refreshSettings	ErrorPanel.py	/^def refreshSettings():$/;"	f
 run	ErrorPanel.py	/^    def run(self, **kwds):$/;"	m	class:UserstormErrorPanelShowCommand
+run	ErrorPanel.py	/^    def run(self, edit):$/;"	m	class:UserstormErrorPanelHideCommand
 run	ErrorPanel.py	/^    def run(self, edit, **kwds):$/;"	m	class:UserstormErrorPanelFlushCommand
-show	ErrorPanel.py	/^    def show(self, data=None, window=None):$/;"	m	class:UserStormErrorPanel
 sublime	ErrorPanel.py	/^import sublime$/;"	i
 sublime_plugin	ErrorPanel.py	/^import sublime_plugin$/;"	i
+update	ErrorPanel.py	/^    def update(self, *, data=None, window=None, show=True):$/;"	m	class:UserStormErrorPanel
 updateData	ErrorPanel.py	/^    def updateData(self, data):$/;"	m	class:UserStormErrorPanel
+updateOptions	ErrorPanel.py	/^    def updateOptions(self, **notifyKwds):$/;"	m	class:UserStormErrorPanel
 wrapTitle	ErrorPanel.py	/^    def wrapTitle(cls, title):$/;"	m	class:Info
 wrapper	ErrorPanel.py	/^    def wrapper(*args, **kwds):$/;"	f	function:fwNotify
-ExpandSelBySideCommand	ExpandSelBySideCommand.py	/^class ExpandSelBySideCommand(sublime_plugin.TextCommand):$/;"	c
-run	ExpandSelBySideCommand.py	/^    def run(self, edit, **args):$/;"	m	class:ExpandSelBySideCommand
-sublime	ExpandSelBySideCommand.py	/^import sublime$/;"	i
-sublime_plugin	ExpandSelBySideCommand.py	/^import sublime_plugin$/;"	i
-Cmd	IndentSpaceChangeCommand.py	/^from .SublimeUtils import Cmd$/;"	i
-IndentSpaceChangeCommand	IndentSpaceChangeCommand.py	/^class IndentSpaceChangeCommand(sublime_plugin.TextCommand):$/;"	c
-run	IndentSpaceChangeCommand.py	/^    def run(self, edit, **args):$/;"	m	class:IndentSpaceChangeCommand
-sublime	IndentSpaceChangeCommand.py	/^import sublime$/;"	i
-sublime_plugin	IndentSpaceChangeCommand.py	/^import sublime_plugin$/;"	i
-CUR_ITER_ORDER	ListCurrentDirCommand.py	/^CUR_ITER_ORDER = 1$/;"	v
-ListCurrentDirCommand	ListCurrentDirCommand.py	/^class ListCurrentDirCommand(sublime_plugin.TextCommand):$/;"	c
-VERSION	ListCurrentDirCommand.py	/^VERSION = int(sublime.version())$/;"	v
-__init__	ListCurrentDirCommand.py	/^    def __init__(self, args):$/;"	m	class:ListCurrentDirCommand
-_ignore_file	ListCurrentDirCommand.py	/^def _ignore_file(filename, ignore_patterns=None):$/;"	f
-_list_path_file	ListCurrentDirCommand.py	/^def _list_path_file(path, ignore_patterns=None):$/;"	f
-build_quick_panel_file_list	ListCurrentDirCommand.py	/^    def build_quick_panel_file_list(self):$/;"	m	class:ListCurrentDirCommand
-get_parent_path	ListCurrentDirCommand.py	/^    def get_parent_path(cls, path):$/;"	m	class:ListCurrentDirCommand
-is_file	ListCurrentDirCommand.py	/^    def is_file(entry):$/;"	m	class:ListCurrentDirCommand
-os	ListCurrentDirCommand.py	/^import os$/;"	i
-path_file_callback	ListCurrentDirCommand.py	/^    def path_file_callback(self, index):$/;"	m	class:ListCurrentDirCommand
-re	ListCurrentDirCommand.py	/^import re$/;"	i
-run	ListCurrentDirCommand.py	/^    def run(self, edit):$/;"	m	class:ListCurrentDirCommand
-show_dir_file	ListCurrentDirCommand.py	/^    def show_dir_file(self, path):$/;"	m	class:ListCurrentDirCommand
-show_quick_panel	ListCurrentDirCommand.py	/^    def show_quick_panel(self, options, done_callback, index=None):$/;"	m	class:ListCurrentDirCommand
-sublime	ListCurrentDirCommand.py	/^import sublime$/;"	i
-sublime_plugin	ListCurrentDirCommand.py	/^import sublime_plugin$/;"	i
+Template	MUtils\Basic.py	/^from jinja2 import Template$/;"	i
+TryDecodingError	MUtils\Basic.py	/^class TryDecodingError(Exception):$/;"	c
+WrongCallError	MUtils\Basic.py	/^class WrongCallError(Exception):$/;"	c
+__init__	MUtils\Basic.py	/^    def __init__(self, hasTryEncodings, *args):$/;"	m	class:TryDecodingError
+__init__	MUtils\Basic.py	/^    def __init__(self, message):$/;"	m	class:WrongCallError
+__str__	MUtils\Basic.py	/^    def __str__(self):$/;"	m	class:TryDecodingError	file:
+_dictMergeWith	MUtils\Basic.py	/^def _dictMergeWith(dst, src, **kwds):$/;"	f
+_f	MUtils\Basic.py	/^    def _f(f, args, kwds):$/;"	f	function:fwRunInThread
+decorator	MUtils\Basic.py	/^    def decorator(f):$/;"	f	function:fwKeyWordMap
+decorator	MUtils\Basic.py	/^    def decorator(f):$/;"	f	function:fwReportException
+decorator	MUtils\Basic.py	/^    def decorator(f):$/;"	f	function:fwTryDecodings
+dpath	MUtils\Basic.py	/^import dpath.util as du$/;"	i
+du	MUtils\Basic.py	/^import dpath.util as du$/;"	i
+ft	MUtils\Basic.py	/^import functools as ft$/;"	i
+fwKeyWordMap	MUtils\Basic.py	/^def fwKeyWordMap(mapping, *ignoreKeys, **defaults):$/;"	f
+fwReportException	MUtils\Basic.py	/^def fwReportException(reportFun, expType=Exception, reThrow=True):$/;"	f
+fwRunInThread	MUtils\Basic.py	/^def fwRunInThread(f):$/;"	f
+fwTryDecodings	MUtils\Basic.py	/^def fwTryDecodings(defaultEncodings):$/;"	f
+mergeDicts	MUtils\Basic.py	/^def mergeDicts(*dicts, **kwds):$/;"	f
 namedtuple	MUtils\Basic.py	/^from collections import namedtuple$/;"	i
+promiseInput	MUtils\Basic.py	/^def promiseInput(pattern, inStr, transTemplate=None, defaultDict=None):$/;"	f
+re	MUtils\Basic.py	/^import re$/;"	i
+renderText	MUtils\Basic.py	/^def renderText(inStr, **valDict):$/;"	f
+threading	MUtils\Basic.py	/^import threading$/;"	i
 toNamedTuple	MUtils\Basic.py	/^def toNamedTuple(dataNameInfo, *data):$/;"	f
+wapper	MUtils\Basic.py	/^    def wapper(*args, **kwds):$/;"	f	function:fwRunInThread
+wrapper	MUtils\Basic.py	/^        def wrapper(*args, **kwds):$/;"	f	function:fwKeyWordMap.decorator
+wrapper	MUtils\Basic.py	/^        def wrapper(*args, **kwds):$/;"	f	function:fwReportException.decorator
+wrapper	MUtils\Basic.py	/^        def wrapper(*args, **kwds):$/;"	f	function:fwTryDecodings.decorator
+Asset	MUtils\FileDataSrc.py	/^class Asset:$/;"	c
+Basic	MUtils\FileDataSrc.py	/^from . import Basic, Os$/;"	i
+JsonSrcManager	MUtils\FileDataSrc.py	/^class JsonSrcManager(SrcManager):$/;"	c
+Os	MUtils\FileDataSrc.py	/^from . import Basic, Os$/;"	i
+SrcDir	MUtils\FileDataSrc.py	/^class SrcDir(SrcObj):$/;"	c
+SrcFile	MUtils\FileDataSrc.py	/^class SrcFile(SrcObj):$/;"	c
+SrcManager	MUtils\FileDataSrc.py	/^class SrcManager:$/;"	c
+SrcObj	MUtils\FileDataSrc.py	/^class SrcObj:$/;"	c
+__init__	MUtils\FileDataSrc.py	/^    def __init__(self, *arg, assetKey="assets", key="key", **kwds):$/;"	m	class:JsonSrcManager
+__init__	MUtils\FileDataSrc.py	/^    def __init__(self, dirPath, isStatic, manager):$/;"	m	class:SrcDir
+__init__	MUtils\FileDataSrc.py	/^    def __init__(self, filePath, isDyn, srcDir):$/;"	m	class:SrcFile
+__init__	MUtils\FileDataSrc.py	/^    def __init__(self, key, val, srcFile):$/;"	m	class:Asset
+__init__	MUtils\FileDataSrc.py	/^    def __init__(self, path, parent=None):$/;"	m	class:SrcObj
+__init__	MUtils\FileDataSrc.py	/^    def __init__(self, srcExt, projectSrcBasename, includeSubDir=True, maxCacheProjectCount=5):$/;"	m	class:SrcManager
+appendAsset	MUtils\FileDataSrc.py	/^    def appendAsset(self, key, val):$/;"	m	class:SrcFile
+asset	MUtils\FileDataSrc.py	/^    def asset(self, index):$/;"	m	class:SrcManager
+assetSortkey	MUtils\FileDataSrc.py	/^    def assetSortkey(self, asset):$/;"	m	class:SrcManager
+assets	MUtils\FileDataSrc.py	/^    def assets(self):$/;"	m	class:SrcDir
+assets	MUtils\FileDataSrc.py	/^    def assets(self):$/;"	m	class:SrcFile
+basename	MUtils\FileDataSrc.py	/^    def basename(self):$/;"	m	class:SrcObj
+buildAssetCat	MUtils\FileDataSrc.py	/^    def buildAssetCat(self, asset):$/;"	m	class:SrcManager
+buildAssetKey	MUtils\FileDataSrc.py	/^    def buildAssetKey(self, key, val, srcFile):$/;"	m	class:SrcManager
+collectAssets	MUtils\FileDataSrc.py	/^    def collectAssets(self):$/;"	m	class:SrcManager
+dump	MUtils\FileDataSrc.py	/^    def dump(self):$/;"	m	class:SrcFile
+isMe	MUtils\FileDataSrc.py	/^    def isMe(self, path):$/;"	m	class:SrcObj
+json	MUtils\FileDataSrc.py	/^import json$/;"	i
+jsoncfg	MUtils\FileDataSrc.py	/^import jsoncfg$/;"	i
+keys	MUtils\FileDataSrc.py	/^    def keys(self):$/;"	m	class:SrcManager
+load	MUtils\FileDataSrc.py	/^    def load(self):$/;"	m	class:SrcDir
+load	MUtils\FileDataSrc.py	/^    def load(self):$/;"	m	class:SrcFile
+load	MUtils\FileDataSrc.py	/^    def load(self):$/;"	m	class:SrcObj
+loadSrcDir	MUtils\FileDataSrc.py	/^    def loadSrcDir(self, srcDirPath, isStatic=True):$/;"	m	class:SrcManager
+loadStatic	MUtils\FileDataSrc.py	/^    def loadStatic(self, srcDirPath):$/;"	m	class:SrcManager
+manager	MUtils\FileDataSrc.py	/^    def manager(self):$/;"	m	class:SrcDir
+manager	MUtils\FileDataSrc.py	/^    def manager(self):$/;"	m	class:SrcObj
+onFinishCollectAssets	MUtils\FileDataSrc.py	/^    def onFinishCollectAssets(self):$/;"	m	class:SrcManager
+os	MUtils\FileDataSrc.py	/^import os$/;"	i
+parseFile	MUtils\FileDataSrc.py	/^    def parseFile(self, srcFile):$/;"	m	class:JsonSrcManager
+parseFile	MUtils\FileDataSrc.py	/^    def parseFile(self, srcFile):$/;"	m	class:SrcManager
+refreshFile	MUtils\FileDataSrc.py	/^    def refreshFile(self, filePath):$/;"	m	class:SrcDir
+refreshFile	MUtils\FileDataSrc.py	/^    def refreshFile(self, filePath):$/;"	m	class:SrcManager
+reportStatus	MUtils\FileDataSrc.py	/^    def reportStatus(self, message):$/;"	m	class:SrcManager
+srcDir	MUtils\FileDataSrc.py	/^    def srcDir(self):$/;"	m	class:SrcFile
+srcFiles	MUtils\FileDataSrc.py	/^    def srcFiles(self):$/;"	m	class:SrcDir
+switchProject	MUtils\FileDataSrc.py	/^    def switchProject(self, projectPath):$/;"	m	class:SrcManager
+Basic	MUtils\Input.py	/^from . import Basic$/;"	i
+_askCurQuestion	MUtils\Input.py	/^    def _askCurQuestion():$/;"	f	function:askQuestions
+_oneQuestionDone	MUtils\Input.py	/^        def _oneQuestionDone(answer):$/;"	f	function:askQuestions._askCurQuestion
+askQuestions	MUtils\Input.py	/^def askQuestions(showInputPanel, onDone, *questions, onChange=None, onCancel=None):$/;"	f
+decorator	MUtils\Input.py	/^    def decorator(f):$/;"	f	function:fwAskQuestions
+fn	MUtils\Input.py	/^import fn$/;"	i
+ft	MUtils\Input.py	/^import functools as ft$/;"	i
+fwAskQuestions	MUtils\Input.py	/^def fwAskQuestions(showInputPanel, onCancel):$/;"	f
+wrapper	MUtils\Input.py	/^        def wrapper(*args, **kwds):$/;"	f	function:fwAskQuestions.decorator
+Basic	MUtils\Os.py	/^from . import Basic, sargeWrapper$/;"	i
 _CMD_KWDS_MAP	MUtils\Os.py	/^_CMD_KWDS_MAP = {$/;"	v
 _CMD_MODE_MAP	MUtils\Os.py	/^_CMD_MODE_MAP = {$/;"	v
-expandVariable	MUtils\Os.py	/^def expandVariable(*strs):$/;"	f
+expandVariables	MUtils\Os.py	/^def expandVariables(*strs):$/;"	f
+fetchFiles	MUtils\Os.py	/^def fetchFiles(directory, ext, includeSub=True):$/;"	f
+isSameFile	MUtils\Os.py	/^def isSameFile(lhsFilePath, rhsFilePath):$/;"	f
 os	MUtils\Os.py	/^import os$/;"	i
-runShellCmd	MUtils\Os.py	/^def runShellCmd(args, mode="capture_both", **kwds):$/;"	f
-sarge	MUtils\Os.py	/^import sarge$/;"	i
-sublime	MUtils\Os.py	/^import sublime$/;"	i
+runShellCmd	MUtils\Os.py	/^def runShellCmd(cmd, run_mode="capture_both", win_mode="hide", **kwds):$/;"	f
+sargeWrapper	MUtils\Os.py	/^from . import Basic, sargeWrapper$/;"	i
 subprocess	MUtils\Os.py	/^import subprocess$/;"	i
-getUtil	MUtils\Str.py	/^def getUtil(s, condifionFun, reverse=False):$/;"	f
+win32con	MUtils\Os.py	/^import win32con$/;"	i
+alignmentBothSide	MUtils\Str.py	/^def alignmentBothSide(lhsStr, rhsStr, width, padChar=" "):$/;"	f
 toUTF8	MUtils\Str.py	/^def toUTF8(s):$/;"	f
-MulRunWindowCommand	MulRunWindowCommand.py	/^class MulRunWindowCommand(sublime_plugin.WindowCommand):$/;"	c
-exec_command	MulRunWindowCommand.py	/^    def exec_command(self, command):$/;"	m	class:MulRunWindowCommand
-run	MulRunWindowCommand.py	/^    def run(self, **args):$/;"	m	class:MulRunWindowCommand
-sublime	MulRunWindowCommand.py	/^import sublime$/;"	i
-sublime_plugin	MulRunWindowCommand.py	/^import sublime_plugin$/;"	i
-PickScopeNameCommand	PickScopeNameCommand.py	/^class PickScopeNameCommand(sublime_plugin.TextCommand):$/;"	c
-on_input_panel_done	PickScopeNameCommand.py	/^    def on_input_panel_done(**args):$/;"	m	class:PickScopeNameCommand
-run	PickScopeNameCommand.py	/^    def run(self, edit):$/;"	m	class:PickScopeNameCommand
-sublime	PickScopeNameCommand.py	/^import sublime$/;"	i
-sublime_plugin	PickScopeNameCommand.py	/^import sublime_plugin$/;"	i
-ErrorPanel	RunShellCommand.py	/^from . import ErrorPanel$/;"	i
-Os	RunShellCommand.py	/^from .MUtils import Os$/;"	i
-PrintSublimeVariableCommand	RunShellCommand.py	/^class PrintSublimeVariableCommand(sublime_plugin.WindowCommand):$/;"	c
-RunShellCmdCommand	RunShellCommand.py	/^class RunShellCmdCommand(sublime_plugin.WindowCommand):$/;"	c
-Setting	RunShellCommand.py	/^from .SublimeUtils import Setting$/;"	i
-run	RunShellCommand.py	/^    def run(self):$/;"	m	class:PrintSublimeVariableCommand
-run	RunShellCommand.py	/^    def run(self, **kwds):$/;"	m	class:RunShellCmdCommand
-shlex	RunShellCommand.py	/^import shlex$/;"	i
-sublime	RunShellCommand.py	/^import sublime$/;"	i
-sublime_plugin	RunShellCommand.py	/^import sublime_plugin$/;"	i
+Basic	MUtils\sargeWrapper.py	/^from . import Basic$/;"	i
+DEFAULT_ENCODINGS	MUtils\sargeWrapper.py	/^DEFAULT_ENCODINGS = ("UTF-8", "GBK")$/;"	v
+_prepareCapture	MUtils\sargeWrapper.py	/^def _prepareCapture(encoding, *, wantOut=False, wantErr=False):$/;"	f
+capture_both	MUtils\sargeWrapper.py	/^def capture_both(cmd, encoding, **kwds):$/;"	f
+capture_stderr	MUtils\sargeWrapper.py	/^def capture_stderr(cmd, encoding, **kwds):$/;"	f
+capture_stdout	MUtils\sargeWrapper.py	/^def capture_stdout(cmd, encoding, **kwds):$/;"	f
+run	MUtils\sargeWrapper.py	/^def run(cmd, encoding=None, **kwds):$/;"	f
+sarge	MUtils\sargeWrapper.py	/^import sarge$/;"	i
 runCommands	SublimeUtils\Cmd.py	/^def runCommands(ctx, *cmds):$/;"	f
+Base	SublimeUtils\Context - ����\base.py	/^class Base:$/;"	c
+_check	SublimeUtils\Context - ����\base.py	/^  def _check(self, name, callback, view, key, operator, operand, match_all):$/;"	m	class:Base
+_check_sel	SublimeUtils\Context - ����\base.py	/^  def _check_sel(self, name, callback, view, key, operator, operand, match_all):$/;"	m	class:Base
+_check_value	SublimeUtils\Context - ����\base.py	/^  def _check_value(self, value, operator, operand):$/;"	m	class:Base
+expression	SublimeUtils\Context - ����\base.py	/^from Expression import expression$/;"	i
+on_query_context	SublimeUtils\Context - ����\base.py	/^  def on_query_context(self, *args):$/;"	m	class:Base
+re	SublimeUtils\Context - ����\base.py	/^import re$/;"	i
+sublime	SublimeUtils\Context - ����\base.py	/^import sublime$/;"	i
+sublime_plugin	SublimeUtils\Context - ����\base.py	/^import sublime_plugin$/;"	i
+Base	SublimeUtils\Context - ����\called_method.py	/^from Context.base import Base$/;"	i
+CalledMethod	SublimeUtils\Context - ����\called_method.py	/^class CalledMethod(Base):$/;"	c
+_get_value	SublimeUtils\Context - ����\called_method.py	/^  def _get_value(self, view, sel):$/;"	m	class:CalledMethod
+expression	SublimeUtils\Context - ����\called_method.py	/^  from Expression import expression$/;"	i
+failed	SublimeUtils\Context - ����\called_method.py	/^  sublime.error_message("Dependency import failed; please read readme for " +$/;"	i
+for	SublimeUtils\Context - ����\called_method.py	/^  sublime.error_message("Dependency import failed; please read readme for " +$/;"	i
+on_query_context	SublimeUtils\Context - ����\called_method.py	/^  def on_query_context(self, *args):$/;"	m	class:CalledMethod
+please	SublimeUtils\Context - ����\called_method.py	/^  sublime.error_message("Dependency import failed; please read readme for " +$/;"	i
+re	SublimeUtils\Context - ����\called_method.py	/^import re$/;"	i
+read	SublimeUtils\Context - ����\called_method.py	/^  sublime.error_message("Dependency import failed; please read readme for " +$/;"	i
+readme	SublimeUtils\Context - ����\called_method.py	/^  sublime.error_message("Dependency import failed; please read readme for " +$/;"	i
+statement	SublimeUtils\Context - ����\called_method.py	/^  from Statement import statement$/;"	i
+sublime	SublimeUtils\Context - ����\called_method.py	/^import sublime$/;"	i
+sublime_plugin	SublimeUtils\Context - ����\called_method.py	/^import sublime_plugin$/;"	i
+Base	SublimeUtils\Context - ����\class.py	/^from Context.base import Base$/;"	i
+ClassName	SublimeUtils\Context - ����\class.py	/^class ClassName(Base):$/;"	c
+InClassDefinition	SublimeUtils\Context - ����\class.py	/^class InClassDefinition(Base):$/;"	c
+_check_point	SublimeUtils\Context - ����\class.py	/^  def _check_point(self, view, sel):$/;"	m	class:InClassDefinition
+_get_class_name	SublimeUtils\Context - ����\class.py	/^  def _get_class_name(self, view, point):$/;"	m	class:ClassName
+expression	SublimeUtils\Context - ����\class.py	/^from Expression import expression$/;"	i
+indentation_navigation	SublimeUtils\Context - ����\class.py	/^from IndentationNavigation import indentation_navigation$/;"	i
+on_query_context	SublimeUtils\Context - ����\class.py	/^  def on_query_context(self, view, *args):$/;"	m	class:ClassName
+on_query_context	SublimeUtils\Context - ����\class.py	/^  def on_query_context(self, view, *args):$/;"	m	class:InClassDefinition
+re	SublimeUtils\Context - ����\class.py	/^import re$/;"	i
+sublime	SublimeUtils\Context - ����\class.py	/^import sublime$/;"	i
+sublime_plugin	SublimeUtils\Context - ����\class.py	/^import sublime_plugin$/;"	i
+Base	SublimeUtils\Context - ����\clipboard.py	/^from Context.base import Base$/;"	i
+Clipboard	SublimeUtils\Context - ����\clipboard.py	/^class Clipboard(Base):$/;"	c
+on_query_context	SublimeUtils\Context - ����\clipboard.py	/^  def on_query_context(self, *args):$/;"	m	class:Clipboard
+sublime	SublimeUtils\Context - ����\clipboard.py	/^import sublime$/;"	i
+sublime_plugin	SublimeUtils\Context - ����\clipboard.py	/^import sublime_plugin$/;"	i
+Context	SublimeUtils\Context - ����\context.py	/^class Context():$/;"	c
+ReloadContextListener	SublimeUtils\Context - ����\context.py	/^class ReloadContextListener(sublime_plugin.EventListener):$/;"	c
+ReloadContextListeners	SublimeUtils\Context - ����\context.py	/^class ReloadContextListeners(sublime_plugin.TextCommand):$/;"	c
+__init__	SublimeUtils\Context - ����\context.py	/^  def __init__(self):$/;"	m	class:Context
+_check_item	SublimeUtils\Context - ����\context.py	/^  def _check_item(self, view, item):$/;"	m	class:Context
+_create_listeners	SublimeUtils\Context - ����\context.py	/^  def _create_listeners(self):$/;"	m	class:Context
+_merge_result	SublimeUtils\Context - ����\context.py	/^  def _merge_result(self, operator, result, current):$/;"	m	class:Context
+_prepare_context_item	SublimeUtils\Context - ����\context.py	/^  def _prepare_context_item(self, item):$/;"	m	class:Context
+check	SublimeUtils\Context - ����\context.py	/^  def check(self, view, context):$/;"	m	class:Context
+check	SublimeUtils\Context - ����\context.py	/^def check(view, context):$/;"	f
+context_object	SublimeUtils\Context - ����\context.py	/^context_object = None$/;"	v
+ignore	SublimeUtils\Context - ����\context.py	/^ignore = ['Package Control', 'SublimeLinter', 'Default']$/;"	v
+importlib	SublimeUtils\Context - ����\context.py	/^import importlib$/;"	i
+on_post_save_async	SublimeUtils\Context - ����\context.py	/^  def on_post_save_async(self, view):$/;"	m	class:ReloadContextListener
+os	SublimeUtils\Context - ����\context.py	/^import os$/;"	i
+re	SublimeUtils\Context - ����\context.py	/^import re$/;"	i
+run	SublimeUtils\Context - ����\context.py	/^  def run(self, edit):$/;"	m	class:ReloadContextListeners
+sublime	SublimeUtils\Context - ����\context.py	/^import sublime$/;"	i
+sublime_plugin	SublimeUtils\Context - ����\context.py	/^import sublime_plugin$/;"	i
+Base	SublimeUtils\Context - ����\filename.py	/^from Context.base import Base$/;"	i
+FileName	SublimeUtils\Context - ����\filename.py	/^class FileName(Base):$/;"	c
+on_query_context	SublimeUtils\Context - ����\filename.py	/^  def on_query_context(self, *args):$/;"	m	class:FileName
+sublime	SublimeUtils\Context - ����\filename.py	/^import sublime$/;"	i
+sublime_plugin	SublimeUtils\Context - ����\filename.py	/^import sublime_plugin$/;"	i
+Base	SublimeUtils\Context - ����\nesting.py	/^from Context.base import Base$/;"	i
+Nesting	SublimeUtils\Context - ����\nesting.py	/^class Nesting(Base):$/;"	c
+NestingBegin	SublimeUtils\Context - ����\nesting.py	/^class NestingBegin(Base):$/;"	c
+NestingEnd	SublimeUtils\Context - ����\nesting.py	/^class NestingEnd(Base):$/;"	c
+_get_value	SublimeUtils\Context - ����\nesting.py	/^  def _get_value(self, view, sel):$/;"	m	class:Nesting
+expression	SublimeUtils\Context - ����\nesting.py	/^from Expression import expression$/;"	i
+on_query_context	SublimeUtils\Context - ����\nesting.py	/^  def on_query_context(self, *args):$/;"	m	class:Nesting
+on_query_context	SublimeUtils\Context - ����\nesting.py	/^  def on_query_context(self, *args):$/;"	m	class:NestingBegin
+on_query_context	SublimeUtils\Context - ����\nesting.py	/^  def on_query_context(self, *args):$/;"	m	class:NestingEnd
+sublime	SublimeUtils\Context - ����\nesting.py	/^import sublime$/;"	i
+sublime_plugin	SublimeUtils\Context - ����\nesting.py	/^import sublime_plugin$/;"	i
+Base	SublimeUtils\Context - ����\selection.py	/^from Context.base import Base$/;"	i
+SelectionBGreaterA	SublimeUtils\Context - ����\selection.py	/^class SelectionBGreaterA(Base):$/;"	c
+SelectionBGreaterOrEqualA	SublimeUtils\Context - ����\selection.py	/^class SelectionBGreaterOrEqualA(Base):$/;"	c
+SelectionBLesserA	SublimeUtils\Context - ����\selection.py	/^class SelectionBLesserA(Base):$/;"	c
+SelectionBLesserOrEqualA	SublimeUtils\Context - ����\selection.py	/^class SelectionBLesserOrEqualA(Base):$/;"	c
+SelectionEmpty	SublimeUtils\Context - ����\selection.py	/^class SelectionEmpty(Base):$/;"	c
+on_query_context	SublimeUtils\Context - ����\selection.py	/^  def on_query_context(self, *args):$/;"	m	class:SelectionBGreaterA
+on_query_context	SublimeUtils\Context - ����\selection.py	/^  def on_query_context(self, *args):$/;"	m	class:SelectionBGreaterOrEqualA
+on_query_context	SublimeUtils\Context - ����\selection.py	/^  def on_query_context(self, *args):$/;"	m	class:SelectionBLesserA
+on_query_context	SublimeUtils\Context - ����\selection.py	/^  def on_query_context(self, *args):$/;"	m	class:SelectionBLesserOrEqualA
+on_query_context	SublimeUtils\Context - ����\selection.py	/^  def on_query_context(self, *args):$/;"	m	class:SelectionEmpty
+sublime	SublimeUtils\Context - ����\selection.py	/^import sublime$/;"	i
+sublime_plugin	SublimeUtils\Context - ����\selection.py	/^import sublime_plugin$/;"	i
+Base	SublimeUtils\Context - ����\selector.py	/^from Context.base import Base$/;"	i
+Selector	SublimeUtils\Context - ����\selector.py	/^class Selector(Base):$/;"	c
+on_query_context	SublimeUtils\Context - ����\selector.py	/^    def on_query_context(self, view, key, operator, operand, match_all):$/;"	m	class:Selector
+Base	SublimeUtils\Context - ����\settings.py	/^from Context.base import Base$/;"	i
+Settings	SublimeUtils\Context - ����\settings.py	/^class Settings(Base):$/;"	c
+on_query_context	SublimeUtils\Context - ����\settings.py	/^  def on_query_context(self, view, key, *args):$/;"	m	class:Settings
+sublime	SublimeUtils\Context - ����\settings.py	/^import sublime$/;"	i
+sublime_plugin	SublimeUtils\Context - ����\settings.py	/^import sublime_plugin$/;"	i
+Base	SublimeUtils\Context - ����\statement.py	/^from Context.base import Base$/;"	i
+Statement	SublimeUtils\Context - ����\statement.py	/^class Statement(Base):$/;"	c
+_get_text	SublimeUtils\Context - ����\statement.py	/^  def _get_text(self, view, sel):$/;"	m	class:Statement
+on_query_context	SublimeUtils\Context - ����\statement.py	/^  def on_query_context(self, *args):$/;"	m	class:Statement
+statement	SublimeUtils\Context - ����\statement.py	/^from Statement import statement$/;"	i
+sublime	SublimeUtils\Context - ����\statement.py	/^import sublime$/;"	i
+sublime_plugin	SublimeUtils\Context - ����\statement.py	/^import sublime_plugin$/;"	i
+Base	SublimeUtils\Context - ����\text.py	/^from Context.base import Base$/;"	i
+Begin512Chars	SublimeUtils\Context - ����\text.py	/^class Begin512Chars(Base):$/;"	c
+Following128CharsEnd	SublimeUtils\Context - ����\text.py	/^class Following128CharsEnd(Base):$/;"	c
+Following512CharsEnd	SublimeUtils\Context - ����\text.py	/^class Following512CharsEnd(Base):$/;"	c
+FollowingTextA	SublimeUtils\Context - ����\text.py	/^class FollowingTextA(Base):$/;"	c
+FollowingTextB	SublimeUtils\Context - ����\text.py	/^class FollowingTextB(Base):$/;"	c
+FollowingTextBegin	SublimeUtils\Context - ����\text.py	/^class FollowingTextBegin(Base):$/;"	c
+FollowingTextEnd	SublimeUtils\Context - ����\text.py	/^class FollowingTextEnd(Base):$/;"	c
+LineB	SublimeUtils\Context - ����\text.py	/^class LineB(Base):$/;"	c
+Preceding128CharsBegin	SublimeUtils\Context - ����\text.py	/^class Preceding128CharsBegin(Base):$/;"	c
+Preceding512CharsBegin	SublimeUtils\Context - ����\text.py	/^class Preceding512CharsBegin(Base):$/;"	c
+PrecedingTextA	SublimeUtils\Context - ����\text.py	/^class PrecedingTextA(Base):$/;"	c
+PrecedingTextB	SublimeUtils\Context - ����\text.py	/^class PrecedingTextB(Base):$/;"	c
+PrecedingTextBegin	SublimeUtils\Context - ����\text.py	/^class PrecedingTextBegin(Base):$/;"	c
+PrecedingTextEnd	SublimeUtils\Context - ����\text.py	/^class PrecedingTextEnd(Base):$/;"	c
+Selection	SublimeUtils\Context - ����\text.py	/^class Selection(Base):$/;"	c
+_callback	SublimeUtils\Context - ����\text.py	/^  def _callback(self, view, sel):$/;"	m	class:Begin512Chars
+_callback	SublimeUtils\Context - ����\text.py	/^  def _callback(self, view, sel):$/;"	m	class:Following128CharsEnd
+_callback	SublimeUtils\Context - ����\text.py	/^  def _callback(self, view, sel):$/;"	m	class:Following512CharsEnd
+_callback	SublimeUtils\Context - ����\text.py	/^  def _callback(self, view, sel):$/;"	m	class:FollowingTextA
+_callback	SublimeUtils\Context - ����\text.py	/^  def _callback(self, view, sel):$/;"	m	class:FollowingTextB
+_callback	SublimeUtils\Context - ����\text.py	/^  def _callback(self, view, sel):$/;"	m	class:FollowingTextBegin
+_callback	SublimeUtils\Context - ����\text.py	/^  def _callback(self, view, sel):$/;"	m	class:FollowingTextEnd
+_callback	SublimeUtils\Context - ����\text.py	/^  def _callback(self, view, sel):$/;"	m	class:Preceding128CharsBegin
+_callback	SublimeUtils\Context - ����\text.py	/^  def _callback(self, view, sel):$/;"	m	class:Preceding512CharsBegin
+_callback	SublimeUtils\Context - ����\text.py	/^  def _callback(self, view, sel):$/;"	m	class:PrecedingTextA
+_callback	SublimeUtils\Context - ����\text.py	/^  def _callback(self, view, sel):$/;"	m	class:PrecedingTextB
+_callback	SublimeUtils\Context - ����\text.py	/^  def _callback(self, view, sel):$/;"	m	class:PrecedingTextBegin
+_callback	SublimeUtils\Context - ����\text.py	/^  def _callback(self, view, sel):$/;"	m	class:PrecedingTextEnd
+on_query_context	SublimeUtils\Context - ����\text.py	/^  def on_query_context(self, *args):$/;"	m	class:Begin512Chars
+on_query_context	SublimeUtils\Context - ����\text.py	/^  def on_query_context(self, *args):$/;"	m	class:Following128CharsEnd
+on_query_context	SublimeUtils\Context - ����\text.py	/^  def on_query_context(self, *args):$/;"	m	class:Following512CharsEnd
+on_query_context	SublimeUtils\Context - ����\text.py	/^  def on_query_context(self, *args):$/;"	m	class:FollowingTextA
+on_query_context	SublimeUtils\Context - ����\text.py	/^  def on_query_context(self, *args):$/;"	m	class:FollowingTextB
+on_query_context	SublimeUtils\Context - ����\text.py	/^  def on_query_context(self, *args):$/;"	m	class:FollowingTextBegin
+on_query_context	SublimeUtils\Context - ����\text.py	/^  def on_query_context(self, *args):$/;"	m	class:FollowingTextEnd
+on_query_context	SublimeUtils\Context - ����\text.py	/^  def on_query_context(self, *args):$/;"	m	class:LineB
+on_query_context	SublimeUtils\Context - ����\text.py	/^  def on_query_context(self, *args):$/;"	m	class:Preceding128CharsBegin
+on_query_context	SublimeUtils\Context - ����\text.py	/^  def on_query_context(self, *args):$/;"	m	class:Preceding512CharsBegin
+on_query_context	SublimeUtils\Context - ����\text.py	/^  def on_query_context(self, *args):$/;"	m	class:PrecedingTextA
+on_query_context	SublimeUtils\Context - ����\text.py	/^  def on_query_context(self, *args):$/;"	m	class:PrecedingTextB
+on_query_context	SublimeUtils\Context - ����\text.py	/^  def on_query_context(self, *args):$/;"	m	class:PrecedingTextBegin
+on_query_context	SublimeUtils\Context - ����\text.py	/^  def on_query_context(self, *args):$/;"	m	class:PrecedingTextEnd
+on_query_context	SublimeUtils\Context - ����\text.py	/^  def on_query_context(self, *args):$/;"	m	class:Selection
+sublime	SublimeUtils\Context - ����\text.py	/^import sublime$/;"	i
+sublime_plugin	SublimeUtils\Context - ����\text.py	/^import sublime_plugin$/;"	i
+check	SublimeUtils\Context2\context.py	/^def check(view, context):$/;"	f
+ignore	SublimeUtils\Context2\context.py	/^ignore = ['Package Control', 'SublimeLinter', 'Default']$/;"	v
+importlib	SublimeUtils\Context2\context.py	/^import importlib$/;"	i
+os	SublimeUtils\Context2\context.py	/^import os$/;"	i
+re	SublimeUtils\Context2\context.py	/^import re$/;"	i
+sublime	SublimeUtils\Context2\context.py	/^import sublime$/;"	i
+RuleBase	SublimeUtils\Context\Base.py	/^class RuleBase:$/;"	c
+__init__	SublimeUtils\Context\Base.py	/^    def __init__(self, key):$/;"	m	class:RuleBase
+_checkSel	SublimeUtils\Context\Base.py	/^    def _checkSel(self, callback, view, operator, operand, match_all):$/;"	m	class:RuleBase
+_checkValue	SublimeUtils\Context\Base.py	/^    def _checkValue(value, operator, operand):$/;"	m	class:RuleBase
+_checkValueWithSel	SublimeUtils\Context\Base.py	/^    def _checkValueWithSel(self, callback, view, operator, operand, match_all):$/;"	m	class:RuleBase
+_isNegativeOperator	SublimeUtils\Context\Base.py	/^    def _isNegativeOperator(operator):$/;"	m	class:RuleBase
+isComplied	SublimeUtils\Context\Base.py	/^    def isComplied(self, view, operator, operand, match_all):$/;"	m	class:RuleBase
+re	SublimeUtils\Context\Base.py	/^import re$/;"	i
+setup	SublimeUtils\Context\Base.py	/^    def setup(self, ctx):$/;"	m	class:RuleBase
+sublime	SublimeUtils\Context\Base.py	/^import sublime$/;"	i
+MUtils	SublimeUtils\Context\Context.py	/^from . import MUtils$/;"	i
+PluginBase	SublimeUtils\Context\Context.py	/^from pluginbase import PluginBase$/;"	i
+WView	SublimeUtils\Context\Context.py	/^from . import WView$/;"	i
+_Context	SublimeUtils\Context\Context.py	/^class _Context():$/;"	c
+__init__	SublimeUtils\Context\Context.py	/^    def __init__(self):$/;"	m	class:_Context
+_check_item	SublimeUtils\Context\Context.py	/^    def _check_item(self, view, item):$/;"	m	class:_Context
+_getPath	SublimeUtils\Context\Context.py	/^_getPath = partial(os.path.join, _here)$/;"	v
+_here	SublimeUtils\Context\Context.py	/^_here = os.path.abspath(os.path.dirname(__file__))$/;"	v
+_init	SublimeUtils\Context\Context.py	/^    def _init(self):$/;"	m	class:_Context
+_merge_result	SublimeUtils\Context\Context.py	/^    def _merge_result(operator, result, current):$/;"	m	class:_Context
+_prepare_context_item	SublimeUtils\Context\Context.py	/^    def _prepare_context_item(self, item):$/;"	m	class:_Context
+check	SublimeUtils\Context\Context.py	/^    def check(self, view, context):$/;"	m	class:_Context
+check	SublimeUtils\Context\Context.py	/^def check(view, context):$/;"	f
+contextObject	SublimeUtils\Context\Context.py	/^contextObject = _Context()$/;"	v
+os	SublimeUtils\Context\Context.py	/^import os$/;"	i
+partial	SublimeUtils\Context\Context.py	/^from functools import partial$/;"	i
+sublime	SublimeUtils\Context\Context.py	/^import sublime$/;"	i
+MUtils	SublimeUtils\Context\__init__.py	/^from ... import MUtils$/;"	i
+WView	SublimeUtils\Context\__init__.py	/^from .. import WView$/;"	i
+Base	SublimeUtils\Context\rules\Selector.py	/^from .base import Base$/;"	i
+Selector	SublimeUtils\Context\rules\Selector.py	/^class Selector(Base):$/;"	c
+on_query_context	SublimeUtils\Context\rules\Selector.py	/^    def on_query_context(self, view, key, operator, operand, match_all):$/;"	m	class:Selector
+WView	SublimeUtils\Panel.py	/^from . import WView$/;"	i
+decorator	SublimeUtils\Panel.py	/^    def decorator(f):$/;"	f	function:fwShowQuickPanel
+ft	SublimeUtils\Panel.py	/^import functools as ft$/;"	i
+fwShowQuickPanel	SublimeUtils\Panel.py	/^def fwShowQuickPanel(timeout=10):$/;"	f
+showInputPanel	SublimeUtils\Panel.py	/^def showInputPanel(window, onDone, title="", initText="", *, onChange=None, onCancel=None):$/;"	f
+showQuickPanel	SublimeUtils\Panel.py	/^def showQuickPanel(window, items, on_done, timeout=10, **kwds):$/;"	f
+sublime	SublimeUtils\Panel.py	/^import sublime$/;"	i
+wrapper	SublimeUtils\Panel.py	/^        def wrapper(*args, **kwds):$/;"	f	function:fwShowQuickPanel.decorator
 Os	SublimeUtils\Setting.py	/^from ..MUtils import Os$/;"	i
-expandVariable	SublimeUtils\Setting.py	/^def expandVariable(window, *strs, forSublime=True, forEnv=True):$/;"	f
+PluginSetting	SublimeUtils\Setting.py	/^class PluginSetting(object):$/;"	c
+WView	SublimeUtils\Setting.py	/^from . import WView$/;"	i
+__getattr__	SublimeUtils\Setting.py	/^    def __getattr__(self, name):$/;"	m	class:PluginSetting	file:
+__init__	SublimeUtils\Setting.py	/^    def __init__(self, baseName, ext='sublime-settings'):$/;"	m	class:PluginSetting
+_extendVariableTokens	SublimeUtils\Setting.py	/^_extendVariableTokens = {$/;"	v
+dpath	SublimeUtils\Setting.py	/^import dpath.util$/;"	i
+expandVariables	SublimeUtils\Setting.py	/^def expandVariables(window, *strs, forSublime=True, forEnv=True):$/;"	f
+forTarget	SublimeUtils\Setting.py	/^    def forTarget(self, target, defVal=None, reLoad=False):$/;"	m	class:PluginSetting
+ft	SublimeUtils\Setting.py	/^import functools as ft$/;"	i
+getSetting	SublimeUtils\Setting.py	/^    def getSetting(self, target, expandVarialbe=True, **defaultSettings):$/;"	m	class:PluginSetting
+isValid	SublimeUtils\Setting.py	/^    def isValid(self):$/;"	m	class:PluginSetting
+load	SublimeUtils\Setting.py	/^    def load(self):$/;"	m	class:PluginSetting
 sublime	SublimeUtils\Setting.py	/^import sublime$/;"	i
-subprocess	Test.py	/^import subprocess$/;"	i
+util	SublimeUtils\Setting.py	/^import dpath.util$/;"	i
+ft	SublimeUtils\WView.py	/^import functools as ft$/;"	i
+fwPrepareView	SublimeUtils\WView.py	/^def fwPrepareView(f):$/;"	f
+fwPrepareWindow	SublimeUtils\WView.py	/^def fwPrepareWindow(f):$/;"	f
+sublime	SublimeUtils\WView.py	/^import sublime$/;"	i
+wapper	SublimeUtils\WView.py	/^    def wapper(view, *args, **kwds):$/;"	f	function:fwPrepareView
+wapper	SublimeUtils\WView.py	/^    def wapper(window, *args, **kwds):$/;"	f	function:fwPrepareWindow
+Basic	Test\context.py	/^from MUtils import Basic, Input, Os, Str, FileDataSrc$/;"	i
+FileDataSrc	Test\context.py	/^from MUtils import Basic, Input, Os, Str, FileDataSrc$/;"	i
+Input	Test\context.py	/^from MUtils import Basic, Input, Os, Str, FileDataSrc$/;"	i
+Os	Test\context.py	/^from MUtils import Basic, Input, Os, Str, FileDataSrc$/;"	i
+Str	Test\context.py	/^from MUtils import Basic, Input, Os, Str, FileDataSrc$/;"	i
+os	Test\context.py	/^import os$/;"	i
+sys	Test\context.py	/^import sys$/;"	i
+Basic	Test\tests_MUtils_Basic.py	/^from context import Basic$/;"	i
+promiseInput_TestCase	Test\tests_MUtils_Basic.py	/^class promiseInput_TestCase(unittest.TestCase):$/;"	c
+test_match	Test\tests_MUtils_Basic.py	/^    def test_match(self):$/;"	m	class:promiseInput_TestCase
+test_matchWithDefaultDict	Test\tests_MUtils_Basic.py	/^    def test_matchWithDefaultDict(self):$/;"	m	class:promiseInput_TestCase
+test_matchWithTransTempate	Test\tests_MUtils_Basic.py	/^    def test_matchWithTransTempate(self):$/;"	m	class:promiseInput_TestCase
+test_notMatch	Test\tests_MUtils_Basic.py	/^    def test_notMatch(self):$/;"	m	class:promiseInput_TestCase
+unittest	Test\tests_MUtils_Basic.py	/^import unittest$/;"	i
+FileDataSrc	Test\tests_MUtils_FileDataSrc.py	/^from context import FileDataSrc$/;"	i
+JsonSrcManager_TestCase	Test\tests_MUtils_FileDataSrc.py	/^class JsonSrcManager_TestCase(unittest.TestCase):$/;"	c
+Str	Test\tests_MUtils_FileDataSrc.py	/^from context import Str$/;"	i
+TestJsonManager	Test\tests_MUtils_FileDataSrc.py	/^class TestJsonManager(FileDataSrc.JsonSrcManager):$/;"	c
+__init__	Test\tests_MUtils_FileDataSrc.py	/^    def __init__(self, *arg, **kwds):$/;"	m	class:TestJsonManager
+buildAssetCat	Test\tests_MUtils_FileDataSrc.py	/^    def buildAssetCat(self, asset):$/;"	m	class:TestJsonManager
+buildAssetKey	Test\tests_MUtils_FileDataSrc.py	/^    def buildAssetKey(self, key, val, srcFile):$/;"	m	class:TestJsonManager
+os	Test\tests_MUtils_FileDataSrc.py	/^import os$/;"	i
+relPath	Test\tests_MUtils_FileDataSrc.py	/^    def relPath(srcFile, srcDir):$/;"	m	class:TestJsonManager
+reportStatus	Test\tests_MUtils_FileDataSrc.py	/^    def reportStatus(self, message):$/;"	m	class:TestJsonManager
+test_getSpecifyKeyVal	Test\tests_MUtils_FileDataSrc.py	/^    def test_getSpecifyKeyVal(self):$/;"	m	class:JsonSrcManager_TestCase
+unittest	Test\tests_MUtils_FileDataSrc.py	/^﻿import unittest$/;"	i
+Os	Test\tests_MUtils_Os.py	/^from context import Os$/;"	i
+fetchFiles_TestCase	Test\tests_MUtils_Os.py	/^class fetchFiles_TestCase(unittest.TestCase):$/;"	c
+test_fetchPalKey	Test\tests_MUtils_Os.py	/^    def test_fetchPalKey(self):$/;"	m	class:fetchFiles_TestCase
+unittest	Test\tests_MUtils_Os.py	/^import unittest$/;"	i
 sys	__init__.py	/^import sys$/;"	i
-MulRunCommand	mulRunCommand.py	/^class MulRunCommand(sublime_plugin.TextCommand):$/;"	c
-exec_command	mulRunCommand.py	/^    def exec_command(self, command):$/;"	m	class:MulRunCommand
-run	mulRunCommand.py	/^    def run(self, edit, **args):$/;"	m	class:MulRunCommand
-sublime	mulRunCommand.py	/^import sublime$/;"	i
-sublime_plugin	mulRunCommand.py	/^import sublime_plugin$/;"	i
+AnotherPaletteCommand	cmd_another_palette.py	/^class AnotherPaletteCommand(sublime_plugin.WindowCommand):$/;"	c
+JsonSrcManager	cmd_another_palette.py	/^from .MUtils.FileDataSrc import JsonSrcManager$/;"	i
+PROJECT_SRC_BASENAME	cmd_another_palette.py	/^PROJECT_SRC_BASENAME = ".another_palette"$/;"	v
+PalSrcManager	cmd_another_palette.py	/^class PalSrcManager(JsonSrcManager):$/;"	c
+Panel	cmd_another_palette.py	/^from .SublimeUtils import Setting, Panel$/;"	i
+SKEY	cmd_another_palette.py	/^SKEY = "another_palette"$/;"	v
+SRC_FILE_EXT	cmd_another_palette.py	/^SRC_FILE_EXT = ".anotherpal.key"$/;"	v
+Setting	cmd_another_palette.py	/^from .SublimeUtils import Setting, Panel$/;"	i
+Str	cmd_another_palette.py	/^from .MUtils import Str$/;"	i
+__init__	cmd_another_palette.py	/^    def __init__(self, *arg, **kwds):$/;"	m	class:PalSrcManager
+__init__	cmd_another_palette.py	/^    def __init__(self, *args):$/;"	m	class:AnotherPaletteCommand
+buildAssetCat	cmd_another_palette.py	/^    def buildAssetCat(self, asset):$/;"	m	class:PalSrcManager
+buildAssetKey	cmd_another_palette.py	/^    def buildAssetKey(self, key, _, srcFile):$/;"	m	class:PalSrcManager
+context	cmd_another_palette.py	/^from .SublimeUtils.Context import context$/;"	i
+getSetting	cmd_another_palette.py	/^getSetting = None$/;"	v
+invokeAsset	cmd_another_palette.py	/^    def invokeAsset(self, index):$/;"	m	class:AnotherPaletteCommand
+onFinishCollectAssets	cmd_another_palette.py	/^    def onFinishCollectAssets(self):$/;"	m	class:PalSrcManager
+onQuickPanelDone	cmd_another_palette.py	/^    def onQuickPanelDone(self, index):$/;"	m	class:AnotherPaletteCommand
+os	cmd_another_palette.py	/^import os$/;"	i
+pluginSetting	cmd_another_palette.py	/^pluginSetting = Setting.PluginSetting("UserPlugins")$/;"	v
+plugin_loaded	cmd_another_palette.py	/^def plugin_loaded():$/;"	f
+plugin_unloaded	cmd_another_palette.py	/^def plugin_unloaded():$/;"	f
+refreshSettings	cmd_another_palette.py	/^def refreshSettings():$/;"	f
+relPath	cmd_another_palette.py	/^    def relPath(srcFile, srcDir):$/;"	m	class:PalSrcManager
+reportStatus	cmd_another_palette.py	/^    def reportStatus(self, message):$/;"	m	class:PalSrcManager
+run	cmd_another_palette.py	/^    def run(self):$/;"	m	class:AnotherPaletteCommand
+srcManager	cmd_another_palette.py	/^srcManager = PalSrcManager(SRC_FILE_EXT, PROJECT_SRC_BASENAME)$/;"	v
+sublime	cmd_another_palette.py	/^import sublime$/;"	i
+sublime_plugin	cmd_another_palette.py	/^import sublime_plugin$/;"	i
+ASYNC_STATUS_KEY	cmd_eval.py	/^ASYNC_STATUS_KEY = "userstorm_async_code_status_key"$/;"	v
+Basic	cmd_eval.py	/^from .MUtils import Basic, Input$/;"	i
+ErrorPanel	cmd_eval.py	/^from . import ErrorPanel$/;"	i
+EvalPythonCodeCommand	cmd_eval.py	/^class EvalPythonCodeCommand(sublime_plugin.WindowCommand):$/;"	c
+EvalPythonCodePromptCommand	cmd_eval.py	/^class EvalPythonCodePromptCommand(sublime_plugin.WindowCommand):$/;"	c
+Input	cmd_eval.py	/^from .MUtils import Basic, Input$/;"	i
+Panel	cmd_eval.py	/^from .SublimeUtils import Setting, Panel$/;"	i
+Setting	cmd_eval.py	/^from .SublimeUtils import Setting, Panel$/;"	i
+__init__	cmd_eval.py	/^    def __init__(self, *args):$/;"	m	class:EvalPythonCodeCommand
+__init__	cmd_eval.py	/^    def __init__(self, *args):$/;"	m	class:EvalPythonCodePromptCommand
+doWork	cmd_eval.py	/^    def doWork(self, **kwds):$/;"	m	class:EvalPythonCodeCommand
+doWorkAsnc	cmd_eval.py	/^    def doWorkAsnc(self, view, **kwds):$/;"	m	class:EvalPythonCodeCommand
+fn	cmd_eval.py	/^import fn$/;"	i
+onGotInput	cmd_eval.py	/^    def onGotInput(self, content):$/;"	m	class:EvalPythonCodePromptCommand
+run	cmd_eval.py	/^    def run(self, **kwds):$/;"	m	class:EvalPythonCodePromptCommand
+run	cmd_eval.py	/^    def run(self, qAndaDict=None, **kwds):$/;"	m	class:EvalPythonCodeCommand
+sublime	cmd_eval.py	/^import sublime$/;"	i
+sublime_plugin	cmd_eval.py	/^import sublime_plugin$/;"	i
+traceback	cmd_eval.py	/^import traceback$/;"	i
+Cmd	cmd_indent_space_change.py	/^from .SublimeUtils import Cmd$/;"	i
+IndentSpaceChangeCommand	cmd_indent_space_change.py	/^class IndentSpaceChangeCommand(sublime_plugin.TextCommand):$/;"	c
+run	cmd_indent_space_change.py	/^    def run(self, edit, **args):$/;"	m	class:IndentSpaceChangeCommand
+sublime	cmd_indent_space_change.py	/^import sublime$/;"	i
+sublime_plugin	cmd_indent_space_change.py	/^import sublime_plugin$/;"	i
+CUR_ITER_ORDER	cmd_list_current_dir.py	/^CUR_ITER_ORDER = 1$/;"	v
+ListCurrentDirCommand	cmd_list_current_dir.py	/^class ListCurrentDirCommand(sublime_plugin.TextCommand):$/;"	c
+VERSION	cmd_list_current_dir.py	/^VERSION = int(sublime.version())$/;"	v
+__init__	cmd_list_current_dir.py	/^    def __init__(self, args):$/;"	m	class:ListCurrentDirCommand
+_ignore_file	cmd_list_current_dir.py	/^def _ignore_file(filename, ignore_patterns=None):$/;"	f
+_list_path_file	cmd_list_current_dir.py	/^def _list_path_file(path, ignore_patterns=None):$/;"	f
+build_quick_panel_file_list	cmd_list_current_dir.py	/^    def build_quick_panel_file_list(self):$/;"	m	class:ListCurrentDirCommand
+get_parent_path	cmd_list_current_dir.py	/^    def get_parent_path(cls, path):$/;"	m	class:ListCurrentDirCommand
+is_file	cmd_list_current_dir.py	/^    def is_file(entry):$/;"	m	class:ListCurrentDirCommand
+os	cmd_list_current_dir.py	/^import os$/;"	i
+path_file_callback	cmd_list_current_dir.py	/^    def path_file_callback(self, index):$/;"	m	class:ListCurrentDirCommand
+re	cmd_list_current_dir.py	/^import re$/;"	i
+run	cmd_list_current_dir.py	/^    def run(self, edit):$/;"	m	class:ListCurrentDirCommand
+show_dir_file	cmd_list_current_dir.py	/^    def show_dir_file(self, path):$/;"	m	class:ListCurrentDirCommand
+show_quick_panel	cmd_list_current_dir.py	/^    def show_quick_panel(self, options, done_callback, index=None):$/;"	m	class:ListCurrentDirCommand
+sublime	cmd_list_current_dir.py	/^import sublime$/;"	i
+sublime_plugin	cmd_list_current_dir.py	/^import sublime_plugin$/;"	i
+MulRunCommand	cmd_mul_run.py	/^class MulRunCommand(sublime_plugin.TextCommand):$/;"	c
+MulRunWindowCommand	cmd_mul_run.py	/^class MulRunWindowCommand(sublime_plugin.WindowCommand):$/;"	c
+exec_command	cmd_mul_run.py	/^    def exec_command(self, command):$/;"	m	class:MulRunCommand
+exec_command	cmd_mul_run.py	/^    def exec_command(self, command):$/;"	m	class:MulRunWindowCommand
+run	cmd_mul_run.py	/^    def run(self, **args):$/;"	m	class:MulRunWindowCommand
+run	cmd_mul_run.py	/^    def run(self, edit, **args):$/;"	m	class:MulRunCommand
+sublime	cmd_mul_run.py	/^import sublime$/;"	i
+sublime_plugin	cmd_mul_run.py	/^import sublime_plugin$/;"	i
+sublime	cmd_mul_run_window.py	/^import sublime$/;"	i
+sublime_plugin	cmd_mul_run_window.py	/^import sublime_plugin$/;"	i
+PickScopeNameCommand	cmd_pick_scope_name.py	/^class PickScopeNameCommand(sublime_plugin.TextCommand):$/;"	c
+on_input_panel_done	cmd_pick_scope_name.py	/^    def on_input_panel_done(**args):$/;"	m	class:PickScopeNameCommand
+run	cmd_pick_scope_name.py	/^    def run(self, edit):$/;"	m	class:PickScopeNameCommand
+sublime	cmd_pick_scope_name.py	/^import sublime$/;"	i
+sublime_plugin	cmd_pick_scope_name.py	/^import sublime_plugin$/;"	i
+ASYNC_STATUS_KEY	cmd_run.py	/^ASYNC_STATUS_KEY = "userstorm_async_cmd_status_key"$/;"	v
+Basic	cmd_run.py	/^from .MUtils import Basic, Os, Input$/;"	i
+ErrorPanel	cmd_run.py	/^from . import ErrorPanel$/;"	i
+Input	cmd_run.py	/^from .MUtils import Basic, Os, Input$/;"	i
+Os	cmd_run.py	/^from .MUtils import Basic, Os, Input$/;"	i
+Panel	cmd_run.py	/^from .SublimeUtils import Setting, Panel$/;"	i
+PrintSublimeVariableCommand	cmd_run.py	/^class PrintSublimeVariableCommand(sublime_plugin.WindowCommand):$/;"	c
+RunShellCmdCommand	cmd_run.py	/^class RunShellCmdCommand(sublime_plugin.WindowCommand):$/;"	c
+RunShellCmdPromptCommand	cmd_run.py	/^class RunShellCmdPromptCommand(sublime_plugin.WindowCommand):$/;"	c
+SKEY	cmd_run.py	/^SKEY = "run_shell_cmd_prompt"$/;"	v
+Setting	cmd_run.py	/^from .SublimeUtils import Setting, Panel$/;"	i
+__init__	cmd_run.py	/^    def __init__(self, *args):$/;"	m	class:RunShellCmdCommand
+__init__	cmd_run.py	/^    def __init__(self, *args):$/;"	m	class:RunShellCmdPromptCommand
+doWork	cmd_run.py	/^    def doWork(commands, run_mode, win_mode, run_opts, dyn_report_mul, **kwds):$/;"	m	class:RunShellCmdCommand
+doWorkAsnc	cmd_run.py	/^    def doWorkAsnc(self, view, workParams, **kwds):$/;"	m	class:RunShellCmdCommand
+fn	cmd_run.py	/^import fn$/;"	i
+onGotInput	cmd_run.py	/^    def onGotInput(self, content):$/;"	m	class:RunShellCmdPromptCommand
+pluginSetting	cmd_run.py	/^pluginSetting = Setting.PluginSetting("UserPlugins")$/;"	v
+plugin_loaded	cmd_run.py	/^def plugin_loaded():$/;"	f
+plugin_unloaded	cmd_run.py	/^def plugin_unloaded():$/;"	f
+re	cmd_run.py	/^import re$/;"	i
+refreshSettings	cmd_run.py	/^def refreshSettings():$/;"	f
+run	cmd_run.py	/^    def run(self):$/;"	m	class:PrintSublimeVariableCommand
+run	cmd_run.py	/^    def run(self, **kwds):$/;"	m	class:RunShellCmdPromptCommand
+run	cmd_run.py	/^    def run(self, qAndaDict=None, **kwds):$/;"	m	class:RunShellCmdCommand
+sublime	cmd_run.py	/^import sublime$/;"	i
+sublime_plugin	cmd_run.py	/^import sublime_plugin$/;"	i
+ExpandSelBySideCommand	cmd_selection.py	/^class ExpandSelBySideCommand(sublime_plugin.TextCommand):$/;"	c
+run	cmd_selection.py	/^    def run(self, edit, **args):$/;"	m	class:ExpandSelBySideCommand
+sublime	cmd_selection.py	/^import sublime$/;"	i
+sublime_plugin	cmd_selection.py	/^import sublime_plugin$/;"	i
+ReplaceWithCommand	cmd_simple_transform.py	/^class ReplaceWithCommand(sublime_plugin.TextCommand):$/;"	c
+ToggleCamelUnderscoreCommand	cmd_simple_transform.py	/^class ToggleCamelUnderscoreCommand(sublime_plugin.TextCommand):$/;"	c
+fn	cmd_simple_transform.py	/^import fn$/;"	i
+itertools	cmd_simple_transform.py	/^import itertools$/;"	i
+re	cmd_simple_transform.py	/^import re$/;"	i
+run	cmd_simple_transform.py	/^    def run(self, edit):$/;"	m	class:ToggleCamelUnderscoreCommand
+run	cmd_simple_transform.py	/^    def run(self, edit, **kwds):$/;"	m	class:ReplaceWithCommand
+sublime	cmd_simple_transform.py	/^import sublime$/;"	i
+sublime_plugin	cmd_simple_transform.py	/^import sublime_plugin$/;"	i
+toggleCamelUnderscore	cmd_simple_transform.py	/^    def toggleCamelUnderscore(text):$/;"	m	class:ToggleCamelUnderscoreCommand
 !_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
 !_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
 !_TAG_PROGRAM_VERSION	5.8	//

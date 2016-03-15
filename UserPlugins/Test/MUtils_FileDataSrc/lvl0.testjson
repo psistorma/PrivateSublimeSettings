@@ -1,0 +1,7 @@
+{
+    "assets":
+        [
+            {"key": "lvl0-k0", "val": "I am lvl0 k0"},
+            {"key": "lvl0-k1", "val": "I am lvl0 k1"},
+        ]
+}

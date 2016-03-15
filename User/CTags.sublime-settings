@@ -96,8 +96,9 @@
     "extra_tag_paths": [
         [["source.python", "windows"], "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python35"],
         [["source.python", "windows"], "C:\\Program Files (x86)\\Sublime Text 3"],
-        [["source.c++", "windows"], "E:\\ForDevEnv\\myTags\\c++\\winsdk"],
-        [["source.c++", "windows"], "E:\\ForDevEnv\\myTags\\c++\\vc"]
+        [["source.c++", "windows"], "C:\\Program Files (x86)\\Windows Kits\\8.1\\Include"],
+        [["source.c++", "windows"], "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\include"],
+        [["source.c++", "windows"], "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\atlmfc\\include"],
     ],
 
     // Enable highlighting of selected symbol.

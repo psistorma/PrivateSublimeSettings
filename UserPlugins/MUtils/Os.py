@@ -1,7 +1,7 @@
 import subprocess
 import os
 import win32con
-from . import Basic, sargeWrapper
+from . import Call, sargeWrapper
 
 def expandVariables(*strs):
     retStrs = []
@@ -26,7 +26,7 @@ _CMD_KWDS_MAP = {
     "PIPE": subprocess.PIPE,
 }
 
-@Basic.fwKeyWordMap(_CMD_KWDS_MAP, ["run_mode", "win_mode"])
+@Call.fwKeyWordMap(_CMD_KWDS_MAP, ["run_mode", "win_mode"])
 def runShellCmd(cmd, run_mode="capture_both", win_mode="hide", **kwds):
     # startupinfo = subprocess.STARTUPINFO()
     # startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
@@ -43,4 +43,14 @@ def runShellCmd(cmd, run_mode="capture_both", win_mode="hide", **kwds):
             out.stdoutText if out.stdoutText is not None else "!!can't get stdout",
             out.stderrText if out.stderrText is not None else "!!can't get stderr")
 
+def fetchFiles(directory, ext, includeSub=True):
+    ext = ext.lower()
+    if includeSub:
+        return [os.path.join(root, f) for root, dirs, files in os.walk(directory)
+                for f in files if f.lower().endswith(ext)]
+
+def isSameFile(lhsFilePath, rhsFilePath):
+    if lhsFilePath.lower() == rhsFilePath.lower():
+        return True
+    return os.path.samefile(lhsFilePath, rhsFilePath)
 

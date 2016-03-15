@@ -1,9 +1,9 @@
 import sarge
-from . import Basic
+from . import Str, Data
 
 def run(cmd, encoding=None, **kwds):
     ret = sarge.run(cmd, **kwds)
-    return Basic.toNamedTuple(
+    return Data.toNamedTuple(
         "returncode, encoding, stdoutText, stderrText",
         ret.returncode,
         encoding,
@@ -21,17 +21,17 @@ def _prepareCapture(encoding, *, wantOut=False, wantErr=False):
 
 DEFAULT_ENCODINGS = ("UTF-8", "GBK")
 
-@Basic.fwTryDecodings(DEFAULT_ENCODINGS)
+@Str.fwTryDecodings(DEFAULT_ENCODINGS)
 def capture_stdout(cmd, encoding, **kwds):
     kwds.update(_prepareCapture(encoding, wantOut=True))
     return run(cmd, encoding, **kwds)
 
-@Basic.fwTryDecodings(DEFAULT_ENCODINGS)
+@Str.fwTryDecodings(DEFAULT_ENCODINGS)
 def capture_stderr(cmd, encoding, **kwds):
     kwds.update(_prepareCapture(encoding, wantErr=True))
     return run(cmd, encoding, **kwds)
 
-@Basic.fwTryDecodings(DEFAULT_ENCODINGS)
+@Str.fwTryDecodings(DEFAULT_ENCODINGS)
 def capture_both(cmd, encoding, **kwds):
     kwds.update(_prepareCapture(encoding, wantOut=True, wantErr=True))
     return run(cmd, encoding, **kwds)

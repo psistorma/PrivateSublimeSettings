@@ -68,5 +68,21 @@
         "command": "anaconda_auto_format", "keys": ["alt+f8"], "context": [
             {"key": "selector", "operator": "equal", "operand": "source.python"}
         ]
+    },
+    //smart quick autocompletion
+    {
+        "keys": ["f"],
+        "command": "mul_run",
+        "args": {
+            "commands" : [
+                {"command": "left_delete"},
+                {"command": "insert", "args": {"characters": "self."}},
+                {"command": "auto_complete"}
+            ]
+        },"context": [
+            {"key": "selection_empty", "operator": "equal", "operand": true},
+            {"key": "preceding_text", "operator": "regex_contains", "operand": "\\bs$"},
+            {"key": "selector", "operator": "equal", "operand": "source.python"}
+        ]
     }
 ]

@@ -1,6 +1,23 @@
+import re
 import functools as ft
 import fn
-from . import Basic
+from . import Data, Str
+
+def promiseInput(pattern, inStr, transTemplate=None, defaultDict=None):
+    m = re.match(pattern, inStr)
+    if m is None:
+        return None
+
+    if transTemplate is None:
+        return inStr
+
+    grpDict = {k: v for k, v in m.groupdict().items() if v is not None}
+    if defaultDict:
+        valDict = Data.mergeDicts(defaultDict, grpDict)
+    else:
+        valDict = grpDict
+
+    return Str.renderText(transTemplate, **valDict)
 
 def askQuestions(showInputPanel, onDone, *questions, onChange=None, onCancel=None):
     questions = list(questions)
@@ -19,7 +36,7 @@ def askQuestions(showInputPanel, onDone, *questions, onChange=None, onCancel=Non
 
         def _oneQuestionDone(answer):
             if pattern is not None:
-                transAnswer = Basic.promiseInput(pattern, answer, answer_tempate, default_dict)
+                transAnswer = promiseInput(pattern, answer, answer_tempate, default_dict)
                 if transAnswer is None:
                     tip = "{title}:\n{info}\n{pattern}".format(
                         title=title,

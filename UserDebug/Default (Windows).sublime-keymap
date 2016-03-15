@@ -1,4 +1,16 @@
 [
+    {"keys": ["ctrl+alt+o"], "command": "mul_run" , "args": {
+        "commands" : [
+            {"command": "save"},
+            {"command": "run_shell_cmd",
+                "args":{
+                    "commands": ["devenv.exe /Edit \"${file}\""],"async": true,
+                    "run_mode": "run","win_mode": "show"
+                },
+                "context": "window"
+            },
+        ]}
+    },
 //html
     {"keys": ["f5"], "command": "mul_run" , "args": {
         "commands" : [
@@ -71,7 +83,7 @@
         ]
     },
 //python
-    {"keys": ["f5"], "command": "mul_run" , "args": {
+    {"keys": ["f11"], "command": "mul_run" , "args": {
         "commands" : [
             {"command": "save"},
             {"command": "run_shell_cmd",
@@ -85,7 +97,7 @@
             {"key": "selector", "operator": "equal", "operand": "source.python"}
         ]
     },
-    {"keys": ["ctrl+f5"], "command": "mul_run" , "args": {
+    {"keys": ["alt+f11"], "command": "mul_run" , "args": {
         "commands" : [
             {"command": "save"},
             {"command": "run_shell_cmd",
@@ -114,13 +126,35 @@
             {"key": "selector", "operator": "equal", "operand": "source.python"}
         ]
     },
-////
-    {"keys": ["shift+space"], "command": "mul_run" , "args": {
+    {"keys": ["f5"], "command": "mul_run" , "args": {
         "commands" : [
             {"command": "save"},
             {"command": "run_shell_cmd",
                 "args":{
-                    "commands": ["python.exe \"C:\\Users\\Administrator\\AppData\\Roaming\\Sublime Text 3\\Packages\\UserPlugins\\tests_MUtils_Basic.py\""],"async": false
+                    "commands": ["python.exe C:\\Python27\\Lib\\site-packages\\rpdb2.py --debuggee --pwd=123 \"${file!lower}\""],"async": true,
+                    "run_mode": "run","win_mode": "show"
+                },
+                "context": "window"
+            },
+            {"command": "run_shell_cmd",
+                "args":{
+                    "commands": ["C:\\Python27\\python.exe C:\\Python27\\Lib\\site-packages\\winpdb.py --attach --pwd 123 --host localhost \"${file!lower}\""],"async": true,
+                    "run_mode": "run","win_mode": "show"
+                },
+                "context": "window"
+            },
+        ]},
+        "context": [
+            {"key": "selector", "operator": "equal", "operand": "source.python"}
+        ]
+    },
+////
+    {"keys": ["alt+m"], "command": "mul_run" , "args": {
+        "commands" : [
+            {"command": "save"},
+            {"command": "run_shell_cmd",
+                "args":{
+                    "commands": ["python.exe \"C:\\Users\\Administrator\\AppData\\Roaming\\Sublime Text 3\\Packages\\UserPlugins\\Test\\tests_MUtils_Basic.py\""],"async": false
                 },
                 "context": "window"
             },

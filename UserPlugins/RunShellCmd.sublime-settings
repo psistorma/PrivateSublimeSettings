@@ -1,0 +1,24 @@
+{
+    "lexical_kwds_modes": [
+        //sync and is default
+        {"pattern": "(?i)^\\s*@s\\s*(.*)",
+         "kwds": {"run_mode": "capture_both",
+                  "win_mode": "hide",
+                  "async": false},
+         "default": true
+        },
+        //async
+        {"pattern": "(?i)^\\s*@a\\s*(.*)",
+         "kwds": {"run_mode": "capture_both",
+                  "win_mode": "hide",
+                  "async": true},
+        },
+        //show in shell
+        {"pattern": "(?i)^\\s*@\\s*(.*)",
+         "kwds": {"run_mode": "run",
+                  "win_mode": "show",
+                  "async": true},
+         "transform": "cmd /k {}"
+        }
+    ],
+}

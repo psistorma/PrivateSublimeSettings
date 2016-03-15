@@ -1,39 +1,39 @@
 import functools as ft
 import sublime
+from . import WView
 
 def fwShowQuickPanel(timeout=10):
     def decorator(f):
         @ft.wraps(f)
         def wrapper(*args, **kwds):
-            self, items, selected_index, *flags = f(*args, **kwds)
-            if flags:
-                flags, = flags
+            self, items, selected_index, *flagArg = f(*args, **kwds)
+            if flagArg:
+                flags, = flagArg
+            else:
+                flags = 0
 
+            on_done, on_highlight = None, None
+            metaOfSelf = dir(self)
+            if "onQuickPanelDone" in metaOfSelf:
+                on_done = self.onQuickPanelDone
 
+            if "onQuickPanelHighlight" in metaOfSelf:
+                on_highlight = self.onQuickPanelHighlight
 
-            showQuickPanel(None, items, on_done, timeout,
-                           on_highlighted=on_highlighted, selected_index=selected_index)
+            showQuickPanel(
+                None, items, on_done, timeout,
+                on_highlight=on_highlight, flags=flags, selected_index=selected_index)
 
         return wrapper
 
     return decorator
 
-def _fwPrepareWindow(f):
-    @ft.wraps(f)
-    def wapper(window, *args, **kwds):
-        if not window:
-            window = sublime.active_window()
-
-        return f(window, *args, **kwds)
-
-    return wapper
-
-@_fwPrepareWindow
+@WView.fwPrepareWindow
 def showInputPanel(window, onDone, title="", initText="", *, onChange=None, onCancel=None):
     window.show_input_panel(
         title, initText, onDone, onChange, onCancel)
 
-@_fwPrepareWindow
+@WView.fwPrepareWindow
 def showQuickPanel(window, items, on_done, timeout=10, **kwds):
     if timeout:
         sublime.set_timeout(lambda: window.show_quick_panel(items, on_done, **kwds), timeout)
