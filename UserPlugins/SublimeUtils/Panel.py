@@ -6,7 +6,11 @@ def fwShowQuickPanel(timeout=10):
     def decorator(f):
         @ft.wraps(f)
         def wrapper(*args, **kwds):
-            self, items, selected_index, *flagArg = f(*args, **kwds)
+            ret = f(*args, **kwds)
+            if ret is None:
+                return
+
+            self, items, selected_index, *flagArg = ret
             if flagArg:
                 flags, = flagArg
             else:

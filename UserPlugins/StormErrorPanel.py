@@ -24,11 +24,9 @@ def initSettings():
         "replace_regex":
         {"from": "\\r(?=$)", "to": ""},
 
-        "erase_panel_content":
-        True,
+        "erase_panel_content": True,
 
-        "scroll_end":
-        True,
+        "scroll_end": True,
     }
     ps.loadWithDefault(defaultOptions)
 

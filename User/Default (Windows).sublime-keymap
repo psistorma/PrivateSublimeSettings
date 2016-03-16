@@ -160,17 +160,7 @@
 //__deleteIt
     { "keys": ["f9"], "command": "not_valid_yet"},
     { "keys": ["ctrl+f9"], "command": "not_valid_yet"},
-//test
-    {"keys": ["alt+t"], "command": "run_shell_cmd",  "args": {
-        "questions": [{"key": "message", "title": "commit message",
-                      "pattern": "^\\s*(?P<message>.+?)?\\s*$", "answer_tempate": "{{message}}",
-                      "default_dict": {"message": "auto commit"}}],
-        "commands": ["git add -A", "git commit -m \"{{message}}\"", "git push"],
-        "run_opts": {"cwd": "${packages}"}}
-    },
-
-    // {"keys": ["alt+t"], "command": "another_palette",  "args": {}
-    // },
+//alter buildin
     {"keys": ["ctrl+alt+shift+v"], "command": "print_sublime_variable"},
 
     { "keys": ["ctrl+alt+c"], "command": "toggle_case_sensitive", "context":
@@ -192,5 +182,30 @@
         [
             { "key": "setting.is_widget", "operator": "equal", "operand": true }
         ]
+    },
+
+//test
+    // {"keys": ["alt+t"], "command": "run_shell_cmd",  "args": {
+    //     "questions": [{"key": "message", "title": "commit message",
+    //                   "pattern": "^\\s*(?P<message>.+?)?\\s*$", "answer_tempate": "{{message}}",
+    //                   "default_dict": {"message": "auto commit"}}],
+    //     "commands": ["git add -A", "git commit -m \"{{message}}\"", "git push"],
+    //     "run_opts": {"cwd": "${packages}"}}
+    // },
+
+    {"keys": ["ctrl+t"], "command": "another_palette",  "args": {}
+    },
+
+    {"keys": ["alt+t"], "command": "another_palette_record",  "args": {
+        "questions": [{"key": "palkey"}],
+        "content": {
+            "key": "{{palkey}}",
+            "tip": "open/file/record",
+            "command": "eval_python_code",
+            "args": {
+                "code": "sublime.active_window().open_file(\"${file!unixpath}\")",
+                "show_result": "error"
+            }
+        }}
     },
 ]

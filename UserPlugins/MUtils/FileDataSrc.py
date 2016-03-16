@@ -12,7 +12,7 @@ class Asset:
 
 class SrcObj:
     def __init__(self, path, parent=None):
-        self.path = path
+        self.path = os.path.normpath(path).lower()
         self.parent = parent
         self.items = []
 
@@ -92,23 +92,16 @@ class SrcDir(SrcObj):
         return [asset for srcFile in self.srcFiles for asset in srcFile.assets]
 
     def load(self):
+        self.srcFiles.clear()
         manager = self.manager
         files = Os.fetchFiles(self.path, manager.srcExt, manager.includeSubDir)
         for f in files:
-            srcFile = SrcFile(f, False, self)
+            srcFile = SrcFile(f, manager.isDynFile(f), self)
             srcFile.load()
             self.srcFiles.append(srcFile)
 
         self.manager.reportStatus("dir: {} is loaded".format(self.basename))
         return len(files) > 0
-
-    def refreshFile(self, filePath):
-        for srcFile in self.srcFiles:
-            if srcFile.isMe(filePath):
-                srcFile.load()
-                return True
-
-        return False
 
 class SrcManager:
     def __init__(self, srcExt, includeSubDir=True, maxCacheProjectCount=5):
@@ -136,6 +129,10 @@ class SrcManager:
     def buildAssetCat(self, asset):
         """ can be overrided """
         pass
+
+    def isDynFile(self, srcFilePath):
+        """ can be overrided """
+        return False
 
     def buildAssetKey(self, key, val, srcFile):
         """ can be overrided """
@@ -179,11 +176,19 @@ class SrcManager:
         self.collectAssets()
 
     def refreshFile(self, filePath):
-        filePath = filePath.lower()
+        filePath = os.path.normpath(filePath).lower()
+        for srcFile in self.srcFiles:
+            if srcFile.isMe(filePath):
+                srcFile.load()
+                return True
+
         for srcDir in self.srcDirs:
-            if srcDir.refreshFile(filePath):
+            if filePath.startswith(srcDir.path):
+                srcDir.load()
                 self.collectAssets()
-                return
+                return True
+
+        return False
 
     def loadSrcDir(self, srcDirPath, isStatic=True):
         self.assets = None
@@ -191,6 +196,14 @@ class SrcManager:
         newSrcDir.load()
         self.srcDirs.append(newSrcDir)
         return newSrcDir
+
+    def updateSrcDir(self, srcDirPath):
+        for srcDir in self.srcDirs:
+            if srcDir.isMe(srcDirPath):
+                srcDir.load()
+                return True
+
+        return False
 
     def collectAssets(self):
         collectSrcDirs = [src for src in self.srcDirs

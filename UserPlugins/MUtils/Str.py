@@ -1,9 +1,21 @@
+import re
 import functools as ft
 from jinja2 import Template
 from . import Exp
 
 def toUTF8(s):
     return s.encode(encodeing="UTF-8")
+
+def readableInfo(s):
+    s = re.sub(r"\W", " ", s)
+    return s.replace(r"\s+", " ", s).strip()
+
+def padWithChar(s, padChar, width):
+    sLen = len(s)
+    if sLen >= width:
+        return s
+
+    return padChar*(width-sLen)+s
 
 def alignmentBothSide(lhsStr, rhsStr, width, padChar=" "):
     lhsLen = len(lhsStr)

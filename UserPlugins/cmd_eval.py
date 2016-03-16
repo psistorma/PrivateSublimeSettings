@@ -34,7 +34,7 @@ class EvalPythonCodeCommand(sublime_plugin.WindowCommand):
 
     @Input.fwAskQuestions(
         fn.F(Panel.showInputPanel, None),
-        fn.F(sublime.error_message, "Canceled on answering question!"))
+        fn.F(sublime.message_dialog, "Canceled on answering question!"))
     def run(self, qAndaDict=None, **kwds):
         _async = kwds.pop("async", True)
         self.code = kwds.pop("code")
@@ -63,9 +63,8 @@ class EvalPythonCodeCommand(sublime_plugin.WindowCommand):
     def doWork(self, **kwds):
         evalCode, = Setting.expandVariables(self.window, self.code)
         err = None
-        ret = ""
         try:
-            ret = str(eval(evalCode)) # pylint: disable=W0123
+            ret = eval(evalCode) # pylint: disable=W0123
         except Exception:   # pylint: disable=W0703
             err = traceback.format_exc()
 
@@ -73,7 +72,9 @@ class EvalPythonCodeCommand(sublime_plugin.WindowCommand):
         if err is not None:
             secs.append(("error info", err, True))
 
-        secs.append(("output info", ret, True))
+        if ret is not None:
+            secs.append(("output info", str(ret), True))
+
         infos = []
         infos.append(StormErrorPanel.Info("success" if err is None else "error", *secs))
 

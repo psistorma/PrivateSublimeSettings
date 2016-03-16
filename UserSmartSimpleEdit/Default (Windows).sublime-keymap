@@ -7,6 +7,5 @@
   }},
   {"keys": ["ctrl+k", "ctrl+shift+tab"], "command": "indent_space_change", "args": {
       "from": "4", "to": 2
-  }},
-  {"keys": ["ctrl+k", "ctrl+g"], "command": "run_macro_file", "args": {"file": "res://Packages/User/Macros/clipboard_to_json.sublime-macro"}},
+  }}
 ]

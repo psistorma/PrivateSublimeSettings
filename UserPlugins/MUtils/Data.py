@@ -19,3 +19,47 @@ def mergeDicts(*dicts, **kwds):
 
 def toNormalDict(dictObj):
     return json.loads(json.dumps(dictObj))
+
+def transfJsonObj(obj, fnNeedTransf, fnTransf):
+    return _TransfJsonobj(fnNeedTransf, fnTransf).transf(obj)
+
+class _TransfJsonobj:
+    def __init__(self, fnNeedTransf, fnTransf):
+        self.fnNeedTransf = fnNeedTransf
+        self.fnTransf = fnTransf
+
+    def transf(self, obj):
+        if isinstance(obj, dict):
+            return self._transfDict(obj)
+        elif isinstance(obj, list):
+            return self._transfList(obj)
+        else:
+            return self._transfPrimitive(obj)
+
+    def _transfIt(self, obj, isKey):
+        nobj = obj
+        if self.fnNeedTransf(obj, isKey):
+            nobj = self.fnTransf(obj, isKey)
+
+        return nobj
+
+    def _transfDict(self, obj):
+        altered = {}
+        for k, v in obj.items():
+            nk = self._transfIt(k, True)
+            nv = self.transf(v)
+            altered[nk] = nv
+
+        return altered
+
+    def _transfList(self, obj):
+        altered = []
+        for v in obj:
+            nv = self.transf(v)
+            altered.append(nv)
+
+        return altered
+
+    def _transfPrimitive(self, obj):
+        return self._transfIt(obj, False)
+

@@ -1,6 +1,8 @@
 import functools as ft
 import sublime
 
+NO_PROJECT = "___NO_PROJECT_PRESENT____"
+
 def fwPrepareWindow(f):
     @ft.wraps(f)
     def wapper(window, *args, **kwds):
@@ -23,5 +25,10 @@ def fwPrepareView(f):
 
 @fwPrepareWindow
 def getProjectPath(window=None, lower=True):
-    variables = window.extract_variables()
-    return variables['project'].lower()
+    projectPath = window.project_file_name()
+    if not projectPath:
+        projectPath = NO_PROJECT
+
+    return projectPath.lower()
+
+

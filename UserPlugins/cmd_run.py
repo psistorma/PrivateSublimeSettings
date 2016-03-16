@@ -95,10 +95,8 @@ class RunShellCmdCommand(sublime_plugin.WindowCommand):
 
     @Input.fwAskQuestions(
         fn.F(Panel.showInputPanel, None),
-        fn.F(sublime.error_message, "Canceled on answering question!"))
+        fn.F(sublime.message_dialog, "Canceled on answering question!"))
     def run(self, qAndaDict=None, **kwds):
-        sublime.error_message(str(kwds))
-
         _async = kwds.pop("async", True)
         commands = kwds.pop("commands")
         run_mode = kwds.pop("run_mode", "capture_both")

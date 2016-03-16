@@ -3,27 +3,37 @@ import functools as ft
 from collections import defaultdict
 import dpath.util
 import sublime
-from ..MUtils import Os
-from . import WView
+from ..MUtils import Os, Str
+from . import WView, Selection
 
-_extendVariableTokens = {
+_extendVariableKeys = {
+    "m_sel_row": lambda vw: str(Selection.getRowCols(vw)[0][0]),
+    "m_sel_col": lambda vw: str(Selection.getRowCols(vw)[0][1]),
+    "m_sel_text": lambda vw: Selection.getSelTexts(vw)[0],
+    "m_sel_lefttext": lambda vw: Selection.getLeftTexts(vw)[0],
+    "m_sel_righttext": lambda vw: Selection.getRightTexts(vw)[0],
+    "m_sel_line": lambda vw: Selection.getLines(vw)[0],
+}
+_extendVariableCmds = {
     "!lower": lambda v: v.lower(),
     "!upper": lambda v: v.upper(),
+    "!unixpath": lambda v: v.replace("\\", "/"),
+    "!020": lambda v: Str.padWithChar(v, "0", 20),
 }
 
 @WView.fwPrepareWindow
 def expandVariables(window, *strs, forSublime=True, forEnv=True):
+    view = window.active_view()
     sublimeVariables = window.extract_variables()
-    extendVariables = {}
-    for token, processFn in _extendVariableTokens.items():
+
+    extendVariables = {k: kFn(view) for k, kFn in _extendVariableKeys.items()}
+
+    for cmd, cmdFn in _extendVariableCmds.items():
         extendVariables.update({
-            k+token: processFn(v)
-            for k, v in sublimeVariables.items()
-            if isinstance(v, str)
+            k+cmd: cmdFn(v) for k, v in sublimeVariables.items()
         })
 
     sublimeVariables.update(extendVariables)
-
 
     retStrs = [sublime.expand_variables(s, sublimeVariables)
                for s in strs] if forSublime else strs

@@ -1,0 +1,11 @@
+[
+  {
+    "caption": "-"
+  },
+  
+  {
+  	"caption": "Add bookmark",
+    "command": "sublime_bookmark",
+     "args" : { "type" : "add" }
+  }, 
+]
