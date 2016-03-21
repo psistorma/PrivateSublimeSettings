@@ -1,0 +1,9 @@
+{
+    "*": {
+        ">=3080": [
+            "python-jinja2",
+            "SublimeStorm-Dep",
+            "SublimeStorm-Dep-Utils"
+        ]
+    }
+}

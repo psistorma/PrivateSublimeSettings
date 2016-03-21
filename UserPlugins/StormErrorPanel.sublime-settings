@@ -1,7 +1,0 @@
-{
-    "syntax_file": "Packages/UserPlugins/StormErrorPanel.sublime-syntax",
-    "default_result_file_regex": "(?i)^\\s*File\\s*:?\\s*(?:\"|')?(.+?)(?:\"|')?,\\s*line\\s*:?\\s*([0-9]+)",
-    "replace_regex": {"from": "\\r(?=$)", "to": ""},
-    "erase_panel_content": true,
-    "scroll_end": true,
-}

@@ -1,0 +1,117 @@
+Bookmark	bookmark.py	/^class Bookmark:$/;"	c
+__init__	bookmark.py	/^	def __init__(self, uid, name, window, activeView):$/;"	m	class:Bookmark
+getBookmarkView	bookmark.py	/^def getBookmarkView(window, bookmark):$/;"	f
+getBufferID	bookmark.py	/^	def getBufferID(self):$/;"	m	class:Bookmark
+getFilePath	bookmark.py	/^	def getFilePath(self):$/;"	m	class:Bookmark
+getGroup	bookmark.py	/^	def getGroup(self):$/;"	m	class:Bookmark
+getLineNumber	bookmark.py	/^	def getLineNumber(self):$/;"	m	class:Bookmark
+getLineStr	bookmark.py	/^	def getLineStr(self):$/;"	m	class:Bookmark
+getName	bookmark.py	/^	def getName(self):$/;"	m	class:Bookmark
+getProjectPath	bookmark.py	/^	def getProjectPath(self):$/;"	m	class:Bookmark
+getRegion	bookmark.py	/^	def getRegion(self):$/;"	m	class:Bookmark
+getUid	bookmark.py	/^	def getUid(self):$/;"	m	class:Bookmark
+goto	bookmark.py	/^	def goto(self, window):$/;"	m	class:Bookmark
+isEmpty	bookmark.py	/^	def isEmpty(self,  view):$/;"	m	class:Bookmark
+isMyView	bookmark.py	/^	def isMyView(self, window, view):$/;"	m	class:Bookmark
+isTemporary	bookmark.py	/^	def isTemporary(self):$/;"	m	class:Bookmark
+moveBookmarkToGroup	bookmark.py	/^def moveBookmarkToGroup(window, bookmark, group):$/;"	f
+moveViewToGroup	bookmark.py	/^	def moveViewToGroup(window, view, group):$/;"	f	function:moveBookmarkToGroup
+setGroup	bookmark.py	/^	def setGroup(self, group):$/;"	m	class:Bookmark
+setLineStr	bookmark.py	/^	def setLineStr(self, newLineStr):$/;"	m	class:Bookmark
+setRegion	bookmark.py	/^	def setRegion(self, region):$/;"	m	class:Bookmark
+shouldRemoveTempBookmark	bookmark.py	/^def shouldRemoveTempBookmark(window, bookmark):$/;"	f
+updateData	bookmark.py	/^	def updateData(self, window, myView):$/;"	m	class:Bookmark
+bookmarkWatcher	bookmarkWatcher.py	/^class bookmarkWatcher(sublime_plugin.EventListener):$/;"	c
+on_activated_async	bookmarkWatcher.py	/^	def on_activated_async(self, view):$/;"	m	class:bookmarkWatcher
+on_close	bookmarkWatcher.py	/^	def on_close(self, view):$/;"	m	class:bookmarkWatcher
+on_deactivated_async	bookmarkWatcher.py	/^	def on_deactivated_async(self, view):$/;"	m	class:bookmarkWatcher
+on_modified_async	bookmarkWatcher.py	/^	def on_modified_async(self, view):$/;"	m	class:bookmarkWatcher
+on_pre_save_async	bookmarkWatcher.py	/^	def on_pre_save_async(self, view):$/;"	m	class:bookmarkWatcher
+sublime	bookmarkWatcher.py	/^import sublime, sublime_plugin$/;"	i
+sublime_plugin	bookmarkWatcher.py	/^import sublime, sublime_plugin$/;"	i
+Log	common.py	/^def Log(string):$/;"	f
+MESSAGE_BookmarkEmpty	common.py	/^def MESSAGE_BookmarkEmpty():$/;"	f
+MESSAGE_NoBookmarkToGoto	common.py	/^def MESSAGE_NoBookmarkToGoto():$/;"	f
+NO_PROJECT	common.py	/^NO_PROJECT = "___NO_PROJECT_PRESENT____"$/;"	v
+REGION_BASE_TAG	common.py	/^REGION_BASE_TAG = int(11001001000011111101)$/;"	v
+SETTINGS_NAME	common.py	/^SETTINGS_NAME = "SublimeBookmarks.sublime-settings"$/;"	v
+VERSION	common.py	/^VERSION = "2.0.0"$/;"	v
+getCurrentActiveGroup	common.py	/^def getCurrentActiveGroup(window):$/;"	f
+getCurrentLineRegion	common.py	/^def getCurrentLineRegion(view):$/;"	f
+getCurrentProjectPath	common.py	/^def getCurrentProjectPath(window):$/;"	f
+getSavePath	common.py	/^def getSavePath():$/;"	f
+getViewByBufferID	common.py	/^def getViewByBufferID(window, bufferID):$/;"	f
+isLineEmpty	common.py	/^def isLineEmpty(line):$/;"	f
+isViewTemporary	common.py	/^def isViewTemporary(view):$/;"	f
+os	common.py	/^import os.path$/;"	i
+path	common.py	/^import os.path$/;"	i
+sublime	common.py	/^import sublime$/;"	i
+sublime_plugin	common.py	/^import sublime_plugin$/;"	i
+BOOKMARKS	sublimebookmark.py	/^BOOKMARKS = []$/;"	v
+BOOKMARKS_MODE	sublimebookmark.py	/^BOOKMARKS_MODE = SHOW_ALL_BOOKMARKS()$/;"	v
+ERASED_BOOKMARKS	sublimebookmark.py	/^ERASED_BOOKMARKS = []$/;"	v
+PicklingError	sublimebookmark.py	/^from pickle import dump, load, UnpicklingError, PicklingError$/;"	i
+SublimeBookmarkCommand	sublimebookmark.py	/^class SublimeBookmarkCommand(sublime_plugin.WindowCommand):$/;"	c
+UID	sublimebookmark.py	/^UID = None$/;"	v
+UnpicklingError	sublimebookmark.py	/^from pickle import dump, load, UnpicklingError, PicklingError$/;"	i
+_AddBookmarkCallback	sublimebookmark.py	/^	def _AddBookmarkCallback(self, name):$/;"	m	class:SublimeBookmarkCommand
+_AutoMoveToBookmarkCallback	sublimebookmark.py	/^	def _AutoMoveToBookmarkCallback(self, index):$/;"	m	class:SublimeBookmarkCommand
+_HilightDoneCallback	sublimebookmark.py	/^	def _HilightDoneCallback(self, index):$/;"	m	class:SublimeBookmarkCommand
+_Load	sublimebookmark.py	/^	def _Load(self):$/;"	m	class:SublimeBookmarkCommand
+_RemoveDoneCallback	sublimebookmark.py	/^	def _RemoveDoneCallback(self, index):$/;"	m	class:SublimeBookmarkCommand
+_Save	sublimebookmark.py	/^	def _Save(self):$/;"	m	class:SublimeBookmarkCommand
+_UpdateBookmarkPosition	sublimebookmark.py	/^	def _UpdateBookmarkPosition(self):$/;"	m	class:SublimeBookmarkCommand
+_UpdateTemporaryBookmarks	sublimebookmark.py	/^	def _UpdateTemporaryBookmarks(self):$/;"	m	class:SublimeBookmarkCommand
+__init__	sublimebookmark.py	/^	def __init__(self, window):$/;"	m	class:SublimeBookmarkCommand
+_addBookmark	sublimebookmark.py	/^	def _addBookmark(self):$/;"	m	class:SublimeBookmarkCommand
+_createBookmarkPanel	sublimebookmark.py	/^	def _createBookmarkPanel(self, onHighlight, onDone):$/;"	m	class:SublimeBookmarkCommand
+_createRevertBookmark	sublimebookmark.py	/^	def _createRevertBookmark(self, activeView):$/;"	m	class:SublimeBookmarkCommand
+_gotoRevertBookmark	sublimebookmark.py	/^	def _gotoRevertBookmark(self):$/;"	m	class:SublimeBookmarkCommand
+_quickGoto	sublimebookmark.py	/^	def _quickGoto(self, forward):$/;"	m	class:SublimeBookmarkCommand
+_removeAllBookmarks	sublimebookmark.py	/^	def _removeAllBookmarks(self):$/;"	m	class:SublimeBookmarkCommand
+_restoreFiles	sublimebookmark.py	/^	def _restoreFiles(self):$/;"	m	class:SublimeBookmarkCommand
+_toggleCurrentLine	sublimebookmark.py	/^	def _toggleCurrentLine(self):$/;"	m	class:SublimeBookmarkCommand
+_updateBufferStatus	sublimebookmark.py	/^	def _updateBufferStatus(self):$/;"	m	class:SublimeBookmarkCommand
+addBookmark	sublimebookmark.py	/^def addBookmark(bookmark):$/;"	f
+createPanel	sublimebookmark.py	/^		def createPanel():$/;"	f	function:SublimeBookmarkCommand._createBookmarkPanel
+deepcopy	sublimebookmark.py	/^from copy import deepcopy$/;"	i
+dump	sublimebookmark.py	/^from pickle import dump, load, UnpicklingError, PicklingError$/;"	i
+getLineBookmark	sublimebookmark.py	/^		def getLineBookmark(window):$/;"	f	function:SublimeBookmarkCommand._toggleCurrentLine
+load	sublimebookmark.py	/^from pickle import dump, load, UnpicklingError, PicklingError$/;"	i
+markBuffer	sublimebookmark.py	/^		def markBuffer(view, bookmark):$/;"	f	function:SublimeBookmarkCommand._updateBufferStatus
+moveBookmarksToActiveGroup	sublimebookmark.py	/^		def moveBookmarksToActiveGroup(activeGroup):	$/;"	f	function:SublimeBookmarkCommand._createBookmarkPanel
+os	sublimebookmark.py	/^import os.path$/;"	i
+path	sublimebookmark.py	/^import os.path$/;"	i
+removeBookmark	sublimebookmark.py	/^def removeBookmark(bookmark):$/;"	f
+run	sublimebookmark.py	/^	def run(self, type):$/;"	m	class:SublimeBookmarkCommand
+sublime	sublimebookmark.py	/^import sublime$/;"	i
+sublime_plugin	sublimebookmark.py	/^import sublime_plugin$/;"	i
+threading	sublimebookmark.py	/^import threading $/;"	i
+unmarkBuffer	sublimebookmark.py	/^		def unmarkBuffer(view, bookmark):$/;"	f	function:SublimeBookmarkCommand._updateBufferStatus
+OptionsInput	ui.py	/^class OptionsInput:$/;"	c
+OptionsSelector	ui.py	/^class OptionsSelector:$/;"	c
+__init__	ui.py	/^	def __init__(self, window, caption, initalText, onDone, onCancel):$/;"	m	class:OptionsInput
+__init__	ui.py	/^	def __init__(self, window, panelItems, onDone, onHighlight):$/;"	m	class:OptionsSelector
+createBookmarkPanelItems	ui.py	/^def createBookmarkPanelItems(window, visibleBookmarks):	$/;"	f
+deepcopy	ui.py	/^from copy import deepcopy$/;"	i
+ellipsisStringBegin	ui.py	/^	def ellipsisStringBegin(string, length):$/;"	f	function:createBookmarkPanelItems
+ellipsisStringEnd	ui.py	/^	def ellipsisStringEnd(string, length):$/;"	f	function:createBookmarkPanelItems
+start	ui.py	/^	def start(self):$/;"	m	class:OptionsInput
+start	ui.py	/^	def start(self):$/;"	m	class:OptionsSelector
+sublime	ui.py	/^import sublime$/;"	i
+SHOW_ALL_BOOKMARKS	visibilityHandler.py	/^def SHOW_ALL_BOOKMARKS():$/;"	f
+SHOW_ONLY_FILE_BOOKMARKS	visibilityHandler.py	/^def SHOW_ONLY_FILE_BOOKMARKS():$/;"	f
+SHOW_ONLY_PROJECT_BOOKMARKS	visibilityHandler.py	/^def SHOW_ONLY_PROJECT_BOOKMARKS():$/;"	f
+___sortBookmarks	visibilityHandler.py	/^def ___sortBookmarks(visibleBookmarks, currentFile):$/;"	f	file:
+defaultdict	visibilityHandler.py	/^	from collections import defaultdict$/;"	i
+getVisibleBookmarks	visibilityHandler.py	/^def getVisibleBookmarks(bookmarks, window, activeView, bookmarkMode):$/;"	f
+isValidProject	visibilityHandler.py	/^	def isValidProject(currentProjectPath, bookmarkProjectPath):$/;"	f	function:shouldShowBookmark
+lineSortFn	visibilityHandler.py	/^	def lineSortFn(bookmark):$/;"	f	function:___sortBookmarks
+shouldShowBookmark	visibilityHandler.py	/^def shouldShowBookmark(window, activeView, bookmark, bookmarkMode):$/;"	f
+sortByLineNumber	visibilityHandler.py	/^	def sortByLineNumber(bookmarks):$/;"	f	function:___sortBookmarks
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_PROGRAM_VERSION	5.8	//
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/

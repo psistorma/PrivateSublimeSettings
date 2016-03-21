@@ -1,5 +1,6 @@
 {
 	"bootstrapped": true,
+	"debug": false,
 	"in_process_packages":
 	[
 	],
@@ -34,6 +35,7 @@
 		"Package Reloader",
 		"PackageDev",
 		"PackageResourceViewer",
+		"Placeholders",
 		"PlainTasks",
 		"Pretty JSON",
 		"Pretty YAML",
@@ -48,11 +50,13 @@
 		"SublimeLinter",
 		"SublimeLinter-contrib-eslint",
 		"SublimeLinter-pylint",
+		"SublimeStorm-DPalette",
 		"Theme - SoDaReloaded",
 		"ToggleQuotes",
 		"Zen Tabs"
 	],
 	"repositories":
 	[
+		"https://raw.githubusercontent.com/psistorma/SublimeStorm/master/repository.json"
 	]
 }

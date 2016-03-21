@@ -1,0 +1,17 @@
+[
+    {"keys": ["alt+`"], "command": "storm_error_panel_show", "args": {"toggle": true}},
+    {"keys": ["ctrl+t"], "command": "storm_palette",  "args": {}
+    },
+    {"keys": ["alt+t"], "command": "storm_palette_record",  "args": {
+        "questions": [{"key": "palkey"}],
+        "content": {
+            "key": "{{palkey}}",
+            "tip": "open/file/record",
+            "command": "eval_python_code",
+            "args": {
+                "code": "sublime.active_window().open_file(\"${file!unixpath}\")",
+                "show_result": "error"
+            }
+        }}
+    },
+]
