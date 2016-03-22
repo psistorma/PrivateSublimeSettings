@@ -1,1 +1,1 @@
-{"description": "Sublime Text Plugin another palette", "version": "0.0.1", "url": "https://github.com/psistorma/SublimeStorm-DPalette", "dependencies": ["SublimeStorm-Dep", "SublimeStorm-Dep-Utils"], "sublime_text": ">=3000", "platforms": ["*"]}
+{"version": "0.0.1", "platforms": ["*"], "url": "https://github.com/iamstorm/SublimeStorm-DPalette", "dependencies": ["SublimeStorm-Dep", "SublimeStorm-Dep-Utils"], "sublime_text": ">=3000", "description": "One of plugin provided by SublimeStorm "}

@@ -182,8 +182,7 @@
         [
             { "key": "setting.is_widget", "operator": "equal", "operand": true }
         ]
-    },
-
+    }
 //test
     // {"keys": ["alt+t"], "command": "run_shell_cmd",  "args": {
     //     "questions": [{"key": "message", "title": "commit message",
