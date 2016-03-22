@@ -155,7 +155,7 @@
     {"keys": ["ctrl+,"], "command": "insert", "args": {"characters": ", "} },
 //__EasyInvoker
     {"keys": ["ctrl+g"], "command": "easy_invoke" },
-    {"keys": ["alt+g"], "command": "run_shell_cmd_prompt"},
+    {"keys": ["alt+g"], "command": "run_shell_cmd_prompt", "args": {"show_result": "allways"}},
     {"keys": ["ctrl+alt+g"], "command": "eval_python_code_prompt"},
 //__deleteIt
     { "keys": ["f9"], "command": "not_valid_yet"},
