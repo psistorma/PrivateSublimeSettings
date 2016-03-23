@@ -28,6 +28,8 @@
 		"Indent XML",
 		"JsFormat",
 		"Local History",
+		"Markdown Preview",
+		"MarkdownEditing",
 		"Open-Include",
 		"Origami",
 		"Package Bundler",
@@ -51,6 +53,7 @@
 		"SublimeLinter-contrib-eslint",
 		"SublimeLinter-pylint",
 		"SublimeStorm-DPalette",
+		"SublimeStorm-Traverse_Current_Directory",
 		"Theme - SoDaReloaded",
 		"ToggleQuotes",
 		"Zen Tabs"

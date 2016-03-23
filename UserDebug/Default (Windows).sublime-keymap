@@ -38,6 +38,33 @@
             {"key": "selector", "operator": "equal", "operand": "text.html, text.xml"}
         ]
     },
+//markdown
+    {"keys": ["f5"], "command": "mul_run" , "args": {
+        "commands" : [
+            {"command": "save"},
+            {"command": "markdown_preview",
+                "args":{
+                    "target": "browser", "parser":"markdown"
+                }
+            },
+        ]},
+        "context": [
+            {"key": "selector", "operator": "equal", "operand": "text.html.markdown"}
+        ]
+    },
+    {"keys": ["f5"], "command": "mul_run" , "args": {
+        "commands" : [
+            {"command": "save"},
+            {"command": "markdown_preview",
+                "args":{
+                    "target": "browser", "parser":"github"
+                }
+            },
+        ]},
+        "context": [
+            {"key": "selector", "operator": "equal", "operand": "text.html.markdown.gfm"}
+        ]
+    },
 //nodejs
     {"keys": ["f5"], "command": "mul_run" , "args": {
         "commands" : [

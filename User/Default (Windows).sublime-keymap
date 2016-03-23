@@ -102,8 +102,7 @@
                     {"command": "pick_scope_name"}
                     ]}
     },
-//Open Current Directory:
-    {"keys": ["ctrl+shift+o"], "command": "list_current_dir"},
+//Switch project
     {"keys": ["ctrl+k", "ctrl+o"], "command": "prompt_select_workspace"},
 //Open Include
     { "keys": ["ctrl+o"], "command": "open_include", "context": [
