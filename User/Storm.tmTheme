@@ -136,7 +136,7 @@
       <key>name</key>
       <string>Comment</string>
       <key>scope</key>
-      <string>comment, meta.comment, source.diff meta.diff</string>
+      <string>comment, meta.comment, meta.diff</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -147,7 +147,7 @@
       <key>name</key>
       <string>Comment title</string>
       <key>scope</key>
-      <string>meta.toc-list - source.diff</string>
+      <string>meta.toc-list - meta.diff</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -158,7 +158,7 @@
       <key>name</key>
       <string>punctuation</string>
       <key>scope</key>
-      <string>punctuation - punctuation.definition.comment - meta.tip.notify - meta.tip.highlight - source.diff, source.sublimecompletions,meta.completion.trigger-based.sublimecompletions</string>
+      <string>punctuation - punctuation.definition.comment - meta.tip.notify - meta.tip.highlight - meta.diff, source.sublimecompletions,meta.completion.trigger-based.sublimecompletions</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -356,7 +356,7 @@
       <key>name</key>
       <string>tip insert</string>
       <key>scope</key>
-      <string>meta.tip,source.diff markup.inserted.diff</string>
+      <string>meta.tip,meta.diff markup.inserted.diff</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -367,7 +367,7 @@
       <key>name</key>
       <string>tip delete</string>
       <key>scope</key>
-      <string>meta.tip,source.diff markup.deleted.diff</string>
+      <string>meta.tip,meta.diff markup.deleted.diff</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -389,7 +389,7 @@
       <key>name</key>
       <string>tip embed</string>
       <key>scope</key>
-      <string>meta.tip.embed, source.diff markup</string>
+      <string>meta.tip.embed, meta.diff markup</string>
       <key>settings</key>
       <dict>
         <key>background</key>

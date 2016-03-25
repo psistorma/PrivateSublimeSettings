@@ -1,8 +1,8 @@
 import sublime
 import sublime_plugin
-from . import Cmd
+from SublimeUtils import Cmd
 
-class indentSpaceChangeCommand(sublime_plugin.TextCommand):
+class IndentSpaceChangeCommand(sublime_plugin.TextCommand):
     def run(self, edit, **args):
         _from = args['from']
         to = args['to']

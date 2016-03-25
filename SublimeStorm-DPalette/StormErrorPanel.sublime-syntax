@@ -42,7 +42,7 @@ contexts:
     - match: \s*(Traceback|missing|EOF)\b
       scope: keyword meta.tip.notify
 
-    - match: \b([A-Z]\w+?Error|ERROR|FAILED)
+    - match: \b([A-Z]\w+?Error|ERROR|FAILED)\b
       scope: support.type.exception
 
     - match: \b(self|this)\b

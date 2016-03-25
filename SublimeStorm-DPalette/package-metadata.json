@@ -1,1 +1,1 @@
-{"version": "0.0.1", "platforms": ["*"], "url": "https://github.com/iamstorm/SublimeStorm-DPalette", "dependencies": ["SublimeStorm-Dep", "SublimeStorm-Dep-Utils"], "sublime_text": ">=3000", "description": "One of plugin provided by SublimeStorm "}
+{"dependencies": ["SublimeStorm-Dep", "SublimeStorm-Dep-Utils"], "version": "0.0.1", "platforms": ["*"], "description": "One of plugin provided by SublimeStorm ", "url": "https://github.com/iamstorm/SublimeStorm-DPalette", "sublime_text": ">=3000"}

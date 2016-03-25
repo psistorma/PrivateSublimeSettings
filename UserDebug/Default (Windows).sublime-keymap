@@ -4,7 +4,7 @@
             {"command": "save"},
             {"command": "run_shell_cmd",
                 "args":{
-                    "commands": ["devenv.exe /Edit \"${file}\""],"async": true,
+                    "commands": ["devenv.exe /Edit \"${file}\""],
                     "run_mode": "run","win_mode": "show"
                 },
                 "context": "window"
@@ -71,7 +71,7 @@
             {"command": "save"},
             {"command": "run_shell_cmd",
                 "args":{
-                    "commands": ["node.exe \"${file}\""],"async": false
+                    "commands": ["node.exe \"${file}\""]
                 },
                 "context": "window"
             },
@@ -85,7 +85,7 @@
             {"command": "save"},
             {"command": "run_shell_cmd",
                 "args":{
-                    "commands": ["node.exe \"${file}\""],"async": true
+                    "commands": ["node.exe \"${file}\""],"async": false
                 },
                 "context": "window"
             },
@@ -99,7 +99,7 @@
             {"command": "save"},
             {"command": "run_shell_cmd",
                 "args":{
-                    "commands": ["node.exe \"${file}\""],"async": true,
+                    "commands": ["node.exe \"${file}\""],
                     "run_mode": "run","win_mode": "show"
                 },
                 "context": "window"
@@ -115,7 +115,7 @@
             {"command": "save"},
             {"command": "run_shell_cmd",
                 "args":{
-                    "commands": ["python.exe \"${file}\""],"async": false
+                    "commands": ["python.exe \"${file}\""]
                 },
                 "context": "window"
             },
@@ -129,7 +129,7 @@
             {"command": "save"},
             {"command": "run_shell_cmd",
                 "args":{
-                    "commands": ["python.exe \"${file}\""],"async": true
+                    "commands": ["python.exe \"${file}\""]
                 },
                 "context": "window"
             },
@@ -143,7 +143,7 @@
             {"command": "save"},
             {"command": "run_shell_cmd",
                 "args":{
-                    "commands": ["python.exe \"${file}\""],"async": true,
+                    "commands": ["python.exe \"${file}\""],
                     "run_mode": "run","win_mode": "show"
                 },
                 "context": "window"
@@ -158,14 +158,14 @@
             {"command": "save"},
             {"command": "run_shell_cmd",
                 "args":{
-                    "commands": ["python.exe C:\\Python27\\Lib\\site-packages\\rpdb2.py --debuggee --pwd=123 \"${file!lower}\""],"async": true,
+                    "commands": ["python.exe C:\\Python27\\Lib\\site-packages\\rpdb2.py --debuggee --pwd=123 \"${file!lower}\""],
                     "run_mode": "run","win_mode": "show"
                 },
                 "context": "window"
             },
             {"command": "run_shell_cmd",
                 "args":{
-                    "commands": ["C:\\Python27\\python.exe C:\\Python27\\Lib\\site-packages\\winpdb.py --attach --pwd 123 --host localhost \"${file!lower}\""],"async": true,
+                    "commands": ["C:\\Python27\\python.exe C:\\Python27\\Lib\\site-packages\\winpdb.py --attach --pwd 123 --host localhost \"${file!lower}\""],
                     "run_mode": "run","win_mode": "show"
                 },
                 "context": "window"
@@ -181,7 +181,7 @@
             {"command": "save"},
             {"command": "run_shell_cmd",
                 "args":{
-                    "commands": ["python.exe \"C:\\Users\\Administrator\\AppData\\Roaming\\Sublime Text 3\\Packages\\UserPlugins\\Test\\tests_MUtils_Basic.py\""],"async": false
+                    "commands": ["python.exe \"C:\\Users\\Administrator\\AppData\\Roaming\\Sublime Text 3\\Packages\\UserPlugins\\Test\\tests_MUtils_Basic.py\""]
                 },
                 "context": "window"
             },

@@ -1,3 +1,2 @@
 [
-    {"keys": ["alt+`"], "command": "userstorm_error_panel_show", "args": {"toggle": true}},
 ]

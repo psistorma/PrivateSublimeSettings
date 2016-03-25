@@ -1,0 +1,114 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AddFavoriteFileCommand	.\favorite_files.py	/^class AddFavoriteFileCommand(sublime_plugin.WindowCommand):$/;"	c
+CPP_PATTERN	.\lib\file_strip\comments.py	/^CPP_PATTERN = re.compile($/;"	v
+CleanOrphanedFavoritesCommand	.\favorite_files.py	/^class CleanOrphanedFavoritesCommand(sublime_plugin.WindowCommand):$/;"	c
+CommentException	.\lib\file_strip\comments.py	/^class CommentException(Exception):$/;"	c
+Comments	.\lib\file_strip\comments.py	/^class Comments(object):$/;"	c
+Comments	.\lib\file_strip\json.py	/^from .comments import Comments$/;"	i
+FAVORITE_LIST_VERSION	.\favorites.py	/^FAVORITE_LIST_VERSION = 1$/;"	v
+FavFileMgr	.\favorites.py	/^class FavFileMgr(object):$/;"	c
+FavObj	.\favorites.py	/^class FavObj(object):$/;"	c
+FavProjects	.\favorites.py	/^class FavProjects(object):$/;"	c
+Favorites	.\favorite_files.py	/^from FavoriteFiles.favorites import Favorites$/;"	i
+Favorites	.\favorites.py	/^class Favorites(object):$/;"	c
+Favs	.\favorite_files.py	/^Favs = None$/;"	v
+JSON_PATTERN	.\lib\file_strip\json.py	/^JSON_PATTERN = re.compile($/;"	v
+LINE_PRESERVE	.\lib\file_strip\comments.py	/^LINE_PRESERVE = re.compile(r"\\r?\\n", re.MULTILINE)$/;"	v
+Notify	.\lib\notify.py	/^    class Notify:$/;"	c
+Notify	.\lib\notify.py	/^    from SubNotify.sub_notify import SubNotifyIsReadyCommand as Notify$/;"	i
+PY_PATTERN	.\lib\file_strip\comments.py	/^PY_PATTERN = re.compile($/;"	v
+RemoveFavoriteFileCommand	.\favorite_files.py	/^class RemoveFavoriteFileCommand(sublime_plugin.WindowCommand):$/;"	c
+SelectFavoriteFileCommand	.\favorite_files.py	/^class SelectFavoriteFileCommand(sublime_plugin.WindowCommand):$/;"	c
+TogglePerProjectFavoritesCommand	.\favorite_files.py	/^class TogglePerProjectFavoritesCommand(sublime_plugin.WindowCommand):$/;"	c
+__get_style	.\lib\file_strip\comments.py	/^    def __get_style(self, style):$/;"	m	class:Comments	file:
+__init__	.\favorites.py	/^    def __init__(self, global_file):$/;"	m	class:Favorites
+__init__	.\lib\file_strip\comments.py	/^    def __init__(self, style=None, preserve_lines=False):$/;"	m	class:Comments
+__init__	.\lib\file_strip\comments.py	/^    def __init__(self, value):$/;"	m	class:CommentException
+__str__	.\lib\file_strip\comments.py	/^    def __str__(self):$/;"	m	class:CommentException	file:
+_cpp	.\lib\file_strip\comments.py	/^def _cpp(self, text, preserve_lines=False):$/;"	f
+_python	.\lib\file_strip\comments.py	/^def _python(self, text, preserve_lines=False):$/;"	f
+_strip_regex	.\lib\file_strip\comments.py	/^def _strip_regex(pattern, text, preserve_lines):$/;"	f
+add	.\favorite_files.py	/^    def add(self, names, group_name=None):$/;"	m	class:AddFavoriteFileCommand
+add	.\favorites.py	/^    def add(cls, obj, win_id):$/;"	m	class:FavProjects
+add_group	.\favorites.py	/^    def add_group(self, s):$/;"	m	class:Favorites
+add_style	.\lib\file_strip\comments.py	/^    def add_style(cls, style, fn):$/;"	m	class:Comments
+all_files	.\favorites.py	/^    def all_files(self, group_name=None):$/;"	m	class:Favorites
+all_groups	.\favorites.py	/^    def all_groups(self):$/;"	m	class:Favorites
+basename	.\favorites.py	/^from os.path import exists, basename, getmtime, splitext$/;"	i
+check_st_version	.\favorite_files.py	/^def check_st_version():$/;"	f
+clean_orphaned_favorites	.\favorites.py	/^    def clean_orphaned_favorites(cls, file_list):$/;"	m	class:FavFileMgr
+create_favorite_list	.\favorites.py	/^    def create_favorite_list(cls, obj, file_list, force=False):$/;"	m	class:FavFileMgr
+create_group	.\favorite_files.py	/^    def create_group(self, value):$/;"	m	class:AddFavoriteFileCommand
+error	.\favorite_files.py	/^from FavoriteFiles.lib.notify import error$/;"	i
+error	.\favorites.py	/^from FavoriteFiles.lib.notify import error$/;"	i
+error	.\lib\notify.py	/^def error(msg):$/;"	f
+evaluate	.\lib\file_strip\comments.py	/^    def evaluate(m, preserve_lines):$/;"	f	function:_strip_regex
+evaluate	.\lib\file_strip\json.py	/^    def evaluate(m, preserve_lines):$/;"	f	function:strip_dangling_commas
+exists	.\favorite_files.py	/^from os.path import join, exists$/;"	i
+exists	.\favorites.py	/^    def exists(self, s, group=False, group_name=None):$/;"	m	class:Favorites
+exists	.\favorites.py	/^from os.path import exists, basename, getmtime, splitext$/;"	i
+file_answer	.\favorite_files.py	/^    def file_answer(self, value):$/;"	m	class:AddFavoriteFileCommand
+file_name	.\favorites.py	/^    file_name = ""$/;"	v	class:FavObj
+file_prompt	.\favorite_files.py	/^    def file_prompt(self, view_code):$/;"	m	class:AddFavoriteFileCommand
+files	.\favorites.py	/^    files = {}$/;"	v	class:FavObj
+fn	.\favorite_files.py	/^                    def fn(v):$/;"	f	function:SelectFavoriteFileCommand.open_file
+get_project	.\favorites.py	/^    def get_project(cls, win_id):$/;"	m	class:FavProjects
+getmtime	.\favorites.py	/^from os.path import exists, basename, getmtime, splitext$/;"	i
+global_file	.\favorites.py	/^    global_file = ""$/;"	v	class:FavObj
+group_answer	.\favorite_files.py	/^    def group_answer(self, value):$/;"	m	class:AddFavoriteFileCommand
+group_count	.\favorites.py	/^    def group_count(self):$/;"	m	class:Favorites
+group_prompt	.\favorite_files.py	/^    def group_prompt(self, first=False):$/;"	m	class:AddFavoriteFileCommand
+has_project	.\favorites.py	/^    def has_project(cls, win_id):$/;"	m	class:FavProjects
+is_enabled	.\favorite_files.py	/^    def is_enabled(self):$/;"	m	class:TogglePerProjectFavoritesCommand
+is_global_file	.\favorites.py	/^    def is_global_file(cls, obj):$/;"	m	class:FavFileMgr
+is_project_tracked	.\favorites.py	/^    def is_project_tracked(cls, obj, win_id):$/;"	m	class:FavProjects
+is_ready	.\lib\notify.py	/^        def is_ready(cls):$/;"	m	class:Notify
+join	.\favorite_files.py	/^from os.path import join, exists$/;"	i
+json	.\favorites.py	/^import json$/;"	i
+last_access	.\favorites.py	/^    last_access = 0$/;"	v	class:FavObj
+load	.\favorites.py	/^    def load(self, force=False, clean=False, win_id=None):$/;"	m	class:Favorites
+load_favorite_files	.\favorites.py	/^    def load_favorite_files(cls, obj, force=False, clean=False, win_id=None):$/;"	m	class:FavFileMgr
+load_favorites	.\favorites.py	/^    def load_favorites(cls, obj, clean=False):$/;"	m	class:FavFileMgr
+notify	.\lib\notify.py	/^def notify(msg):$/;"	f
+open	.\favorites.py	/^    def open(self, win_id=None):$/;"	m	class:Favorites
+open_file	.\favorite_files.py	/^    def open_file(self, value, group=False):$/;"	m	class:SelectFavoriteFileCommand
+plugin_loaded	.\favorite_files.py	/^def plugin_loaded():$/;"	f
+project_adjust	.\favorites.py	/^    def project_adjust(cls, obj, win_id, force=False):$/;"	m	class:FavProjects
+projects	.\favorites.py	/^    projects = set([])$/;"	v	class:FavObj
+prune_projects	.\favorites.py	/^    def prune_projects(cls, obj):$/;"	m	class:FavProjects
+re	.\lib\file_strip\comments.py	/^import re$/;"	i
+re	.\lib\file_strip\json.py	/^import re$/;"	i
+remove	.\favorite_files.py	/^    def remove(self, value, group=False, group_name=None):$/;"	m	class:RemoveFavoriteFileCommand
+remove	.\favorites.py	/^    def remove(cls, obj, win_id):$/;"	m	class:FavProjects
+remove	.\favorites.py	/^    def remove(self, s, group_name=None):$/;"	m	class:Favorites
+remove_comma	.\lib\file_strip\json.py	/^    def remove_comma(g, preserve_lines):$/;"	f	function:strip_dangling_commas
+remove_comments	.\lib\file_strip\comments.py	/^    def remove_comments(group, preserve_lines=False):$/;"	f	function:_strip_regex
+remove_group	.\favorites.py	/^    def remove_group(self, s):$/;"	m	class:Favorites
+run	.\favorite_files.py	/^    def run(self):$/;"	m	class:AddFavoriteFileCommand
+run	.\favorite_files.py	/^    def run(self):$/;"	m	class:CleanOrphanedFavoritesCommand
+run	.\favorite_files.py	/^    def run(self):$/;"	m	class:RemoveFavoriteFileCommand
+run	.\favorite_files.py	/^    def run(self):$/;"	m	class:SelectFavoriteFileCommand
+run	.\favorite_files.py	/^    def run(self):$/;"	m	class:TogglePerProjectFavoritesCommand
+sanitize_json	.\favorites.py	/^from FavoriteFiles.lib.file_strip.json import sanitize_json$/;"	i
+sanitize_json	.\lib\file_strip\json.py	/^def sanitize_json(text, preserve_lines=False):$/;"	f
+save	.\favorites.py	/^    def save(self, force=False):$/;"	m	class:Favorites
+select_group	.\favorite_files.py	/^    def select_group(self, value, replace=False):$/;"	m	class:AddFavoriteFileCommand
+set	.\favorites.py	/^    def set(self, s, group_name=None):$/;"	m	class:Favorites
+show_groups	.\favorite_files.py	/^    def show_groups(self, replace=False):$/;"	m	class:AddFavoriteFileCommand
+splitext	.\favorites.py	/^from os.path import exists, basename, getmtime, splitext$/;"	i
+strip	.\lib\file_strip\comments.py	/^    def strip(self, text):$/;"	m	class:Comments
+strip_comments	.\lib\file_strip\json.py	/^def strip_comments(text, preserve_lines=False):$/;"	f
+strip_dangling_commas	.\lib\file_strip\json.py	/^def strip_dangling_commas(text, preserve_lines=False):$/;"	f
+styles	.\lib\file_strip\comments.py	/^    styles = []$/;"	v	class:Comments
+sublime	.\favorite_files.py	/^import sublime$/;"	i
+sublime	.\favorites.py	/^import sublime$/;"	i
+sublime	.\lib\notify.py	/^import sublime$/;"	i
+sublime_plugin	.\favorite_files.py	/^import sublime_plugin$/;"	i
+toggle_global	.\favorites.py	/^    def toggle_global(self, win_id):$/;"	m	class:Favorites
+toggle_per_projects	.\favorites.py	/^    def toggle_per_projects(self, win_id):$/;"	m	class:Favorites
+update_list_format	.\favorites.py	/^    def update_list_format(cls, file_list):$/;"	m	class:FavFileMgr

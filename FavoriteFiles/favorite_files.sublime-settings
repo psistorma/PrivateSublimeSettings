@@ -1,0 +1,9 @@
+{
+    // Enable ability for per project favorites .
+    // Per Projects must be toggled on for each project you are in.
+    // You can toggle back and forth between per project and global favorites.
+    "enable_per_projects": true,
+
+    // Use subnotify if available
+    "use_sub_notify": true
+}

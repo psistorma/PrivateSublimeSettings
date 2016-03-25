@@ -223,7 +223,7 @@ class StormPaletteCommand(sublime_plugin.WindowCommand):
         for srcFile in Pm.srcFiles:
             pathToken = Pm.pathToken(srcFile)
             cat = "key.dyn" if srcFile.isDyn else "key"
-            key = "".join([VIRTUAL_ASSET_TOKEN, cat, ".", pathToken])
+            key = "".join([VIRTUAL_ASSET_TOKEN, cat, VIRTUAL_ASSET_TOKEN, pathToken])
             key = key.rstrip(".")
             key = "{0}({1})".format(key, len(srcFile.assets))
             tip = "storm_palette/"+cat
@@ -261,9 +261,14 @@ class StormPaletteCommand(sublime_plugin.WindowCommand):
         return filteredAssets
 
     @staticmethod
+    def getLineNumerExt(view):
+        lineCount = view.rowcol(view.size())[0] + 1
+        return len(str(lineCount)) * 8.5
+
+    @staticmethod
     def alignAssetKey(view, assets):
         ext = view.viewport_extent()
-        viewportRate = (ext[0]+30)/(ps.opts["screen_param"])
+        viewportRate = (ext[0]+StormPaletteCommand.getLineNumerExt(view))/(ps.opts["screen_param"])
         panelWidth = int(viewportRate * ps.opts["panel_param"])
         assetKeys = []
         for asset in assets:

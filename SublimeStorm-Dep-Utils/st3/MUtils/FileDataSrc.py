@@ -181,6 +181,7 @@ class SrcManager:
         for srcFile in self.srcFiles:
             if srcFile.isMe(filePath):
                 srcFile.load()
+                self.collectAssets()
                 return True
 
         for srcDir in self.srcDirs:

@@ -1,0 +1,76 @@
+[
+    {
+        "caption": "File",
+        "mnemonic": "F",
+        "id": "file",
+        "children":
+        [
+            { "caption": "-" },
+            {
+                "caption": "Favorite Files",
+                "children":
+                [
+                    {
+                        "caption": "Add to Favorite Files",
+                        "command": "add_favorite_file"
+                    },
+                    {
+                        "caption": "Open Favorite File(s)",
+                        "command": "select_favorite_file"
+                    },
+                    {
+                        "caption": "Remove Favorite File(s)",
+                        "command": "remove_favorite_file"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "caption": "Preferences",
+        "mnemonic": "n",
+        "id": "preferences",
+        "children":
+        [
+            {
+                "caption": "Package Settings",
+                "mnemonic": "P",
+                "id": "package-settings",
+                "children":
+                [
+                    {
+                        "caption": "FavoriteFiles",
+                        "children":
+                        [
+                            // FavoriteFiles default settings
+                            {
+                                "command": "open_file", "args":
+                                {
+                                    "file": "${packages}/FavoriteFiles/favorite_files.sublime-settings"
+                                },
+                                "caption": "Settings – Default"
+                            },
+                            // FavoriteFiles user settings
+                            {
+                                "command": "open_file", "args":
+                                {
+                                    "file": "${packages}/User/favorite_files.sublime-settings"
+                                },
+                                "caption": "Settings – User"
+                            },
+                            { "caption": "-" },
+                            // FavoriteFiles global file list
+                            {
+                                "command": "open_file", "args":
+                                {
+                                    "file": "${packages}/User/favorite_files_list.json"
+                                },
+                                "caption": "Global Favorite List"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

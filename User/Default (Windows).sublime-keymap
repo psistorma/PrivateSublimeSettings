@@ -153,7 +153,7 @@
     {"keys": ["alt+."],  "command": "soft_undo" },
     {"keys": ["ctrl+,"], "command": "insert", "args": {"characters": ", "} },
 //__EasyInvoker
-    {"keys": ["ctrl+g"], "command": "easy_invoke" },
+    {"keys": ["ctrl+k","ctrl+g"], "command": "easy_invoke" },
     {"keys": ["alt+g"], "command": "run_shell_cmd_prompt", "args": {"show_result": "allways"}},
     {"keys": ["ctrl+alt+g"], "command": "eval_python_code_prompt"},
 //__deleteIt
@@ -181,6 +181,25 @@
         [
             { "key": "setting.is_widget", "operator": "equal", "operand": true }
         ]
+    },
+    {
+      "keys": ["f12"], "command": "better_bookmarks_swap_layer",
+      "args": {"direction": "prev"}
+    },
+    {
+      "keys": ["ctrl+f12"], "command": "better_bookmarks_swap_layer",
+      "args": {"direction": "next"}
+    },
+    { "keys": ["f2"], "command": "prev_bookmark" },
+    { "keys": ["shift+f2"], "command": "next_bookmark" },
+    {
+      "keys": ["ctrl+f2"], "command": "better_bookmarks_mark_line",
+    },
+    {
+      "keys": ["ctrl+shift+f2"], "command": "better_bookmarks_clear_marks",
+    },
+    {
+      "keys": ["shift+f12"], "command": "better_bookmarks_clear_all_marks",
     }
 //test
     // {"keys": ["alt+t"], "command": "run_shell_cmd",  "args": {

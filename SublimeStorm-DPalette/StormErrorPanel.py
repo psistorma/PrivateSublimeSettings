@@ -73,7 +73,9 @@ class StormErrorPanelFlushCommand(sublime_plugin.TextCommand):
 
         if erase:
             self.view.erase(edit, sublime.Region(0, self.view.size()))
-        self.view.insert(edit, 0, data)
+        elif self.view.size() > 0:
+            self.view.insert(edit, self.view.size(), "\n")
+        self.view.insert(edit, self.view.size(), data)
         if scroll_end:
             self.view.show(self.view.size())
 

@@ -1,7 +1,7 @@
 {
 	"extensions":
 	[
-		"sublime-settings",
-		"anotherpal.key"
+		"stormpal.key",
+		"sublime-settings"
 	]
 }
