@@ -8,5 +8,6 @@
 				"SublimeCodeIntel"
 			]
 		}
-	}
+	},
+	"loaded_bundle": "C++"
 }

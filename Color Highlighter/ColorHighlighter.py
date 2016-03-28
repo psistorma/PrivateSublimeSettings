@@ -978,7 +978,7 @@ class ColorHighlighterView:
 
     # events
 
-    def on_selection_modified(self):
+    def on_selection_modified_async(self):
         self.gen.add_colors(self._on_selection_modified_impl([]))
 
     def on_activated(self):
@@ -1425,7 +1425,7 @@ class ColorHighlighter:
 
     def _redraw(self):
         for k in self.views:
-            self.views[k].on_selection_modified()
+            self.views[k].on_selection_modified_async()
 
     def _ha_redraw(self):
         for k in self.views:
@@ -1514,12 +1514,12 @@ class ColorHighlighter:
         self.views[view.id()].on_close()
         del(self.views[view.id()])
 
-    def on_selection_modified(self, view):
+    def on_selection_modified_async(self, view):
         if self._disabled(view, not is_st3()):
             return
-        self.views[view.id()].on_selection_modified()
+        self.views[view.id()].on_selection_modified_async()
 
-    def on_modified(self, view):
+    def on_modified_async(self, view):
         self.var_extractor.mark_dirty(view)
 
     def on_post_save(self, view):
@@ -1790,13 +1790,13 @@ class ColorSelection(sublime_plugin.EventListener):
         if color_highlighter is not None:
             color_highlighter.on_close(view)
 
-    def on_selection_modified(self, view):
+    def on_selection_modified_async(self, view):
         if color_highlighter is not None:
-            color_highlighter.on_selection_modified(view)
+            color_highlighter.on_selection_modified_async(view)
 
-    def on_modified(self, view):
+    def on_modified_async(self, view):
         if color_highlighter is not None:
-            color_highlighter.on_modified(view)
+            color_highlighter.on_modified_async(view)
 
     def on_post_save(self, view):
         if color_highlighter is not None:

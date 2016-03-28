@@ -1,44 +1,118 @@
 [
 //Forward
-  {"keys": ["ctrl+u"], "command": "move", "args": {"by": "characters", "forward": true, "extend": false} },
-  {"keys": ["ctrl+u"], "command": "move", "args": {"by": "characters", "forward": true, "extend": true}, "context":[
-     { "key": "selection_empty", "operator": "equal", "operand": false },
-  ] },
-  { "keys": ["ctrl+alt+shift+u"], "command": "move_to", "args": {"to": "bol", "extend": false} },
-  { "keys": ["ctrl+alt+u"], "command": "move_to", "args": {"to": "eol", "extend": false} },
-  {"keys": ["ctrl+shift+u"], "command": "move", "args": {"by": "characters", "forward": false, "extend": false} },
-  {"keys": ["ctrl+shift+u"], "command": "expand_sel_by_side", "args": {"side": "right", "count": -1}, "context":[
-     { "key": "selection_empty", "operator": "equal", "operand": false  },
-  ] },
+    {"keys": ["ctrl+u"], "command": "move", "args": {
+        "by": "characters", "forward": true, "extend": false}
+    },
+    {"keys": ["ctrl+u"], "command": "move", "args": {
+         "by": "characters", "forward": true, "extend": true}, "context":[
+         { "key": "selection_empty", "operator": "equal", "operand": false },
+    ]},
+    {"keys": ["ctrl+alt+u"], "command": "move_to", "args": {"to": "eol", "extend": false}},
+    {"keys": ["ctrl+alt+u"], "command": "move_to", "args": {
+        "to": "eol", "extend": true}, "context":[
+        {"key": "selection_empty", "operator": "equal", "operand": false},
+    ]},
+    {"keys": ["ctrl+alt+shift+u"], "command": "move_to", "args": {"to": "bol", "extend": false}},
+    {"keys": ["ctrl+alt+shift+u"], "command": "move_to", "args": {
+        "to": "bol", "extend": true}, "context":[
+        {"key": "selection_empty", "operator": "equal", "operand": false},
+    ]},
+    {"keys": ["ctrl+shift+u"], "command": "move", "args": {"by": "characters", "forward": false, "extend": false}},
+    {"keys": ["ctrl+shift+u"], "command": "move_by_side", "args": {
+        "side": "right", "count": -1, "extend": true}, "context":[
+         {"key": "selection_empty", "operator": "equal", "operand": false},
+    ]},
 //Selection Reverse Forward
-  {"keys": ["alt+u"], "command": "mul_run", "args": {
-    "commands" : [
-      {"command": "expand_sel_by_side", "args": {"side": "left", "count": 1}}
-    ]}, "context": [
-     { "key": "selection_empty", "operator": "equal", "operand": false  }
-    ]
-  },
-  {"keys": ["alt+shift+u"], "command": "mul_run", "args": {
-    "commands" : [
-      {"command": "expand_sel_by_side", "args": {"side": "left", "count": -1}}
-    ]}, "context": [
-     { "key": "selection_empty", "operator": "equal", "operand": false  }
-    ]
-  },
-
-  //Selection Both Side
-  {"keys": ["alt+space"], "command": "mul_run", "args": {
-    "commands" : [
-      {"command": "expand_sel_by_side", "args": {"side": "both", "count": 1}},
-    ]}, "context": [
-     { "key": "selection_empty", "operator": "equal", "operand": false  }
-    ]
-  },
-  {"keys": ["alt+shift+space"], "command": "mul_run", "args": {
-    "commands" : [
-      {"command": "expand_sel_by_side", "args": {"side": "both", "count": -1}},
-    ]}, "context": [
-     { "key": "selection_empty", "operator": "equal", "operand": false  }
-    ]
-  },
+    {"keys": ["alt+u"], "command": "move_by_side", "args": {
+         "side": "left", "count": 1, "extend": true}, "context": [
+         {"key": "selection_empty", "operator": "equal", "operand": false}
+        ]
+    },
+    {"keys": ["alt+u"], "command": "move", "args": {
+         "by": "characters", "forward": true, "extend": true}, "context": [
+         {"key": "selection_empty", "operator": "equal", "operand": true}
+        ]
+    },
+    {"keys": ["alt+shift+u"], "command": "move_by_side", "args": {
+        "side": "left", "count": -1, "extend": true}, "context": [
+        {"key": "selection_empty", "operator": "equal", "operand": false}
+        ]
+    },
+//Selection Both Side
+    {"keys": ["alt+space"], "command": "move_by_side", "args": {
+        "side": "both", "count": 1}, "context": [
+         {"key": "selection_empty", "operator": "equal", "operand": false}
+        ]
+    },
+    {"keys": ["alt+shift+space"], "command": "move_by_side", "args": {
+        "side": "both", "count": -1}, "context": [
+         {"key": "selection_empty", "operator": "equal", "operand": false}
+        ]
+    },
+//Find smart insert point
+    {"keys": ["ctrl+i"], "command": "move_by_side", "args": {
+        "target": "/[\\]|\\)|\\}|$](?![\\]|\\)|\\}])/"}},
+    {"keys": ["ctrl+i"], "command": "move_by_side", "args": {
+        "target": "/[\\]\\|\\)|\\}|$](?![\\]|\\)|\\}])/", "extend": true}, "context":[
+        {"key": "selection_empty", "operator": "equal", "operand": false},
+    ]},
+    {"keys": ["ctrl+shift+i"], "command": "move_by_side", "args": {
+        "target": "-/(?<=[\\^|\\[|\\(|\\{](?![\\[|\\(|\\{]))./"}},
+    {"keys": ["ctrl+shift+i"], "command": "move_by_side", "args": {
+        "target": "-/(?<=[\\^|\\[|\\(|\\{](?![\\[|\\(|\\{]))./", "extend": true}, "context":[
+        {"key": "selection_empty", "operator": "equal", "operand": false},
+    ]},
+//Append new line
+    {"keys": ["ctrl+;"], "command": "mul_run", "args": {
+        "commands" : [
+                {"command": "move_by_side", "args":{
+                    "target": "/$/"}},
+                {"command": "insert", "args": {
+                    "characters": "\n"}}
+                ]},
+        "context": [
+            {"key": "selector", "operator": "equal", "operand": "source.python"}
+        ]
+    },
+    {"keys": ["ctrl+;"], "command": "mul_run", "args": {
+        "commands" : [
+                {"command": "move_by_side", "args":{
+                    "target": "/$/"}},
+                {"command": "insert", "args": {
+                    "characters": ":\n"}}
+                ]},
+        "context": [
+            {"key": "preceding_text", "operator": "regex_contains", "operand": "^\\s*(?:for|if|e)\\b"},
+            {"key": "selector", "operator": "equal", "operand": "source.python"}
+        ]
+    },
+    {"keys": ["ctrl+;"], "command": "mul_run", "args": {
+        "commands" : [
+                {"command": "move_by_side", "args":{
+                    "target": "/$/"}},
+                {"command": "insert", "args": {
+                    "characters": ";\n"}}
+                ]},
+        "context": [
+            {"key": "selector", "operator": "equal", "operand": "source.c, source.c++, source.js"}
+        ]
+    },
+//Append new param
+    {"keys": ["ctrl+,"], "command": "mul_run", "args": {
+        "commands" : [
+                {"command": "move_by_side", "args":{
+                    "target": "/(?=\\)|$)|(?<=\"|'|\\()/"}},
+                {"command": "insert", "args": {
+                    "characters": ", "}}
+                ]},
+        "context": [
+            {"key": "selector", "operator": "equal", "operand": "source.python, source.c, source.c++, source.js"}
+        ]
+    },
+    {"keys": [","], "command": "insert", "args": {"characters": ", "},
+        "context": [
+            {"key": "following_text", "operator": "regex_contains", "operand": "^\\)"},
+            {"key": "selector", "operator": "equal", "operand": "source.python, source.c, source.c++, source.js"}
+        ]
+    },
 ]

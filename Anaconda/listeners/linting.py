@@ -46,7 +46,7 @@ class BackgroundLinter(sublime_plugin.EventListener):
 
         sublime.set_timeout(lambda: self.lint(), int(delay * 1000))
 
-    def on_modified(self, view):
+    def on_modified_async(self, view):
         """
         Called after changes have been made to a view.
         Runs in a separate thread, and does not block the application.
@@ -119,7 +119,7 @@ class BackgroundLinter(sublime_plugin.EventListener):
         else:
             self._erase_marks_if_no_linting(view)
 
-    def on_selection_modified(self, view):
+    def on_selection_modified_async(self, view):
         """Called on selection modified
         """
 

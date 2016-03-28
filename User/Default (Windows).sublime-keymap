@@ -1,4 +1,5 @@
 [
+    {"keys": ["alt+l"], "command": "run_macro_file", "args": {"file": "res://Packages/User/Macros/prettyLine.sublime-macro"}},
     {"keys": ["alt+f8"], "command": "js_format", "context": [
             {"key": "selector", "operator": "equal", "operand": "source.js"}
     ]},
@@ -151,7 +152,6 @@
     {"keys": ["ctrl+4"], "command": "move_to", "args": {"to": "bof", "extend": false} },
     {"keys": ["ctrl+5"], "command": "move_to", "args": {"to": "eof", "extend": false} },
     {"keys": ["alt+."],  "command": "soft_undo" },
-    {"keys": ["ctrl+,"], "command": "insert", "args": {"characters": ", "} },
 //__EasyInvoker
     {"keys": ["ctrl+k","ctrl+g"], "command": "easy_invoke" },
     {"keys": ["alt+g"], "command": "run_shell_cmd_prompt", "args": {"show_result": "allways"}},

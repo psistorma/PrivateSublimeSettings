@@ -152,7 +152,6 @@ def _get_scheme(view):
                 user_css = ''
         if obj is None:
             try:
-                print("TTT:{0}".format(scheme))
                 obj = Scheme2CSS(scheme)
                 _prune_cache()
                 user_css = obj.apply_template(_get_user_css())

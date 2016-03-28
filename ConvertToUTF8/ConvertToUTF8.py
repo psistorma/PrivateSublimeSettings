@@ -682,7 +682,7 @@ class ConvertToUTF8Listener(sublime_plugin.EventListener):
 		cnt = get_setting(view, 'max_detect_lines')
 		threading.Thread(target=lambda: detect(view, file_name, cnt)).start()
 
-	def on_modified(self, view):
+	def on_modified_async(self, view):
 		encoding = view.encoding()
 		if encoding == 'Hexadecimal':
 			return
