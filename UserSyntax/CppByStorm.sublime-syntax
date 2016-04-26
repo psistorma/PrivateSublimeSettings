@@ -715,9 +715,9 @@ contexts:
   rule-expression-index-visit:
     - match: (?=\s*\[)
       push:
-        - match: \[
+        - match: \s*\[
           scope: punctuation.definition.square.begin
-        - match: \]
+        - match: \s*\]
           scope: punctuation.definition.square.end
           pop: true
         - include: step-expression-statement
@@ -740,7 +740,7 @@ contexts:
     - match: (?=\s*\b(?:else\s+if|if|else|for|while|switch)\b)
       push:
         - meta_scope: meta.flow
-        - match: \b(else\s+if|if|else|for|while|switch)\b
+        - match: \s*\b(else\s+if|if|else|for|while|switch)\b
           scope: keyword.control.c
         - match: (?=\s*\()
           push: step-parens-invoke
@@ -790,13 +790,14 @@ contexts:
   rule-statement-flow-switch:
     - match: (?=\s*\bswitch\s*\()
       push:
-        - match: \b(switch)\s+(\()\s*({{svIdent}})\s*(\))\s*
+        - match: \s*\b(switch)\s+(\()\s*
           captures:
             1: keyword.control.c
             2: punctuation.definition.brace.begin
-            3: constant.value
-            4: punctuation.definition.brace.end
-        - include: step-flow-block
+        - match: \s*(\))
+          scope: punctuation.definition.brace.end
+          set: step-flow-block
+        - include: step-expression-statement
 # statement try
   rule-statement-try:
     - match: (?=^\s*\b(?:try)\b)

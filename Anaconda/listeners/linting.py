@@ -46,15 +46,15 @@ class BackgroundLinter(sublime_plugin.EventListener):
 
         sublime.set_timeout(lambda: self.lint(), int(delay * 1000))
 
-    def on_modified_async(self, view):
+    def on_modified(self, view):
         """
         Called after changes have been made to a view.
         Runs in a separate thread, and does not block the application.
         """
 
         constraints = ONLY_CODE | NOT_SCRATCH | LINTING_ENABLED
-        if (check_linting(view, constraints, code=self.lang.lower())
-                and check_linting_behaviour(view, ['always'])):
+        if (check_linting(view, constraints, code=self.lang.lower()) and
+                check_linting_behaviour(view, ['always'])):
             # update the last selected line number
             self.last_selected_line = -1
             ANACONDA['LAST_PULSE'] = time.time()
@@ -70,8 +70,8 @@ class BackgroundLinter(sublime_plugin.EventListener):
         """Called after load a file
         """
 
-        if (check_linting(view, ONLY_CODE, code=self.lang.lower())
-                and check_linting_behaviour(view, ['always', 'load-save'])):
+        if (check_linting(view, ONLY_CODE, code=self.lang.lower()) and
+                check_linting_behaviour(view, ['always', 'load-save'])):
             if self.lang in view.settings().get('syntax'):
                 self.run_linter(view)
         else:
@@ -112,20 +112,20 @@ class BackgroundLinter(sublime_plugin.EventListener):
         """
 
         if (check_linting(
-                view, ONLY_CODE | LINTING_ENABLED, code=self.lang.lower())
-                and check_linting_behaviour(view, ['always'])):
+                view, ONLY_CODE | LINTING_ENABLED, code=self.lang.lower()) and
+                check_linting_behaviour(view, ['always'])):
             if self.lang in view.settings().get('syntax'):
                 self.run_linter(view)
         else:
             self._erase_marks_if_no_linting(view)
 
-    def on_selection_modified_async(self, view):
+    def on_selection_modified(self, view):
         """Called on selection modified
         """
 
         constraints = ONLY_CODE | NOT_SCRATCH | LINTING_ENABLED
-        if (not check_linting(view, constraints, code=self.lang.lower())
-                or self.lang not in view.settings().get('syntax')):
+        if (not check_linting(view, constraints, code=self.lang.lower()) or
+                self.lang not in view.settings().get('syntax')):
             return
 
         last_selected_line = last_selected_lineno(view)
