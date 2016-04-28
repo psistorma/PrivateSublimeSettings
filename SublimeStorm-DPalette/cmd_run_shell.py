@@ -108,8 +108,9 @@ class RunShellCmdCommand(sublime_plugin.WindowCommand):
             commands = [Str.renderText(cmd, **qAndaDict) for cmd in commands]
 
         commands = Setting.expandVariables(self.window, *commands)
-        run_opts["cwd"], = Setting.expandVariables(self.window,
-                                                   run_opts.get("cwd", "${file_path}"))
+        cwd, = Setting.expandVariables(self.window, run_opts.get("cwd", "${file_path}"))
+        if cwd:
+            run_opts["cwd"] = cwd
 
         workParams = dict(commands=commands,
                           run_mode=run_mode,

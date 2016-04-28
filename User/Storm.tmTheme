@@ -356,7 +356,7 @@
       <key>name</key>
       <string>tip insert</string>
       <key>scope</key>
-      <string>meta.tip,meta.diff markup.inserted.diff</string>
+      <string>meta.diff markup.inserted.diff</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -367,7 +367,7 @@
       <key>name</key>
       <string>tip delete</string>
       <key>scope</key>
-      <string>meta.tip,meta.diff markup.deleted.diff</string>
+      <string>meta.diff markup.deleted.diff</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
