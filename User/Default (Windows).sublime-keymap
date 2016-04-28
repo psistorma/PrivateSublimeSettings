@@ -88,7 +88,7 @@
 //Go to Definitiaon
     {"keys": ["f12"], "command": "go_to_definition", "args": {} },
 //File History
-    {"keys": ["ctrl+shift+t"],     "command": "open_recently_closed_file", "args": {"show_quick_panel": false} },
+    {"keys": ["ctrl+shift+t"],     "command": "open_recently_closed_file", "args": {"action": "open_latest_closed"} },
     {"keys": ["ctrl+2"], "command": "open_recently_closed_file", "args": {"current_project_only": false} },
     {"keys": ["ctrl+alt+2"],       "command": "open_recently_closed_file" },
     {"keys": ["right"], "command": "quick_open_file_history", "context": [
