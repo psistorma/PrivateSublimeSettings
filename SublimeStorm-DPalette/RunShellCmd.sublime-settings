@@ -1,4 +1,5 @@
 {
+    "debug": false,
     "lexical_kwds_modes": [
         //sync and is default
         {"pattern": "(?i)^\\s*@s\\s*(.*)",

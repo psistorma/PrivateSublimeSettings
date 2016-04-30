@@ -4,8 +4,8 @@
             {"command": "save"},
             {"command": "run_shell_cmd",
                 "args":{
-                    "commands": ["devenv.exe /Edit \"${file}\""],
-                    "run_mode": "run","win_mode": "show"
+                    "commands": ["VSCommand.exe \"${file}\" ${m_sel_row} ${m_sel_col} 14.0"],
+                    "run_mode": "run","win_mode": "hide"
                 },
                 "context": "window"
             },
