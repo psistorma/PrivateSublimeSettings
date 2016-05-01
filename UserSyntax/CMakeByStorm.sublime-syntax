@@ -77,7 +77,7 @@ contexts:
      - include: lex-variable
 
   lex-storage-key:
-    - match: '\s*(\$)(\{|\<)(?=(?:\$\{)?\w+\s*(\}|\>))'
+    - match: '\s*(\$)\w*(\{|\<)(?=(?:\$\{)?\w+\s*(\}|\>))'
       captures:
        1: meta.tip.highlight punctuation.library.cmake
        2: punctuation.symbol.begin.cmake

@@ -4,7 +4,7 @@
             {"command": "save"},
             {"command": "run_shell_cmd",
                 "args":{
-                    "commands": ["VSCommand.exe \"${file}\" ${m_sel_row} ${m_sel_col} 14.0"],
+                    "commands": ["VS/VSCommand.exe \"${file}\" ${m_sel_row} ${m_sel_col} 14.0"],
                     "run_mode": "run","win_mode": "hide"
                 },
                 "context": "window"
