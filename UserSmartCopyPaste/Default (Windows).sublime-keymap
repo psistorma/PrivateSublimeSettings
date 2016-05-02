@@ -1,293 +1,328 @@
 [
-  { "keys": ["ctrl+shift+c"], "command": "copy" },
-  { "keys": ["ctrl+shift+x"], "command": "cut" },
-//auto expand and copy if selection is empty
-  {"keys": ["alt+c"], "command": "mul_run", "args": {
-    "commands" : [
-        {"command": "expand_region"},
-        {"command": "copy"}
-      ]
-    }
-  },
-//auto expand and re copy if have selection already
-  {"keys": ["alt+v"], "command": "mul_run", "args": {
-    "commands" : [
-        {"command": "expand_region"},
-        {"command": "paste"}
-      ]
-    }
-  },
-//auto expand and re copy if have selection already
-  {"keys": ["ctrl+alt+x"], "command": "mul_run", "args": {
-    "commands" : [
-        {"command": "expand_region"},
-        {"command": "cut"}
-      ]
-    }
-  },
+    { "keys": ["ctrl+shift+c"], "command": "copy" },
+    { "keys": ["ctrl+shift+x"], "command": "cut" },
+//set snippet base to the content of selection
+    {"keys": ["alt+c"], "command": "mul_run", "args": {
+        "commands" : [
+                {"command": "copy"},
+                {"command": "manage_snippet_base", "args": {
+                    "op": "setbase"},"context": "window"}
+            ],
+        }
+    },
+    {"keys": ["alt+x"], "command": "mul_run", "args": {
+        "commands" : [
+                {"command": "cut"},
+                {"command": "manage_snippet_base", "args": {
+                    "op": "setbase"},"context": "window"}
+            ],
+        }
+    },
+//insert raw snippet base when on selection
+    {"keys": ["alt+v"], "command": "mul_run", "args": {
+        "commands" : [
+                {"command": "manage_snippet_base", "args": {
+                    "op": "getbase",
+                    "transform": false,
+                    "insert": true,
+                    "clipboard": false},"context": "window"},
+            ]
+        },
+        "context": [
+            {"key": "selection_empty", "operator": "equal", "operand": true}
+        ]
+    },
+//insert transform snippet base when has selection
+    {"keys": ["alt+v"], "command": "mul_run", "args": {
+        "commands" : [
+                {"command": "manage_snippet_base", "args": {
+                    "op": "getbase",
+                    "transform": true,
+                    "insert": true,
+                    "clipboard": false},"context": "window"},
+            ]
+        },
+        "context": [
+            {"key": "selection_empty", "operator": "equal", "operand": false}
+        ]
+    },
+//transform snippet base by selection
+    {"keys": ["ctrl+k", "alt+v"], "command": "mul_run", "args": {
+        "commands" : [
+                {"command": "manage_snippet_base", "args": {
+                    "op": "getbase",
+                    "transform": true,
+                    "insert": false,
+                    "clipboard": true},"context": "window"},
+            ]
+        },
+        "context": [
+            {"key": "selection_empty", "operator": "equal", "operand": false}
+        ]
+    },
 //-------------string.quoted -----------------
 //copy whole string when no src
-  {"keys": ["ctrl+c"], "command": "mul_run", "args": {
-    "commands" : [
-      {"command": "expand_selection",   "args": {"to": "scope"} },
-      {"command": "expand_sel_by_side",   "args": {"count": -1} },
-      {"command": "copy"}
-    ]
-  },"context": [
-      {"key": "selection_empty", "operator": "equal", "operand": true},
-      {"key": "selector", "operator": "equal", "operand": "string - punctuation.definition.string.begin"}
-    ]
-  },
-  //replace whole string when no dest
-  {"keys": ["ctrl+v"], "command": "mul_run", "args": {
-    "commands" : [
-      {"command": "expand_selection",   "args": {"to": "scope"} },
-      {"command": "expand_sel_by_side",   "args": {"count": -1} },
-      {"command": "paste"}
-    ]
-  },"context": [
-      {"key": "selection_empty", "operator": "equal", "operand": true},
-      {"key": "selector", "operator": "equal", "operand": "string - punctuation - string.regexp"}
-    ]
-  },
-  //replace when have src and dest
-  {"keys": ["ctrl+v"], "command": "mul_run", "args": {
-    "commands" : [
-      {"command": "left_delete"},
-      {"command": "paste"}
-      ]},"context": [
-        {"key": "selector", "operator": "equal", "operand": "source"},
-        {"key": "selection_empty", "operator": "equal", "operand": false}
-      ]
-  },
-  {"keys": ["ctrl+x"], "command": "mul_run", "args": {
-    "commands" : [
-      {"command": "expand_selection",   "args": {"to": "scope"} },
-      {"command": "expand_sel_by_side",   "args": {"count": -1} },
-      {"command": "cut"}
-    ]
-  },"context": [
-      {"key": "selection_empty", "operator": "equal", "operand": true},
-      {"key": "selector", "operator": "equal", "operand": "string - punctuation"}
-    ]
-  },
-
-  //string variable
-  //copy whole scope when no src
     {"keys": ["ctrl+c"], "command": "mul_run", "args": {
-      "commands" : [
-        {"command": "expand_selection",   "args": {"to": "scope"} },
-        {"command": "copy"}
-      ]
+        "commands" : [
+            {"command": "expand_selection",   "args": {"to": "scope"} },
+            {"command": "expand_sel_by_side",   "args": {"count": -1} },
+            {"command": "copy"}
+        ]
     },"context": [
-        {"key": "selection_empty", "operator": "equal", "operand": true},
-        {"key": "selector", "operator": "equal", "operand": "string variable"}
-      ]
+            {"key": "selection_empty", "operator": "equal", "operand": true},
+            {"key": "selector", "operator": "equal", "operand": "string - punctuation.definition.string.begin"}
+        ]
     },
-  //replace whole string when no dest
+    //replace whole string when no dest
     {"keys": ["ctrl+v"], "command": "mul_run", "args": {
-      "commands" : [
-        {"command": "expand_selection",   "args": {"to": "scope"} },
-        {"command": "paste"}
-      ]
+        "commands" : [
+            {"command": "expand_selection",   "args": {"to": "scope"} },
+            {"command": "expand_sel_by_side",   "args": {"count": -1} },
+            {"command": "paste"}
+        ]
     },"context": [
-        {"key": "selection_empty", "operator": "equal", "operand": true},
-        {"key": "selector", "operator": "equal", "operand": "string variable"},
-      ]
+            {"key": "selection_empty", "operator": "equal", "operand": true},
+            {"key": "selector", "operator": "equal", "operand": "string - punctuation - string.regexp"}
+        ]
+    },
+    //replace when have src and dest
+    {"keys": ["ctrl+v"], "command": "mul_run", "args": {
+        "commands" : [
+            {"command": "left_delete"},
+            {"command": "paste"}
+            ]},"context": [
+                {"key": "selector", "operator": "equal", "operand": "source"},
+                {"key": "selection_empty", "operator": "equal", "operand": false}
+            ]
     },
     {"keys": ["ctrl+x"], "command": "mul_run", "args": {
-      "commands" : [
-        {"command": "expand_selection",   "args": {"to": "scope"} },
-        {"command": "cut"}
-      ]
+        "commands" : [
+            {"command": "expand_selection",   "args": {"to": "scope"} },
+            {"command": "expand_sel_by_side",   "args": {"count": -1} },
+            {"command": "cut"}
+        ]
     },"context": [
-        {"key": "selection_empty", "operator": "equal", "operand": true},
-        {"key": "selector", "operator": "equal", "operand": "string variable"},
-      ]
+            {"key": "selection_empty", "operator": "equal", "operand": true},
+            {"key": "selector", "operator": "equal", "operand": "string - punctuation"}
+        ]
     },
+
+    //string variable
+    //copy whole scope when no src
+        {"keys": ["ctrl+c"], "command": "mul_run", "args": {
+            "commands" : [
+                {"command": "expand_selection",   "args": {"to": "scope"} },
+                {"command": "copy"}
+            ]
+        },"context": [
+                {"key": "selection_empty", "operator": "equal", "operand": true},
+                {"key": "selector", "operator": "equal", "operand": "string variable"}
+            ]
+        },
+    //replace whole string when no dest
+        {"keys": ["ctrl+v"], "command": "mul_run", "args": {
+            "commands" : [
+                {"command": "expand_selection",   "args": {"to": "scope"} },
+                {"command": "paste"}
+            ]
+        },"context": [
+                {"key": "selection_empty", "operator": "equal", "operand": true},
+                {"key": "selector", "operator": "equal", "operand": "string variable"},
+            ]
+        },
+        {"keys": ["ctrl+x"], "command": "mul_run", "args": {
+            "commands" : [
+                {"command": "expand_selection",   "args": {"to": "scope"} },
+                {"command": "cut"}
+            ]
+        },"context": [
+                {"key": "selection_empty", "operator": "equal", "operand": true},
+                {"key": "selector", "operator": "equal", "operand": "string variable"},
+            ]
+        },
 //-------------XML-----------------
 //copy whole scope when no src
-  {"keys": ["ctrl+c"], "command": "mul_run", "args": {
-    "commands" : [
-      {"command": "expand_selection",   "args": {"to": "tag"} },
-      {"command": "copy"}
-    ]
-  },"context": [
-      {"key": "selection_empty", "operator": "equal", "operand": true},
-      {"key": "preceding_text", "operator": "regex_contains", "operand": ".*>.*"},
-      {"key": "following_text", "operator": "regex_contains", "operand": ".*<.*"},
-      {"key": "selector", "operator": "equal", "operand": "text.xml - string"}
-    ]
-  },
-  {"keys": ["ctrl+c"], "command": "mul_run", "args": {
-    "commands" : [
-      {"command": "expand_selection",   "args": {"to": "scope"} },
-      {"command": "copy"}
-    ]
-  },"context": [
-      {"key": "selection_empty", "operator": "equal", "operand": true},
-      {"key": "selector", "operator": "equal", "operand": "meta.tag.xml entity.name.tag.localname.xml,text.xml meta.tag.xml entity.other.attribute-name.localname.xml - string,comment.block.xml"}
-    ]
-  },
-  {"keys": ["ctrl+c"], "command": "mul_run", "args": {
-    "commands" : [
-      {"command": "run_emmet_action",   "args": {"action": "balance_inward"}},
-      {"command": "copy"}
-    ]
-  },"context": [
-      {"key": "selection_empty", "operator": "equal", "operand": true},
-      {"key": "selector", "operator": "equal", "operand": "comment.block.xml"}
-    ]
-  },
+    {"keys": ["ctrl+c"], "command": "mul_run", "args": {
+        "commands" : [
+            {"command": "expand_selection",   "args": {"to": "tag"} },
+            {"command": "copy"}
+        ]
+    },"context": [
+            {"key": "selection_empty", "operator": "equal", "operand": true},
+            {"key": "preceding_text", "operator": "regex_contains", "operand": ".*>.*"},
+            {"key": "following_text", "operator": "regex_contains", "operand": ".*<.*"},
+            {"key": "selector", "operator": "equal", "operand": "text.xml - string"}
+        ]
+    },
+    {"keys": ["ctrl+c"], "command": "mul_run", "args": {
+        "commands" : [
+            {"command": "expand_selection",   "args": {"to": "scope"} },
+            {"command": "copy"}
+        ]
+    },"context": [
+            {"key": "selection_empty", "operator": "equal", "operand": true},
+            {"key": "selector", "operator": "equal", "operand": "meta.tag.xml entity.name.tag.localname.xml,text.xml meta.tag.xml entity.other.attribute-name.localname.xml - string,comment.block.xml"}
+        ]
+    },
+    {"keys": ["ctrl+c"], "command": "mul_run", "args": {
+        "commands" : [
+            {"command": "run_emmet_action",   "args": {"action": "balance_inward"}},
+            {"command": "copy"}
+        ]
+    },"context": [
+            {"key": "selection_empty", "operator": "equal", "operand": true},
+            {"key": "selector", "operator": "equal", "operand": "comment.block.xml"}
+        ]
+    },
 //replace whole string when no dest
-  {"keys": ["ctrl+v"], "command": "mul_run", "args": {
-    "commands" : [
-      {"command": "expand_selection", "args": {"to": "tag"} },
-      {"command": "paste"}
-    ]
-  },"context": [
-      {"key": "selection_empty", "operator": "equal", "operand": true},
-      {"key": "selector", "operator": "equal", "operand": "text.xml - meta.tag.no-content.xml - string"}
-    ]
-  },
-  {"keys": ["ctrl+v"], "command": "mul_run", "args": {
-    "commands" : [
-      {"command": "expand_selection", "args": {"to": "scope"} },
-      {"command": "paste"}
-    ]
-  },"context": [
-      {"key": "selection_empty", "operator": "equal", "operand": true},
-      {"key": "selector", "operator": "equal", "operand": "meta.tag.xml entity.name.tag.localname.xml - string"}
-    ]
-  },
-  {"keys": ["ctrl+v"], "command": "mul_run", "args": {
-    "commands" : [
-      {"command": "run_emmet_action",   "args": {"action": "balance_inward"}},
-      {"command": "paste"}
-    ]
-  },"context": [
-      {"key": "selection_empty", "operator": "equal", "operand": true},
-      {"key": "selector", "operator": "equal", "operand": "comment.block.xml"}
-    ]
-  },
-  {"keys": ["ctrl+x"], "command": "mul_run", "args": {
-    "commands" : [
-      {"command": "expand_selection",   "args": {"to": "tag"} },
-      {"command": "cut"}
-    ]
-  },"context": [
-      {"key": "selection_empty", "operator": "equal", "operand": true},
-      {"key": "selector", "operator": "equal", "operand": "text.xml - string - string"},
-    ]
-  },
-  {"keys": ["ctrl+x"], "command": "mul_run", "args": {
-    "commands" : [
-      {"command": "expand_selection",   "args": {"to": "scope"} },
-      {"command": "cut"}
-    ]
-  },"context": [
-      {"key": "selection_empty", "operator": "equal", "operand": true},
-      {"key": "selector", "operator": "equal", "operand": "meta.tag.xml entity.name.tag.localname.xml"},
-    ]
-  },
-  {"keys": ["ctrl+x"], "command": "mul_run", "args": {
-    "commands" : [
-      {"command": "run_emmet_action",   "args": {"action": "balance_inward"}},
-      {"command": "cut"}
-    ]
-  },"context": [
-      {"key": "selection_empty", "operator": "equal", "operand": true},
-      {"key": "selector", "operator": "equal", "operand": "comment.block.xml"},
-    ]
-  },
+    {"keys": ["ctrl+v"], "command": "mul_run", "args": {
+        "commands" : [
+            {"command": "expand_selection", "args": {"to": "tag"} },
+            {"command": "paste"}
+        ]
+    },"context": [
+            {"key": "selection_empty", "operator": "equal", "operand": true},
+            {"key": "selector", "operator": "equal", "operand": "text.xml - meta.tag.no-content.xml - string"}
+        ]
+    },
+    {"keys": ["ctrl+v"], "command": "mul_run", "args": {
+        "commands" : [
+            {"command": "expand_selection", "args": {"to": "scope"} },
+            {"command": "paste"}
+        ]
+    },"context": [
+            {"key": "selection_empty", "operator": "equal", "operand": true},
+            {"key": "selector", "operator": "equal", "operand": "meta.tag.xml entity.name.tag.localname.xml - string"}
+        ]
+    },
+    {"keys": ["ctrl+v"], "command": "mul_run", "args": {
+        "commands" : [
+            {"command": "run_emmet_action",   "args": {"action": "balance_inward"}},
+            {"command": "paste"}
+        ]
+    },"context": [
+            {"key": "selection_empty", "operator": "equal", "operand": true},
+            {"key": "selector", "operator": "equal", "operand": "comment.block.xml"}
+        ]
+    },
+    {"keys": ["ctrl+x"], "command": "mul_run", "args": {
+        "commands" : [
+            {"command": "expand_selection",   "args": {"to": "tag"} },
+            {"command": "cut"}
+        ]
+    },"context": [
+            {"key": "selection_empty", "operator": "equal", "operand": true},
+            {"key": "selector", "operator": "equal", "operand": "text.xml - string - string"},
+        ]
+    },
+    {"keys": ["ctrl+x"], "command": "mul_run", "args": {
+        "commands" : [
+            {"command": "expand_selection",   "args": {"to": "scope"} },
+            {"command": "cut"}
+        ]
+    },"context": [
+            {"key": "selection_empty", "operator": "equal", "operand": true},
+            {"key": "selector", "operator": "equal", "operand": "meta.tag.xml entity.name.tag.localname.xml"},
+        ]
+    },
+    {"keys": ["ctrl+x"], "command": "mul_run", "args": {
+        "commands" : [
+            {"command": "run_emmet_action",   "args": {"action": "balance_inward"}},
+            {"command": "cut"}
+        ]
+    },"context": [
+            {"key": "selection_empty", "operator": "equal", "operand": true},
+            {"key": "selector", "operator": "equal", "operand": "comment.block.xml"},
+        ]
+    },
 //-------------JSON-----------------
 //copy whole scope when no src
-  {"keys": ["ctrl+c"], "command": "mul_run", "args": {
-    "commands" : [
-      {"command": "expand_selection",   "args": {"to": "scope"} },
-      {"command": "copy"}
-    ]
-  },"context": [
-      {"key": "selection_empty", "operator": "equal", "operand": true},
-      {"key": "selector", "operator": "equal", "operand": "source.json - string, source.sublimekeymap"}
-    ]
-  },
+    {"keys": ["ctrl+c"], "command": "mul_run", "args": {
+        "commands" : [
+            {"command": "expand_selection",   "args": {"to": "scope"} },
+            {"command": "copy"}
+        ]
+    },"context": [
+            {"key": "selection_empty", "operator": "equal", "operand": true},
+            {"key": "selector", "operator": "equal", "operand": "source.json - string, source.sublimekeymap"}
+        ]
+    },
 //replace whole string when no dest
-  {"keys": ["ctrl+v"], "command": "mul_run", "args": {
-    "commands" : [
-      {"command": "expand_selection",   "args": {"to": "scope"} },
-      {"command": "paste"}
-    ]
-  },"context": [
-      {"key": "selection_empty", "operator": "equal", "operand": true},
-      {"key": "selector", "operator": "equal", "operand": "source.json - string, source.sublimekeymap"},
-    ]
-  },
-  {"keys": ["ctrl+x"], "command": "mul_run", "args": {
-    "commands" : [
-      {"command": "expand_selection",   "args": {"to": "scope"} },
-      {"command": "cut"}
-    ]
-  },"context": [
-      {"key": "selection_empty", "operator": "equal", "operand": true},
-      {"key": "selector", "operator": "equal", "operand": "source.json - string, source.sublimekeymap"},
-    ]
-  },
+    {"keys": ["ctrl+v"], "command": "mul_run", "args": {
+        "commands" : [
+            {"command": "expand_selection",   "args": {"to": "scope"} },
+            {"command": "paste"}
+        ]
+    },"context": [
+            {"key": "selection_empty", "operator": "equal", "operand": true},
+            {"key": "selector", "operator": "equal", "operand": "source.json - string, source.sublimekeymap"},
+        ]
+    },
+    {"keys": ["ctrl+x"], "command": "mul_run", "args": {
+        "commands" : [
+            {"command": "expand_selection",   "args": {"to": "scope"} },
+            {"command": "cut"}
+        ]
+    },"context": [
+            {"key": "selection_empty", "operator": "equal", "operand": true},
+            {"key": "selector", "operator": "equal", "operand": "source.json - string, source.sublimekeymap"},
+        ]
+    },
 //when cursor is near to not word ,just be normal behavior
-  {"keys": ["ctrl+c"], "command": "mul_run", "args": {
-    "commands" : [
-      {"command": "copy"}
-    ]
-  },"context": [
-      {"key": "selection_empty", "operator": "equal", "operand": true},
-      {"key": "preceding_text", "operator": "regex_match", "operand": ".*(?:\\W|^)"},
-    ]
-  },
-  {"keys": ["ctrl+c"], "command": "mul_run", "args": {
-    "commands" : [
-      {"command": "copy"}
-    ]
-  },"context": [
-      {"key": "selection_empty", "operator": "equal", "operand": true},
-      {"key": "following_text", "operator": "regex_match", "operand": "^(?:\\W|$).*"},
-    ]
-  },
+    {"keys": ["ctrl+c"], "command": "mul_run", "args": {
+        "commands" : [
+            {"command": "copy"}
+        ]
+    },"context": [
+            {"key": "selection_empty", "operator": "equal", "operand": true},
+            {"key": "preceding_text", "operator": "regex_match", "operand": ".*(?:\\W|^)"},
+        ]
+    },
+    {"keys": ["ctrl+c"], "command": "mul_run", "args": {
+        "commands" : [
+            {"command": "copy"}
+        ]
+    },"context": [
+            {"key": "selection_empty", "operator": "equal", "operand": true},
+            {"key": "following_text", "operator": "regex_match", "operand": "^(?:\\W|$).*"},
+        ]
+    },
 //when cursor is near to the not word ,just be normal behavior
-  {"keys": ["ctrl+v"], "command": "mul_run", "args": {
-    "commands" : [
-      {"command": "paste"}
-    ]
-  },"context": [
-      {"key": "selection_empty", "operator": "equal", "operand": true},
-      {"key": "preceding_text", "operator": "regex_match", "operand": ".*(?:\\W|^)"},
-    ]
-  },
-  {"keys": ["ctrl+v"], "command": "mul_run", "args": {
-    "commands" : [
-      {"command": "paste"}
-    ]
-  },"context": [
-      {"key": "selection_empty", "operator": "equal", "operand": true},
-      {"key": "following_text", "operator": "regex_match", "operand": "^(?:\\W|$).*"},
-    ]
-  },
+    {"keys": ["ctrl+v"], "command": "mul_run", "args": {
+        "commands" : [
+            {"command": "paste"}
+        ]
+    },"context": [
+            {"key": "selection_empty", "operator": "equal", "operand": true},
+            {"key": "preceding_text", "operator": "regex_match", "operand": ".*(?:\\W|^)"},
+        ]
+    },
+    {"keys": ["ctrl+v"], "command": "mul_run", "args": {
+        "commands" : [
+            {"command": "paste"}
+        ]
+    },"context": [
+            {"key": "selection_empty", "operator": "equal", "operand": true},
+            {"key": "following_text", "operator": "regex_match", "operand": "^(?:\\W|$).*"},
+        ]
+    },
 //when cursor is near to the not word ,just be normal behavior
-  {"keys": ["ctrl+x"], "command": "mul_run", "args": {
-    "commands" : [
-      {"command": "cut"}
-    ]
-  },"context": [
-      {"key": "selection_empty", "operator": "equal", "operand": true},
-      {"key": "preceding_text", "operator": "regex_match", "operand": ".*(?:\\W|^)"},
-    ]
-  },
-  {"keys": ["ctrl+x"], "command": "mul_run", "args": {
-    "commands" : [
-      {"command": "cut"}
-    ]
-  },"context": [
-      {"key": "selection_empty", "operator": "equal", "operand": true},
-      {"key": "following_text", "operator": "regex_match", "operand": "^(?:\\W|$).*"},
-    ]
-  },
+    {"keys": ["ctrl+x"], "command": "mul_run", "args": {
+        "commands" : [
+            {"command": "cut"}
+        ]
+    },"context": [
+            {"key": "selection_empty", "operator": "equal", "operand": true},
+            {"key": "preceding_text", "operator": "regex_match", "operand": ".*(?:\\W|^)"},
+        ]
+    },
+    {"keys": ["ctrl+x"], "command": "mul_run", "args": {
+        "commands" : [
+            {"command": "cut"}
+        ]
+    },"context": [
+            {"key": "selection_empty", "operator": "equal", "operand": true},
+            {"key": "following_text", "operator": "regex_match", "operand": "^(?:\\W|$).*"},
+        ]
+    },
 ]

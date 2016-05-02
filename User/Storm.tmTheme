@@ -211,6 +211,17 @@
     </dict>
     <dict>
       <key>name</key>
+      <string>entity other ident path</string>
+      <key>scope</key>
+      <string>variable.other.ident.path</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#40A14A</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key>
       <string>entity other ident member</string>
       <key>scope</key>
       <string>variable.other.ident.member</string>

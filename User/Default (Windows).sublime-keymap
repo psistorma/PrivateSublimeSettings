@@ -134,7 +134,7 @@
     },
     {"keys": ["ctrl+q"], "command": "duplicate_line" },
     {"keys": ["alt+f"],  "command": "fold" },
-    {"keys": ["alt+x"], "command": "unfold" },
+    {"keys": ["alt+shift+f"], "command": "unfold" },
     {"keys": ["ctrl+w"], "command": "join_lines" },
     {"keys": ["ctrl+e"], "command": "swap_line_up" },
     {"keys": ["ctrl+shift+e"], "command": "swap_line_down" },

@@ -8,5 +8,5 @@
   {"keys": ["ctrl+k", "ctrl+shift+tab"], "command": "indent_space_change", "args": {
       "from": "4", "to": 2
   }},
-  {"keys": ["ctrl+alt+d"], "command": "cancel_selection"},
+  {"keys": ["ctrl+alt+d"], "command": "cancel_selection"}
 ]

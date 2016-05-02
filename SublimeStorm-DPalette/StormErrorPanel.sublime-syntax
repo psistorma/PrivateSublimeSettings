@@ -4,6 +4,39 @@
 name: StormErrorPanel
 file_extensions: []
 scope: text.userstormError
+variables:
+  svIdent: '[A-Za-z_][A-Za-z_0-9]*+'
+  svIdentUpper: '[A-Z_][A-Z_0-9]*+(?![a-z_0-9])'
+  svIdentFirstUpper: '(?:_+)?[A-Z][A-Za-z_0-9]*+'
+  svIdentEvt: '(?:_+)?(?:On|on)[A-Z][A-Za-z_0-9]*+'
+  svIdentMember: |-
+    (?x)
+    (?:
+      m_{{svIdent}}|
+      _[A-Za-z][A-Za-z_0-9]*+|
+      [A-Za-z][A-Za-z_0-9]*?+[A-Za-z]_(?!\w)|
+      (?<={{svMemberAccess}}){{svIdent}}
+    )
+  svNsSep: '(?<!:)::(?!:)'
+  svEmbedComment: '/\*.*?\*/'
+  svCanEmbedSpaceAndComment: '(?:\s|{{svEmbedComment}})*+'
+  svCanEmbedComment: '(?:{{svEmbedComment}})*+'
+  svMemberAccess: '(?:\.|->)'
+  svOverrideFnInvoke: '<<(?!=)|>>(?!=)'
+  svCtxTypeNoPointer: |-
+    (?x)
+      (?<ctxType>(
+        (::)?
+        {{svIdent}}
+        (\<\g<ctxType>\>)?
+      )++)
+  svCtxType: '{{svCtxTypeNoPointer}}\s*\*?'
+
+
+  svFilePath: |-
+    (?x)
+      (?:[\w]\:|\\|/)
+      (?:(?:\\|/)\w[\w|\(|\)|\s]+)+(?:\.(?:{{svIdent}}))?
 contexts:
   main:
     - match: ^\*+\s(= error =)\s\*+$
@@ -59,3 +92,15 @@ contexts:
 
     - match: '[0-9]'
       scope: constant.numeric
+
+    - match: (?=^\s*#pragma\s*region\b)
+      push:
+        - meta_scope: meta.preprocessor.directive
+    - match: \s*{{svFilePath}}\s*
+      scope: variable.other.ident.path
+    - match: \s*{{svIdentUpper}}\s*
+      scope: constant.other.allcaps.c
+    - match: \s*{{svIdentEvt}}\s*
+      scope: variable.other.ident.evt
+    - match: \s*{{svIdentMember}}\s*
+      scope: variable.other.ident.member
