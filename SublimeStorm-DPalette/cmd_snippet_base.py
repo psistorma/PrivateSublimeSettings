@@ -75,7 +75,10 @@ class ManageSnippetBaseCommand(sublime_plugin.WindowCommand):
                 sPattern = r"\${{{pos}:.*?}}".format(pos=grpIdx+1)
                 sResSnippet = re.sub(sPattern, item, sResSnippet)
                 res[itemIdx] = sResSnippet
-                print(sResSnippet)
+
+        firstSel = sels[0]
+        sels.clear()
+        sels.add(firstSel)
 
         return "\n".join(res)
 
