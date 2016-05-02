@@ -74,7 +74,6 @@ class ManageSnippetBaseCommand(sublime_plugin.WindowCommand):
                 sResSnippet = sResSnippet.replace("${{{pos}}}".format(pos=grpIdx+1), item)
                 sPattern = r"\${{{pos}:.*?}}".format(pos=grpIdx+1)
                 sResSnippet = re.sub(sPattern, item, sResSnippet)
-                sResSnippet = sResSnippet.replace("$", "\$")
                 res[itemIdx] = sResSnippet
                 print(sResSnippet)
 
