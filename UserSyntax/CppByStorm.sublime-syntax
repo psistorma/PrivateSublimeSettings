@@ -231,7 +231,7 @@ contexts:
               pop: true
             - include: step-expression
         - match: \s*\)
-          scope: punctuation.definition.bracket.expression.end
+          scope: meta.tip.embed punctuation.definition.bracket.expression.end
           pop: true
         - include: step-finish-now
 
@@ -879,7 +879,7 @@ contexts:
         - include: step-expression-statement
 # statement expression
   rule-statement-expression:
-    - match: (?=\w)
+    - match: (?=\w|\()
       push: step-expression-statement
 # declare friend
   rule-declare-friend:

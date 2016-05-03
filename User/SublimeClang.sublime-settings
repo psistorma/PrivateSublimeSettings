@@ -276,7 +276,8 @@
     //     "-Wall",
     //     "-Wno-unknown-pragmas",
     //     "-Wno-invalid-token-paste",
-    //     "-DWIN32","-D_WINDOWS","-D_DEBUG","-D_AFXDLL","-D_UNICODE","-DUNICODE",
+    //     "-DWIN32","-D_WINDOWS","-D_DEBUG",
+    //     "-D_AFXDLL","-D_UNICODE","-DUNICODE",
     //     "-isystem", "C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\um",
     //     "-isystem", "C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\shared",
     //     "-isystem", "C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\winrt",
@@ -286,21 +287,33 @@
     // ],
 
     //QT
-    "options":
-    [
-        // "-I${project_path}",
-        // "-Wall",
-        // "-Wno-unknown-pragmas",
-        // "-Wno-invalid-token-paste",
-        // "-DWIN32","-D_WINDOWS","-D_DEBUG","-D_AFXDLL","-D_UNICODE","-DUNICODE",
-        // "-DQT_WIDGETS_LIB","-DQT_GUI_LIB","-DQT_CORE_LIB",
-        // "-isystem", "D:\\QtDesktop\\Qt5.6.0\\5.6\\msvc2015_64\\include",
-        // "-isystem", "D:\\QtDesktop\\Qt5.6.0\\5.6\\msvc2015_64\\include\\QtWidgets",
-        // "-isystem", "D:\\QtDesktop\\Qt5.6.0\\5.6\\msvc2015_64\\include\\QtGui",
-        // "-isystem", "D:\\QtDesktop\\Qt5.6.0\\5.6\\msvc2015_64\\include\\QtANGLE",
-        // "-isystem", "D:\\QtDesktop\\Qt5.6.0\\5.6\\msvc2015_64\\include\\QtCore",
-        // "-isystem", "",
-    ],
+    // "options":
+    // [
+    //     "-I${project_path}",
+    //     "-Wall",
+    //     "-Wno-unknown-pragmas",
+    //     "-Wno-invalid-token-paste",
+    //     "-DWIN32","-D_WINDOWS","-D_DEBUG",
+    //     "-DQT_WIDGETS_LIB","-DQT_GUI_LIB","-DQT_CORE_LIB",
+    //     "-isystem", "D:\\QtDesktop\\Qt5.6.0\\5.6\\msvc2015_64\\include",
+    //     "-isystem", "D:\\QtDesktop\\Qt5.6.0\\5.6\\msvc2015_64\\include\\QtWidgets",
+    //     "-isystem", "D:\\QtDesktop\\Qt5.6.0\\5.6\\msvc2015_64\\include\\QtGui",
+    //     "-isystem", "D:\\QtDesktop\\Qt5.6.0\\5.6\\msvc2015_64\\include\\QtANGLE",
+    //     "-isystem", "D:\\QtDesktop\\Qt5.6.0\\5.6\\msvc2015_64\\include\\QtCore",
+    // ],
+
+    //OSG
+    // "options":
+    // [
+    //     "-I${project_path}",
+    //     "-Wall",
+    //     "-Wno-unknown-pragmas",
+    //     "-Wno-invalid-token-paste",
+    //     "-DWIN32","-D_WINDOWS","-D_DEBUG",
+    //     "-isystem", "E:\\try\\OpenSceneGraph-3.4.0\\include",
+    //     "-D_AFXDLL","-D_UNICODE","-DUNICODE",
+    //     "-DQT_WIDGETS_LIB","-DQT_GUI_LIB","-DQT_CORE_LIB",
+    // ],
 
 
     // A command that can be run to fetch actual options for a source file in a build system.

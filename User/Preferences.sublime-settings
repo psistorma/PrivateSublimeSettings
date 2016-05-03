@@ -55,6 +55,7 @@
 	[
 		"Bookmarks",
 		"GitGutter",
+		"SublimeClang",
 		"SublimeCodeIntel",
 		"Vintage"
 	],
