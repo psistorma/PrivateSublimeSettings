@@ -3,7 +3,7 @@
   { "caption": "Close And Reopen", "command": "mul_run_window", "args": {
     "commands" : [
         {"command": "close_file", "context": "window"},
-        {"command": "open_recently_closed_file", "context": "window", "args": {"show_quick_panel": false}}
+        {"command": "open_recently_closed_file", "context": "window", "args": {"action": "open_latest_closed"}}
       ]}
   },
 	{ "caption": "*************Close all Tabs*************", "command": "close_all" },

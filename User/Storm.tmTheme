@@ -59,7 +59,7 @@
       <key>name</key>
       <string>Keyword</string>
       <key>scope</key>
-      <string>keyword - meta.preprocessor - meta.tip.notify - meta.tip.highlight, keyword.other.preprocessor.directive,meta.preprocessor.directive keyword.other.preprocessor</string>
+      <string>keyword - meta.preprocessor - meta.tip.notify - meta.tip.highlight, keyword.other.preprocessor.directive,meta.preprocessor.directive keyword.other.preprocessor,string.other.number.suffix</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
