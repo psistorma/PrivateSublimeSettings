@@ -15,7 +15,8 @@
 		"cp",
 		"c",
 		"h++",
-		"inl"
+		"inl",
+		"StateAttribute"
 	],
 	"ignored_packages":
 	[

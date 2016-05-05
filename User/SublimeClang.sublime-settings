@@ -282,8 +282,8 @@
     //     "-isystem", "C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\shared",
     //     "-isystem", "C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\winrt",
     //     "-isystem", "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\include",
-    //     "-isystem", "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\atlmfc\\include",
     //     "-isystem", "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10150.0\\ucrt",
+    //     "-isystem", "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\atlmfc\\include",
     // ],
 
     //QT
@@ -303,17 +303,39 @@
     // ],
 
     //OSG
-    // "options":
-    // [
-    //     "-I${project_path}",
-    //     "-Wall",
-    //     "-Wno-unknown-pragmas",
-    //     "-Wno-invalid-token-paste",
-    //     "-DWIN32","-D_WINDOWS","-D_DEBUG",
-    //     "-isystem", "E:\\try\\OpenSceneGraph-3.4.0\\include",
-    //     "-D_AFXDLL","-D_UNICODE","-DUNICODE",
-    //     "-DQT_WIDGETS_LIB","-DQT_GUI_LIB","-DQT_CORE_LIB",
-    // ],
+    "options":
+    [
+        "-I${project_path}",
+        "-Wall",
+        "-Wno-unknown-pragmas",
+        "-Wno-invalid-token-paste",
+        "-DWIN32","-D_WINDOWS","-D_DEBUG",
+        "-isystem", "C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\um",
+        "-isystem", "C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\shared",
+        "-isystem", "C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\winrt",
+        "-isystem", "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\include",
+        "-isystem", "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10150.0\\ucrt",
+        "-isystem", "E:\\try\\OpenSceneGraph-3.4.0\\include",
+        "-isystem", "E:\\try\\OpenSceneGraph-3.4.0\\include\\osg",
+        "-isystem", "E:\\try\\OpenSceneGraph-3.4.0\\include\\OpenThreads",
+        "-isystem", "E:\\try\\OpenSceneGraph-3.4.0\\include\\osgAnimation",
+        "-isystem", "E:\\try\\OpenSceneGraph-3.4.0\\include\\osgDB",
+        "-isystem", "E:\\try\\OpenSceneGraph-3.4.0\\include\\osgFX",
+        "-isystem", "E:\\try\\OpenSceneGraph-3.4.0\\include\\osgGA",
+        "-isystem", "E:\\try\\OpenSceneGraph-3.4.0\\include\\osgManipulator",
+        "-isystem", "E:\\try\\OpenSceneGraph-3.4.0\\include\\osgParticle",
+        "-isystem", "E:\\try\\OpenSceneGraph-3.4.0\\include\\osgPresentation",
+        "-isystem", "E:\\try\\OpenSceneGraph-3.4.0\\include\\osgQt",
+        "-isystem", "E:\\try\\OpenSceneGraph-3.4.0\\include\\osgShadow",
+        "-isystem", "E:\\try\\OpenSceneGraph-3.4.0\\include\\osgSim",
+        "-isystem", "E:\\try\\OpenSceneGraph-3.4.0\\include\\osgTerrain",
+        "-isystem", "E:\\try\\OpenSceneGraph-3.4.0\\include\\osgText",
+        "-isystem", "E:\\try\\OpenSceneGraph-3.4.0\\include\\osgUI",
+        "-isystem", "E:\\try\\OpenSceneGraph-3.4.0\\include\\osgUtil",
+        "-isystem", "E:\\try\\OpenSceneGraph-3.4.0\\include\\osgViewer",
+        "-isystem", "E:\\try\\OpenSceneGraph-3.4.0\\include\\osgVolume",
+        "-isystem", "E:\\try\\OpenSceneGraph-3.4.0\\include\\osgWidget",
+    ],
 
 
     // A command that can be run to fetch actual options for a source file in a build system.
@@ -374,8 +396,8 @@
         "C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\shared",
         "C:\\Program Files (x86)\\Windows Kits\\8.1\\Include\\winrt",
         "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\include",
-        "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\atlmfc\\includ",
         "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10150.0\\ucrt",
+        "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\atlmfc\\includ",
     ],
 
     // Diagnostic errors/warnings matching this regex pattern will be ignored

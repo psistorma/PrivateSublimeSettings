@@ -1,4 +1,9 @@
 [
-	{ "command": "copy_path" },
-	{ "command": "side_bar_new_file2" }
+	{ "command": "mul_run", "args":{
+            "commands" : [
+                    {"command": "copy_path"},
+                    {"command": "side_bar_new_file2", "context": "window"}
+            ]
+        }
+    }
 ]

@@ -1,0 +1,19 @@
+<snippet>
+	<content><![CDATA[
+各项分 = [ ${1:90, 90, 85, 85} ]
+各项比例 = [ ${2:30, 30, 20, 20} ]
+述职分  = ${3:4.5} * 5
+
+考核分 = 0
+for fen, bili in zip(各项分, 各项比例):
+考核分 = 考核分 + fen*bili*0.01
+
+最后得分 = (考核分 + 述职分) * 0.8
+
+print("述职分:{0}, 满分: 25, 加成: {1}: ".format(述职分, 述职分*0.8))
+print("考核分:{0}, 满分: 100, 加成: {1}".format(考核分, 考核分*0.8))
+print("最后得分:{}, 满分: 100".format(最后得分))]]></content>
+	<tabTrigger>tool_fen</tabTrigger>
+	<description>tool.fen</description>
+	<scope>source.python</scope>
+	</snippet>
