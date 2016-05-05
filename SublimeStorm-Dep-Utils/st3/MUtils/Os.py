@@ -53,3 +53,9 @@ def isSameFile(lhsFilePath, rhsFilePath):
         return True
     return os.path.samefile(lhsFilePath, rhsFilePath)
 
+def promiseDirectory(dirPath):
+    bIsExist = os.path.exists(dirPath)
+    if bIsExist:
+        return
+
+    os.makedirs(dirPath)

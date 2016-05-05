@@ -118,7 +118,6 @@
     {"keys": ["ctrl+r"], "command": "show_overlay", "args": {"overlay": "goto", "text": "@"} },
     {"keys": ["ctrl+shift+r"], "command": "goto_symbol_in_project" },
     {"keys": ["ctrl+1"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} },
-    {"keys": ["alt+g"],  "command": "show_overlay", "args": {"overlay": "goto", "text": ":"} },
     {"keys": ["alt+-"], "command": "jump_back" },
     {"keys": ["alt+="], "command": "jump_forward" },
 

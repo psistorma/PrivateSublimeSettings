@@ -4,7 +4,7 @@ import fn
 import sublime_plugin
 import sublime
 from SublimeUtils import Setting, Panel, WView, Project
-from MUtils import Str, Data, Input, Exp
+from MUtils import Os, Str, Data, Input, Exp
 from MUtils.FileDataSrc import JsonSrcManager, Asset
 from SublimeUtils.Context import Context
 
@@ -416,6 +416,9 @@ class StormPaletteRecordCommand(sublime_plugin.WindowCommand):
 
     def dumpDynFile(self, dynFilePath, dynFileDict, belong_to_project):
         isFileExist = os.path.exists(dynFilePath)
+        if belong_to_project and not isFileExist:
+            Os.promiseDirectory(os.path.dirname(dynFilePath))
+
         with open(dynFilePath, "w") as f:
             json.dump(dynFileDict, f, indent=4)
 
