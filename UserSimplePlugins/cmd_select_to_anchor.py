@@ -26,6 +26,7 @@ def searchToLineAnchor(view, basePos, forward):
 ANCHOR_TYPE_PREV_CHAR = "prev_char"
 ANCHOR_TYPE_NEXT_CHAR = "next_char"
 ANCHOR_TYPE_CONTENT = "content"
+ANCHOR_TYPE_SELECTION = "selection"
 
 DIR_PREV = "prev"
 DIR_NEXT = "next"
@@ -59,32 +60,46 @@ class SelectToAnchorCommand(sublime_plugin.TextCommand):
         anchorCfg.forward = args.get("forward", True)
 
         to = args["to"]
+        delete = args.get("delete", False)
 
         sels = self.view.sel()
         newRegions = []
         for region in sels:
-            basePos = region.begin()
+            basePos = region.end()
             newRegion = None
             if TO_ANCHOR in to:
-                searchContent = self.getSearchContent(self.view, basePos, anchorCfg)
-                newRegion = self.searchToContent(self.view, basePos, searchContent, anchorCfg)
+                searchContent = self.getSearchContent(self.view, basePos, region, anchorCfg)
+                contentPos = self.searchToContent(self.view, basePos, searchContent, anchorCfg)
+
+                if anchorCfg.forward:
+                    newRegion = sublime.Region(region.end(), contentPos)
+                else:
+                    newRegion = sublime.Region(contentPos+len(searchContent), region.begin())
 
             if newRegion is not None:
                 newRegions.append(newRegion)
                 continue
 
             if TO_LINE_ANCHOR in to:
-                newRegion = searchToLineAnchor(self.view, basePos, anchorCfg.forward)
+                newRegions.append(
+                    searchToLineAnchor(self.view, basePos, anchorCfg.forward))
 
+        if len(newRegions) == 0:
+            sublime.status_message("can't found valid position!")
+            return
 
-            raise ValueError("to: {} is not allowed!".format(to))
+        if delete:
+            for region in newRegions:
+                self.view.erase(edit, region)
+
+            return
 
         sels.clear()
         for region in newRegions:
             sels.add(region)
 
     @staticmethod
-    def getSearchContent(view, basePos, anchorCfg):
+    def getSearchContent(view, basePos, selRegion, anchorCfg):
         if anchorCfg.content:
             return anchorCfg.content
 
@@ -93,6 +108,8 @@ class SelectToAnchorCommand(sublime_plugin.TextCommand):
             contentRegion = sublime.Region(basePos-anchorCfg.charCount, basePos)
         elif anchorCfg.type == ANCHOR_TYPE_NEXT_CHAR:
             contentRegion = sublime.Region(basePos, basePos+anchorCfg.charCount)
+        elif anchorCfg.type == ANCHOR_TYPE_SELECTION:
+            contentRegion = selRegion
         else:
             raise ValueError("anchor_type: {} is not allowed!".format(anchorCfg.type))
 
@@ -102,7 +119,6 @@ class SelectToAnchorCommand(sublime_plugin.TextCommand):
     def searchToContent(view, basePos, searchContent, anchorCfg):
         lineRegion = view.full_line(basePos)
         search_frompos = basePos if anchorCfg.forward else lineRegion.begin()
-
         validPos = None
         while True:
             found, contentPos = searchStrPos(view, search_frompos,
@@ -110,6 +126,9 @@ class SelectToAnchorCommand(sublime_plugin.TextCommand):
                                          anchorCfg.searchIgnorecase,
                                          anchorCfg.isRegex)
             if anchorCfg.forward:
+                if found and contentPos >= lineRegion.end():
+                    break
+
                 validPos = contentPos
                 break
 
@@ -122,13 +141,7 @@ class SelectToAnchorCommand(sublime_plugin.TextCommand):
 
             validPos = contentPos
 
-        if validPos is not None:
-            if not anchorCfg.forward:
-                validPos += 1
-
-            return sublime.Region(basePos, validPos)
-        else:
-            return None
+        return validPos
 
 
 

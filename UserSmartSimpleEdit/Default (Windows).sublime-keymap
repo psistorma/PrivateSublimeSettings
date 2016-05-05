@@ -10,23 +10,38 @@
     }},
     {"keys": ["ctrl+alt+d"], "command": "cancel_selection"},
     {"keys": ["ctrl+k", "ctrl+w"], "command": "to_single_line"},
-    {"keys": ["alt+delete"], "command": "mul_run", "args": {
-        "commands" : [
-            {"command": "select_to_anchor", "args": {
-                "anchor_type": "prev_char",
-                "to": ["anchor"],
-            }},
-            {"command": "right_delete"}
-        ]}
+    {"keys": ["alt+delete"], "command": "select_to_anchor", "args": {
+            "anchor_type": "prev_char",
+            "to": ["anchor"],
+            "delete": true
+        },"context": [
+            {"key": "selection_empty", "operator": "equal", "operand": true},
+        ]
     },
-    {"keys": ["alt+backspace"], "command": "mul_run", "args": {
-        "commands" : [
-            {"command": "select_to_anchor", "args": {
-                "anchor_type": "next_char",
-                "forward": false,
-                "to": ["anchor"],
-            }},
-            {"command": "left_delete"}
-        ]}
+    {"keys": ["alt+backspace"], "command": "select_to_anchor", "args": {
+            "anchor_type": "next_char",
+            "forward": false,
+            "to": ["anchor"],
+            "delete": true
+        },"context": [
+            {"key": "selection_empty", "operator": "equal", "operand": true},
+        ]
+    },
+    {"keys": ["alt+delete"], "command": "select_to_anchor", "args": {
+            "anchor_type": "selection",
+            "to": ["anchor"],
+            "delete": true
+        },"context": [
+            {"key": "selection_empty", "operator": "equal", "operand": false},
+        ]
+    },
+    {"keys": ["alt+backspace"], "command": "select_to_anchor", "args": {
+            "anchor_type": "selection",
+            "forward": false,
+            "to": ["anchor"],
+            "delete": true
+        },"context": [
+            {"key": "selection_empty", "operator": "equal", "operand": false},
+        ]
     },
 ]
