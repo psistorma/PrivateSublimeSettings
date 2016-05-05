@@ -191,61 +191,17 @@
       "keys": ["ctrl+f12"], "command": "better_bookmarks_swap_layer",
       "args": {"direction": "next"}
     },
-    { "keys": ["f2"], "command": "prev_bookmark" },
-    { "keys": ["shift+f2"], "command": "next_bookmark" },
+    { "keys": ["f2"], "command": "next_bookmark" },
+    { "keys": ["shift+f2"], "command": "prev_bookmark" },
     {
       "keys": ["ctrl+f2"], "command": "better_bookmarks_mark_line",
     },
     {
-      "keys": ["ctrl+shift+f2"], "command": "better_bookmarks_clear_marks",
+      "keys": ["shift+f2"], "command": "better_bookmarks_clear_marks",
     },
     {
-      "keys": ["shift+f12"], "command": "better_bookmarks_clear_all_marks",
+      "keys": ["alt+shift+f12"], "command": "better_bookmarks_clear_all_marks",
     },
-//Sublimerge
-    { "keys": ["ctrl+k","ctrl+m"], "command": "sublimerge"},
-
-    { "keys": ["/"], "command": "sublimerge_differences_navigator", "context": [
-        {"key": "setting.is_sublimerge_view", "operator": "equal", "operand": true}
-    ]},
-
-    { "keys": ["ctrl+k", "ctrl+enter"], "command": "sublimerge_toggle_edit", "context": [
-        {"key": "setting.is_sublimerge_view", "operator": "equal", "operand": true}
-    ]},
-
-    { "keys": ["enter"], "command": "sublimerge_diff_dir_or_file", "context": [
-        {"key": "setting.is_sublimerge_view_dirs", "operator": "equal", "operand": true}
-    ]},
-
-    { "keys": ["down"], "command": "sublimerge_go_down", "context": [
-        {"key": "setting.is_sublimerge_view", "operator": "equal", "operand": true, "match_all": true},
-        {"key": "setting.is_sublimerge_edit_mode", "operator": "equal", "operand": false, "match_all": true}
-    ]},
-
-    { "keys": ["up"], "command": "sublimerge_go_up", "context": [
-        {"key": "setting.is_sublimerge_view", "operator": "equal", "operand": true, "match_all": true},
-        {"key": "setting.is_sublimerge_edit_mode", "operator": "equal", "operand": false, "match_all": true}
-    ]},
-
-    { "keys": ["left"], "command": "sublimerge_merge_left", "context": [
-        {"key": "setting.is_sublimerge_view", "operator": "equal", "operand": true, "match_all": true},
-        {"key": "setting.is_sublimerge_edit_mode", "operator": "equal", "operand": false, "match_all": true}
-    ]},
-
-    { "keys": ["right"], "command": "sublimerge_merge_right", "context": [
-        {"key": "setting.is_sublimerge_view", "operator": "equal", "operand": true, "match_all": true},
-        {"key": "setting.is_sublimerge_edit_mode", "operator": "equal", "operand": false, "match_all": true}
-    ]},
-
-    { "keys": ["shift+left"], "command": "sublimerge_merge_left", "args": {"merge_all": true}, "context": [
-        {"key": "setting.is_sublimerge_view", "operator": "equal", "operand": true, "match_all": true},
-        {"key": "setting.is_sublimerge_edit_mode", "operator": "equal", "operand": false, "match_all": true}
-    ]},
-
-    { "keys": ["shift+right"], "command": "sublimerge_merge_right", "args": {"merge_all": true}, "context": [
-        {"key": "setting.is_sublimerge_view", "operator": "equal", "operand": true, "match_all": true},
-        {"key": "setting.is_sublimerge_edit_mode", "operator": "equal", "operand": false, "match_all": true}
-    ]}
 //test
     // {"keys": ["alt+t"], "command": "run_shell_cmd",  "args": {
     //     "questions": [{"key": "message", "title": "commit message",
