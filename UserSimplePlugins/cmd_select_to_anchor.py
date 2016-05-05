@@ -122,9 +122,9 @@ class SelectToAnchorCommand(sublime_plugin.TextCommand):
         validPos = None
         while True:
             found, contentPos = searchStrPos(view, search_frompos,
-                                         searchContent,
-                                         anchorCfg.searchIgnorecase,
-                                         anchorCfg.isRegex)
+                                             searchContent,
+                                             anchorCfg.searchIgnorecase,
+                                             anchorCfg.isRegex)
             if anchorCfg.forward:
                 if found and contentPos >= lineRegion.end():
                     break
