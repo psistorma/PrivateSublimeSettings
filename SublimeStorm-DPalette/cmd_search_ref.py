@@ -1,7 +1,9 @@
 # import re
-# import sublime_plugin
-# import sublime
-# from .SublimeUtils import Setting, Panel
+import sublime_plugin
+import sublime
+from .SublimeUtils import Setting, Panel
+from MUtils import Os, Str, Data, Input, Exp
+from MUtils.FileDataSrc import JsonSrcManager, Asset
 # import functools as ft
 
 # def plugin_loaded():
@@ -9,6 +11,111 @@
 
 # def plugin_unloaded():
 #     pass
+DYN_REF_FILENAME = "default.dyn.md"
+import mistune
+
+class MDKeyBuilder(mistune.Renderer):
+    def __init__(self, *arg):
+        super().__init__(*arg)
+        self.hederInfo = []
+
+    def header(self, text, level, raw=None):
+        self.hederInfo.append(Data.toNamedTuple("title, level", level, raw))
+        return raw
+
+mdKeyBuilder = MDKeyBuilder()
+markdown = mistune.Markdown(renderer=mdKeyBuilder)
+markdown('# Config multiple **account** for github in one pc\n## 1. [Generate ssh key](https://help.github.com/articles/generating-an-ssh-key/).\n\nopen **Git Bash** in **Adminstrator** mode:')
+
+class RefKeySrcManager(SrcManager):
+    def __init__(self, *arg):
+        super().__init__(*arg)
+
+    def reportStatus(self, message):
+        print(message)
+        sublime.status_message(message)
+
+    def parseFile(self, srcFile):
+        cfg = jsoncfg.load(srcFile.path)
+        for asset in cfg[self.assetKey]:
+            mdFile.appendAsset(asset[self.key], asset)
+
+    @staticmethod
+    def isDynFile(srcFilePath):
+        return os.path.basename(srcFilePath).lower() == DYN_REF_FILENAME
+
+    @staticmethod
+    def buildAssetKey(key, val, srcFile):
+        return Rm.makeAssetKey(key, val.get("tip", ""), srcFile)
+
+    @staticmethod
+    def pathToken(srcFile):
+        if Rm.isDynFile(srcFile.path):
+            return ""
+
+        relPath = os.path.relpath(srcFile.path, srcFile.srcDir.path)
+        relPath = relPath.replace("\\", "/")
+        return os.path.dirname(relPath)
+
+    @staticmethod
+    def makeAssetKey(key, tip, srcFile):
+        pathToken = Rm.pathToken(srcFile)
+
+        headToken, tipToken = "", ""
+        if srcFile.srcDir.isStatic:
+            if srcFile.isDyn:
+                headToken = ps.opts["dyn_token"]
+            else:
+                headToken = ps.opts["palkey_path_token"]
+        else:
+            if srcFile.isDyn:
+                headToken = ps.opts["project_dyn_token"]
+            else:
+                headToken = ps.opts["project_palkey_path_token"]
+
+        tipToken = ps.opts["palkey_path_token"]
+
+        if tip and pathToken:
+            tip = tipToken + tip
+
+        rkey = "".join([headToken, pathToken, tip, "!", key])
+        return "\n".join([key, rkey])
+
+    def updateForProjectAssets(self, window):
+        prjAssetPath = self.getProjectAssetPath(window)
+        if os.path.exists(prjAssetPath):
+            self.switchProject(prjAssetPath)
+        else:
+            self.projectSrc = None
+            self.collectAssets()
+
+    @staticmethod
+    def getProjectAssetPath(window, makeIfNotExist=False):
+        project = WView.getProjectPath(window)
+        if project is None:
+            return None
+
+        workDir, prjFileName = os.path.split(project)
+        prjName, _ = os.path.splitext(prjFileName)
+        assetPath = os.path.join(workDir, PROJECT_SRC_BASENAME, prjName)
+        if makeIfNotExist and os.path.exists(assetPath):
+            os.mkdir(assetPath)
+
+        return assetPath
+
+    @staticmethod
+    def getStaticAssetPath():
+        return ps.opts["palkey_path"]
+
+    @staticmethod
+    def getDynAssetFile(assetPath):
+        return os.path.join(assetPath, DYN_SRC_FILENAME)
+
+    @staticmethod
+    def isHidden(key):
+        return key.lower().startswith(HIDDEN_ASSET_TOKEN)
+
+Rm = PalKeySrcManager(SRC_FILE_EXT)
 
 # # class AnotherPaletteEventListener(sublime_plugin.EventListener):
 # #   def on_post_save(self, view):

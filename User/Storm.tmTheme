@@ -147,7 +147,7 @@
       <key>name</key>
       <string>Comment title</string>
       <key>scope</key>
-      <string>meta.toc-list - meta.diff</string>
+      <string>meta.toc-list - meta.diff - meta.tip.highlight</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>

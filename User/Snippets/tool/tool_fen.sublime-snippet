@@ -6,14 +6,14 @@
 
 考核分 = 0
 for fen, bili in zip(各项分, 各项比例):
-考核分 = 考核分 + fen*bili*0.01
+	考核分 = 考核分 + fen*bili*0.01
 
 最后得分 = (考核分 + 述职分) * 0.8
 
 print("述职分:{0}, 满分: 25, 加成: {1}: ".format(述职分, 述职分*0.8))
 print("考核分:{0}, 满分: 100, 加成: {1}".format(考核分, 考核分*0.8))
 print("最后得分:{}, 满分: 100".format(最后得分))]]></content>
-	<tabTrigger>tool_fen</tabTrigger>
-	<description>tool.fen</description>
+	<tabTrigger>ty_tool_fen</tabTrigger>
+	<description>ty_tool.fen</description>
 	<scope>source.python</scope>
 	</snippet>

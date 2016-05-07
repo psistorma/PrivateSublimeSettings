@@ -1,13 +1,14 @@
 [
-	{ "caption": "-" },
-  { "caption": "Close And Reopen", "command": "mul_run_window", "args": {
-    "commands" : [
-        {"command": "close_file", "context": "window"},
-        {"command": "open_recently_closed_file", "context": "window", "args": {"action": "open_latest_closed"}}
-      ]}
-  },
-	{ "caption": "*************Close all Tabs*************", "command": "close_all" },
-	{ "caption": "-" },
-	{ "caption": "Reopen last File", "command": "reopen_last_file" },
-	{ "caption": "Open Containing Folder","command": "open_dir", "args": {"dir": "$file_path", "file": "$file_name"} }
+    { "caption": "-" },
+    { "caption": "*************Close all Tabs*************", "command": "close_all" },
+    { "caption": "-" },
+    { "caption": "Close And Reopen", "command": "mul_run_window", "args": {
+        "commands" : [
+                {"command": "save", "context": "window"},
+                {"command": "close_file", "context": "window"},
+                {"command": "open_recently_closed_file", "context": "window", "args": {"action": "open_latest_closed"}}
+            ]}
+    },
+    { "caption": "-" },
+    { "caption": "-------------Open Containing Folder-------------","command": "open_dir", "args": {"dir": "$file_path", "file": "$file_name"} }
 ]

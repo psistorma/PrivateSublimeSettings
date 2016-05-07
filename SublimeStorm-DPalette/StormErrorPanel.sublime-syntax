@@ -63,7 +63,13 @@ contexts:
         0: meta.section.sec
         1: meta.toc-list.banner.line
 
-    - match: \b(File|line|keyword|argument|call|Ran|in)\b
+    - match: ^(-+)\s(.*?)\s(-+)$
+      captures:
+        1: punctuation.definition.section
+        2: meta.toc-list.banner.line meta.tip.highlight
+        3: punctuation.definition.section
+
+    - match: \b(File|line|keyword|argument|call|for|in)\b
       scope: keyword
 
     - match: (?<!=)=(?!=)|(?<!\*)\*(?!\*)|(?<!\*)\*\*(?!\*)|(?<!>)>(?!>)|(?<!<)<(?!<)|(?<!-)-(?!-)
@@ -84,6 +90,19 @@ contexts:
     - match: '([A-Za-z_][A-Za-z_0-9]*+)(?=\(.*?\))'
       scope: meta.function-call
 
+    - match: (?=^\s*#pragma\s*region\b)
+      push:
+        - meta_scope: meta.preprocessor.directive
+    - match: \s*{{svFilePath}}
+      scope: variable.other.ident.path
+    - match: \s*{{svIdentUpper}}
+      scope: constant.other.allcaps.c
+    - match: \s*{{svIdentEvt}}
+      scope: variable.other.ident.evt
+    - match: \s*{{svIdentMember}}
+      scope: variable.other.ident.member
+
+
     - match: '__[A-Za-z_0-9]*?__'
       scope: meta.preprocessor.macro
 
@@ -92,15 +111,3 @@ contexts:
 
     - match: '[0-9]'
       scope: constant.numeric
-
-    - match: (?=^\s*#pragma\s*region\b)
-      push:
-        - meta_scope: meta.preprocessor.directive
-    - match: \s*{{svFilePath}}\s*
-      scope: variable.other.ident.path
-    - match: \s*{{svIdentUpper}}\s*
-      scope: constant.other.allcaps.c
-    - match: \s*{{svIdentEvt}}\s*
-      scope: variable.other.ident.evt
-    - match: \s*{{svIdentMember}}\s*
-      scope: variable.other.ident.member

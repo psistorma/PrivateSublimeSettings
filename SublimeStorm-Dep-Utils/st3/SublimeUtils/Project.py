@@ -26,6 +26,7 @@ class ProjectInfoManager:
 
     def tVal(self, key, defVal=None):
         prjInfo = self.info()
+
         if key in prjInfo:
             return prjInfo[key]
 

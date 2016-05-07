@@ -185,15 +185,19 @@ class Info(object):
     def formatHeaderLine(self):
         return Info.wrapTitle(self.header).center(Info.WIDTH, Info.FILL_CHAR)
 
-    @classmethod
-    def formatSectionLines(cls, sec):
+    @staticmethod
+    def formatSectionLines(sec):
         lines = sec.content.split("\n")
         replace_regex = ps.dynOpts["replace_regex"]
         if replace_regex:
             pat = re.compile(replace_regex["from"])
             lines = [pat.sub(replace_regex["to"], line) for line in lines]
 
-        return [Info.wrapTitle(sec.title).center(Info.WIDTH, Info.SECTION_FILL_CHAR)] + lines
+        return [Info.formatSectionHeader(sec.title)] + lines
+
+    @staticmethod
+    def formatSectionHeader(title):
+        return Info.wrapTitle(title).center(Info.WIDTH, Info.SECTION_FILL_CHAR)
 
 def DynamicUpdate(infos, **notifyKwds):
     ps.updateDynOpts(**notifyKwds)

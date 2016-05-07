@@ -20,7 +20,7 @@ def promiseInput(pattern, inStr, transTemplate=None, defaultDict=None):
     return Str.renderText(transTemplate, **valDict)
 
 def askQuestions(showInputPanel, onDone, *questions, onChange=None, onCancel=None):
-    questions = list(questions)
+    questions = list(questions)[::-1]
     if not questions:
         raise ValueError("questions is Empty!")
 
