@@ -1,3 +1,15 @@
+SphinxRtdTheme	doc_theme\js\theme.js	/^window.SphinxRtdTheme = (function (jquery) {$/;"	r
+StickyNav	doc_theme\js\theme.js	/^        StickyNav : stickyNav$/;"	r
+applyStickNav	doc_theme\js\theme.js	/^            applyStickNav = function () {$/;"	r
+enable	doc_theme\js\theme.js	/^            enable : enable$/;"	r
+enable	doc_theme\js\theme.js	/^            enable = function () {$/;"	r
+init	doc_theme\js\theme.js	/^            init = function () {$/;"	r
+navBar	doc_theme\js\theme.js	/^                navBar = jquery('nav.wy-nav-side:first');$/;"	r
+navBar	doc_theme\js\theme.js	/^        var navBar,$/;"	r
+stickyNav	doc_theme\js\theme.js	/^    var stickyNav = (function () {$/;"	r
+stickyNavCssClass	doc_theme\js\theme.js	/^            stickyNavCssClass = 'stickynav',$/;"	r
+win	doc_theme\js\theme.js	/^                win    = jquery(window);$/;"	r
+win	doc_theme\js\theme.js	/^            win,$/;"	r
 AddFavoriteFileCommand	favorite_files.py	/^class AddFavoriteFileCommand(sublime_plugin.WindowCommand):$/;"	c
 CleanOrphanedFavoritesCommand	favorite_files.py	/^class CleanOrphanedFavoritesCommand(sublime_plugin.WindowCommand):$/;"	c
 Favorites	favorite_files.py	/^from FavoriteFiles.favorites import Favorites$/;"	i
@@ -12,9 +24,9 @@ error	favorite_files.py	/^from FavoriteFiles.lib.notify import error$/;"	i
 exists	favorite_files.py	/^from os.path import join, exists$/;"	i
 file_answer	favorite_files.py	/^    def file_answer(self, value):$/;"	m	class:AddFavoriteFileCommand
 file_prompt	favorite_files.py	/^    def file_prompt(self, view_code):$/;"	m	class:AddFavoriteFileCommand
-fn	favorite_files.py	/^                    def fn(v):$/;"	f	function:SelectFavoriteFileCommand.open_file
+fn	favorite_files.py	/^                    def fn(focus_view):$/;"	f	function:SelectFavoriteFileCommand.open_file
 group_answer	favorite_files.py	/^    def group_answer(self, value):$/;"	m	class:AddFavoriteFileCommand
-group_prompt	favorite_files.py	/^    def group_prompt(self, first=False):$/;"	m	class:AddFavoriteFileCommand
+group_prompt	favorite_files.py	/^    def group_prompt(self):$/;"	m	class:AddFavoriteFileCommand
 is_enabled	favorite_files.py	/^    def is_enabled(self):$/;"	m	class:TogglePerProjectFavoritesCommand
 join	favorite_files.py	/^from os.path import join, exists$/;"	i
 open_file	favorite_files.py	/^    def open_file(self, value, group=False):$/;"	m	class:SelectFavoriteFileCommand
@@ -23,8 +35,8 @@ remove	favorite_files.py	/^    def remove(self, value, group=False, group_name=N
 run	favorite_files.py	/^    def run(self):$/;"	m	class:AddFavoriteFileCommand
 run	favorite_files.py	/^    def run(self):$/;"	m	class:CleanOrphanedFavoritesCommand
 run	favorite_files.py	/^    def run(self):$/;"	m	class:RemoveFavoriteFileCommand
-run	favorite_files.py	/^    def run(self):$/;"	m	class:SelectFavoriteFileCommand
 run	favorite_files.py	/^    def run(self):$/;"	m	class:TogglePerProjectFavoritesCommand
+run	favorite_files.py	/^    def run(self, **kwds):$/;"	m	class:SelectFavoriteFileCommand
 select_group	favorite_files.py	/^    def select_group(self, value, replace=False):$/;"	m	class:AddFavoriteFileCommand
 show_groups	favorite_files.py	/^    def show_groups(self, replace=False):$/;"	m	class:AddFavoriteFileCommand
 sublime	favorite_files.py	/^import sublime$/;"	i
@@ -83,8 +95,8 @@ __get_style	lib\file_strip\comments.py	/^    def __get_style(self, style):$/;"	m
 __init__	lib\file_strip\comments.py	/^    def __init__(self, style=None, preserve_lines=False):$/;"	m	class:Comments
 __init__	lib\file_strip\comments.py	/^    def __init__(self, value):$/;"	m	class:CommentException
 __str__	lib\file_strip\comments.py	/^    def __str__(self):$/;"	m	class:CommentException	file:
-_cpp	lib\file_strip\comments.py	/^def _cpp(self, text, preserve_lines=False):$/;"	f
-_python	lib\file_strip\comments.py	/^def _python(self, text, preserve_lines=False):$/;"	f
+_cpp	lib\file_strip\comments.py	/^def _cpp(text, preserve_lines=False):$/;"	f
+_python	lib\file_strip\comments.py	/^def _python(text, preserve_lines=False):$/;"	f
 _strip_regex	lib\file_strip\comments.py	/^def _strip_regex(pattern, text, preserve_lines):$/;"	f
 add_style	lib\file_strip\comments.py	/^    def add_style(cls, style, fn):$/;"	m	class:Comments
 evaluate	lib\file_strip\comments.py	/^    def evaluate(m, preserve_lines):$/;"	f	function:_strip_regex
@@ -100,12 +112,50 @@ remove_comma	lib\file_strip\json.py	/^    def remove_comma(g, preserve_lines):$/
 sanitize_json	lib\file_strip\json.py	/^def sanitize_json(text, preserve_lines=False):$/;"	f
 strip_comments	lib\file_strip\json.py	/^def strip_comments(text, preserve_lines=False):$/;"	f
 strip_dangling_commas	lib\file_strip\json.py	/^def strip_dangling_commas(text, preserve_lines=False):$/;"	f
-Notify	lib\notify.py	/^    class Notify:$/;"	c
+Notify	lib\notify.py	/^    class Notify(object):$/;"	c
 Notify	lib\notify.py	/^    from SubNotify.sub_notify import SubNotifyIsReadyCommand as Notify$/;"	i
 error	lib\notify.py	/^def error(msg):$/;"	f
 is_ready	lib\notify.py	/^        def is_ready(cls):$/;"	m	class:Notify
 notify	lib\notify.py	/^def notify(msg):$/;"	f
 sublime	lib\notify.py	/^import sublime$/;"	i
+TestSettings	tests\test_json.py	/^class TestSettings(unittest.TestCase):$/;"	c
+_get_json_files	tests\test_json.py	/^    def _get_json_files(self, pattern, folder='.'):$/;"	m	class:TestSettings
+fnmatch	tests\test_json.py	/^import fnmatch$/;"	i
+os	tests\test_json.py	/^import os$/;"	i
+test_json_settings	tests\test_json.py	/^    def test_json_settings(self):$/;"	m	class:TestSettings
+unittest	tests\test_json.py	/^import unittest$/;"	i
+validate_json_format	tests\test_json.py	/^from . import validate_json_format$/;"	i
+CheckJsonFormat	tests\validate_json_format.py	/^class CheckJsonFormat(object):$/;"	c
+E_COMMA	tests\validate_json_format.py	/^E_COMMA = "E2"$/;"	v
+E_COMMENTS	tests\validate_json_format.py	/^E_COMMENTS = "E1"$/;"	v
+E_MALFORMED	tests\validate_json_format.py	/^E_MALFORMED = "E0"$/;"	v
+RE_COMMENT	tests\validate_json_format.py	/^RE_COMMENT = re.compile($/;"	v
+RE_LINE_INDENT_SPACE	tests\validate_json_format.py	/^RE_LINE_INDENT_SPACE = re.compile(r'^(((?: {4})+)?[^ \\t\\r\\n][^\\r\\n]*)?\\r?\\n$')$/;"	v
+RE_LINE_INDENT_TAB	tests\validate_json_format.py	/^RE_LINE_INDENT_TAB = re.compile(r'^((\\t+)?[^ \\t\\r\\n][^\\r\\n]*)?\\r?\\n$')$/;"	v
+RE_LINE_PRESERVE	tests\validate_json_format.py	/^RE_LINE_PRESERVE = re.compile(r"\\r?\\n", re.MULTILINE)$/;"	v
+RE_TRAILING_COMMA	tests\validate_json_format.py	/^RE_TRAILING_COMMA = re.compile($/;"	v
+RE_TRAILING_SPACES	tests\validate_json_format.py	/^RE_TRAILING_SPACES = re.compile(r'^.*?[ \\t]+\\r?\\n?$')$/;"	v
+VIOLATION_MSG	tests\validate_json_format.py	/^VIOLATION_MSG = {$/;"	v
+W_INDENT	tests\validate_json_format.py	/^W_INDENT = "W3"$/;"	v
+W_NL_END	tests\validate_json_format.py	/^W_NL_END = "W2"$/;"	v
+W_NL_START	tests\validate_json_format.py	/^W_NL_START = "W1"$/;"	v
+W_TRAILING_SPACE	tests\validate_json_format.py	/^W_TRAILING_SPACE = "W4"$/;"	v
+__init__	tests\validate_json_format.py	/^    def __init__(self, use_tabs=False, allow_comments=False):$/;"	m	class:CheckJsonFormat
+check_comma	tests\validate_json_format.py	/^        def check_comma(g, line):$/;"	f	function:CheckJsonFormat.check_dangling_commas
+check_comments	tests\validate_json_format.py	/^    def check_comments(self, text):$/;"	m	class:CheckJsonFormat
+check_dangling_commas	tests\validate_json_format.py	/^    def check_dangling_commas(self, text):$/;"	m	class:CheckJsonFormat
+check_format	tests\validate_json_format.py	/^    def check_format(self, file_name):$/;"	m	class:CheckJsonFormat
+cjf	tests\validate_json_format.py	/^    cjf = CheckJsonFormat(False, True)$/;"	v	class:CheckJsonFormat
+codecs	tests\validate_json_format.py	/^import codecs$/;"	i
+evaluate	tests\validate_json_format.py	/^        def evaluate(m):$/;"	f	function:CheckJsonFormat.check_comments
+evaluate	tests\validate_json_format.py	/^        def evaluate(m):$/;"	f	function:CheckJsonFormat.check_dangling_commas
+get_line	tests\validate_json_format.py	/^    def get_line(self, pt):$/;"	m	class:CheckJsonFormat
+index_lines	tests\validate_json_format.py	/^    def index_lines(self, text):$/;"	m	class:CheckJsonFormat
+json	tests\validate_json_format.py	/^import json$/;"	i
+log_failure	tests\validate_json_format.py	/^    def log_failure(self, code, line=None):$/;"	m	class:CheckJsonFormat
+re	tests\validate_json_format.py	/^import re$/;"	i
+remove_comments	tests\validate_json_format.py	/^        def remove_comments(group):$/;"	f	function:CheckJsonFormat.check_comments
+sys	tests\validate_json_format.py	/^    import sys$/;"	i
 !_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
 !_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
 !_TAG_PROGRAM_VERSION	5.8	//

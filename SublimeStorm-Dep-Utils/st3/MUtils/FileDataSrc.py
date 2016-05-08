@@ -53,7 +53,7 @@ class SrcFile(SrcObj):
             asset.key = self.buildAssetKey(asset.orgKey, asset.val)
 
     def buildAssetKey(self, key, val):
-        alterKey = self.manager.buildAssetKey(key, val, self)
+        alterKey = self.manager.vBuildAssetKey(key, val, self)
         if alterKey is None:
             alterKey = key
 
@@ -61,8 +61,8 @@ class SrcFile(SrcObj):
 
     def load(self):
         self.assets.clear()
-        self.manager.parseFile(self)
-        self.manager.reportStatus("file: {} is loaded".format(self.basename))
+        self.manager.vParseFile(self)
+        self.manager.vReportStatus("file: {} is loaded".format(self.path))
 
     def dump(self):
         if not self.isDyn:
@@ -97,15 +97,15 @@ class SrcDir(SrcObj):
         manager = self.manager
         files = Os.fetchFiles(self.path, manager.srcExt, manager.includeSubDir)
         for f in files:
-            srcFile = SrcFile(f, manager.isDynFile(f), self)
+            srcFile = SrcFile(f, manager.vIsDynFile(f), self)
             srcFile.load()
             self.srcFiles.append(srcFile)
 
-        self.manager.reportStatus("dir: {} is loaded".format(self.basename))
+        self.manager.vReportStatus("dir: {} is loaded".format(self.basename))
         return len(files) > 0
 
-class SrcManager:
-    def __init__(self, srcExt, includeSubDir=True, maxCacheProjectCount=5):
+class AssetSrcManager:
+    def __init__(self, srcExt, *, includeSubDir=True, maxCacheProjectCount=5):
         self.srcExt = srcExt
         self.includeSubDir = includeSubDir
         self.maxCacheProjectCount = maxCacheProjectCount
@@ -113,7 +113,7 @@ class SrcManager:
         self.assets = None
         self.projectSrc = None
 
-    def assetSortkey(self, asset):
+    def vAssetSortkey(self, asset):
         """ can be overrided """
         srcFile = asset.srcFile
         srcDir = srcFile.srcDir
@@ -123,26 +123,26 @@ class SrcManager:
         else:
             priorityKeys.append(0)
 
-        priorityKeys.append(self.buildAssetCat(asset))
+        priorityKeys.append(self.vBuildAssetCat(asset))
         priorityKeys.append(asset.key)
         return priorityKeys
 
-    def buildAssetCat(self, asset):
+    def vBuildAssetCat(self, asset):
         """ can be overrided """
         pass
 
-    def isDynFile(self, srcFilePath):
+    def vIsDynFile(self, srcFilePath):
         """ can be overrided """
         return False
 
-    def buildAssetKey(self, key, val, srcFile):
+    def vBuildAssetKey(self, key, val, srcFile):
         """ can be overrided """
         pass
 
-    def parseFile(self, srcFile):
+    def vParseFile(self, srcFile):
         raise NotImplementedError()
 
-    def reportStatus(self, message):
+    def vReportStatus(self, message):
         """ can be overrided """
         pass
 
@@ -157,9 +157,10 @@ class SrcManager:
         self.collectAssets()
 
     def switchProject(self, projectAssetPath):
+        isKeyRebuilded = False
         projectAssetPath = projectAssetPath.lower()
         if self.projectSrc is not None and self.projectSrc.isMe(projectAssetPath):
-            return
+            return isKeyRebuilded
 
         projectSrcCount = len([srcDir for srcDir in self.srcDirs if not srcDir.isStatic])
         if projectSrcCount > self.maxCacheProjectCount:
@@ -175,6 +176,9 @@ class SrcManager:
 
         self.projectSrc = self.loadSrcDir(projectAssetPath, False)
         self.collectAssets()
+        isKeyRebuilded = True
+
+        return isKeyRebuilded
 
     def refreshFile(self, filePath):
         filePath = os.path.normpath(filePath).lower()
@@ -214,8 +218,8 @@ class SrcManager:
         self.assets = [asset for srcDir in collectSrcDirs
                        for asset in srcDir.assets]
 
-        self.assets.sort(key=self.assetSortkey)
-        self.onFinishCollectAssets()
+        self.assets.sort(key=self.vAssetSortkey)
+        self.vOnFinishCollectAssets()
 
     @property
     def srcFiles(self):
@@ -227,7 +231,7 @@ class SrcManager:
 
         self.collectAssets()
 
-    def onFinishCollectAssets(self):
+    def vOnFinishCollectAssets(self):
         """ can be overrided """
         pass
 
@@ -238,13 +242,13 @@ class SrcManager:
         return self.assets[index]
 
 
-class JsonSrcManager(SrcManager):
-    def __init__(self, *arg, assetKey="assets", key="key", **kwds):
-        super().__init__(*arg, **kwds)
+class JsonAssetSrcManager(AssetSrcManager):
+    def __init__(self, *, assetKey="assets", key="key", **kwds):
+        super().__init__(**kwds)
         self.assetKey = assetKey
         self.key = key
 
-    def parseFile(self, srcFile):
+    def vParseFile(self, srcFile):
         cfg = jsoncfg.load(srcFile.path)
         for asset in cfg[self.assetKey]:
             srcFile.appendAsset(asset[self.key], asset)

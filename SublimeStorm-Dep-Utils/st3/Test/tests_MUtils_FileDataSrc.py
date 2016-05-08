@@ -3,9 +3,9 @@ import os
 from context import FileDataSrc
 from context import Str
 
-class TestJsonManager(FileDataSrc.JsonSrcManager):
-    def __init__(self, *arg, **kwds):
-        super().__init__(*arg, **kwds)
+class TestJsonManager(FileDataSrc.JsonAssetSrcManager):
+    def __init__(self, **kwds):
+        super().__init__(**kwds)
         self.settings = {
             "palkey_path_token":
             "/",
@@ -23,10 +23,10 @@ class TestJsonManager(FileDataSrc.JsonSrcManager):
             100
         }
 
-    def reportStatus(self, message):
+    def vReportStatus(self, message):
         print(message)
 
-    def buildAssetKey(self, key, val, srcFile):
+    def vBuildAssetKey(self, key, val, srcFile):
         return "".join(["key-", key, "-val-", val["val"], "-srcBasename-", srcFile.basename])
 
     @staticmethod
@@ -35,12 +35,12 @@ class TestJsonManager(FileDataSrc.JsonSrcManager):
         relPath = relPath.replace("\\", "/")
         return relPath
 
-    def buildAssetCat(self, asset):
+    def vBuildAssetCat(self, asset):
         return self.relPath(asset.srcFile, asset.srcFile.srcDir)
 
 class JsonSrcManager_TestCase(unittest.TestCase):
     def test_getSpecifyKeyVal(self):
-        srcManager = TestJsonManager(".testjson", "testjsondir", key="key")
+        srcManager = TestJsonManager(srcExt=".testjson", assetKey="assets", key="key")
         srcManager.loadStatic(os.path.join(os.path.dirname(__file__), "MUtils_FileDataSrc"))
         expectedKey = "".join(["key-", "lvl2-2-k1", "-val-", "I am lvl2-2 k1", "-srcBasename-", "lvl2-2.testjson"])
         keys = srcManager.keys()
@@ -52,4 +52,3 @@ class JsonSrcManager_TestCase(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-

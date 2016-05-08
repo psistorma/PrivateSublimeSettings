@@ -2,7 +2,7 @@
 import sublime_plugin
 import sublime
 from .SublimeUtils import Setting, Panel
-from MUtils import Os, Str, Data, Input, Exp
+from MUtils import Os, Str, Data, Input, Exp, MarkDownInfo
 from MUtils.FileDataSrc import JsonSrcManager, Asset
 # import functools as ft
 
@@ -11,21 +11,9 @@ from MUtils.FileDataSrc import JsonSrcManager, Asset
 
 # def plugin_unloaded():
 #     pass
-DYN_REF_FILENAME = "default.dyn.md"
-import mistune
-
-class MDKeyBuilder(mistune.Renderer):
-    def __init__(self, *arg):
-        super().__init__(*arg)
-        self.hederInfo = []
-
-    def header(self, text, level, raw=None):
-        self.hederInfo.append(Data.toNamedTuple("title, level", level, raw))
-        return raw
-
-mdKeyBuilder = MDKeyBuilder()
-markdown = mistune.Markdown(renderer=mdKeyBuilder)
-markdown('# Config multiple **account** for github in one pc\n## 1. [Generate ssh key](https://help.github.com/articles/generating-an-ssh-key/).\n\nopen **Git Bash** in **Adminstrator** mode:')
+PROJECT_SRC_BASENAME = ".search_ref"
+DYN_SRC_FILENAME = "default.dyn.md"
+HIDDEN_ASSET_TOKEN = "hidden-"
 
 class RefKeySrcManager(SrcManager):
     def __init__(self, *arg):
@@ -36,9 +24,9 @@ class RefKeySrcManager(SrcManager):
         sublime.status_message(message)
 
     def parseFile(self, srcFile):
-        cfg = jsoncfg.load(srcFile.path)
-        for asset in cfg[self.assetKey]:
-            mdFile.appendAsset(asset[self.key], asset)
+        items = MarkDownInfo.parseFile(srcFile.path)
+        for item in items:
+            srcFile.appendAsset(item.raw, item)
 
     @staticmethod
     def isDynFile(srcFilePath):
@@ -46,7 +34,7 @@ class RefKeySrcManager(SrcManager):
 
     @staticmethod
     def buildAssetKey(key, val, srcFile):
-        return Rm.makeAssetKey(key, val.get("tip", ""), srcFile)
+        return Rm.makeAssetKey(key, val.level, srcFile)
 
     @staticmethod
     def pathToken(srcFile):
@@ -58,27 +46,10 @@ class RefKeySrcManager(SrcManager):
         return os.path.dirname(relPath)
 
     @staticmethod
-    def makeAssetKey(key, tip, srcFile):
+    def makeAssetKey(key, level, srcFile):
         pathToken = Rm.pathToken(srcFile)
 
-        headToken, tipToken = "", ""
-        if srcFile.srcDir.isStatic:
-            if srcFile.isDyn:
-                headToken = ps.opts["dyn_token"]
-            else:
-                headToken = ps.opts["palkey_path_token"]
-        else:
-            if srcFile.isDyn:
-                headToken = ps.opts["project_dyn_token"]
-            else:
-                headToken = ps.opts["project_palkey_path_token"]
-
-        tipToken = ps.opts["palkey_path_token"]
-
-        if tip and pathToken:
-            tip = tipToken + tip
-
-        rkey = "".join([headToken, pathToken, tip, "!", key])
+        rkey = "".join(["[{}]".format(level), "[{}: ]".format(pathToken), key])
         return "\n".join([key, rkey])
 
     def updateForProjectAssets(self, window):
@@ -99,13 +70,13 @@ class RefKeySrcManager(SrcManager):
         prjName, _ = os.path.splitext(prjFileName)
         assetPath = os.path.join(workDir, PROJECT_SRC_BASENAME, prjName)
         if makeIfNotExist and os.path.exists(assetPath):
-            os.mkdir(assetPath)
+            Os.promiseDirectory(assetPath)
 
         return assetPath
 
     @staticmethod
     def getStaticAssetPath():
-        return ps.opts["palkey_path"]
+        return ps.opts["refkey_path"]
 
     @staticmethod
     def getDynAssetFile(assetPath):

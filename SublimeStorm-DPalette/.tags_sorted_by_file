@@ -1,0 +1,205 @@
+DynamicUpdate	StormErrorPanel.py	/^def DynamicUpdate(infos, **notifyKwds):$/;"	f
+FILL_CHAR	StormErrorPanel.py	/^    FILL_CHAR = "*"$/;"	v	class:Info
+Info	StormErrorPanel.py	/^class Info(object):$/;"	c
+InfoSection	StormErrorPanel.py	/^InfoSection = namedtuple("InfoSection", "title, content, isOutput")$/;"	v
+SECTION_FILL_CHAR	StormErrorPanel.py	/^    SECTION_FILL_CHAR = "-"$/;"	v	class:Info
+SKEY	StormErrorPanel.py	/^SKEY = "StormErrorPanel"$/;"	v
+Setting	StormErrorPanel.py	/^from SublimeUtils import Setting$/;"	i
+StorMErrorPanel	StormErrorPanel.py	/^class StorMErrorPanel(object):$/;"	c
+StormErrorPanelFlushCommand	StormErrorPanel.py	/^class StormErrorPanelFlushCommand(sublime_plugin.TextCommand):$/;"	c
+StormErrorPanelHideCommand	StormErrorPanel.py	/^class StormErrorPanelHideCommand(sublime_plugin.TextCommand):$/;"	c
+StormErrorPanelShowCommand	StormErrorPanel.py	/^class StormErrorPanelShowCommand(sublime_plugin.WindowCommand):$/;"	c
+WIDTH	StormErrorPanel.py	/^    WIDTH = 80$/;"	v	class:Info
+__init__	StormErrorPanel.py	/^    def __init__(self):$/;"	m	class:StorMErrorPanel
+__init__	StormErrorPanel.py	/^    def __init__(self, header, *sections):$/;"	m	class:Info
+close	StormErrorPanel.py	/^    def close():$/;"	m	class:StorMErrorPanel
+errorPanel	StormErrorPanel.py	/^errorPanel = StorMErrorPanel()$/;"	v
+flush	StormErrorPanel.py	/^    def flush(self):$/;"	m	class:StorMErrorPanel
+formatHeaderLine	StormErrorPanel.py	/^    def formatHeaderLine(self):$/;"	m	class:Info
+formatSectionHeader	StormErrorPanel.py	/^    def formatSectionHeader(title):$/;"	m	class:Info
+formatSectionLines	StormErrorPanel.py	/^    def formatSectionLines(sec):$/;"	m	class:Info
+formatTolineData	StormErrorPanel.py	/^    def formatTolineData(infos):$/;"	m	class:StorMErrorPanel
+ft	StormErrorPanel.py	/^import functools as ft$/;"	i
+fwNotify	StormErrorPanel.py	/^def fwNotify(f):$/;"	f
+get_view	StormErrorPanel.py	/^    def get_view(self):$/;"	m	class:StorMErrorPanel
+hasOutput	StormErrorPanel.py	/^    def hasOutput(self):$/;"	m	class:Info
+initSettings	StormErrorPanel.py	/^def initSettings():$/;"	f
+isVisible	StormErrorPanel.py	/^    def isVisible(window=None):$/;"	m	class:StorMErrorPanel
+namedtuple	StormErrorPanel.py	/^from collections import namedtuple$/;"	i
+open	StormErrorPanel.py	/^    def open(self, window=None):$/;"	m	class:StorMErrorPanel
+plugin_loaded	StormErrorPanel.py	/^def plugin_loaded():$/;"	f
+plugin_unloaded	StormErrorPanel.py	/^def plugin_unloaded():$/;"	f
+ps	StormErrorPanel.py	/^ps = Setting.PluginSetting(SKEY)$/;"	v
+re	StormErrorPanel.py	/^import re$/;"	i
+run	StormErrorPanel.py	/^    def run(self, **kwds):$/;"	m	class:StormErrorPanelShowCommand
+run	StormErrorPanel.py	/^    def run(self, edit):$/;"	m	class:StormErrorPanelHideCommand
+run	StormErrorPanel.py	/^    def run(self, edit, **kwds):$/;"	m	class:StormErrorPanelFlushCommand
+sublime	StormErrorPanel.py	/^import sublime$/;"	i
+sublime_plugin	StormErrorPanel.py	/^import sublime_plugin$/;"	i
+update	StormErrorPanel.py	/^    def update(self, *, data=None, window=None, show=True):$/;"	m	class:StorMErrorPanel
+updateData	StormErrorPanel.py	/^    def updateData(self, data):$/;"	m	class:StorMErrorPanel
+wrapTitle	StormErrorPanel.py	/^    def wrapTitle(cls, title):$/;"	m	class:Info
+wrapper	StormErrorPanel.py	/^    def wrapper(*args, **kwds):$/;"	f	function:fwNotify
+ASYNC_STATUS_KEY	cmd_eval.py	/^ASYNC_STATUS_KEY = "userstorm_async_code_status_key"$/;"	v
+EvalPythonCodeCommand	cmd_eval.py	/^class EvalPythonCodeCommand(sublime_plugin.WindowCommand):$/;"	c
+EvalPythonCodePromptCommand	cmd_eval.py	/^class EvalPythonCodePromptCommand(sublime_plugin.WindowCommand):$/;"	c
+Exp	cmd_eval.py	/^from MUtils import Thread, Input, Str, Exp$/;"	i
+Input	cmd_eval.py	/^from MUtils import Thread, Input, Str, Exp$/;"	i
+Panel	cmd_eval.py	/^from SublimeUtils import Setting, Panel$/;"	i
+Setting	cmd_eval.py	/^from SublimeUtils import Setting, Panel$/;"	i
+StormErrorPanel	cmd_eval.py	/^from . import StormErrorPanel$/;"	i
+Str	cmd_eval.py	/^from MUtils import Thread, Input, Str, Exp$/;"	i
+Thread	cmd_eval.py	/^from MUtils import Thread, Input, Str, Exp$/;"	i
+__init__	cmd_eval.py	/^    def __init__(self, *args):$/;"	m	class:EvalPythonCodeCommand
+__init__	cmd_eval.py	/^    def __init__(self, *args):$/;"	m	class:EvalPythonCodePromptCommand
+doWork	cmd_eval.py	/^    def doWork(self, **kwds):$/;"	m	class:EvalPythonCodeCommand
+doWorkAsnc	cmd_eval.py	/^    def doWorkAsnc(self, view, **kwds):$/;"	m	class:EvalPythonCodeCommand
+fn	cmd_eval.py	/^import fn$/;"	i
+onGotInput	cmd_eval.py	/^    def onGotInput(self, content):$/;"	m	class:EvalPythonCodePromptCommand
+run	cmd_eval.py	/^    def run(self, **kwds):$/;"	m	class:EvalPythonCodePromptCommand
+run	cmd_eval.py	/^    def run(self, qAndaDict=None, **kwds):$/;"	m	class:EvalPythonCodeCommand
+sublime	cmd_eval.py	/^import sublime$/;"	i
+sublime_plugin	cmd_eval.py	/^import sublime_plugin$/;"	i
+traceback	cmd_eval.py	/^import traceback$/;"	i
+MulRunCommand	cmd_mul_run.py	/^class MulRunCommand(sublime_plugin.TextCommand):$/;"	c
+MulRunWindowCommand	cmd_mul_run.py	/^class MulRunWindowCommand(sublime_plugin.WindowCommand):$/;"	c
+exec_command	cmd_mul_run.py	/^    def exec_command(self, command):$/;"	m	class:MulRunCommand
+exec_command	cmd_mul_run.py	/^    def exec_command(self, command):$/;"	m	class:MulRunWindowCommand
+run	cmd_mul_run.py	/^    def run(self, **args):$/;"	m	class:MulRunWindowCommand
+run	cmd_mul_run.py	/^    def run(self, edit, **args):$/;"	m	class:MulRunCommand
+sublime	cmd_mul_run.py	/^import sublime$/;"	i
+sublime_plugin	cmd_mul_run.py	/^import sublime_plugin$/;"	i
+ASYNC_STATUS_KEY	cmd_run_shell.py	/^ASYNC_STATUS_KEY = "userstorm_async_cmd_status_key"$/;"	v
+Data	cmd_run_shell.py	/^from MUtils import Data, Os, Input, Str, Exp, Thread$/;"	i
+Exp	cmd_run_shell.py	/^from MUtils import Data, Os, Input, Str, Exp, Thread$/;"	i
+Input	cmd_run_shell.py	/^from MUtils import Data, Os, Input, Str, Exp, Thread$/;"	i
+Os	cmd_run_shell.py	/^from MUtils import Data, Os, Input, Str, Exp, Thread$/;"	i
+Panel	cmd_run_shell.py	/^from SublimeUtils import Setting, Panel$/;"	i
+PrintSublimeVariableCommand	cmd_run_shell.py	/^class PrintSublimeVariableCommand(sublime_plugin.WindowCommand):$/;"	c
+RunShellCmdCommand	cmd_run_shell.py	/^class RunShellCmdCommand(sublime_plugin.WindowCommand):$/;"	c
+RunShellCmdPromptCommand	cmd_run_shell.py	/^class RunShellCmdPromptCommand(sublime_plugin.WindowCommand):$/;"	c
+SKEY	cmd_run_shell.py	/^SKEY = "RunShellCmd"$/;"	v
+Setting	cmd_run_shell.py	/^from SublimeUtils import Setting, Panel$/;"	i
+StormErrorPanel	cmd_run_shell.py	/^from . import StormErrorPanel$/;"	i
+Str	cmd_run_shell.py	/^from MUtils import Data, Os, Input, Str, Exp, Thread$/;"	i
+Thread	cmd_run_shell.py	/^from MUtils import Data, Os, Input, Str, Exp, Thread$/;"	i
+__init__	cmd_run_shell.py	/^    def __init__(self, *args):$/;"	m	class:RunShellCmdCommand
+__init__	cmd_run_shell.py	/^    def __init__(self, *args):$/;"	m	class:RunShellCmdPromptCommand
+doWork	cmd_run_shell.py	/^    def doWork(commands, run_mode, win_mode, run_opts, dyn_report_mul, **kwds):$/;"	m	class:RunShellCmdCommand
+doWorkAsnc	cmd_run_shell.py	/^    def doWorkAsnc(self, view, workParams, **kwds):$/;"	m	class:RunShellCmdCommand
+fn	cmd_run_shell.py	/^import fn$/;"	i
+initSettings	cmd_run_shell.py	/^def initSettings():$/;"	f
+onGotInput	cmd_run_shell.py	/^    def onGotInput(self, content):$/;"	m	class:RunShellCmdPromptCommand
+plugin_loaded	cmd_run_shell.py	/^def plugin_loaded():$/;"	f
+plugin_unloaded	cmd_run_shell.py	/^def plugin_unloaded():$/;"	f
+ps	cmd_run_shell.py	/^ps = Setting.PluginSetting(SKEY)$/;"	v
+re	cmd_run_shell.py	/^import re$/;"	i
+run	cmd_run_shell.py	/^    def run(self):$/;"	m	class:PrintSublimeVariableCommand
+run	cmd_run_shell.py	/^    def run(self, **kwds):$/;"	m	class:RunShellCmdPromptCommand
+run	cmd_run_shell.py	/^    def run(self, qAndaDict=None, **kwds):$/;"	m	class:RunShellCmdCommand
+sublime	cmd_run_shell.py	/^import sublime$/;"	i
+sublime_plugin	cmd_run_shell.py	/^import sublime_plugin$/;"	i
+Asset	cmd_search_ref.py	/^from MUtils.FileDataSrc import JsonSrcManager, Asset$/;"	i
+DYN_SRC_FILENAME	cmd_search_ref.py	/^DYN_SRC_FILENAME = "default.dyn.md"$/;"	v
+Data	cmd_search_ref.py	/^from MUtils import Os, Str, Data, Input, Exp, MarkDownInfo$/;"	i
+Exp	cmd_search_ref.py	/^from MUtils import Os, Str, Data, Input, Exp, MarkDownInfo$/;"	i
+HIDDEN_ASSET_TOKEN	cmd_search_ref.py	/^HIDDEN_ASSET_TOKEN = "hidden-"$/;"	v
+Input	cmd_search_ref.py	/^from MUtils import Os, Str, Data, Input, Exp, MarkDownInfo$/;"	i
+JsonSrcManager	cmd_search_ref.py	/^from MUtils.FileDataSrc import JsonSrcManager, Asset$/;"	i
+MarkDownInfo	cmd_search_ref.py	/^from MUtils import Os, Str, Data, Input, Exp, MarkDownInfo$/;"	i
+Os	cmd_search_ref.py	/^from MUtils import Os, Str, Data, Input, Exp, MarkDownInfo$/;"	i
+PROJECT_SRC_BASENAME	cmd_search_ref.py	/^PROJECT_SRC_BASENAME = ".search_ref"$/;"	v
+Panel	cmd_search_ref.py	/^from .SublimeUtils import Setting, Panel$/;"	i
+RefKeySrcManager	cmd_search_ref.py	/^class RefKeySrcManager(SrcManager):$/;"	c
+Rm	cmd_search_ref.py	/^Rm = PalKeySrcManager(SRC_FILE_EXT)$/;"	v
+Setting	cmd_search_ref.py	/^from .SublimeUtils import Setting, Panel$/;"	i
+Str	cmd_search_ref.py	/^from MUtils import Os, Str, Data, Input, Exp, MarkDownInfo$/;"	i
+__init__	cmd_search_ref.py	/^    def __init__(self, *arg):$/;"	m	class:RefKeySrcManager
+buildAssetKey	cmd_search_ref.py	/^    def buildAssetKey(key, val, srcFile):$/;"	m	class:RefKeySrcManager
+getDynAssetFile	cmd_search_ref.py	/^    def getDynAssetFile(assetPath):$/;"	m	class:RefKeySrcManager
+getProjectAssetPath	cmd_search_ref.py	/^    def getProjectAssetPath(window, makeIfNotExist=False):$/;"	m	class:RefKeySrcManager
+getStaticAssetPath	cmd_search_ref.py	/^    def getStaticAssetPath():$/;"	m	class:RefKeySrcManager
+isDynFile	cmd_search_ref.py	/^    def isDynFile(srcFilePath):$/;"	m	class:RefKeySrcManager
+isHidden	cmd_search_ref.py	/^    def isHidden(key):$/;"	m	class:RefKeySrcManager
+makeAssetKey	cmd_search_ref.py	/^    def makeAssetKey(key, level, srcFile):$/;"	m	class:RefKeySrcManager
+parseFile	cmd_search_ref.py	/^    def parseFile(self, srcFile):$/;"	m	class:RefKeySrcManager
+pathToken	cmd_search_ref.py	/^    def pathToken(srcFile):$/;"	m	class:RefKeySrcManager
+reportStatus	cmd_search_ref.py	/^    def reportStatus(self, message):$/;"	m	class:RefKeySrcManager
+sublime	cmd_search_ref.py	/^import sublime$/;"	i
+sublime_plugin	cmd_search_ref.py	/^import sublime_plugin$/;"	i
+updateForProjectAssets	cmd_search_ref.py	/^    def updateForProjectAssets(self, window):$/;"	m	class:RefKeySrcManager
+Exp	cmd_snippet_base.py	/^from MUtils import Exp$/;"	i
+ManageSnippetBaseCommand	cmd_snippet_base.py	/^class ManageSnippetBaseCommand(sublime_plugin.WindowCommand):$/;"	c
+__init__	cmd_snippet_base.py	/^    def __init__(self, *args):$/;"	m	class:ManageSnippetBaseCommand
+_transform	cmd_snippet_base.py	/^    def _transform(self):$/;"	m	class:ManageSnippetBaseCommand
+opGetBase	cmd_snippet_base.py	/^    def opGetBase(self, args):$/;"	m	class:ManageSnippetBaseCommand
+opSetBase	cmd_snippet_base.py	/^    def opSetBase(self):$/;"	m	class:ManageSnippetBaseCommand
+re	cmd_snippet_base.py	/^import re$/;"	i
+regionToItems	cmd_snippet_base.py	/^    def regionToItems(sRegion):$/;"	m	class:ManageSnippetBaseCommand
+run	cmd_snippet_base.py	/^    def run(self, **args):$/;"	m	class:ManageSnippetBaseCommand
+sublime	cmd_snippet_base.py	/^import sublime$/;"	i
+sublime_plugin	cmd_snippet_base.py	/^import sublime_plugin$/;"	i
+Asset	cmd_storm_palette.py	/^from MUtils.FileDataSrc import JsonAssetSrcManager, Asset$/;"	i
+Context	cmd_storm_palette.py	/^from SublimeUtils.Context import Context$/;"	i
+Data	cmd_storm_palette.py	/^from MUtils import Os, Str, Data, Input, Exp$/;"	i
+Exp	cmd_storm_palette.py	/^from MUtils import Os, Str, Data, Input, Exp$/;"	i
+Input	cmd_storm_palette.py	/^from MUtils import Os, Str, Data, Input, Exp$/;"	i
+JsonAssetSrcManager	cmd_storm_palette.py	/^from MUtils.FileDataSrc import JsonAssetSrcManager, Asset$/;"	i
+Os	cmd_storm_palette.py	/^from MUtils import Os, Str, Data, Input, Exp$/;"	i
+PalKeySrcManager	cmd_storm_palette.py	/^class PalKeySrcManager(JsonAssetSrcManager):$/;"	c
+Panel	cmd_storm_palette.py	/^from SublimeUtils import Setting, Panel, WView, Project$/;"	i
+Project	cmd_storm_palette.py	/^from SublimeUtils import Setting, Panel, WView, Project$/;"	i
+SKEY	cmd_storm_palette.py	/^SKEY = "storm_palette"$/;"	v
+Setting	cmd_storm_palette.py	/^from SublimeUtils import Setting, Panel, WView, Project$/;"	i
+StormPaletteCommand	cmd_storm_palette.py	/^class StormPaletteCommand(sublime_plugin.WindowCommand):$/;"	c
+StormPaletteEventListener	cmd_storm_palette.py	/^class StormPaletteEventListener(sublime_plugin.EventListener):$/;"	c
+StormPaletteRecordCommand	cmd_storm_palette.py	/^class StormPaletteRecordCommand(sublime_plugin.WindowCommand):$/;"	c
+Str	cmd_storm_palette.py	/^from MUtils import Os, Str, Data, Input, Exp$/;"	i
+WView	cmd_storm_palette.py	/^from SublimeUtils import Setting, Panel, WView, Project$/;"	i
+__init__	cmd_storm_palette.py	/^    def __init__(self, *arg, **kwds):$/;"	m	class:PalKeySrcManager
+__init__	cmd_storm_palette.py	/^    def __init__(self, *args, **kwds):$/;"	m	class:StormPaletteCommand
+__init__	cmd_storm_palette.py	/^    def __init__(self, *args, **kwds):$/;"	m	class:StormPaletteRecordCommand
+alignAssetKey	cmd_storm_palette.py	/^    def alignAssetKey(view, assets):$/;"	m	class:StormPaletteCommand
+am	cmd_storm_palette.py	/^am = PalKeySrcManager(ps.opts("src_file_ext"))$/;"	v
+assets	cmd_storm_palette.py	/^    def assets(self):$/;"	m	class:StormPaletteCommand
+dumpDynFile	cmd_storm_palette.py	/^    def dumpDynFile(self, dynFilePath, dynFileDict, belong_to_project):$/;"	m	class:StormPaletteRecordCommand
+eraseAsset	cmd_storm_palette.py	/^    def eraseAsset(dynFileDict, key):$/;"	m	class:StormPaletteRecordCommand
+eraseRecord	cmd_storm_palette.py	/^    def eraseRecord(self, key, belong_to_project):$/;"	m	class:StormPaletteRecordCommand
+filterAssets	cmd_storm_palette.py	/^    def filterAssets(self, view, assets):$/;"	m	class:StormPaletteCommand
+fn	cmd_storm_palette.py	/^import fn$/;"	i
+getDynFile	cmd_storm_palette.py	/^    def getDynFile(self, belong_to_project):$/;"	m	class:StormPaletteRecordCommand
+getLineNumerExt	cmd_storm_palette.py	/^    def getLineNumerExt(view):$/;"	m	class:StormPaletteCommand
+initSettings	cmd_storm_palette.py	/^def initSettings():$/;"	f
+invokeAsset	cmd_storm_palette.py	/^    def invokeAsset(self, asset, regAsLastKey=False):$/;"	m	class:StormPaletteCommand
+invokeKey	cmd_storm_palette.py	/^    def invokeKey(self, key):$/;"	m	class:StormPaletteCommand
+iterKey	cmd_storm_palette.py	/^    def iterKey(self, title, keyHead, iterNext):$/;"	m	class:StormPaletteCommand
+json	cmd_storm_palette.py	/^import json$/;"	i
+makeAssetFileAsset	cmd_storm_palette.py	/^    def makeAssetFileAsset():$/;"	m	class:StormPaletteCommand
+makeReadableTitle	cmd_storm_palette.py	/^    def makeReadableTitle(title, candidate):$/;"	m	class:StormPaletteCommand
+makeVirtualAssets	cmd_storm_palette.py	/^    def makeVirtualAssets(self):$/;"	m	class:StormPaletteCommand
+metaInfo	cmd_storm_palette.py	/^metaInfo = Data.toNamedTuple($/;"	v
+needTransf	cmd_storm_palette.py	/^    def needTransf(self, obj, isKey):$/;"	m	class:StormPaletteRecordCommand
+onQuickPanelDone	cmd_storm_palette.py	/^    def onQuickPanelDone(self, index):$/;"	m	class:StormPaletteCommand
+on_load_async	cmd_storm_palette.py	/^    def on_load_async(view):$/;"	m	class:StormPaletteEventListener
+on_post_save_async	cmd_storm_palette.py	/^    def on_post_save_async(view):$/;"	m	class:StormPaletteEventListener
+os	cmd_storm_palette.py	/^import os$/;"	i
+plugin_loaded	cmd_storm_palette.py	/^def plugin_loaded():$/;"	f
+plugin_unloaded	cmd_storm_palette.py	/^def plugin_unloaded():$/;"	f
+prjInfo	cmd_storm_palette.py	/^prjInfo = Project.ProjectInfo()$/;"	v
+ps	cmd_storm_palette.py	/^ps = Setting.PluginSetting(SKEY)$/;"	v
+pwa	cmd_storm_palette.py	/^pwa = Project.ProjectWiseAsset(metaInfo, am, ps, prjInfo)$/;"	v
+recordContent	cmd_storm_palette.py	/^    def recordContent(self, key, content, belong_to_project):$/;"	m	class:StormPaletteRecordCommand
+run	cmd_storm_palette.py	/^    def run(self, **kwds):$/;"	m	class:StormPaletteCommand
+run	cmd_storm_palette.py	/^    def run(self, qAndaDict=None, **kwds):$/;"	m	class:StormPaletteRecordCommand
+sublime	cmd_storm_palette.py	/^import sublime$/;"	i
+sublime_plugin	cmd_storm_palette.py	/^import sublime_plugin$/;"	i
+transf	cmd_storm_palette.py	/^    def transf(self, obj, _):$/;"	m	class:StormPaletteRecordCommand
+vBuildAssetKey	cmd_storm_palette.py	/^    def vBuildAssetKey(key, val, srcFile):$/;"	m	class:PalKeySrcManager
+vIsDynFile	cmd_storm_palette.py	/^    def vIsDynFile(srcFilePath):$/;"	m	class:PalKeySrcManager
+vReportStatus	cmd_storm_palette.py	/^    def vReportStatus(self, message):$/;"	m	class:PalKeySrcManager
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_PROGRAM_VERSION	5.8	//
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/

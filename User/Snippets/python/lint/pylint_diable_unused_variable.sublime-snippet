@@ -1,0 +1,6 @@
+<snippet>
+	<content><![CDATA[# pylint: disable=W0612]]></content>
+	<tabTrigger>pylint_disable_unused_variable</tabTrigger>
+	<description>pylint.disable.unused_variable</description>
+	<scope>source.python</scope>
+	</snippet>

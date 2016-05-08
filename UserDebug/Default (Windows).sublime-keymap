@@ -140,7 +140,7 @@
         ]
     },
 //python
-    {"keys": ["f11"], "command": "mul_run" , "args": {
+    {"keys": ["f11"], "command": "mul_run_window" , "args": {
         "commands" : [
             {"command": "save"},
             {"command": "run_shell_cmd",

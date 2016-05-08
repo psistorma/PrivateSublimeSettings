@@ -6,10 +6,14 @@
 !_TAG_PROGRAM_VERSION	5.8	//
 AddFavoriteFileCommand	.\favorite_files.py	/^class AddFavoriteFileCommand(sublime_plugin.WindowCommand):$/;"	c
 CPP_PATTERN	.\lib\file_strip\comments.py	/^CPP_PATTERN = re.compile($/;"	v
+CheckJsonFormat	.\tests\validate_json_format.py	/^class CheckJsonFormat(object):$/;"	c
 CleanOrphanedFavoritesCommand	.\favorite_files.py	/^class CleanOrphanedFavoritesCommand(sublime_plugin.WindowCommand):$/;"	c
 CommentException	.\lib\file_strip\comments.py	/^class CommentException(Exception):$/;"	c
 Comments	.\lib\file_strip\comments.py	/^class Comments(object):$/;"	c
 Comments	.\lib\file_strip\json.py	/^from .comments import Comments$/;"	i
+E_COMMA	.\tests\validate_json_format.py	/^E_COMMA = "E2"$/;"	v
+E_COMMENTS	.\tests\validate_json_format.py	/^E_COMMENTS = "E1"$/;"	v
+E_MALFORMED	.\tests\validate_json_format.py	/^E_MALFORMED = "E0"$/;"	v
 FAVORITE_LIST_VERSION	.\favorites.py	/^FAVORITE_LIST_VERSION = 1$/;"	v
 FavFileMgr	.\favorites.py	/^class FavFileMgr(object):$/;"	c
 FavObj	.\favorites.py	/^class FavObj(object):$/;"	c
@@ -19,19 +23,35 @@ Favorites	.\favorites.py	/^class Favorites(object):$/;"	c
 Favs	.\favorite_files.py	/^Favs = None$/;"	v
 JSON_PATTERN	.\lib\file_strip\json.py	/^JSON_PATTERN = re.compile($/;"	v
 LINE_PRESERVE	.\lib\file_strip\comments.py	/^LINE_PRESERVE = re.compile(r"\\r?\\n", re.MULTILINE)$/;"	v
-Notify	.\lib\notify.py	/^    class Notify:$/;"	c
+Notify	.\lib\notify.py	/^    class Notify(object):$/;"	c
 Notify	.\lib\notify.py	/^    from SubNotify.sub_notify import SubNotifyIsReadyCommand as Notify$/;"	i
 PY_PATTERN	.\lib\file_strip\comments.py	/^PY_PATTERN = re.compile($/;"	v
+RE_COMMENT	.\tests\validate_json_format.py	/^RE_COMMENT = re.compile($/;"	v
+RE_LINE_INDENT_SPACE	.\tests\validate_json_format.py	/^RE_LINE_INDENT_SPACE = re.compile(r'^(((?: {4})+)?[^ \\t\\r\\n][^\\r\\n]*)?\\r?\\n$')$/;"	v
+RE_LINE_INDENT_TAB	.\tests\validate_json_format.py	/^RE_LINE_INDENT_TAB = re.compile(r'^((\\t+)?[^ \\t\\r\\n][^\\r\\n]*)?\\r?\\n$')$/;"	v
+RE_LINE_PRESERVE	.\tests\validate_json_format.py	/^RE_LINE_PRESERVE = re.compile(r"\\r?\\n", re.MULTILINE)$/;"	v
+RE_TRAILING_COMMA	.\tests\validate_json_format.py	/^RE_TRAILING_COMMA = re.compile($/;"	v
+RE_TRAILING_SPACES	.\tests\validate_json_format.py	/^RE_TRAILING_SPACES = re.compile(r'^.*?[ \\t]+\\r?\\n?$')$/;"	v
 RemoveFavoriteFileCommand	.\favorite_files.py	/^class RemoveFavoriteFileCommand(sublime_plugin.WindowCommand):$/;"	c
 SelectFavoriteFileCommand	.\favorite_files.py	/^class SelectFavoriteFileCommand(sublime_plugin.WindowCommand):$/;"	c
+SphinxRtdTheme	.\doc_theme\js\theme.js	/^window.SphinxRtdTheme = (function (jquery) {$/;"	r
+StickyNav	.\doc_theme\js\theme.js	/^        StickyNav : stickyNav$/;"	r
+TestSettings	.\tests\test_json.py	/^class TestSettings(unittest.TestCase):$/;"	c
 TogglePerProjectFavoritesCommand	.\favorite_files.py	/^class TogglePerProjectFavoritesCommand(sublime_plugin.WindowCommand):$/;"	c
+VIOLATION_MSG	.\tests\validate_json_format.py	/^VIOLATION_MSG = {$/;"	v
+W_INDENT	.\tests\validate_json_format.py	/^W_INDENT = "W3"$/;"	v
+W_NL_END	.\tests\validate_json_format.py	/^W_NL_END = "W2"$/;"	v
+W_NL_START	.\tests\validate_json_format.py	/^W_NL_START = "W1"$/;"	v
+W_TRAILING_SPACE	.\tests\validate_json_format.py	/^W_TRAILING_SPACE = "W4"$/;"	v
 __get_style	.\lib\file_strip\comments.py	/^    def __get_style(self, style):$/;"	m	class:Comments	file:
 __init__	.\favorites.py	/^    def __init__(self, global_file):$/;"	m	class:Favorites
 __init__	.\lib\file_strip\comments.py	/^    def __init__(self, style=None, preserve_lines=False):$/;"	m	class:Comments
 __init__	.\lib\file_strip\comments.py	/^    def __init__(self, value):$/;"	m	class:CommentException
+__init__	.\tests\validate_json_format.py	/^    def __init__(self, use_tabs=False, allow_comments=False):$/;"	m	class:CheckJsonFormat
 __str__	.\lib\file_strip\comments.py	/^    def __str__(self):$/;"	m	class:CommentException	file:
-_cpp	.\lib\file_strip\comments.py	/^def _cpp(self, text, preserve_lines=False):$/;"	f
-_python	.\lib\file_strip\comments.py	/^def _python(self, text, preserve_lines=False):$/;"	f
+_cpp	.\lib\file_strip\comments.py	/^def _cpp(text, preserve_lines=False):$/;"	f
+_get_json_files	.\tests\test_json.py	/^    def _get_json_files(self, pattern, folder='.'):$/;"	m	class:TestSettings
+_python	.\lib\file_strip\comments.py	/^def _python(text, preserve_lines=False):$/;"	f
 _strip_regex	.\lib\file_strip\comments.py	/^def _strip_regex(pattern, text, preserve_lines):$/;"	f
 add	.\favorite_files.py	/^    def add(self, names, group_name=None):$/;"	m	class:AddFavoriteFileCommand
 add	.\favorites.py	/^    def add(cls, obj, win_id):$/;"	m	class:FavProjects
@@ -39,16 +59,27 @@ add_group	.\favorites.py	/^    def add_group(self, s):$/;"	m	class:Favorites
 add_style	.\lib\file_strip\comments.py	/^    def add_style(cls, style, fn):$/;"	m	class:Comments
 all_files	.\favorites.py	/^    def all_files(self, group_name=None):$/;"	m	class:Favorites
 all_groups	.\favorites.py	/^    def all_groups(self):$/;"	m	class:Favorites
+applyStickNav	.\doc_theme\js\theme.js	/^            applyStickNav = function () {$/;"	r
 basename	.\favorites.py	/^from os.path import exists, basename, getmtime, splitext$/;"	i
+check_comma	.\tests\validate_json_format.py	/^        def check_comma(g, line):$/;"	f	function:CheckJsonFormat.check_dangling_commas
+check_comments	.\tests\validate_json_format.py	/^    def check_comments(self, text):$/;"	m	class:CheckJsonFormat
+check_dangling_commas	.\tests\validate_json_format.py	/^    def check_dangling_commas(self, text):$/;"	m	class:CheckJsonFormat
+check_format	.\tests\validate_json_format.py	/^    def check_format(self, file_name):$/;"	m	class:CheckJsonFormat
 check_st_version	.\favorite_files.py	/^def check_st_version():$/;"	f
+cjf	.\tests\validate_json_format.py	/^    cjf = CheckJsonFormat(False, True)$/;"	v	class:CheckJsonFormat
 clean_orphaned_favorites	.\favorites.py	/^    def clean_orphaned_favorites(cls, file_list):$/;"	m	class:FavFileMgr
+codecs	.\tests\validate_json_format.py	/^import codecs$/;"	i
 create_favorite_list	.\favorites.py	/^    def create_favorite_list(cls, obj, file_list, force=False):$/;"	m	class:FavFileMgr
 create_group	.\favorite_files.py	/^    def create_group(self, value):$/;"	m	class:AddFavoriteFileCommand
+enable	.\doc_theme\js\theme.js	/^            enable : enable$/;"	r
+enable	.\doc_theme\js\theme.js	/^            enable = function () {$/;"	r
 error	.\favorite_files.py	/^from FavoriteFiles.lib.notify import error$/;"	i
 error	.\favorites.py	/^from FavoriteFiles.lib.notify import error$/;"	i
 error	.\lib\notify.py	/^def error(msg):$/;"	f
 evaluate	.\lib\file_strip\comments.py	/^    def evaluate(m, preserve_lines):$/;"	f	function:_strip_regex
 evaluate	.\lib\file_strip\json.py	/^    def evaluate(m, preserve_lines):$/;"	f	function:strip_dangling_commas
+evaluate	.\tests\validate_json_format.py	/^        def evaluate(m):$/;"	f	function:CheckJsonFormat.check_comments
+evaluate	.\tests\validate_json_format.py	/^        def evaluate(m):$/;"	f	function:CheckJsonFormat.check_dangling_commas
 exists	.\favorite_files.py	/^from os.path import join, exists$/;"	i
 exists	.\favorites.py	/^    def exists(self, s, group=False, group_name=None):$/;"	m	class:Favorites
 exists	.\favorites.py	/^from os.path import exists, basename, getmtime, splitext$/;"	i
@@ -56,44 +87,55 @@ file_answer	.\favorite_files.py	/^    def file_answer(self, value):$/;"	m	class:
 file_name	.\favorites.py	/^    file_name = ""$/;"	v	class:FavObj
 file_prompt	.\favorite_files.py	/^    def file_prompt(self, view_code):$/;"	m	class:AddFavoriteFileCommand
 files	.\favorites.py	/^    files = {}$/;"	v	class:FavObj
-fn	.\favorite_files.py	/^                    def fn(v):$/;"	f	function:SelectFavoriteFileCommand.open_file
+fn	.\favorite_files.py	/^                    def fn(focus_view):$/;"	f	function:SelectFavoriteFileCommand.open_file
+fnmatch	.\tests\test_json.py	/^import fnmatch$/;"	i
+get_line	.\tests\validate_json_format.py	/^    def get_line(self, pt):$/;"	m	class:CheckJsonFormat
 get_project	.\favorites.py	/^    def get_project(cls, win_id):$/;"	m	class:FavProjects
 getmtime	.\favorites.py	/^from os.path import exists, basename, getmtime, splitext$/;"	i
 global_file	.\favorites.py	/^    global_file = ""$/;"	v	class:FavObj
 group_answer	.\favorite_files.py	/^    def group_answer(self, value):$/;"	m	class:AddFavoriteFileCommand
 group_count	.\favorites.py	/^    def group_count(self):$/;"	m	class:Favorites
-group_prompt	.\favorite_files.py	/^    def group_prompt(self, first=False):$/;"	m	class:AddFavoriteFileCommand
+group_prompt	.\favorite_files.py	/^    def group_prompt(self):$/;"	m	class:AddFavoriteFileCommand
 has_project	.\favorites.py	/^    def has_project(cls, win_id):$/;"	m	class:FavProjects
+index_lines	.\tests\validate_json_format.py	/^    def index_lines(self, text):$/;"	m	class:CheckJsonFormat
+init	.\doc_theme\js\theme.js	/^            init = function () {$/;"	r
 is_enabled	.\favorite_files.py	/^    def is_enabled(self):$/;"	m	class:TogglePerProjectFavoritesCommand
 is_global_file	.\favorites.py	/^    def is_global_file(cls, obj):$/;"	m	class:FavFileMgr
 is_project_tracked	.\favorites.py	/^    def is_project_tracked(cls, obj, win_id):$/;"	m	class:FavProjects
 is_ready	.\lib\notify.py	/^        def is_ready(cls):$/;"	m	class:Notify
 join	.\favorite_files.py	/^from os.path import join, exists$/;"	i
 json	.\favorites.py	/^import json$/;"	i
+json	.\tests\validate_json_format.py	/^import json$/;"	i
 last_access	.\favorites.py	/^    last_access = 0$/;"	v	class:FavObj
 load	.\favorites.py	/^    def load(self, force=False, clean=False, win_id=None):$/;"	m	class:Favorites
 load_favorite_files	.\favorites.py	/^    def load_favorite_files(cls, obj, force=False, clean=False, win_id=None):$/;"	m	class:FavFileMgr
 load_favorites	.\favorites.py	/^    def load_favorites(cls, obj, clean=False):$/;"	m	class:FavFileMgr
+log_failure	.\tests\validate_json_format.py	/^    def log_failure(self, code, line=None):$/;"	m	class:CheckJsonFormat
+navBar	.\doc_theme\js\theme.js	/^                navBar = jquery('nav.wy-nav-side:first');$/;"	r
+navBar	.\doc_theme\js\theme.js	/^        var navBar,$/;"	r
 notify	.\lib\notify.py	/^def notify(msg):$/;"	f
 open	.\favorites.py	/^    def open(self, win_id=None):$/;"	m	class:Favorites
 open_file	.\favorite_files.py	/^    def open_file(self, value, group=False):$/;"	m	class:SelectFavoriteFileCommand
+os	.\tests\test_json.py	/^import os$/;"	i
 plugin_loaded	.\favorite_files.py	/^def plugin_loaded():$/;"	f
 project_adjust	.\favorites.py	/^    def project_adjust(cls, obj, win_id, force=False):$/;"	m	class:FavProjects
 projects	.\favorites.py	/^    projects = set([])$/;"	v	class:FavObj
 prune_projects	.\favorites.py	/^    def prune_projects(cls, obj):$/;"	m	class:FavProjects
 re	.\lib\file_strip\comments.py	/^import re$/;"	i
 re	.\lib\file_strip\json.py	/^import re$/;"	i
+re	.\tests\validate_json_format.py	/^import re$/;"	i
 remove	.\favorite_files.py	/^    def remove(self, value, group=False, group_name=None):$/;"	m	class:RemoveFavoriteFileCommand
 remove	.\favorites.py	/^    def remove(cls, obj, win_id):$/;"	m	class:FavProjects
 remove	.\favorites.py	/^    def remove(self, s, group_name=None):$/;"	m	class:Favorites
 remove_comma	.\lib\file_strip\json.py	/^    def remove_comma(g, preserve_lines):$/;"	f	function:strip_dangling_commas
 remove_comments	.\lib\file_strip\comments.py	/^    def remove_comments(group, preserve_lines=False):$/;"	f	function:_strip_regex
+remove_comments	.\tests\validate_json_format.py	/^        def remove_comments(group):$/;"	f	function:CheckJsonFormat.check_comments
 remove_group	.\favorites.py	/^    def remove_group(self, s):$/;"	m	class:Favorites
 run	.\favorite_files.py	/^    def run(self):$/;"	m	class:AddFavoriteFileCommand
 run	.\favorite_files.py	/^    def run(self):$/;"	m	class:CleanOrphanedFavoritesCommand
 run	.\favorite_files.py	/^    def run(self):$/;"	m	class:RemoveFavoriteFileCommand
-run	.\favorite_files.py	/^    def run(self):$/;"	m	class:SelectFavoriteFileCommand
 run	.\favorite_files.py	/^    def run(self):$/;"	m	class:TogglePerProjectFavoritesCommand
+run	.\favorite_files.py	/^    def run(self, **kwds):$/;"	m	class:SelectFavoriteFileCommand
 sanitize_json	.\favorites.py	/^from FavoriteFiles.lib.file_strip.json import sanitize_json$/;"	i
 sanitize_json	.\lib\file_strip\json.py	/^def sanitize_json(text, preserve_lines=False):$/;"	f
 save	.\favorites.py	/^    def save(self, force=False):$/;"	m	class:Favorites
@@ -101,6 +143,8 @@ select_group	.\favorite_files.py	/^    def select_group(self, value, replace=Fal
 set	.\favorites.py	/^    def set(self, s, group_name=None):$/;"	m	class:Favorites
 show_groups	.\favorite_files.py	/^    def show_groups(self, replace=False):$/;"	m	class:AddFavoriteFileCommand
 splitext	.\favorites.py	/^from os.path import exists, basename, getmtime, splitext$/;"	i
+stickyNav	.\doc_theme\js\theme.js	/^    var stickyNav = (function () {$/;"	r
+stickyNavCssClass	.\doc_theme\js\theme.js	/^            stickyNavCssClass = 'stickynav',$/;"	r
 strip	.\lib\file_strip\comments.py	/^    def strip(self, text):$/;"	m	class:Comments
 strip_comments	.\lib\file_strip\json.py	/^def strip_comments(text, preserve_lines=False):$/;"	f
 strip_dangling_commas	.\lib\file_strip\json.py	/^def strip_dangling_commas(text, preserve_lines=False):$/;"	f
@@ -109,6 +153,12 @@ sublime	.\favorite_files.py	/^import sublime$/;"	i
 sublime	.\favorites.py	/^import sublime$/;"	i
 sublime	.\lib\notify.py	/^import sublime$/;"	i
 sublime_plugin	.\favorite_files.py	/^import sublime_plugin$/;"	i
+sys	.\tests\validate_json_format.py	/^    import sys$/;"	i
+test_json_settings	.\tests\test_json.py	/^    def test_json_settings(self):$/;"	m	class:TestSettings
 toggle_global	.\favorites.py	/^    def toggle_global(self, win_id):$/;"	m	class:Favorites
 toggle_per_projects	.\favorites.py	/^    def toggle_per_projects(self, win_id):$/;"	m	class:Favorites
+unittest	.\tests\test_json.py	/^import unittest$/;"	i
 update_list_format	.\favorites.py	/^    def update_list_format(cls, file_list):$/;"	m	class:FavFileMgr
+validate_json_format	.\tests\test_json.py	/^from . import validate_json_format$/;"	i
+win	.\doc_theme\js\theme.js	/^                win    = jquery(window);$/;"	r
+win	.\doc_theme\js\theme.js	/^            win,$/;"	r

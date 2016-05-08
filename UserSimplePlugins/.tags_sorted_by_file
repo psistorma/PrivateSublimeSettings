@@ -1,0 +1,61 @@
+Cmd	cmd_indent_space_change.py	/^from SublimeUtils import Cmd$/;"	i
+IndentSpaceChangeCommand	cmd_indent_space_change.py	/^class IndentSpaceChangeCommand(sublime_plugin.TextCommand):$/;"	c
+run	cmd_indent_space_change.py	/^    def run(self, edit, **args):$/;"	m	class:IndentSpaceChangeCommand
+sublime	cmd_indent_space_change.py	/^import sublime$/;"	i
+sublime_plugin	cmd_indent_space_change.py	/^import sublime_plugin$/;"	i
+PickScopeNameCommand	cmd_pick_scope_name.py	/^class PickScopeNameCommand(sublime_plugin.TextCommand):$/;"	c
+on_input_panel_done	cmd_pick_scope_name.py	/^    def on_input_panel_done(**args):$/;"	m	class:PickScopeNameCommand
+run	cmd_pick_scope_name.py	/^    def run(self, edit):$/;"	m	class:PickScopeNameCommand
+sublime	cmd_pick_scope_name.py	/^import sublime$/;"	i
+sublime_plugin	cmd_pick_scope_name.py	/^import sublime_plugin$/;"	i
+ANCHAOR_CONFIG	cmd_select_to_anchor.py	/^class ANCHAOR_CONFIG(object):$/;"	c
+ANCHOR_TYPE_CONTENT	cmd_select_to_anchor.py	/^ANCHOR_TYPE_CONTENT = "content"$/;"	v
+ANCHOR_TYPE_NEXT_CHAR	cmd_select_to_anchor.py	/^ANCHOR_TYPE_NEXT_CHAR = "next_char"$/;"	v
+ANCHOR_TYPE_PREV_CHAR	cmd_select_to_anchor.py	/^ANCHOR_TYPE_PREV_CHAR = "prev_char"$/;"	v
+ANCHOR_TYPE_SELECTION	cmd_select_to_anchor.py	/^ANCHOR_TYPE_SELECTION = "selection"$/;"	v
+DIR_NEXT	cmd_select_to_anchor.py	/^DIR_NEXT = "next"$/;"	v
+DIR_PREV	cmd_select_to_anchor.py	/^DIR_PREV = "prev"$/;"	v
+SelectToAnchorCommand	cmd_select_to_anchor.py	/^class SelectToAnchorCommand(sublime_plugin.TextCommand):$/;"	c
+TO_ANCHOR	cmd_select_to_anchor.py	/^TO_ANCHOR = "anchor"$/;"	v
+TO_LINE_ANCHOR	cmd_select_to_anchor.py	/^TO_LINE_ANCHOR = "line_anchor"$/;"	v
+__init__	cmd_select_to_anchor.py	/^    def __init__(self):$/;"	m	class:ANCHAOR_CONFIG
+getSearchContent	cmd_select_to_anchor.py	/^    def getSearchContent(view, basePos, selRegion, anchorCfg):$/;"	m	class:SelectToAnchorCommand
+namedtuple	cmd_select_to_anchor.py	/^from collections import namedtuple$/;"	i
+run	cmd_select_to_anchor.py	/^    def run(self, edit, **args):$/;"	m	class:SelectToAnchorCommand
+searchStrPos	cmd_select_to_anchor.py	/^def searchStrPos(view, fromPosition, content, search_ignorecase, isContentRegex):$/;"	f
+searchToContent	cmd_select_to_anchor.py	/^    def searchToContent(view, basePos, searchContent, anchorCfg):$/;"	m	class:SelectToAnchorCommand
+searchToLineAnchor	cmd_select_to_anchor.py	/^def searchToLineAnchor(view, basePos, forward):$/;"	f
+sublime	cmd_select_to_anchor.py	/^import sublime$/;"	i
+sublime_plugin	cmd_select_to_anchor.py	/^import sublime_plugin$/;"	i
+CancelSelectionCommand	cmd_selection.py	/^class CancelSelectionCommand(sublime_plugin.TextCommand):$/;"	c
+MoveBySideCommand	cmd_selection.py	/^class MoveBySideCommand(sublime_plugin.TextCommand):$/;"	c
+expandByCount	cmd_selection.py	/^    def expandByCount(region, side, count):$/;"	m	class:MoveBySideCommand
+expandByTarget	cmd_selection.py	/^    def expandByTarget(self, region, target, count):$/;"	m	class:MoveBySideCommand
+find_matching_point	cmd_selection.py	/^def find_matching_point(view, sel, selector):$/;"	f
+rSelector	cmd_selection.py	/^rSelector = re.compile(r"^(-?)(?:\\{(-?\\d+)\\}|\\[(.+)\\]|\/(.+)\/)$")$/;"	v
+re	cmd_selection.py	/^import re$/;"	i
+run	cmd_selection.py	/^    def run(self, edit, **args):$/;"	m	class:CancelSelectionCommand
+run	cmd_selection.py	/^    def run(self, edit, **args):$/;"	m	class:MoveBySideCommand
+safe_end	cmd_selection.py	/^def safe_end(region):$/;"	f
+sublime	cmd_selection.py	/^import sublime$/;"	i
+sublime_plugin	cmd_selection.py	/^import sublime_plugin$/;"	i
+ReplaceWithCommand	cmd_simple_transform.py	/^class ReplaceWithCommand(sublime_plugin.TextCommand):$/;"	c
+ToggleCamelUnderscoreCommand	cmd_simple_transform.py	/^class ToggleCamelUnderscoreCommand(sublime_plugin.TextCommand):$/;"	c
+fn	cmd_simple_transform.py	/^import fn$/;"	i
+itertools	cmd_simple_transform.py	/^import itertools$/;"	i
+re	cmd_simple_transform.py	/^import re$/;"	i
+run	cmd_simple_transform.py	/^    def run(self, edit):$/;"	m	class:ToggleCamelUnderscoreCommand
+run	cmd_simple_transform.py	/^    def run(self, edit, **kwds):$/;"	m	class:ReplaceWithCommand
+sublime	cmd_simple_transform.py	/^import sublime$/;"	i
+sublime_plugin	cmd_simple_transform.py	/^import sublime_plugin$/;"	i
+toggleCamelUnderscore	cmd_simple_transform.py	/^    def toggleCamelUnderscore(text):$/;"	m	class:ToggleCamelUnderscoreCommand
+ToSingleLineCommand	cmd_to_single_line.py	/^class ToSingleLineCommand(sublime_plugin.TextCommand):$/;"	c
+run	cmd_to_single_line.py	/^    def run(self, edit):$/;"	m	class:ToSingleLineCommand
+sublime	cmd_to_single_line.py	/^import sublime$/;"	i
+sublime_plugin	cmd_to_single_line.py	/^import sublime_plugin$/;"	i
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_PROGRAM_VERSION	5.8	//
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/

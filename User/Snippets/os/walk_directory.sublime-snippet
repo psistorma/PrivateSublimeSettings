@@ -1,8 +1,0 @@
-<snippet>
-	<content><![CDATA[for root, dirs, files in os.walk("$1"):
-	if root == "$1":
-		print(dirs)]]></content>
-	<tabTrigger>os_walk_directory</tabTrigger>
-	<description>os.walk_directory</description>
-	<scope>source.python</scope>
-	</snippet>

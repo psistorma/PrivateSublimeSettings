@@ -1,0 +1,6 @@
+<snippet>
+	<content><![CDATA[# pylint: disable=F0401]]></content>
+	<tabTrigger>pylint_disable_unable_to_import</tabTrigger>
+	<description>pylint.disable.unable_to_import</description>
+	<scope>source.python</scope>
+	</snippet>
