@@ -42,7 +42,7 @@ class MDItemBuilder(mistune.Renderer):
         item = HeaderItem()
         item.type = HEADER
         item.text = text
-        item.level = str(level)
+        item.level = level
         item.raw = raw
 
         matchList = difflib.get_close_matches(item.raw, self.lines)
