@@ -47,7 +47,7 @@ Str	.\st3\Test\tests_MUtils_FileDataSrc.py	/^from context import Str$/;"	i
 SubModuleLoader	.\st3\SublimeUtils\Context\Context.py	/^from . import Data, SubModuleLoader, WView$/;"	i
 SubModuleLoader	.\st3\SublimeUtils\Context\__init__.py	/^from MUtils import Data, SubModuleLoader$/;"	i
 Template	.\st3\MUtils\Str.py	/^from jinja2 import Template$/;"	i
-TestJsonManager	.\st3\Test\tests_MUtils_FileDataSrc.py	/^class TestJsonManager(FileDataSrc.JsonSrcManager):$/;"	c
+TestJsonManager	.\st3\Test\tests_MUtils_FileDataSrc.py	/^class TestJsonManager(FileDataSrc.JsonAssetSrcManager):$/;"	c
 TryDecodingError	.\st3\MUtils\Exp.py	/^class TryDecodingError(Exception):$/;"	c
 WView	.\st3\SublimeUtils\Context\Context.py	/^from . import Data, SubModuleLoader, WView$/;"	i
 WView	.\st3\SublimeUtils\Context\__init__.py	/^from .. import WView$/;"	i
@@ -64,12 +64,12 @@ __getattr__	.\st3\SublimeUtils\Setting.py	/^    def __getattr__(self, name):$/;"
 __init__	.\st3\MUtils\Data.py	/^    def __init__(self, fnNeedTransf, fnTransf):$/;"	m	class:_TransfJsonobj
 __init__	.\st3\MUtils\Exp.py	/^    def __init__(self, hasTryEncodings, *args):$/;"	m	class:TryDecodingError
 __init__	.\st3\MUtils\Exp.py	/^    def __init__(self, message):$/;"	m	class:WrongCallError
-__init__	.\st3\MUtils\FileDataSrc.py	/^    def __init__(self, *arg, assetKey="assets", key="key", **kwds):$/;"	m	class:JsonAssetSrcManager
+__init__	.\st3\MUtils\FileDataSrc.py	/^    def __init__(self, *, assetKey="assets", key="key", **kwds):$/;"	m	class:JsonAssetSrcManager
 __init__	.\st3\MUtils\FileDataSrc.py	/^    def __init__(self, dirPath, isStatic, manager):$/;"	m	class:SrcDir
 __init__	.\st3\MUtils\FileDataSrc.py	/^    def __init__(self, filePath, isDyn, srcDir):$/;"	m	class:SrcFile
 __init__	.\st3\MUtils\FileDataSrc.py	/^    def __init__(self, orgKey, key, val, srcFile):$/;"	m	class:Asset
 __init__	.\st3\MUtils\FileDataSrc.py	/^    def __init__(self, path, parent=None):$/;"	m	class:SrcObj
-__init__	.\st3\MUtils\FileDataSrc.py	/^    def __init__(self, srcExt, includeSubDir=True, maxCacheProjectCount=5):$/;"	m	class:AssetSrcManager
+__init__	.\st3\MUtils\FileDataSrc.py	/^    def __init__(self, srcExt, *, includeSubDir=True, maxCacheProjectCount=5):$/;"	m	class:AssetSrcManager
 __init__	.\st3\MUtils\MarkDownInfo.py	/^    def __init__(self):$/;"	m	class:Item
 __init__	.\st3\MUtils\MarkDownInfo.py	/^    def __init__(self, *arg):$/;"	m	class:HeaderItem
 __init__	.\st3\MUtils\MarkDownInfo.py	/^    def __init__(self, *arg):$/;"	m	class:MDItemBuilder
@@ -79,9 +79,9 @@ __init__	.\st3\SublimeUtils\Context\Base.py	/^    def __init__(self, key):$/;"	m
 __init__	.\st3\SublimeUtils\Context\Context.py	/^    def __init__(self):$/;"	m	class:_Context
 __init__	.\st3\SublimeUtils\Context\rules\selector.py	/^    def __init__(self):$/;"	m	class:Selector
 __init__	.\st3\SublimeUtils\Project.py	/^    def __init__(self):$/;"	m	class:ProjectInfo
-__init__	.\st3\SublimeUtils\Project.py	/^    def __init__(self, assetSrcManager, ps, projInfo):$/;"	m	class:ProjectWiseAsset
+__init__	.\st3\SublimeUtils\Project.py	/^    def __init__(self, srcExt):$/;"	m	class:ProjectWiseAsset
 __init__	.\st3\SublimeUtils\Setting.py	/^    def __init__(self, key, ext='sublime-settings'):$/;"	m	class:PluginSetting
-__init__	.\st3\Test\tests_MUtils_FileDataSrc.py	/^    def __init__(self, *arg, **kwds):$/;"	m	class:TestJsonManager
+__init__	.\st3\Test\tests_MUtils_FileDataSrc.py	/^    def __init__(self, **kwds):$/;"	m	class:TestJsonManager
 __str__	.\st3\MUtils\Exp.py	/^    def __str__(self):$/;"	m	class:TryDecodingError	file:
 _askCurQuestion	.\st3\MUtils\Input.py	/^    def _askCurQuestion():$/;"	f	function:askQuestions
 _checkItem	.\st3\SublimeUtils\Context\Context.py	/^    def _checkItem(self, view, item):$/;"	m	class:_Context
@@ -117,9 +117,7 @@ assetPathToken	.\st3\SublimeUtils\Project.py	/^    def assetPathToken(self, asse
 assets	.\st3\MUtils\FileDataSrc.py	/^    def assets(self):$/;"	m	class:SrcDir
 assets	.\st3\MUtils\FileDataSrc.py	/^    def assets(self):$/;"	m	class:SrcFile
 basename	.\st3\MUtils\FileDataSrc.py	/^    def basename(self):$/;"	m	class:SrcObj
-buildAssetCat	.\st3\Test\tests_MUtils_FileDataSrc.py	/^    def buildAssetCat(self, asset):$/;"	m	class:TestJsonManager
 buildAssetKey	.\st3\MUtils\FileDataSrc.py	/^    def buildAssetKey(self, key, val):$/;"	m	class:SrcFile
-buildAssetKey	.\st3\Test\tests_MUtils_FileDataSrc.py	/^    def buildAssetKey(self, key, val, srcFile):$/;"	m	class:TestJsonManager
 call	.\st3\MUtils\SubModuleLoader.py	/^    def call(self, interface, *args, **kwds):$/;"	m	class:Module
 callIfExist	.\st3\MUtils\SubModuleLoader.py	/^    def callIfExist(self, interface, *args, **kwds):$/;"	m	class:Module
 capture_both	.\st3\MUtils\sargeWrapper.py	/^def capture_both(cmd, encoding, **kwds):$/;"	f
@@ -174,7 +172,7 @@ fwRunInThread	.\st3\MUtils\Thread.py	/^def fwRunInThread(f):$/;"	f
 fwShowQuickPanel	.\st3\SublimeUtils\Panel.py	/^def fwShowQuickPanel(timeout=10):$/;"	f
 fwTryDecodings	.\st3\MUtils\Str.py	/^def fwTryDecodings(defaultEncodings):$/;"	f
 gVal	.\st3\SublimeUtils\Project.py	/^    def gVal(self, key, defVal=None):$/;"	m	class:ProjectInfo
-getAssetHelpInfo	.\st3\SublimeUtils\Project.py	/^    def getAssetHelpInfo(self, srcFile, tip):$/;"	m	class:ProjectWiseAsset
+getAssetHelpInfo	.\st3\SublimeUtils\Project.py	/^    def getAssetHelpInfo(self, srcFile, tip=None):$/;"	m	class:ProjectWiseAsset
 getDynAssetFilePath	.\st3\SublimeUtils\Project.py	/^    def getDynAssetFilePath(self, assetDirectory):$/;"	m	class:ProjectWiseAsset
 getLeftTexts	.\st3\SublimeUtils\Selection.py	/^def getLeftTexts(region=None, _=None, view=None):$/;"	f
 getLines	.\st3\SublimeUtils\Selection.py	/^def getLines(region=None, _=None, view=None):$/;"	f
@@ -212,6 +210,8 @@ loadWithDefault	.\st3\SublimeUtils\Setting.py	/^    def loadWithDefault(self, de
 manager	.\st3\MUtils\FileDataSrc.py	/^    def manager(self):$/;"	m	class:SrcDir
 manager	.\st3\MUtils\FileDataSrc.py	/^    def manager(self):$/;"	m	class:SrcObj
 mergeDicts	.\st3\MUtils\Data.py	/^def mergeDicts(*dicts, **kwds):$/;"	f
+metaDynFileName	.\st3\SublimeUtils\Project.py	/^    def metaDynFileName(self):$/;"	m	class:ProjectWiseAsset
+metaHiddenAssetToken	.\st3\SublimeUtils\Project.py	/^    def metaHiddenAssetToken(self):$/;"	m	class:ProjectWiseAsset
 mistune	.\st3\MUtils\MarkDownInfo.py	/^import mistune$/;"	i
 moduleName	.\st3\MUtils\SubModuleLoader.py	/^    def moduleName(self, moduleKey):$/;"	m	class:Loader
 namedtuple	.\st3\MUtils\Data.py	/^from collections import namedtuple$/;"	i
@@ -240,6 +240,7 @@ re	.\st3\MUtils\Input.py	/^import re$/;"	i
 re	.\st3\MUtils\Str.py	/^import re$/;"	i
 re	.\st3\SublimeUtils\Context\Base.py	/^import re$/;"	i
 reBuildAssetKey	.\st3\MUtils\FileDataSrc.py	/^    def reBuildAssetKey(self):$/;"	m	class:AssetSrcManager
+reBuildAssetKey	.\st3\MUtils\FileDataSrc.py	/^    def reBuildAssetKey(self):$/;"	m	class:SrcFile
 readableInfo	.\st3\MUtils\Str.py	/^def readableInfo(s):$/;"	f
 refreshFile	.\st3\MUtils\FileDataSrc.py	/^    def refreshFile(self, filePath):$/;"	m	class:AssetSrcManager
 refreshProjectAssets	.\st3\SublimeUtils\Project.py	/^    def refreshProjectAssets(self, window):$/;"	m	class:ProjectWiseAsset
@@ -250,8 +251,6 @@ relPath	.\st3\Test\tests_MUtils_FileDataSrc.py	/^    def relPath(srcFile, srcDir
 reloadModule	.\st3\MUtils\SubModuleLoader.py	/^    def reloadModule(self, moduleKey):$/;"	m	class:Loader
 removeSrc	.\st3\MUtils\FileDataSrc.py	/^    def removeSrc(self, *, static=True):$/;"	m	class:AssetSrcManager
 renderText	.\st3\MUtils\Str.py	/^def renderText(inStr, **valDict):$/;"	f
-reportStatus	.\st3\Test\tests_MUtils_FileDataSrc.py	/^    def reportStatus(self, message):$/;"	m	class:TestJsonManager
-rez	.\st3\MUtils\FileDataSrc.py	/^    def rez(self):$/;"	m	class:SrcFile
 run	.\st3\MUtils\sargeWrapper.py	/^def run(cmd, encoding=None, **kwds):$/;"	f
 runCommands	.\st3\SublimeUtils\Cmd.py	/^def runCommands(ctx, *cmds):$/;"	f
 runShellCmd	.\st3\MUtils\Os.py	/^def runShellCmd(cmd, run_mode="capture_both", win_mode="hide", **kwds):$/;"	f
@@ -297,12 +296,15 @@ updateSrcDir	.\st3\MUtils\FileDataSrc.py	/^    def updateSrcDir(self, srcDirPath
 util	.\st3\SublimeUtils\Setting.py	/^import dpath.util$/;"	i
 vAssetSortkey	.\st3\MUtils\FileDataSrc.py	/^    def vAssetSortkey(self, asset):$/;"	m	class:AssetSrcManager
 vBuildAssetCat	.\st3\MUtils\FileDataSrc.py	/^    def vBuildAssetCat(self, asset):$/;"	m	class:AssetSrcManager
+vBuildAssetCat	.\st3\Test\tests_MUtils_FileDataSrc.py	/^    def vBuildAssetCat(self, asset):$/;"	m	class:TestJsonManager
 vBuildAssetKey	.\st3\MUtils\FileDataSrc.py	/^    def vBuildAssetKey(self, key, val, srcFile):$/;"	m	class:AssetSrcManager
+vBuildAssetKey	.\st3\Test\tests_MUtils_FileDataSrc.py	/^    def vBuildAssetKey(self, key, val, srcFile):$/;"	m	class:TestJsonManager
 vIsDynFile	.\st3\MUtils\FileDataSrc.py	/^    def vIsDynFile(self, srcFilePath):$/;"	m	class:AssetSrcManager
 vOnFinishCollectAssets	.\st3\MUtils\FileDataSrc.py	/^    def vOnFinishCollectAssets(self):$/;"	m	class:AssetSrcManager
 vParseFile	.\st3\MUtils\FileDataSrc.py	/^    def vParseFile(self, srcFile):$/;"	m	class:AssetSrcManager
 vParseFile	.\st3\MUtils\FileDataSrc.py	/^    def vParseFile(self, srcFile):$/;"	m	class:JsonAssetSrcManager
 vReportStatus	.\st3\MUtils\FileDataSrc.py	/^    def vReportStatus(self, message):$/;"	m	class:AssetSrcManager
+vReportStatus	.\st3\Test\tests_MUtils_FileDataSrc.py	/^    def vReportStatus(self, message):$/;"	m	class:TestJsonManager
 val	.\st3\SublimeUtils\Project.py	/^    def val(self, key, defVal=None):$/;"	m	class:ProjectInfo
 wapper	.\st3\MUtils\Thread.py	/^    def wapper(*args, **kwds):$/;"	f	function:fwRunInThread
 wapper	.\st3\SublimeUtils\WView.py	/^    def wapper(view, *args, **kwds):$/;"	f	function:fwPrepareView

@@ -19,12 +19,12 @@ fnDbgReport = _debugPrint
     "emphasis", "image", "linebreak", "newline", "link", "strikethrough", "text", "inline_html"
 )
 
-class Item:
+class Item: # pylint: disable=R0903
     def __init__(self):
         self.type = None
         self.lineNum = 0
 
-class HeaderItem(Item):
+class HeaderItem(Item): # pylint: disable=R0903
     def __init__(self, *arg):
         super().__init__(*arg)
         self.text = None

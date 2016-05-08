@@ -98,10 +98,9 @@ class ProjectWiseAsset:
         relPath = relPath.replace("\\", "/")
         return os.path.dirname(relPath)
 
-    def getAssetHelpInfo(self, srcFile, tip):
+    def getAssetHelpInfo(self, srcFile):
         pathToken = self.assetPathToken(srcFile)
-        headToken, tipToken = "", ""
-        tip = tip or ""
+        headToken = ""
 
         if srcFile.srcDir.isStatic:
             if srcFile.isDyn:
@@ -114,12 +113,7 @@ class ProjectWiseAsset:
             else:
                 headToken = self.opts("project_palkey_path_token")
 
-        tipToken = self.opts("palkey_path_token")
-
-        if tip and pathToken:
-            tip = tipToken + tip
-
-        return headToken, pathToken, tip
+        return headToken, pathToken
 
     def refreshStaticAssets(self):
         isKeyRebuilded = False

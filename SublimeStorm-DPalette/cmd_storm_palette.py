@@ -65,8 +65,8 @@ class PalAssetManager(JsonAssetSrcManager):
 
     @staticmethod
     def vBuildAssetKey(key, val, srcFile):
-        headToken, pathToken, tip = pwa.getAssetHelpInfo(srcFile, val.get("tip", ""))
-        rkey = "".join([headToken, pathToken, tip, "!", key])
+        headToken, pathToken = pwa.getAssetHelpInfo(srcFile)
+        rkey = "".join([headToken, pathToken])
         return "\n".join([key, rkey])
 
 pwa = Project.ProjectWiseAsset(srcExt=SRC_FILE_EXT)
@@ -84,15 +84,6 @@ class StormPaletteCommand(PanelAssetBaseCommand):
     def vPrjInfo(self):
         return pwa.prjInfo
 
-    def vAssets(self):
-        assets = pwa.am.assets[::]
-        self.virutalAssets = self.makeVirtualAssets()
-        assets.extend(self.virutalAssets)
-        for asset in assets:
-            asset.key = asset.key.lower()
-
-        return assets
-
     @staticmethod
     def vConcreteAssets():
         return pwa.am.assets
@@ -107,7 +98,6 @@ class StormPaletteCommand(PanelAssetBaseCommand):
             key = "".join([virtualAssetToken, cat, virtualAssetToken, pathToken])
             key = key.rstrip(".")
             key = "{0}({1})".format(key, len(srcFile.assets))
-            tip = "storm_palette/"+cat
             filePath = srcFile.path.replace("\\", "/")
             val = {
                 "command": "eval_python_code",
@@ -116,7 +106,6 @@ class StormPaletteCommand(PanelAssetBaseCommand):
                     "code": "sublime.active_window().open_file(\"{}\")".format(filePath),
                     "show_result": "error"
                 },
-                "tip": tip
             }
             assetKey = pwa.am.vBuildAssetKey(key, val, srcFile)
             assetFileAssets.append(Asset(assetKey, assetKey, val, srcFile))

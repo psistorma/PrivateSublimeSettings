@@ -39,12 +39,12 @@ Os	st3\MUtils\FileDataSrc.py	/^from . import Exp, Os$/;"	i
 SrcDir	st3\MUtils\FileDataSrc.py	/^class SrcDir(SrcObj):$/;"	c
 SrcFile	st3\MUtils\FileDataSrc.py	/^class SrcFile(SrcObj):$/;"	c
 SrcObj	st3\MUtils\FileDataSrc.py	/^class SrcObj:$/;"	c
-__init__	st3\MUtils\FileDataSrc.py	/^    def __init__(self, *arg, assetKey="assets", key="key", **kwds):$/;"	m	class:JsonAssetSrcManager
+__init__	st3\MUtils\FileDataSrc.py	/^    def __init__(self, *, assetKey="assets", key="key", **kwds):$/;"	m	class:JsonAssetSrcManager
 __init__	st3\MUtils\FileDataSrc.py	/^    def __init__(self, dirPath, isStatic, manager):$/;"	m	class:SrcDir
 __init__	st3\MUtils\FileDataSrc.py	/^    def __init__(self, filePath, isDyn, srcDir):$/;"	m	class:SrcFile
 __init__	st3\MUtils\FileDataSrc.py	/^    def __init__(self, orgKey, key, val, srcFile):$/;"	m	class:Asset
 __init__	st3\MUtils\FileDataSrc.py	/^    def __init__(self, path, parent=None):$/;"	m	class:SrcObj
-__init__	st3\MUtils\FileDataSrc.py	/^    def __init__(self, srcExt, includeSubDir=True, maxCacheProjectCount=5):$/;"	m	class:AssetSrcManager
+__init__	st3\MUtils\FileDataSrc.py	/^    def __init__(self, srcExt, *, includeSubDir=True, maxCacheProjectCount=5):$/;"	m	class:AssetSrcManager
 appendAsset	st3\MUtils\FileDataSrc.py	/^    def appendAsset(self, key, val):$/;"	m	class:SrcFile
 asset	st3\MUtils\FileDataSrc.py	/^    def asset(self, index):$/;"	m	class:AssetSrcManager
 assets	st3\MUtils\FileDataSrc.py	/^    def assets(self):$/;"	m	class:SrcDir
@@ -66,9 +66,9 @@ manager	st3\MUtils\FileDataSrc.py	/^    def manager(self):$/;"	m	class:SrcDir
 manager	st3\MUtils\FileDataSrc.py	/^    def manager(self):$/;"	m	class:SrcObj
 os	st3\MUtils\FileDataSrc.py	/^import os$/;"	i
 reBuildAssetKey	st3\MUtils\FileDataSrc.py	/^    def reBuildAssetKey(self):$/;"	m	class:AssetSrcManager
+reBuildAssetKey	st3\MUtils\FileDataSrc.py	/^    def reBuildAssetKey(self):$/;"	m	class:SrcFile
 refreshFile	st3\MUtils\FileDataSrc.py	/^    def refreshFile(self, filePath):$/;"	m	class:AssetSrcManager
 removeSrc	st3\MUtils\FileDataSrc.py	/^    def removeSrc(self, *, static=True):$/;"	m	class:AssetSrcManager
-rez	st3\MUtils\FileDataSrc.py	/^    def rez(self):$/;"	m	class:SrcFile
 srcDir	st3\MUtils\FileDataSrc.py	/^    def srcDir(self):$/;"	m	class:SrcFile
 srcFiles	st3\MUtils\FileDataSrc.py	/^    def srcFiles(self):$/;"	m	class:AssetSrcManager
 srcFiles	st3\MUtils\FileDataSrc.py	/^    def srcFiles(self):$/;"	m	class:SrcDir
@@ -212,11 +212,11 @@ ProjectInfo	st3\SublimeUtils\Project.py	/^class ProjectInfo:$/;"	c
 ProjectWiseAsset	st3\SublimeUtils\Project.py	/^class ProjectWiseAsset:$/;"	c
 WView	st3\SublimeUtils\Project.py	/^from . import WView$/;"	i
 __init__	st3\SublimeUtils\Project.py	/^    def __init__(self):$/;"	m	class:ProjectInfo
-__init__	st3\SublimeUtils\Project.py	/^    def __init__(self, assetSrcManager, ps, projInfo):$/;"	m	class:ProjectWiseAsset
+__init__	st3\SublimeUtils\Project.py	/^    def __init__(self, srcExt):$/;"	m	class:ProjectWiseAsset
 assetPathToken	st3\SublimeUtils\Project.py	/^    def assetPathToken(self, assetSrcFile):$/;"	m	class:ProjectWiseAsset
 defaultdict	st3\SublimeUtils\Project.py	/^from collections import defaultdict$/;"	i
 gVal	st3\SublimeUtils\Project.py	/^    def gVal(self, key, defVal=None):$/;"	m	class:ProjectInfo
-getAssetHelpInfo	st3\SublimeUtils\Project.py	/^    def getAssetHelpInfo(self, srcFile, tip):$/;"	m	class:ProjectWiseAsset
+getAssetHelpInfo	st3\SublimeUtils\Project.py	/^    def getAssetHelpInfo(self, srcFile, tip=None):$/;"	m	class:ProjectWiseAsset
 getDynAssetFilePath	st3\SublimeUtils\Project.py	/^    def getDynAssetFilePath(self, assetDirectory):$/;"	m	class:ProjectWiseAsset
 getProjectAssetDirectory	st3\SublimeUtils\Project.py	/^    def getProjectAssetDirectory(self, window, *, makeIfNotExist=False):$/;"	m	class:ProjectWiseAsset
 getProjectAuxiDirectory	st3\SublimeUtils\Project.py	/^def getProjectAuxiDirectory(window, fileDirectoryName, *, makeIfNotExist=False):$/;"	f
@@ -224,6 +224,8 @@ getStaticAssetDirectory	st3\SublimeUtils\Project.py	/^    def getStaticAssetDire
 info	st3\SublimeUtils\Project.py	/^    def info(self, window=None):$/;"	m	class:ProjectInfo
 isDynFile	st3\SublimeUtils\Project.py	/^    def isDynFile(self, srcFilePath):$/;"	m	class:ProjectWiseAsset
 isHidden	st3\SublimeUtils\Project.py	/^    def isHidden(self, key):$/;"	m	class:ProjectWiseAsset
+metaDynFileName	st3\SublimeUtils\Project.py	/^    def metaDynFileName(self):$/;"	m	class:ProjectWiseAsset
+metaHiddenAssetToken	st3\SublimeUtils\Project.py	/^    def metaHiddenAssetToken(self):$/;"	m	class:ProjectWiseAsset
 onFileLoad	st3\SublimeUtils\Project.py	/^    def onFileLoad(self, view):$/;"	m	class:ProjectWiseAsset
 onFileSave	st3\SublimeUtils\Project.py	/^    def onFileSave(self, view):$/;"	m	class:ProjectWiseAsset
 onOptionChanged	st3\SublimeUtils\Project.py	/^    def onOptionChanged(self):$/;"	m	class:ProjectWiseAsset
@@ -287,15 +289,15 @@ sys	st3\Test\context.py	/^import sys$/;"	i
 FileDataSrc	st3\Test\tests_MUtils_FileDataSrc.py	/^from context import FileDataSrc$/;"	i
 JsonSrcManager_TestCase	st3\Test\tests_MUtils_FileDataSrc.py	/^class JsonSrcManager_TestCase(unittest.TestCase):$/;"	c
 Str	st3\Test\tests_MUtils_FileDataSrc.py	/^from context import Str$/;"	i
-TestJsonManager	st3\Test\tests_MUtils_FileDataSrc.py	/^class TestJsonManager(FileDataSrc.JsonSrcManager):$/;"	c
-__init__	st3\Test\tests_MUtils_FileDataSrc.py	/^    def __init__(self, *arg, **kwds):$/;"	m	class:TestJsonManager
-buildAssetCat	st3\Test\tests_MUtils_FileDataSrc.py	/^    def buildAssetCat(self, asset):$/;"	m	class:TestJsonManager
-buildAssetKey	st3\Test\tests_MUtils_FileDataSrc.py	/^    def buildAssetKey(self, key, val, srcFile):$/;"	m	class:TestJsonManager
+TestJsonManager	st3\Test\tests_MUtils_FileDataSrc.py	/^class TestJsonManager(FileDataSrc.JsonAssetSrcManager):$/;"	c
+__init__	st3\Test\tests_MUtils_FileDataSrc.py	/^    def __init__(self, **kwds):$/;"	m	class:TestJsonManager
 os	st3\Test\tests_MUtils_FileDataSrc.py	/^import os$/;"	i
 relPath	st3\Test\tests_MUtils_FileDataSrc.py	/^    def relPath(srcFile, srcDir):$/;"	m	class:TestJsonManager
-reportStatus	st3\Test\tests_MUtils_FileDataSrc.py	/^    def reportStatus(self, message):$/;"	m	class:TestJsonManager
 test_getSpecifyKeyVal	st3\Test\tests_MUtils_FileDataSrc.py	/^    def test_getSpecifyKeyVal(self):$/;"	m	class:JsonSrcManager_TestCase
 unittest	st3\Test\tests_MUtils_FileDataSrc.py	/^﻿import unittest$/;"	i
+vBuildAssetCat	st3\Test\tests_MUtils_FileDataSrc.py	/^    def vBuildAssetCat(self, asset):$/;"	m	class:TestJsonManager
+vBuildAssetKey	st3\Test\tests_MUtils_FileDataSrc.py	/^    def vBuildAssetKey(self, key, val, srcFile):$/;"	m	class:TestJsonManager
+vReportStatus	st3\Test\tests_MUtils_FileDataSrc.py	/^    def vReportStatus(self, message):$/;"	m	class:TestJsonManager
 Input	st3\Test\tests_MUtils_Input.py	/^from context import Input$/;"	i
 promiseInput_TestCase	st3\Test\tests_MUtils_Input.py	/^class promiseInput_TestCase(unittest.TestCase):$/;"	c
 test_match	st3\Test\tests_MUtils_Input.py	/^    def test_match(self):$/;"	m	class:promiseInput_TestCase

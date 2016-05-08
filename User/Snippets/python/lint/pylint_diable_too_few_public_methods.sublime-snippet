@@ -1,0 +1,6 @@
+<snippet>
+	<content><![CDATA[# pylint: disable=R0903]]></content>
+	<tabTrigger>pylint_disable_too_few_public_methods</tabTrigger>
+	<description>pylint.disable.too_few_public_methods</description>
+	<scope>source.python</scope>
+	</snippet>
