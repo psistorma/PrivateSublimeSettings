@@ -16,7 +16,8 @@
 		"c",
 		"h++",
 		"inl",
-		"StateAttribute"
+		"StateAttribute",
+		"Node"
 	],
 	"ignored_packages":
 	[

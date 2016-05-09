@@ -55,6 +55,8 @@
 	[
 		"Bookmarks",
 		"GitGutter",
+		"SublimeCodeIntel",
+		"SublimeLinter",
 		"Vintage"
 	],
 	"line_numbers": true,

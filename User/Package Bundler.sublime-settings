@@ -9,7 +9,8 @@
 				"GitGutter",
 				"Vintage",
 				"SublimeCodeIntel",
-				"SublimeLinter"
+				"SublimeLinter",
+                "TypeScript",
 			]
 		},
 		"edit syntax":
@@ -40,5 +41,5 @@
 			]
 		}
 	},
-	"loaded_bundle": "normal"
+	"loaded_bundle": "c++"
 }
