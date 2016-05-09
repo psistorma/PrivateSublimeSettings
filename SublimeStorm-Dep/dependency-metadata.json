@@ -1,1 +1,1 @@
-{"description": "SublimeStorm Thirdparty Dependency", "sublime_text": ">=3000", "url": "https://github.com/iamstorm/SublimeStorm-Dep/issues", "platforms": ["*"], "version": "0.0.1"}
+{"platforms": ["*"], "url": "https://github.com/iamstorm/SublimeStorm-Dep/issues", "sublime_text": ">=3000", "version": "0.0.2", "description": "SublimeStorm Thirdparty Dependency"}
