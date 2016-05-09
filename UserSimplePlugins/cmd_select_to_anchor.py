@@ -1,4 +1,3 @@
-from collections import namedtuple
 import sublime
 import sublime_plugin
 
@@ -34,7 +33,7 @@ DIR_NEXT = "next"
 TO_ANCHOR = "anchor"
 TO_LINE_ANCHOR = "line_anchor"
 
-class ANCHAOR_CONFIG(object):
+class ANCHAOR_CONFIG(object): # pylint: disable=R0903
     def __init__(self):
         self.type = None
         self.content = None

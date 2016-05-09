@@ -12,7 +12,8 @@ def safe_end(region):
 def find_matching_point(view, sel, selector):
     result = rSelector.search(selector)
 
-    if result is None: return False, safe_end(view.find(selector, sel.end(), sublime.LITERAL))
+    if result is None:
+        return False, safe_end(view.find(selector, sel.end(), sublime.LITERAL))
 
     groups = result.groups()
     isReverse = (groups[0] == "-")
@@ -21,14 +22,20 @@ def find_matching_point(view, sel, selector):
     regex = groups[3]
 
     if not isReverse:
-        if num is not None: return isReverse, sel.end() + num
-        elif regex is not None: return isReverse, safe_end(view.find(regex, sel.end()))
-        else: return isReverse, safe_end(view.find(chars, sel.end(), sublime.LITERAL))
+        if num is not None:
+            return isReverse, sel.end() + num
+        elif regex is not None:
+            return isReverse, safe_end(view.find(regex, sel.end()))
+        else:
+            return isReverse, safe_end(view.find(chars, sel.end(), sublime.LITERAL))
 
     else:
-        if num is not None: return isReverse, sel.begin() - num
-        elif regex is not None: regions = view.find_all(regex)
-        else: regions = view.find_all(chars, sublime.LITERAL)
+        if num is not None:
+            return isReverse, sel.begin() - num
+        elif regex is not None:
+            regions = view.find_all(regex)
+        else:
+            regions = view.find_all(chars, sublime.LITERAL)
 
         for region in reversed(regions):
             if region.end() <= sel.begin():
