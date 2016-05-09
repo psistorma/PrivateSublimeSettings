@@ -118,6 +118,7 @@ class RunShellCmdCommand(sublime_plugin.WindowCommand):
                           run_opts=run_opts,
                           dyn_report_mul=dyn_report_mul
                          )
+        print(workParams)
         if _async:
             view = self.window.active_view()
             self.asncCmdCount += 1
