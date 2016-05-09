@@ -117,9 +117,9 @@
             {"key": "selector", "operator": "equal", "operand": "source - string"}
     ]},
     //Goto
-    { "keys": ["ctrl+\\"], "command": "show_overlay", "args": {"overlay": "goto", "text": ":"} },
-    {"keys": ["ctrl+r"], "command": "show_overlay", "args": {"overlay": "goto", "text": "@"} },
-    {"keys": ["ctrl+shift+r"], "command": "goto_symbol_in_project" },
+    { "keys": ["alt+\\"], "command": "show_overlay", "args": {"overlay": "goto", "text": ":"} },
+    {"keys": ["alt+]"], "command": "show_overlay", "args": {"overlay": "goto", "text": "@"} },
+    {"keys": ["alt+["], "command": "goto_symbol_in_project" },
     {"keys": ["ctrl+1"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} },
     {"keys": ["alt+-"], "command": "jump_back" },
     {"keys": ["alt+="], "command": "jump_forward" },
