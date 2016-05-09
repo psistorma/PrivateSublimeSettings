@@ -80,24 +80,35 @@ class RefKeyAssetManager(AssetSrcManager):
         if srcFile.path.endswith(SRC_RAW_FILE_EXT):
             rawItem = MarkDownInfo.HeaderItem()
             _, pathToken = pwa.getAssetHelpInfo(srcFile)
-            rawItem.raw = "raw of {}".format(pathToken)
+            rawItem.raw = pathToken
             rawItem.lineNum = 0
-            rawItem.level = 0
+            rawItem.level = -1
             items.append(rawItem)
         else:
-            items.extend(MarkDownInfo.parseFile(srcFile.path))
+            try:
+                items.extend(MarkDownInfo.parseFile(srcFile.path))
+            except Exception as e: # pylint: disable=W0703
+                sublime.error_message("error when parse file:\n{0}\nerror:\n{1}"
+                    .format(srcFile.path, str(e)))
 
         for item in items:
             srcFile.appendAsset(item.raw, item)
 
     def vBuildAssetCat(self, asset):
         lkey, rkey = self.vBuildAssetKey(asset.orgKey, asset.val, asset.srcFile).split("\n")
-        return rkey + "{:01000}".format(asset.val.level) + lkey
+        sLevel = "{:01000}".format(asset.val.level) if asset.val.level != 0 else "-----"
+        return rkey + sLevel + lkey
 
     @staticmethod
     def vBuildAssetKey(key, val, srcFile):
         headToken, pathToken = pwa.getAssetHelpInfo(srcFile)
-        lkey = "[{level}]{key}".format(level=val.level, key=key)
+        if val.level > 0:
+            lkey = "[{level}]{key}".format(level=val.level, key=key)
+        elif val.level == -1:
+            lkey = "[r]{key}".format(key=key)
+        else:
+            lkey = "[-]{key}".format(key=key)
+
         rkey = "{head_token}{path_token}".format(
             head_token=headToken, path_token=pathToken)
 

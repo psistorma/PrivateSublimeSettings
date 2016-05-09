@@ -1,13 +1,35 @@
 {
 	"bundles":
 	{
-		"C++":
+		"c++":
 		{
 			"ignored_packages":
 			[
+				"Bookmarks",
+				"GitGutter",
+				"Vintage",
 				"SublimeCodeIntel"
+			]
+		},
+		"edit syntax":
+		{
+			"ignored_packages":
+			[
+				"Bookmarks",
+				"GitGutter",
+				"Vintage",
+				"SublimeLinter"
+			]
+		},
+		"normal":
+		{
+			"ignored_packages":
+			[
+				"Bookmarks",
+				"GitGutter",
+				"Vintage"
 			]
 		}
 	},
-	"loaded_bundle": "C++"
+	"loaded_bundle": "edit syntax"
 }

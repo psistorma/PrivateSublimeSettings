@@ -52,12 +52,11 @@ class MDItemBuilder(mistune.Renderer):
             item.raw, item.level, item.type, item.lineNum))
         return ""
 
-
-def parseFile(filePath):
+def parseFile(filePath, encoding="UTF-8"):
     fnDbgReport("parse file path", filePath)
 
     lines = []
-    with open(filePath) as f:
+    with open(filePath, encoding=encoding) as f:
         for l in f:
             lines.append(l)
 

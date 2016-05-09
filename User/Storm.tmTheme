@@ -356,7 +356,7 @@
       <key>name</key>
       <string>tip highlight</string>
       <key>scope</key>
-      <string>meta.tip.highlight, punctuation.definition.brace.impl - meta.flow, meta.block.statement punctuation.definition.brace.block,punctuation.definition.brace.definition, keyword.other.block.start.sublimesnippetraw, constant.numeric.name.sublimesnippetraw</string>
+      <string>meta.tip.highlight, punctuation.definition.brace.impl - meta.flow, meta.block.statement punctuation.definition.brace.block,punctuation.definition.brace.definition, keyword.other.block.start.sublimesnippetraw, constant.numeric.name.sublimesnippetraw,markup.bold - punctuation</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -400,7 +400,7 @@
       <key>name</key>
       <string>tip embed</string>
       <key>scope</key>
-      <string>meta.tip.embed, meta.diff markup</string>
+      <string>meta.tip.embed, meta.diff markup, markup.raw.block.fenced, markup.raw.inline.content</string>
       <key>settings</key>
       <dict>
         <key>background</key>
