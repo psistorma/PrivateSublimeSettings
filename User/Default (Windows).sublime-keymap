@@ -6,6 +6,9 @@
     {"keys": ["alt+f8"], "command": "js_format", "context": [
             {"key": "selector", "operator": "equal", "operand": "source.js"}
     ]},
+    {"keys": ["alt+f8"], "command": "anaconda_auto_format", "context": [
+            {"key": "selector", "operator": "equal", "operand": "source.python"}
+    ]},
     {"keys": ["alt+f8"], "command": "pretty_json", "context": [
             {"key": "selector", "operator": "equal", "operand": "source.sublimekeymap,source.json"}
     ]},
@@ -154,8 +157,10 @@
     {"keys": ["ctrl+4"], "command": "move_to", "args": {"to": "bof", "extend": false} },
     {"keys": ["ctrl+5"], "command": "move_to", "args": {"to": "eof", "extend": false} },
     {"keys": ["alt+."],  "command": "soft_undo" },
-//__EasyInvoker
-    {"keys": ["ctrl+k","ctrl+g"], "command": "easy_invoke" },
+//__SublimeStorm
+    {"keys": ["alt+`"], "command": "storm_error_panel_show", "args": {"toggle": true}},
+    {"keys": ["ctrl+g"], "command": "storm_palette"},
+    {"keys": ["ctrl+alt+r"], "command": "storm_palette",  "args": {"run_mode": "repeat_lastkey"} },
     {"keys": ["alt+g"], "command": "run_shell_cmd_prompt", "args": {"show_result": "allways"}},
     {"keys": ["ctrl+alt+g"], "command": "eval_python_code_prompt"},
 //__deleteIt
