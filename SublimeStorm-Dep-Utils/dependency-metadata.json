@@ -1,1 +1,1 @@
-{"platforms": ["*"], "url": "https://github.com/iamstorm/SublimeStorm-Dep-Utils/issues", "sublime_text": ">=3000", "version": "0.0.2", "description": "SublimeStorm Utils Dependency"}
+{"sublime_text": ">=3000", "version": "0.0.2", "description": "SublimeStorm Utils Dependency", "platforms": ["*"], "url": "https://github.com/iamstorm/SublimeStorm-Dep-Utils/issues"}

@@ -8,7 +8,8 @@
 				"Bookmarks",
 				"GitGutter",
 				"Vintage",
-				"SublimeCodeIntel"
+				"SublimeCodeIntel",
+				"SublimeLinter"
 			]
 		},
 		"edit syntax":
@@ -21,6 +22,14 @@
 				"SublimeLinter"
 			]
 		},
+		"git commit":
+		{
+			"ignored_packages":
+			[
+				"Bookmarks",
+				"Vintage"
+			]
+		},
 		"normal":
 		{
 			"ignored_packages":
@@ -31,5 +40,5 @@
 			]
 		}
 	},
-	"loaded_bundle": "edit syntax"
+	"loaded_bundle": "normal"
 }
