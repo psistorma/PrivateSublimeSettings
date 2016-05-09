@@ -93,6 +93,7 @@ class StormPaletteCommand(PanelAssetBaseCommand):
         assetFileAssets = []
         for srcFile in pwa.am.srcFiles:
             pathToken = pwa.assetPathToken(srcFile)
+
             cat = "key.dyn" if srcFile.isDyn else "key"
             virtualAssetToken = pwa.opts("virtual_asset_token")
             key = "".join([virtualAssetToken, cat, virtualAssetToken, pathToken])

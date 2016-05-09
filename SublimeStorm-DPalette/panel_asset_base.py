@@ -20,6 +20,10 @@ class PanelAssetBaseCommand(sublime_plugin.WindowCommand):
     @Panel.fwShowQuickPanel()
     @Exp.fwReportException(sublime.error_message)
     def run(self, **kwds):
+        self.vBeginRun(**kwds)
+        return self.vEndRun(self._run(**kwds))
+
+    def _run(self, **kwds):
         run_mode = kwds.get("run_mode", "panel")
 
         if run_mode == "key":
@@ -60,6 +64,13 @@ class PanelAssetBaseCommand(sublime_plugin.WindowCommand):
             quickInvokeInfoArr.append(" "*500)
 
         return self, quickInvokeInfoArr, selectedIndex, self.vPanelFlags()
+
+    def vBeginRun(self, **kwds):
+        pass
+
+    @staticmethod
+    def vEndRun(panelData):
+        return panelData
 
     @staticmethod
     def vPanelFlags():
@@ -131,9 +142,9 @@ class PanelAssetBaseCommand(sublime_plugin.WindowCommand):
 
         return assetKeys
 
-    def onQuickPanelDone(self, index):
+    def assetFromIndex(self, index):
         if index == -1 or index == self.dummyIndex:
-            return
+            return None
 
         concreteAssets = self.vConcreteAssets()
         index = self.indexOfAssetMap[index]
@@ -143,8 +154,22 @@ class PanelAssetBaseCommand(sublime_plugin.WindowCommand):
         else:
             asset = concreteAssets[index]
 
+        return asset
+
+    def onQuickPanelDone(self, index):
+        if index == -1:
+            self.vOnQuickPanelCancel()
+            return
+
+        asset = self.assetFromIndex(index)
+        if asset is None:
+            return
+
         self.vInvokeAsset(asset)
         self.vPrjInfo().regItem("last_key", asset.key)
+
+    def vOnQuickPanelCancel(self):
+        pass
 
     def invokeKey(self, key):
         key = key.lower()

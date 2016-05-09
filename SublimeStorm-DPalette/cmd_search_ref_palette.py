@@ -1,12 +1,12 @@
 import os
 import sublime_plugin
 import sublime
-from SublimeUtils import Setting, Panel, Project
-from MUtils import Os, Str, Data, Input, Exp, MarkDownInfo
-from MUtils.FileDataSrc import AssetSrcManager, Asset
+from SublimeUtils import Setting, Project # pylint: disable=F0401
+from MUtils import MarkDownInfo # pylint: disable=F0401
+from MUtils.FileDataSrc import AssetSrcManager, Asset # pylint: disable=F0401
 from .panel_asset_base import PanelAssetBaseCommand
 
-SKEY = "search_ref"
+SKEY = "search_ref_palette"
 ps = Setting.PluginSetting(SKEY)
 def plugin_loaded():
     initSettings()
@@ -14,12 +14,13 @@ def plugin_loaded():
 def plugin_unloaded():
     ps.onPluginUnload()
 
-SRC_FILE_EXT = ".md"
+SRC_FILE_EXT = ".ref.md"
+SRC_RAW_FILE_EXT = ".raw.ref.md"
 
 def initSettings():
     defaultOptions = {
         #----------------- hidden setting ---------------------
-        "project_src_basename": ".search_ref",
+        "project_src_basename": ".search_ref_palette",
         "virtual_asset_token" : "~",
         #----------------- normal setting ---------------------
         "palkey_path":
@@ -39,7 +40,32 @@ def initSettings():
     }
     ps.loadWithDefault(defaultOptions, onChanged=pwa.onOptionChanged)
 
-class RefKeySrcManager(AssetSrcManager):
+class CaptureView(): # pylint: disable=R0903
+    def __init__(self):
+        self.isCapturingView = False
+        self.view = None
+
+    def onViewActivated(self, view):
+        if self.isCapturingView:
+            self.isCapturingView = False
+            self.view = view
+
+
+quickPanelView = CaptureView()
+class SearchRefPaletteEventListener(sublime_plugin.EventListener):
+    @staticmethod
+    def on_post_save_async(view):
+        pwa.onFileSave(view)
+
+    @staticmethod
+    def on_load_async(view):
+        pwa.onFileLoad(view)
+
+    @staticmethod
+    def on_activated(view):
+        quickPanelView.onViewActivated(view)
+
+class RefKeyAssetManager(AssetSrcManager):
     def __init__(self, *arg):
         super().__init__(*arg)
 
@@ -48,38 +74,60 @@ class RefKeySrcManager(AssetSrcManager):
         print(message)
         sublime.status_message(message)
 
-    def vParseFile(self, srcFile):
-        items = MarkDownInfo.parseFile(srcFile.path)
+    @staticmethod
+    def vParseFile(srcFile):
+        items = []
+        if srcFile.path.endswith(SRC_RAW_FILE_EXT):
+            rawItem = MarkDownInfo.HeaderItem()
+            _, pathToken = pwa.getAssetHelpInfo(srcFile)
+            rawItem.raw = "raw of {}".format(pathToken)
+            rawItem.lineNum = 0
+            rawItem.level = 0
+            items.append(rawItem)
+        else:
+            items.extend(MarkDownInfo.parseFile(srcFile.path))
+
         for item in items:
             srcFile.appendAsset(item.raw, item)
+
+    def vBuildAssetCat(self, asset):
+        lkey, rkey = self.vBuildAssetKey(asset.orgKey, asset.val, asset.srcFile).split("\n")
+        return rkey + "{:01000}".format(asset.val.level) + lkey
 
     @staticmethod
     def vBuildAssetKey(key, val, srcFile):
         headToken, pathToken = pwa.getAssetHelpInfo(srcFile)
-        rkey = "{head_token}{path_token}[{level}]".format(
-            head_token=headToken, level=val.level, path_token=pathToken)
+        lkey = "[{level}]{key}".format(level=val.level, key=key)
+        rkey = "{head_token}{path_token}".format(
+            head_token=headToken, path_token=pathToken)
 
-        return "\n".join([key, rkey])
+        return "\n".join([lkey, rkey])
 
 
 pwa = Project.ProjectWiseAsset(srcExt=SRC_FILE_EXT)
-pwa.am = RefKeySrcManager(SRC_FILE_EXT)
+pwa.am = RefKeyAssetManager(SRC_FILE_EXT)
 pwa.ps = ps
 pwa.prjInfo = Project.ProjectInfo()
-
 
 class SearchRefPaletteCommand(PanelAssetBaseCommand):
     def __init__(self, *args):
         super().__init__(*args)
 
+    def vEndRun(self, panelData):
+        self.window.run_command("create_pane", {"direction": "down", "give_focus": False})
+        quickPanelView.isCapturingView = True
+        return panelData
+
     @staticmethod
     def vPanelFlags():
         return sublime.MONOSPACE_FONT | sublime.KEEP_OPEN_ON_FOCUS_LOST
 
-    def vOpts(self, optKey):
+    @staticmethod
+    def vOpts(optKey):
         return pwa.opts(optKey)
 
-    def vPrjInfo(self):
+    @staticmethod
+    def vPrjInfo():
         return pwa.prjInfo
 
     @staticmethod
@@ -90,12 +138,9 @@ class SearchRefPaletteCommand(PanelAssetBaseCommand):
     def vMakeAssetFileAsset():
         assetFileAssets = []
         for srcFile in pwa.am.srcFiles:
-            pathToken = pwa.assetPathToken(srcFile)
             cat = "key.dyn" if srcFile.isDyn else "key"
             virtualAssetToken = pwa.opts("virtual_asset_token")
-            key = "".join([virtualAssetToken, cat, virtualAssetToken, pathToken])
-            key = key.rstrip(".")
-            key = "{0}({1})".format(key, len(srcFile.assets))
+            key = "".join([virtualAssetToken, cat])
             val = MarkDownInfo.HeaderItem()
             val.raw = key
             val.lineNum = 0
@@ -105,97 +150,31 @@ class SearchRefPaletteCommand(PanelAssetBaseCommand):
 
         return assetFileAssets
 
+    @staticmethod
+    def getStrFileWithLineNum(asset):
+        return "{0}:{1}".format(asset.srcFile.path, asset.val.lineNum)
+
     def onQuickPanelHighlight(self, index):
-        if index == 0:
-            self.window.open_file("E:/Tmp/test.cpp:36", sublime.TRANSIENT|sublime.ENCODED_POSITION)
-        else:
-            self.window.open_file("E:/Tmp/test.py:2", sublime.TRANSIENT|sublime.ENCODED_POSITION)
+        asset = self.assetFromIndex(index)
+        if asset is None:
+            return
 
-# # class AnotherPaletteEventListener(sublime_plugin.EventListener):
-# #   def on_post_save(self, view):
-# #     variables = view.window().extract_variables()
-# #     _file = variables['file'].lower()
-# #     if _file.endswith('.anotherpal.key'):
-# #       gKeyDict.refresh()
+        self.window.focus_group(1)
 
-# def fwShowQuickPanel(timeout=10):
-#     def decorator(f):
-#         @ft.wraps(f)
-#         def wrapper(*args, **kwds):
-#             self, items, selected_index, *flagArg = f(*args, **kwds)
-#             if flagArg:
-#                 flags, = flagArg
-#             else:
-#                 flags = 0
+        self.window.open_file(self.getStrFileWithLineNum(asset),
+                              sublime.TRANSIENT|sublime.ENCODED_POSITION)
 
-#             on_done, on_highlight = None, None
-#             metaOfSelf = dir(self)
-#             if "onQuickPanelDone" in metaOfSelf:
-#                 on_done = self.onQuickPanelDone
+        self.window.focus_view(quickPanelView.view)
 
-#             if "onQuickPanelHighlight" in metaOfSelf:
-#                 on_highlight = self.onQuickPanelHighlight
+    def vInvokeAsset(self, asset):
+        self.recoverPaneStatus()
+        self.window.open_file(self.getStrFileWithLineNum(asset), sublime.ENCODED_POSITION)
 
-#             Panel.showQuickPanel(
-#                 None, items, on_done, timeout,
-#                 on_highlight=on_highlight, flags=flags, selected_index=selected_index)
+    def vOnQuickPanelCancel(self):
+        self.recoverPaneStatus()
 
-#         return wrapper
-
-#     return decorator
-
-
-# class AnotherPaletteCommand(sublime_plugin.WindowCommand):
-#     def __init__(self, *args):
-#         super().__init__(*args)
-#         self.lastPalKey = None
-
-#         self.palKeyArr = None
-#         self.curHighlight = -1
-#     @fwShowQuickPanel(0)
-#     def run(self, need_pane=True, highlight_index=-1, **kwds):
-#         if need_pane:
-#             self.window.run_command("create_pane", {"direction": "down", "give_focus": False})
-#         selectedIndex = 1
-#         quickInvokeInfoArr = [
-#         ["to github" + " "*145 + "/src/go/to/school/hello/hi/devSublimePlugins !to github",
-#         "/devSublimePlugins!to github"],
-#         ["to github super" + " "*125 + "/src/go/to/school/hello/hi/devSublimePlugins !to github super",
-#         "/devSublimePlugins!to github super"],
-#         # ["to github", ">devSublimePlugins!to github"],
-#         # ["to github", "//!to github"],
-#         [" " * 250, "C"]
-#         # ["to github", ">>!to github"],
-#         ]
-#         # quickInvokeInfoArr = [["A", "B"], [" " * 5000, "C"]]
-#         # quickInvokeInfoArr = [["A", "B"], ["C", " " * 500]]
-#         if highlight_index != -1:
-#             selectedIndex = highlight_index
-
-#         return self, quickInvokeInfoArr, selectedIndex
-#     def onQuickPanelDone(self, index):
-#         if index == -1:
-#             return
-
-#         self.window.run_command("destroy_pane", {"direction": "down"})
-#         self.window.focus_group(0)
-#         if index == 0:
-#             self.window.open_file("E:/Tmp/1.txt:36", sublime.TRANSIENT|sublime.ENCODED_POSITION)
-#         else:
-#             self.window.open_file("E:/Tmp/test.py:16", sublime.TRANSIENT|sublime.ENCODED_POSITION)
-
-#     def onQuickPanelHighlight(self, index):
-#         if self.curHighlight == index:
-#             return
-
-#         self.curHighlight = index
-#         self.window.focus_group(1)
-
-#         if index == 0:
-#             self.window.open_file("E:/Tmp/1.txt:36", sublime.TRANSIENT|sublime.ENCODED_POSITION)
-#         else:
-#             self.window.open_file("E:/Tmp/test.py:16", sublime.TRANSIENT|sublime.ENCODED_POSITION)
-#         self.window.focus_group(0)
-
-#         self.window.run_command("another_palette", {"need_pane":False, "highlight_index":index})
+    def recoverPaneStatus(self):
+        self.window.focus_group(0)
+        self.window.run_command("destroy_pane", {"direction": "down"})
+        sublime.quickPanelView = None
 

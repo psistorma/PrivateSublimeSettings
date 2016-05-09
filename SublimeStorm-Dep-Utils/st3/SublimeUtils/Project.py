@@ -52,6 +52,8 @@ def getProjectAuxiDirectory(window, fileDirectoryName, *, makeIfNotExist=False):
 
     return auxiPath
 
+DEFAULT_NAME = "default"
+
 class ProjectWiseAsset:
     def __init__(self, srcExt):
         self.am = None
@@ -68,7 +70,7 @@ class ProjectWiseAsset:
 
     @property
     def metaDynFileName(self):
-        return "default.dyn" + self.srcExt
+        return "".join([DEFAULT_NAME, ".dyn", self.srcExt])
 
     @property
     def metaHiddenAssetToken(self):
@@ -96,7 +98,13 @@ class ProjectWiseAsset:
 
         relPath = os.path.relpath(assetSrcFile.path, assetSrcFile.srcDir.path)
         relPath = relPath.replace("\\", "/")
-        return os.path.dirname(relPath)
+        if relPath.endswith(self.srcExt):
+            relPath = relPath[:-1*len(self.srcExt)]
+
+        if relPath.endswith(DEFAULT_NAME):
+            relPath = relPath[:-1*len(DEFAULT_NAME)]
+
+        return relPath.rstrip("/")
 
     def getAssetHelpInfo(self, srcFile):
         pathToken = self.assetPathToken(srcFile)
