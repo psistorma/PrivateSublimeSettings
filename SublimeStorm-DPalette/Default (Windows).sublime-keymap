@@ -1,7 +1,7 @@
 [
     {"keys": ["alt+`"], "command": "storm_error_panel_show", "args": {"toggle": true}},
     {"keys": ["ctrl+g"], "command": "storm_palette"},
-    {"keys": ["ctrl+r"], "command": "storm_palette",  "args": {"run_mode": "repeat_lastkey"} },
+    {"keys": ["ctrl+alt+r"], "command": "storm_palette",  "args": {"run_mode": "repeat_lastkey"} },
     {"keys": ["alt+g"], "command": "storm_palette_record",  "args": {
         "questions": [{"key": "palkey"}],
         "content": {
