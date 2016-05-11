@@ -32,3 +32,37 @@ def getProjectPath(window=None, lower=True):
     return projectPath.lower()
 
 
+class NewGroupPane:
+    def __init__(self, direction="down"):
+        self.isCapturingView = False
+        self.view = None
+        self.direction = direction
+
+    def onViewActivated(self, view):
+        if self.isCapturingView:
+            self.isCapturingView = False
+            self.view = view
+
+    def startPane(self):
+        sublime.active_window().run_command(
+                    "create_pane", {"direction": self.direction, "give_focus": False})
+        self.isCapturingView = True
+
+    def endPane(self):
+        window = sublime.active_window()
+        window.focus_group(0)
+        window.run_command("destroy_pane", {"direction": self.direction})
+        self.view = None
+
+    def openFileTransient(self, filePath, lineNum):
+        window = self.view.window()
+        window.focus_group(1)
+
+        if lineNum is None:
+            window.open_file(filePath, sublime.TRANSIENT)
+        else:
+            window.open_file("{0}:{1}".format(filePath, lineNum),
+                              sublime.TRANSIENT | sublime.ENCODED_POSITION)
+
+        window.focus_view(self.view)
+        sublime.set_timeout(lambda: self.window.focus_view(self.view), 500)

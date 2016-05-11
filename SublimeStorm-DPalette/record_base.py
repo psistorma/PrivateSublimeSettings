@@ -11,6 +11,7 @@ class RecordContentBaseCommand(sublime_plugin.WindowCommand):
         super().__init__(*args)
         self.transfKey = None
         self.transfVal = None
+        self.ignoreKeys = None
         self.qAndaDict = None
         self.need_expand_variables = None
 
@@ -23,6 +24,7 @@ class RecordContentBaseCommand(sublime_plugin.WindowCommand):
         ignore_target = kwds.get("ignore_target", [])
         self.transfKey = "key" not in ignore_target
         self.transfVal = "val" not in ignore_target
+        self.ignoreKeys = kwds.get("ignore_keys", [])
         self.need_expand_variables = kwds.get("need_expand_variables", True)
         belong_to_project = kwds.get("belong_to_project", False)
         record_mode = kwds.get("record_mode", "record")
@@ -44,11 +46,26 @@ class RecordContentBaseCommand(sublime_plugin.WindowCommand):
             sublime.error_message(
                 "record_mode: {} is not allowed".format(record_mode))
 
+        self.vPreTransContent(key, content)
         content = Data.transfJsonObj(content, self.needTransf, self.transf)
+        self.vPostTransContent(content)
+
         self.vRecordContent(key, content, belong_to_project)
 
+    def vPreTransContent(self, key, content):
+        pass
+
+    def vPostTransContent(self, content):
+        pass
+
     def needTransf(self, obj, isKey):
-        if isKey and not self.transfKey:
+        if isKey:
+            if not self.transfKey:
+                return False
+
+            if obj in self.ignoreKeys:
+                return False
+
             return False
 
         if not isKey and not self.transfVal:
@@ -127,3 +144,36 @@ class RecordJsonAssetBaseCommand(RecordContentBaseCommand):
 
     def vSaveRecordFile(self, recordFilePath, contentDict, belong_to_project):
         raise NotImplementedError()
+
+
+class ProjectWiseJsonAssetRecordBaseCommand(RecordJsonAssetBaseCommand):
+    def __init__(self, *args):
+        super().__init__(*args)
+
+    def vProjectWiseAssetManager(self):
+        raise NotImplementedError()
+
+    def vGetRecordFilePath(self, belong_to_project):
+        pwa = self.vProjectWiseAssetManager()
+        if belong_to_project:
+            assetDirectory = pwa.getProjectAssetDirectory(self.window, makeIfNotExist=True)
+        else:
+            assetDirectory = pwa.getStaticAssetDirectory()
+
+        return pwa.getDynAssetFilePath(assetDirectory)
+
+    def vSaveRecordFile(self, recordFilePath, contentDict, belong_to_project):
+        pwa = self.vProjectWiseAssetManager()
+        isFileExist = os.path.exists(recordFilePath)
+
+        with open(recordFilePath, "w") as f:
+            json.dump(contentDict, f, indent=4)
+
+        if isFileExist:
+            pwa.am.refreshFile(recordFilePath)
+        else:
+            if belong_to_project:
+                pwa.refreshProjectAssets(self.window)
+            else:
+                pwa.am.loadStatic(recordFilePath)
+

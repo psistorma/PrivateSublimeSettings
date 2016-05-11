@@ -27,7 +27,7 @@ class TestJsonManager(FileDataSrc.JsonAssetSrcManager):
         print(message)
 
     def vBuildAssetKey(self, key, val, srcFile):
-        return "".join(["key-", key, "-val-", val["val"], "-srcBasename-", srcFile.basename])
+        return "".join(["key-", key, "-val-", val["val"], "-srcBasename-", srcFile.basename]),
 
     @staticmethod
     def relPath(srcFile, srcDir):

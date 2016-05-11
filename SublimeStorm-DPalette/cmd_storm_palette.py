@@ -3,10 +3,10 @@ import json
 import sublime_plugin
 import sublime
 from SublimeUtils import Setting, Project # pylint: disable=F0401
-from MUtils.FileDataSrc import JsonAssetSrcManager, Asset # pylint: disable=F0401
+from MUtils.FileDataSrc import JsonAssetSrcManager # pylint: disable=F0401
 from SublimeUtils.Context import Context # pylint: disable=F0401
-from .panel_asset_base import PanelAssetBaseCommand
-from .record_base import RecordJsonAssetBaseCommand
+from .panel_asset_base import PanelJsonAssetBaseCommand
+from .record_base import ProjectWiseJsonAssetRecordBaseCommand
 
 SKEY = "storm_palette"
 ps = Setting.PluginSetting(SKEY)
@@ -67,51 +67,33 @@ class PalAssetManager(JsonAssetSrcManager):
     def vBuildAssetKey(key, val, srcFile):
         headToken, pathToken = pwa.getAssetHelpInfo(srcFile)
         rkey = "".join([headToken, pathToken])
-        return "\n".join([key, rkey])
+        return key, rkey
 
 pwa = Project.ProjectWiseAsset(srcExt=SRC_FILE_EXT)
 pwa.am = PalAssetManager(srcExt=SRC_FILE_EXT, assetKey="assets", key="key")
 pwa.ps = ps
 pwa.prjInfo = Project.ProjectInfo()
 
-class StormPaletteCommand(PanelAssetBaseCommand):
+class StormPaletteCommand(PanelJsonAssetBaseCommand):
     def __init__(self, *args):
         super().__init__(*args)
 
-    def vOpts(self, optKey):
-        return pwa.opts(optKey)
-
-    def vPrjInfo(self):
-        return pwa.prjInfo
+    @staticmethod
+    def vProjectWiseAssetManager():
+        return pwa
 
     @staticmethod
-    def vConcreteAssets():
-        return pwa.am.assets
-
-    @staticmethod
-    def vMakeAssetFileAsset():
-        assetFileAssets = []
-        for srcFile in pwa.am.srcFiles:
-            pathToken = pwa.assetPathToken(srcFile)
-
-            cat = "key.dyn" if srcFile.isDyn else "key"
-            virtualAssetToken = pwa.opts("virtual_asset_token")
-            key = "".join([virtualAssetToken, cat, virtualAssetToken, pathToken])
-            key = key.rstrip(".")
-            key = "{0}({1})".format(key, len(srcFile.assets))
-            filePath = srcFile.path.replace("\\", "/")
-            val = {
-                "command": "eval_python_code",
-                "key": key,
-                "args": {
-                    "code": "sublime.active_window().open_file(\"{}\")".format(filePath),
-                    "show_result": "error"
-                },
-            }
-            assetKey = pwa.am.vBuildAssetKey(key, val, srcFile)
-            assetFileAssets.append(Asset(assetKey, assetKey, val, srcFile))
-
-        return assetFileAssets
+    def vFormatAssetFileAssetVal(srcFile, key):
+        filePath = srcFile.path.replace("\\", "/")
+        val = {
+            "key": key,
+            "command": "eval_python_code",
+            "args": {
+                "code": "sublime.active_window().open_file(\"{}\")".format(filePath),
+                "show_result": "error"
+            },
+        }
+        return val
 
     def vFilterAsset(self, view, asset):
         ctx = asset.val.get("context", None)
@@ -124,7 +106,7 @@ class StormPaletteCommand(PanelAssetBaseCommand):
 
         return True
 
-    def vInvokeAsset(self, asset):
+    def vInvokeAsset(self, asset, _):
         command = asset.val["command"]
         args = asset.val.get("args", {})
         cmd_type = asset.val.get("cmd_type", "window")
@@ -139,32 +121,13 @@ class StormPaletteCommand(PanelAssetBaseCommand):
             sublime.error_message(
                 "{0}'s cmd_type:{1} is not allowed!".format(asset.key, cmd_type))
 
-class StormPaletteRecordCommand(RecordJsonAssetBaseCommand):
+class StormPaletteRecordCommand(ProjectWiseJsonAssetRecordBaseCommand):
     def __init__(self, *args):
         super().__init__(*args)
 
-    def vGetRecordFilePath(self, belong_to_project):
-        if belong_to_project:
-            assetDirectory = pwa.getProjectAssetDirectory(self.window, True)
-        else:
-            assetDirectory = pwa.getStaticAssetDirectory()
-
-        return pwa.getDynAssetFilePath(assetDirectory)
-
-    def vSaveRecordFile(self, recordFilePath, contentDict, belong_to_project):
-        isFileExist = os.path.exists(recordFilePath)
-
-        with open(recordFilePath, "w") as f:
-            json.dump(contentDict, f, indent=4)
-
-        if isFileExist:
-            pwa.am.refreshFile(recordFilePath)
-        else:
-            if belong_to_project:
-                pwa.am.refreshProjectAssets(self.window)
-            else:
-                pwa.am.loadStatic(recordFilePath)
-
+    @staticmethod
+    def vProjectWiseAssetManager():
+        return pwa
 
 
 

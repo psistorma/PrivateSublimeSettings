@@ -2,12 +2,16 @@ import sublime
 import sublime_plugin
 from SublimeUtils import Panel # pylint: disable=F0401
 from MUtils import Str, Exp # pylint: disable=F0401
+from MUtils.FileDataSrc import Asset
 
 class IterInfo: # pylint: disable=R0903
     def __init__(self):
         self.iterNext = True
         self.iterAutoWrap = True
         self.iterHead = None
+
+class AssetType:
+    ASSET_TYPE_DUMMY, ASSET_TYPE_CONCRETE, ASSET_TYPE_VIRTUAL_FILE = range(-1, 2)
 
 class PanelAssetBaseCommand(sublime_plugin.WindowCommand):
     def __init__(self, *args):
@@ -125,18 +129,27 @@ class PanelAssetBaseCommand(sublime_plugin.WindowCommand):
     def vPrjInfo(self):
         raise NotImplementedError()
 
+
     def alignAssetKey(self, view, assets):
         ext = view.viewport_extent()
         viewportRate = (ext[0]+self.getLineNumerExt(view))/self.vOpts("screen_param")
         panelWidth = int(viewportRate * self.vOpts("panel_param"))
         assetKeys = []
         for asset in assets:
-            keyArr = asset.key.split("\n")
-            if len(keyArr) == 1:
-                assetKeys.append(keyArr[0])
-            elif len(keyArr) == 2:
-                [lkey, rkey] = keyArr
+            infoCount = len(asset.keyInfo) if asset.keyInfo else 0
+            if infoCount == 0:
+                assetKeys.append(asset.key)
+            elif infoCount == 1:
+                lkey, rkey = asset.key, asset.keyInfo[0]
                 assetKeys.append(Str.alignmentBothSide(lkey, rkey, panelWidth))
+            elif infoCount == 2:
+                lkey, rkey, tip = asset.key, asset.keyInfo[0], asset.keyInfo[1]
+                keyArr = [Str.alignmentBothSide(lkey, rkey, panelWidth)]
+                tipArr = tip.split("\n")
+                for idx in range(len(tipArr), 3):
+                    tipArr.append("")
+                keyArr.extend(tipArr[:3])
+                assetKeys.append(keyArr)
             else:
                 raise Exp.WrongCallError("key item count: {} is not support!".format(len(keyArr)))
 
@@ -144,28 +157,30 @@ class PanelAssetBaseCommand(sublime_plugin.WindowCommand):
 
     def assetFromIndex(self, index):
         if index == -1 or index == self.dummyIndex:
-            return None
+            return AssetType.ASSET_TYPE_DUMMY, None
 
         concreteAssets = self.vConcreteAssets()
         index = self.indexOfAssetMap[index]
         vitualIndex = index - len(concreteAssets)
+        assetType = AssetType.ASSET_TYPE_CONCRETE
         if vitualIndex >= 0:
             asset = self.virutalAssets[vitualIndex]
+            assetType = AssetType.ASSET_TYPE_VIRTUAL_FILE
         else:
             asset = concreteAssets[index]
 
-        return asset
+        return assetType, asset
 
     def onQuickPanelDone(self, index):
         if index == -1:
             self.vOnQuickPanelCancel()
             return
 
-        asset = self.assetFromIndex(index)
-        if asset is None:
+        assetType, asset = self.assetFromIndex(index)
+        if assetType == AssetType.ASSET_TYPE_DUMMY:
             return
 
-        self.vInvokeAsset(asset)
+        self.vInvokeAsset(asset, assetType)
         self.vPrjInfo().regItem("last_key", asset.key)
 
     def vOnQuickPanelCancel(self):
@@ -175,12 +190,12 @@ class PanelAssetBaseCommand(sublime_plugin.WindowCommand):
         key = key.lower()
         for asset in self.allAssets():
             if asset.key == key:
-                self.vInvokeAsset(asset)
+                self.vInvokeAsset(asset, AssetType.ASSET_TYPE_CONCRETE)
                 return
 
         sublime.error_message("key: {} is not found!" % key)
 
-    def vInvokeAsset(self, asset):
+    def vInvokeAsset(self, asset, assetType):
         pass
 
     def iterKey(self, iterInfo):
@@ -222,4 +237,48 @@ class PanelAssetBaseCommand(sublime_plugin.WindowCommand):
         asset = assets[curIndex]
         self.vInvokeAsset(asset)
         prjInfo.regItem("last_iterkey", asset.key, False)
+
+class PanelJsonAssetBaseCommand(PanelAssetBaseCommand):
+    def __init__(self, *args):
+        super().__init__(*args)
+
+    def vProjectWiseAssetManager(self):
+        raise NotImplementedError()
+
+    def vOpts(self, optKey):
+        return self.vProjectWiseAssetManager().opts(optKey)
+
+    def vPrjInfo(self):
+        return self.vProjectWiseAssetManager().prjInfo
+
+    def vConcreteAssets(self):
+        return self.vProjectWiseAssetManager().am.assets
+
+    def vFormatAssetFileAssetKey(self, srcFile):
+         pwa = self.vProjectWiseAssetManager()
+         pathToken = pwa.assetPathToken(srcFile)
+         cat = "key.dyn" if srcFile.isDyn else "key"
+         virtualAssetToken = pwa.opts("virtual_asset_token")
+         if pathToken:
+            key = "".join([virtualAssetToken, cat, virtualAssetToken, pathToken])
+         else:
+            key = "".join([virtualAssetToken, cat])
+
+         key = "{0}({1})".format(key, len(srcFile.assets))
+         return key
+
+    def vFormatAssetFileAssetVal(self, srcFile, key):
+        raise NotImplementedError()
+
+    def vMakeAssetFileAsset(self):
+        pwa = self.vProjectWiseAssetManager()
+        assetFileAssets = []
+        for srcFile in pwa.am.srcFiles:
+            key = self.vFormatAssetFileAssetKey(srcFile)
+            val = self.vFormatAssetFileAssetVal(srcFile, key)
+
+            key, *keyInfo = pwa.am.vBuildAssetKey(key, val, srcFile)
+            assetFileAssets.append(Asset(key, key, val, srcFile, keyInfo))
+
+        return assetFileAssets
 

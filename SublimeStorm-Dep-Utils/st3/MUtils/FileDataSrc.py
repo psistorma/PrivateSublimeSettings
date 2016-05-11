@@ -5,10 +5,11 @@ import jsoncfg
 from . import Exp, Os
 
 class Asset:
-    def __init__(self, orgKey, key, val, srcFile):
+    def __init__(self, orgKey, key, val, srcFile, keyInfo = None):
         self.orgKey = orgKey
         self.key = key
         self.val = val
+        self.keyInfo = keyInfo
         self.srcFile = srcFile
 
 class SrcObj:
@@ -45,19 +46,22 @@ class SrcFile(SrcObj):
         return self.parent
 
     def appendAsset(self, key, val):
-        alterKey = self.buildAssetKey(key, val)
-        self.items.append(Asset(key, alterKey, val, self))
+        alterKey, *keyInfo  = self.buildAssetKey(key, val)
+        self.items.append(Asset(key, alterKey, val, self, keyInfo))
 
     def reBuildAssetKey(self):
         for asset in self.assets:
             asset.key = self.buildAssetKey(asset.orgKey, asset.val)
 
     def buildAssetKey(self, key, val):
-        alterKey = self.manager.vBuildAssetKey(key, val, self)
+        alterKey, *keyInfo = self.manager.vBuildAssetKey(key, val, self)
         if alterKey is None:
             alterKey = key
 
-        return alterKey
+        retList = []
+        retList.append(alterKey)
+        retList.extend(keyInfo)
+        return retList
 
     def load(self):
         self.assets.clear()

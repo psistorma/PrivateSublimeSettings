@@ -1,10 +1,10 @@
 import os
 import sublime_plugin
 import sublime
-from SublimeUtils import Setting, Project  # pylint: disable=F0401
+from SublimeUtils import Setting, Project,WView  # pylint: disable=F0401
 from MUtils import MarkDownInfo  # pylint: disable=F0401
 from MUtils.FileDataSrc import AssetSrcManager, Asset  # pylint: disable=F0401
-from .panel_asset_base import PanelAssetBaseCommand
+from .panel_asset_base import PanelAssetBaseCommand,AssetType
 
 SKEY = "search_ref_palette"
 ps = Setting.PluginSetting(SKEY)
@@ -45,19 +45,7 @@ def initSettings():
     ps.loadWithDefault(defaultOptions, onChanged=pwa.onOptionChanged)
 
 
-class CaptureView():  # pylint: disable=R0903
-    def __init__(self):
-        self.isCapturingView = False
-        self.view = None
-
-    def onViewActivated(self, view):
-        if self.isCapturingView:
-            self.isCapturingView = False
-            self.view = view
-
-
-quickPanelView = CaptureView()
-
+quickPanelView = WView.NewGroupPane()
 
 class SearchRefPaletteEventListener(sublime_plugin.EventListener):
     @staticmethod
@@ -104,7 +92,7 @@ class RefKeyAssetManager(AssetSrcManager):
 
     def vBuildAssetCat(self, asset):
         lkey, rkey = self.vBuildAssetKey(
-            asset.orgKey, asset.val, asset.srcFile).split("\n")
+            asset.orgKey, asset.val, asset.srcFile)
         sLevel = "{:01000}".format(
             asset.val.level) if asset.val.level != 0 else "-----"
         return rkey + sLevel + lkey
@@ -122,7 +110,7 @@ class RefKeyAssetManager(AssetSrcManager):
         rkey = "{head_token}{path_token}".format(
             head_token=headToken, path_token=pathToken)
 
-        return "\n".join([lkey, rkey])
+        return [lkey, rkey]
 
 
 pwa = Project.ProjectWiseAsset(srcExt=SRC_FILE_EXT)
@@ -136,9 +124,7 @@ class SearchRefPaletteCommand(PanelAssetBaseCommand):
         super().__init__(*args)
 
     def vEndRun(self, panelData):
-        self.window.run_command(
-            "create_pane", {"direction": "down", "give_focus": False})
-        quickPanelView.isCapturingView = True
+        quickPanelView.startPane()
         return panelData
 
     @staticmethod
@@ -158,47 +144,25 @@ class SearchRefPaletteCommand(PanelAssetBaseCommand):
         return pwa.am.assets
 
     @staticmethod
-    def vMakeAssetFileAsset():
-        assetFileAssets = []
-        for srcFile in pwa.am.srcFiles:
-            cat = "key.dyn" if srcFile.isDyn else "key"
-            virtualAssetToken = pwa.opts("virtual_asset_token")
-            key = "".join([virtualAssetToken, cat])
-            val = MarkDownInfo.HeaderItem()
-            val.raw = key
-            val.lineNum = 0
-            val.level = 0
-            assetKey = pwa.am.vBuildAssetKey(key, val, srcFile)
-            assetFileAssets.append(Asset(assetKey, assetKey, val, srcFile))
-
-        return assetFileAssets
-
-    @staticmethod
-    def getStrFileWithLineNum(asset):
-        return "{0}:{1}".format(asset.srcFile.path, asset.val.lineNum)
+    def vFormatAssetFileAssetVal(srcFile, key):
+        val = MarkDownInfo.HeaderItem()
+        val.raw = key
+        val.lineNum = 0
+        val.level = 0
+        return val
 
     def onQuickPanelHighlight(self, index):
-        asset = self.assetFromIndex(index)
-        if asset is None:
+        assetType, asset = self.assetFromIndex(index)
+        if assetType == AssetType.ASSET_TYPE_DUMMY:
             return
 
-        self.window.focus_group(1)
+        quickPanelView.openFileTransient(asset.srcFile.path, asset.val.lineNum)
 
-        self.window.open_file(self.getStrFileWithLineNum(asset),
-                              sublime.TRANSIENT | sublime.ENCODED_POSITION)
-
-        self.window.focus_view(quickPanelView.view)
-        sublime.set_timeout(lambda: self.window.focus_view(quickPanelView.view), 500)
-
-    def vInvokeAsset(self, asset):
-        self.recoverPaneStatus()
+    def vInvokeAsset(self, asset, _):
+        quickPanelView.endPane()
         self.window.open_file(
             self.getStrFileWithLineNum(asset), sublime.ENCODED_POSITION)
 
     def vOnQuickPanelCancel(self):
-        self.recoverPaneStatus()
+        quickPanelView.endPane()
 
-    def recoverPaneStatus(self):
-        self.window.focus_group(0)
-        self.window.run_command("destroy_pane", {"direction": "down"})
-        sublime.quickPanelView = None
