@@ -55,9 +55,11 @@
 	[
 		"Bookmarks",
 		"GitGutter",
+		"Vintage",
+		"Anaconda",
 		"SublimeCodeIntel",
 		"SublimeLinter",
-		"Vintage"
+		"TypeScript"
 	],
 	"line_numbers": true,
 	"line_padding_bottom": 0,

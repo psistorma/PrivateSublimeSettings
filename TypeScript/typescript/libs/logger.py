@@ -17,17 +17,17 @@ _pluginRoot = path.dirname(path.dirname(path.abspath(__file__)))
 filePath = path.join(_pluginRoot, 'TS.log')
 
 log = logging.getLogger('TS')
-log.setLevel(logging.DEBUG)
+log.setLevel(logging.CRITICAL)
 
 _logFormat = logging.Formatter('%(asctime)s: %(thread)d: %(levelname)s: %(message)s')
 
 logFile = logging.FileHandler(filePath, mode='w')
-logFile.setLevel(logging.DEBUG)
+logFile.setLevel(logging.CRITICAL)
 logFile.setFormatter(_logFormat)
 log.addHandler(logFile)
 
 console = logging.StreamHandler()
-console.setLevel(logging.INFO)
+console.setLevel(logging.CRITICAL)
 console.setFormatter(_logFormat)
 log.addHandler(console)
 

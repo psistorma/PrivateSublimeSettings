@@ -8,9 +8,10 @@
 				"Bookmarks",
 				"GitGutter",
 				"Vintage",
+				"Anaconda",
 				"SublimeCodeIntel",
 				"SublimeLinter",
-                "TypeScript",
+				"TypeScript"
 			]
 		},
 		"edit syntax":
@@ -31,6 +32,17 @@
 				"Vintage"
 			]
 		},
+		"javascript":
+		{
+			"ignored_packages":
+			[
+				"Bookmarks",
+				"GitGutter",
+				"Vintage",
+				"SublimeClang",
+				"Anaconda"
+			]
+		},
 		"normal":
 		{
 			"ignored_packages":
@@ -38,6 +50,18 @@
 				"Bookmarks",
 				"GitGutter",
 				"Vintage"
+			]
+		},
+		"python":
+		{
+			"ignored_packages":
+			[
+				"Bookmarks",
+				"GitGutter",
+				"Vintage",
+				"SublimeClang",
+				"SublimeCodeIntel",
+				"TypeScript"
 			]
 		}
 	},

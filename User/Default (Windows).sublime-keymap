@@ -73,23 +73,13 @@
                     {"command": "run_emmet_action",   "args": {"action": "balance_inward"}},
                     {"command": "copy"}
                     ]
-            },"context": [
-                    {"key": "emmet_action_enabled.balance_inward"}
-            ]
+            },"context": [{"key": "emmet_action_enabled.balance_inward"} ]
     },
     {
-            "keys": [
-                            "alt+e"
-            ],
-            "args": {
-                            "action": "expand_abbreviation"
-            },
+            "keys": ["alt+e"],
+            "args": {"action": "expand_abbreviation"},
             "command": "run_emmet_action",
-            "context": [
-                            {
-                                            "key": "emmet_action_enabled.expand_abbreviation"
-                            }
-            ]
+            "context": [{"key": "emmet_action_enabled.expand_abbreviation"} ]
     },
 //Go to Definitiaon
     {"keys": ["f12"], "command": "go_to_definition", "args": {} },
@@ -102,6 +92,17 @@
                     { "key": "file_history_overlay_visible", "operator": "equal", "operand": true }
     ]},
     {"keys": ["ctrl+delete"], "command": "reset_file_history"},
+//Advance New file
+    { "keys": ["ctrl+alt+n"], "command": "advanced_new_file_new"},
+    { "keys": ["shift+ctrl+alt+n"], "command": "advanced_new_file_new", "args": {"is_python": true}},
+    {
+        "keys": ["tab"],
+        "command": "insert",
+        "args": {"characters": "\t"},
+        "context": [{
+            "key": "setting.anf_panel"
+        }]
+    },
 //__Override/__Confirm
     { "keys": ["ctrl+shift+a"], "command": "expand_selection", "args": {"to": "tag"} },
     {"keys": ["ctrl+alt+shift+p"], "command": "mul_run", "args": {
@@ -209,6 +210,22 @@
     {
       "keys": ["alt+shift+f12"], "command": "better_bookmarks_clear_all_marks",
     },
+//AutoSelect
+    {
+        "keys": ["alt+a"], "command": "auto_select", "args": {"cmd": "init"},
+        "context": [{"key": "setting.auto_select", "operand": false, "operator": "equal"}]
+    },
+    {
+        "keys": ["alt+a"], "command": "auto_select", "args": {"cmd": "merge"},
+        "context": [{"key": "setting.auto_select", "operand": true, "operator": "equal"}]
+    },
+    {
+        "keys": ["alt+a"], "command": "auto_select", "args": {"cmd": "store_emptys"},
+        "context": [
+            {"key": "setting.auto_select", "operand": true, "operator": "equal"},
+            {"key": "selection_empty", "match_all": true, "operand": true, "operator": "equal"
+        }]
+    }
 //test
     // {"keys": ["alt+t"], "command": "run_shell_cmd",  "args": {
     //     "questions": [{"key": "message", "title": "commit message",
@@ -217,5 +234,4 @@
     //     "commands": ["git add -A", "git commit -m \"{{message}}\"", "git push"],
     //     "run_opts": {"cwd": "${packages}"}}
     // },
-
 ]

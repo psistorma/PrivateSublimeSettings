@@ -213,7 +213,7 @@
       <key>name</key>
       <string>entity other ident path</string>
       <key>scope</key>
-      <string>variable.other.ident.path</string>
+      <string>variable.other.ident.path, meta.link</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>

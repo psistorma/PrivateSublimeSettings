@@ -3,9 +3,8 @@ import json
 import fn
 import sublime
 import sublime_plugin
-from SublimeUtils import Panel, Setting  # pylint: disable=F0401
-from MUtils import Str, Exp, Input, Data  # pylint: disable=F0401
-
+from SublimeUtils import Panel, Setting # pylint: disable=F0401
+from MUtils import Str, Exp, Input, Data # pylint: disable=F0401
 
 class RecordContentBaseCommand(sublime_plugin.WindowCommand):
     def __init__(self, *args):
@@ -72,7 +71,6 @@ class RecordContentBaseCommand(sublime_plugin.WindowCommand):
     def vRecordContent(self, key, content, belong_to_project):
         pass
 
-
 class RecordJsonAssetBaseCommand(RecordContentBaseCommand):
     def __init__(self, *args):
         super().__init__(*args)
@@ -102,7 +100,6 @@ class RecordJsonAssetBaseCommand(RecordContentBaseCommand):
                     "parse file:\n{0}\nerror:\n{1}".format(recordFilePath, str(e)))
 
             self.filterOutContent(contentDict, key)
-
 
         contentDict[self.vMetaSectionKey].append(content)
         self.vSaveRecordFile(recordFilePath, contentDict, belong_to_project)

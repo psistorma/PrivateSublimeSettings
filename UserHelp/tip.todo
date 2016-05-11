@@ -1,3 +1,0 @@
-view.settings().erase("color_scheme")
-
-qmake -spec win32-msvc2015 -tp vc
