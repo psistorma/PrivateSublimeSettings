@@ -142,7 +142,7 @@ class StorMOutputView(object):
             outputView.view.settings().set("result_file_regex", result_file_regex)
 
         self.view.run_command(
-            "storm_output_panel_flush",
+            "storm_output_view_flush",
             {"data": self.data,
              "erase": ps.dynOpts["erase_panel_content"],
              "scroll_end": ps.dynOpts["scroll_end"],
