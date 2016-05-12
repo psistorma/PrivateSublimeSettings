@@ -4,7 +4,7 @@ import sublime
 import sublime_plugin
 from MUtils import Data, Os, Input, Str, Exp, Thread
 from SublimeUtils import Setting, Panel
-from . import StormErrorPanel
+from . import StormOutputView
 
 SKEY = "RunShellCmd"
 ps = Setting.PluginSetting(SKEY)
@@ -139,7 +139,7 @@ class RunShellCmdCommand(sublime_plugin.WindowCommand):
 
 
     @staticmethod
-    @StormErrorPanel.fwNotify
+    @StormOutputView.fwNotify
     @Exp.fwReportException(sublime.error_message)
     def doWork(commands, run_mode, win_mode, run_opts, dyn_report_mul, **kwds):
         withErr, infos = False, []
@@ -161,10 +161,10 @@ class RunShellCmdCommand(sublime_plugin.WindowCommand):
                 secs.append(("error/notify", stderr, True))
             secs.append(("output", stdout, True))
 
-            info = StormErrorPanel.Info("success" if rc == 0 else "error", *secs)
+            info = StormOutputView.Info("success" if rc == 0 else "error", *secs)
             infos.append(info)
             if isMulCmd and dyn_report_mul and run_mode != "run":
-                StormErrorPanel.DynamicUpdate([info], **kwds)
+                StormOutputView.DynamicUpdate([info], **kwds)
 
         return (withErr, infos, kwds) if run_mode != "run" else None
 

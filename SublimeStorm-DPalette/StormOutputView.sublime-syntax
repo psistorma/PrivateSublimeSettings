@@ -1,7 +1,7 @@
 %YAML 1.2
 ---
 # http://www.sublimetext.com/docs/3/syntax.html
-name: StormErrorPanel
+name: StormOutputView
 file_extensions:
   - stormoutput
 scope: text.userstormError

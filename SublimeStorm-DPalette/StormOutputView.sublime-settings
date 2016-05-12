@@ -1,5 +1,5 @@
 {
-    "syntax_file": "Packages/SublimeStorm-DPalette/StormErrorPanel.sublime-syntax",
+    "syntax_file": "Packages/SublimeStorm-DPalette/StormOutputView.sublime-syntax",
     "default_result_file_regex": "(?i)^\\s*File\\s*:?\\s*(?:\"|')?(.+?)(?:\"|')?,\\s*line\\s*:?\\s*([0-9]+)",
     "replace_regex": {"from": "\\r(?=$)", "to": ""},
     "erase_panel_content": true,

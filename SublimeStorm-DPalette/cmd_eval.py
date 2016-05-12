@@ -4,7 +4,7 @@ import sublime
 import sublime_plugin
 from MUtils import Thread, Input, Str, Exp
 from SublimeUtils import Setting, Panel
-from . import StormErrorPanel
+from . import StormOutputView
 
 ASYNC_STATUS_KEY = "userstorm_async_code_status_key"
 class EvalPythonCodePromptCommand(sublime_plugin.WindowCommand):
@@ -58,7 +58,7 @@ class EvalPythonCodeCommand(sublime_plugin.WindowCommand):
         if self.asncCmdCount == 0:
             view.erase_status(ASYNC_STATUS_KEY)
 
-    @StormErrorPanel.fwNotify
+    @StormOutputView.fwNotify
     @Exp.fwReportException(sublime.error_message)
     def doWork(self, **kwds):
         evalCode, = Setting.expandVariables(self.window, self.code)
@@ -77,7 +77,7 @@ class EvalPythonCodeCommand(sublime_plugin.WindowCommand):
             secs.append(("output info", str(ret), True))
 
         infos = []
-        infos.append(StormErrorPanel.Info("success" if err is None else "error", *secs))
+        infos.append(StormOutputView.Info("success" if err is None else "error", *secs))
 
         return err is not None, infos, kwds
 
