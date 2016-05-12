@@ -1,5 +1,6 @@
 import subprocess
 import os
+import tempfile
 from . import Call, sargeWrapper
 
 def expandVariables(*strs):
@@ -59,3 +60,38 @@ def promiseDirectory(dirPath):
         return
 
     os.makedirs(dirPath)
+
+class TmpFile:
+    def __init__(self):
+        self.fd = None
+        self.path = None
+        self.file = None
+
+    def makeTmpFile(self, **kwds):
+        self.purgeFile()
+        self.fd, self.path = tempfile.mkstemp(**kwds)
+        self.file = open(self.path, "w")
+
+    def write(self, sContent):
+        self.file.write(sContent)
+
+    def close(self):
+        self.file.close()
+        self.file = None
+        os.close(self.fd)
+        self.fd = None
+
+    def purgeFile(self):
+        if self.file is not None:
+            self.file.close()
+            self.file = None
+
+        if self.fd is not None:
+            os.close(self.fd)
+            self.fd = None
+
+        if self.path is not None:
+            os.remove(self.path)
+            self.path = None
+
+

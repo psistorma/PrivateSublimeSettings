@@ -10,6 +10,7 @@ Asset	.\cmd_search_ref_palette.py	/^from MUtils.FileDataSrc import AssetSrcManag
 Asset	.\panel_asset_base.py	/^from MUtils.FileDataSrc import Asset$/;"	i
 AssetSrcManager	.\cmd_search_ref_palette.py	/^from MUtils.FileDataSrc import AssetSrcManager, Asset  # pylint: disable=F0401$/;"	i
 AssetType	.\cmd_clipboard_palette.py	/^from .panel_asset_base import PanelJsonAssetBaseCommand, AssetType$/;"	i
+AssetType	.\cmd_search_ref_palette.py	/^from .panel_asset_base import PanelAssetBaseCommand,AssetType$/;"	i
 AssetType	.\panel_asset_base.py	/^class AssetType:$/;"	c
 ClipboardAssetManager	.\cmd_clipboard_palette.py	/^class ClipboardAssetManager(JsonAssetSrcManager):$/;"	c
 ClipboardPaletteCommand	.\cmd_clipboard_palette.py	/^class ClipboardPaletteCommand(PanelJsonAssetBaseCommand):$/;"	c
@@ -19,7 +20,7 @@ Context	.\cmd_clipboard_palette.py	/^from SublimeUtils.Context import Context # 
 Context	.\cmd_storm_palette.py	/^from SublimeUtils.Context import Context # pylint: disable=F0401$/;"	i
 Data	.\cmd_run_shell.py	/^from MUtils import Data, Os, Input, Str, Exp, Thread$/;"	i
 Data	.\record_base.py	/^from MUtils import Str, Exp, Input, Data # pylint: disable=F0401$/;"	i
-DynamicUpdate	.\StormErrorPanel.py	/^def DynamicUpdate(infos, **notifyKwds):$/;"	f
+DynamicUpdate	.\StormOutputView.py	/^def DynamicUpdate(infos, **notifyKwds):$/;"	f
 EvalPythonCodeCommand	.\cmd_eval.py	/^class EvalPythonCodeCommand(sublime_plugin.WindowCommand):$/;"	c
 EvalPythonCodePromptCommand	.\cmd_eval.py	/^class EvalPythonCodePromptCommand(sublime_plugin.WindowCommand):$/;"	c
 Exp	.\cmd_eval.py	/^from MUtils import Thread, Input, Str, Exp$/;"	i
@@ -27,6 +28,7 @@ Exp	.\cmd_run_shell.py	/^from MUtils import Data, Os, Input, Str, Exp, Thread$/;
 Exp	.\cmd_snippet_base.py	/^from MUtils import Exp$/;"	i
 Exp	.\panel_asset_base.py	/^from MUtils import Str, Exp # pylint: disable=F0401$/;"	i
 Exp	.\record_base.py	/^from MUtils import Str, Exp, Input, Data # pylint: disable=F0401$/;"	i
+F0401	.\cmd_clipboard_palette.py	/^from MUtils import Os # pylint: disable=F0401$/;"	i
 F0401	.\cmd_clipboard_palette.py	/^from MUtils.FileDataSrc import JsonAssetSrcManager # pylint: disable=F0401$/;"	i
 F0401	.\cmd_clipboard_palette.py	/^from SublimeUtils import Setting, Project, WView # pylint: disable=F0401$/;"	i
 F0401	.\cmd_clipboard_palette.py	/^from SublimeUtils.Context import Context # pylint: disable=F0401$/;"	i
@@ -40,9 +42,10 @@ F0401	.\panel_asset_base.py	/^from MUtils import Str, Exp # pylint: disable=F040
 F0401	.\panel_asset_base.py	/^from SublimeUtils import Panel # pylint: disable=F0401$/;"	i
 F0401	.\record_base.py	/^from MUtils import Str, Exp, Input, Data # pylint: disable=F0401$/;"	i
 F0401	.\record_base.py	/^from SublimeUtils import Panel, Setting # pylint: disable=F0401$/;"	i
-FILL_CHAR	.\StormErrorPanel.py	/^    FILL_CHAR = "*"$/;"	v	class:Info
-Info	.\StormErrorPanel.py	/^class Info(object):$/;"	c
-InfoSection	.\StormErrorPanel.py	/^InfoSection = namedtuple("InfoSection", "title, content, isOutput")$/;"	v
+FILL_CHAR	.\StormOutputView.py	/^    FILL_CHAR = "*"$/;"	v	class:Info
+Info	.\StormOutputView.py	/^class Info(object):$/;"	c
+Info	.\cmd_clipboard_palette.py	/^from .StormOutputView import Info$/;"	i
+InfoSection	.\StormOutputView.py	/^InfoSection = namedtuple("InfoSection", "title, content, isOutput")$/;"	v
 Input	.\cmd_eval.py	/^from MUtils import Thread, Input, Str, Exp$/;"	i
 Input	.\cmd_run_shell.py	/^from MUtils import Data, Os, Input, Str, Exp, Thread$/;"	i
 Input	.\record_base.py	/^from MUtils import Str, Exp, Input, Data # pylint: disable=F0401$/;"	i
@@ -53,13 +56,14 @@ ManageSnippetBaseCommand	.\cmd_snippet_base.py	/^class ManageSnippetBaseCommand(
 MarkDownInfo	.\cmd_search_ref_palette.py	/^from MUtils import MarkDownInfo  # pylint: disable=F0401$/;"	i
 MulRunCommand	.\cmd_mul_run.py	/^class MulRunCommand(sublime_plugin.TextCommand):$/;"	c
 MulRunWindowCommand	.\cmd_mul_run.py	/^class MulRunWindowCommand(sublime_plugin.WindowCommand):$/;"	c
+Os	.\cmd_clipboard_palette.py	/^from MUtils import Os # pylint: disable=F0401$/;"	i
 Os	.\cmd_run_shell.py	/^from MUtils import Data, Os, Input, Str, Exp, Thread$/;"	i
 PalAssetManager	.\cmd_storm_palette.py	/^class PalAssetManager(JsonAssetSrcManager):$/;"	c
 Panel	.\cmd_eval.py	/^from SublimeUtils import Setting, Panel$/;"	i
 Panel	.\cmd_run_shell.py	/^from SublimeUtils import Setting, Panel$/;"	i
 Panel	.\panel_asset_base.py	/^from SublimeUtils import Panel # pylint: disable=F0401$/;"	i
 Panel	.\record_base.py	/^from SublimeUtils import Panel, Setting # pylint: disable=F0401$/;"	i
-PanelAssetBaseCommand	.\cmd_search_ref_palette.py	/^from .panel_asset_base import PanelAssetBaseCommand$/;"	i
+PanelAssetBaseCommand	.\cmd_search_ref_palette.py	/^from .panel_asset_base import PanelAssetBaseCommand,AssetType$/;"	i
 PanelAssetBaseCommand	.\panel_asset_base.py	/^class PanelAssetBaseCommand(sublime_plugin.WindowCommand):$/;"	c
 PanelJsonAssetBaseCommand	.\cmd_clipboard_palette.py	/^from .panel_asset_base import PanelJsonAssetBaseCommand, AssetType$/;"	i
 PanelJsonAssetBaseCommand	.\cmd_storm_palette.py	/^from .panel_asset_base import PanelJsonAssetBaseCommand$/;"	i
@@ -76,31 +80,31 @@ RecordJsonAssetBaseCommand	.\record_base.py	/^class RecordJsonAssetBaseCommand(R
 RefKeyAssetManager	.\cmd_search_ref_palette.py	/^class RefKeyAssetManager(AssetSrcManager):$/;"	c
 RunShellCmdCommand	.\cmd_run_shell.py	/^class RunShellCmdCommand(sublime_plugin.WindowCommand):$/;"	c
 RunShellCmdPromptCommand	.\cmd_run_shell.py	/^class RunShellCmdPromptCommand(sublime_plugin.WindowCommand):$/;"	c
-SECTION_FILL_CHAR	.\StormErrorPanel.py	/^    SECTION_FILL_CHAR = "-"$/;"	v	class:Info
-SKEY	.\StormErrorPanel.py	/^SKEY = "StormErrorPanel"$/;"	v
+SECTION_FILL_CHAR	.\StormOutputView.py	/^    SECTION_FILL_CHAR = "-"$/;"	v	class:Info
+SKEY	.\StormOutputView.py	/^SKEY = "StormOutputView"$/;"	v
 SKEY	.\cmd_clipboard_palette.py	/^SKEY = "clipboard_palette"$/;"	v
 SKEY	.\cmd_run_shell.py	/^SKEY = "RunShellCmd"$/;"	v
 SKEY	.\cmd_search_ref_palette.py	/^SKEY = "search_ref_palette"$/;"	v
 SKEY	.\cmd_storm_palette.py	/^SKEY = "storm_palette"$/;"	v
-SRC_FILE_EXT	.\cmd_clipboard_palette.py	/^SRC_FILE_EXT = ".clipboard.key"$/;"	v
+SRC_FILE_EXT	.\cmd_clipboard_palette.py	/^SRC_FILE_EXT = ".clipboard.json"$/;"	v
 SRC_FILE_EXT	.\cmd_search_ref_palette.py	/^SRC_FILE_EXT = ".ref.md"$/;"	v
 SRC_FILE_EXT	.\cmd_storm_palette.py	/^SRC_FILE_EXT = ".stormpal.key"$/;"	v
 SRC_RAW_FILE_EXT	.\cmd_search_ref_palette.py	/^SRC_RAW_FILE_EXT = ".raw.ref.md"$/;"	v
 SearchRefPaletteCommand	.\cmd_search_ref_palette.py	/^class SearchRefPaletteCommand(PanelAssetBaseCommand):$/;"	c
 SearchRefPaletteEventListener	.\cmd_search_ref_palette.py	/^class SearchRefPaletteEventListener(sublime_plugin.EventListener):$/;"	c
-Setting	.\StormErrorPanel.py	/^from SublimeUtils import Setting$/;"	i
+Setting	.\StormOutputView.py	/^from SublimeUtils import Setting$/;"	i
 Setting	.\cmd_clipboard_palette.py	/^from SublimeUtils import Setting, Project, WView # pylint: disable=F0401$/;"	i
 Setting	.\cmd_eval.py	/^from SublimeUtils import Setting, Panel$/;"	i
 Setting	.\cmd_run_shell.py	/^from SublimeUtils import Setting, Panel$/;"	i
 Setting	.\cmd_search_ref_palette.py	/^from SublimeUtils import Setting, Project,WView  # pylint: disable=F0401$/;"	i
 Setting	.\cmd_storm_palette.py	/^from SublimeUtils import Setting, Project # pylint: disable=F0401$/;"	i
 Setting	.\record_base.py	/^from SublimeUtils import Panel, Setting # pylint: disable=F0401$/;"	i
-StorMErrorPanel	.\StormErrorPanel.py	/^class StorMErrorPanel(object):$/;"	c
+StorMOutputView	.\StormOutputView.py	/^class StorMOutputView(object):$/;"	c
 StormErrorPanel	.\cmd_eval.py	/^from . import StormErrorPanel$/;"	i
 StormErrorPanel	.\cmd_run_shell.py	/^from . import StormErrorPanel$/;"	i
-StormErrorPanelFlushCommand	.\StormErrorPanel.py	/^class StormErrorPanelFlushCommand(sublime_plugin.TextCommand):$/;"	c
-StormErrorPanelHideCommand	.\StormErrorPanel.py	/^class StormErrorPanelHideCommand(sublime_plugin.TextCommand):$/;"	c
-StormErrorPanelShowCommand	.\StormErrorPanel.py	/^class StormErrorPanelShowCommand(sublime_plugin.WindowCommand):$/;"	c
+StormOutputViewFlushCommand	.\StormOutputView.py	/^class StormOutputViewFlushCommand(sublime_plugin.TextCommand):$/;"	c
+StormOutputViewHideCommand	.\StormOutputView.py	/^class StormOutputViewHideCommand(sublime_plugin.TextCommand):$/;"	c
+StormOutputViewShowCommand	.\StormOutputView.py	/^class StormOutputViewShowCommand(sublime_plugin.WindowCommand):$/;"	c
 StormPaletteCommand	.\cmd_storm_palette.py	/^class StormPaletteCommand(PanelJsonAssetBaseCommand):$/;"	c
 StormPaletteEventListener	.\cmd_storm_palette.py	/^class StormPaletteEventListener(sublime_plugin.EventListener):$/;"	c
 StormPaletteRecordCommand	.\cmd_storm_palette.py	/^class StormPaletteRecordCommand(ProjectWiseJsonAssetRecordBaseCommand):$/;"	c
@@ -110,13 +114,11 @@ Str	.\panel_asset_base.py	/^from MUtils import Str, Exp # pylint: disable=F0401$
 Str	.\record_base.py	/^from MUtils import Str, Exp, Input, Data # pylint: disable=F0401$/;"	i
 Thread	.\cmd_eval.py	/^from MUtils import Thread, Input, Str, Exp$/;"	i
 Thread	.\cmd_run_shell.py	/^from MUtils import Data, Os, Input, Str, Exp, Thread$/;"	i
-TmpFile	.\cmd_clipboard_palette.py	/^class TmpFile:$/;"	c
-WIDTH	.\StormErrorPanel.py	/^    WIDTH = 80$/;"	v	class:Info
+WIDTH	.\StormOutputView.py	/^    WIDTH = 80$/;"	v	class:Info
 WView	.\cmd_clipboard_palette.py	/^from SublimeUtils import Setting, Project, WView # pylint: disable=F0401$/;"	i
 WView	.\cmd_search_ref_palette.py	/^from SublimeUtils import Setting, Project,WView  # pylint: disable=F0401$/;"	i
-__init__	.\StormErrorPanel.py	/^    def __init__(self):$/;"	m	class:StorMErrorPanel
-__init__	.\StormErrorPanel.py	/^    def __init__(self, header, *sections):$/;"	m	class:Info
-__init__	.\cmd_clipboard_palette.py	/^    def __init__(self):$/;"	m	class:TmpFile
+__init__	.\StormOutputView.py	/^    def __init__(self):$/;"	m	class:StorMOutputView
+__init__	.\StormOutputView.py	/^    def __init__(self, header, *sections):$/;"	m	class:Info
 __init__	.\cmd_clipboard_palette.py	/^    def __init__(self, *arg, **kwds):$/;"	m	class:ClipboardAssetManager
 __init__	.\cmd_clipboard_palette.py	/^    def __init__(self, *args):$/;"	m	class:ClipboardPaletteCommand
 __init__	.\cmd_clipboard_palette.py	/^    def __init__(self, *args):$/;"	m	class:ClipboardPaletteRecordCommand
@@ -141,7 +143,8 @@ _transform	.\cmd_snippet_base.py	/^    def _transform(self):$/;"	m	class:ManageS
 alignAssetKey	.\panel_asset_base.py	/^    def alignAssetKey(self, view, assets):$/;"	m	class:PanelAssetBaseCommand
 allAssets	.\panel_asset_base.py	/^    def allAssets(self):$/;"	m	class:PanelAssetBaseCommand
 assetFromIndex	.\panel_asset_base.py	/^    def assetFromIndex(self, index):$/;"	m	class:PanelAssetBaseCommand
-close	.\StormErrorPanel.py	/^    def close():$/;"	m	class:StorMErrorPanel
+close	.\StormOutputView.py	/^    def close():$/;"	m	class:StorMOutputView
+disable	.\cmd_clipboard_palette.py	/^from MUtils import Os # pylint: disable=F0401$/;"	i
 disable	.\cmd_clipboard_palette.py	/^from MUtils.FileDataSrc import JsonAssetSrcManager # pylint: disable=F0401$/;"	i
 disable	.\cmd_clipboard_palette.py	/^from SublimeUtils import Setting, Project, WView # pylint: disable=F0401$/;"	i
 disable	.\cmd_clipboard_palette.py	/^from SublimeUtils.Context import Context # pylint: disable=F0401$/;"	i
@@ -159,40 +162,36 @@ doWork	.\cmd_eval.py	/^    def doWork(self, **kwds):$/;"	m	class:EvalPythonCodeC
 doWork	.\cmd_run_shell.py	/^    def doWork(commands, run_mode, win_mode, run_opts, dyn_report_mul, **kwds):$/;"	m	class:RunShellCmdCommand
 doWorkAsnc	.\cmd_eval.py	/^    def doWorkAsnc(self, view, **kwds):$/;"	m	class:EvalPythonCodeCommand
 doWorkAsnc	.\cmd_run_shell.py	/^    def doWorkAsnc(self, view, workParams, **kwds):$/;"	m	class:RunShellCmdCommand
-errorPanel	.\StormErrorPanel.py	/^errorPanel = StorMErrorPanel()$/;"	v
 exec_command	.\cmd_mul_run.py	/^    def exec_command(self, command):$/;"	m	class:MulRunCommand
 exec_command	.\cmd_mul_run.py	/^    def exec_command(self, command):$/;"	m	class:MulRunWindowCommand
 filterAssets	.\panel_asset_base.py	/^    def filterAssets(self, view, assets):$/;"	m	class:PanelAssetBaseCommand
 filterOutContent	.\record_base.py	/^    def filterOutContent(self, contentDict, key):$/;"	m	class:RecordJsonAssetBaseCommand
-flush	.\StormErrorPanel.py	/^    def flush(self):$/;"	m	class:StorMErrorPanel
+flush	.\StormOutputView.py	/^    def flush(self):$/;"	m	class:StorMOutputView
 fn	.\cmd_eval.py	/^import fn$/;"	i
 fn	.\cmd_run_shell.py	/^import fn$/;"	i
 fn	.\record_base.py	/^import fn$/;"	i
-formatHeaderLine	.\StormErrorPanel.py	/^    def formatHeaderLine(self):$/;"	m	class:Info
-formatSectionHeader	.\StormErrorPanel.py	/^    def formatSectionHeader(title):$/;"	m	class:Info
-formatSectionLines	.\StormErrorPanel.py	/^    def formatSectionLines(sec):$/;"	m	class:Info
-formatTolineData	.\StormErrorPanel.py	/^    def formatTolineData(infos):$/;"	m	class:StorMErrorPanel
-ft	.\StormErrorPanel.py	/^import functools as ft$/;"	i
-fwNotify	.\StormErrorPanel.py	/^def fwNotify(f):$/;"	f
+formatHeaderLine	.\StormOutputView.py	/^    def formatHeaderLine(self):$/;"	m	class:Info
+formatSectionHeader	.\StormOutputView.py	/^    def formatSectionHeader(title):$/;"	m	class:Info
+formatSectionLines	.\StormOutputView.py	/^    def formatSectionLines(sec):$/;"	m	class:Info
+formatTolineData	.\StormOutputView.py	/^    def formatTolineData(infos):$/;"	m	class:StorMOutputView
+ft	.\StormOutputView.py	/^import functools as ft$/;"	i
+fwNotify	.\StormOutputView.py	/^def fwNotify(f):$/;"	f
 getLineNumerExt	.\panel_asset_base.py	/^    def getLineNumerExt(view):$/;"	m	class:PanelAssetBaseCommand
-getStrFileWithLineNum	.\cmd_clipboard_palette.py	/^    def getStrFileWithLineNum(filepath, num):$/;"	m	class:ClipboardPaletteCommand
-getStrFileWithLineNum	.\cmd_search_ref_palette.py	/^    def getStrFileWithLineNum(asset):$/;"	m	class:SearchRefPaletteCommand
-get_view	.\StormErrorPanel.py	/^    def get_view(self):$/;"	m	class:StorMErrorPanel
-hasOutput	.\StormErrorPanel.py	/^    def hasOutput(self):$/;"	m	class:Info
-initSettings	.\StormErrorPanel.py	/^def initSettings():$/;"	f
+get_view	.\StormOutputView.py	/^    def get_view(self):$/;"	m	class:StorMOutputView
+hasOutput	.\StormOutputView.py	/^    def hasOutput(self):$/;"	m	class:Info
+initSettings	.\StormOutputView.py	/^def initSettings():$/;"	f
 initSettings	.\cmd_clipboard_palette.py	/^def initSettings():$/;"	f
 initSettings	.\cmd_run_shell.py	/^def initSettings():$/;"	f
 initSettings	.\cmd_search_ref_palette.py	/^def initSettings():$/;"	f
 initSettings	.\cmd_storm_palette.py	/^def initSettings():$/;"	f
 invokeKey	.\panel_asset_base.py	/^    def invokeKey(self, key):$/;"	m	class:PanelAssetBaseCommand
-isVisible	.\StormErrorPanel.py	/^    def isVisible(window=None):$/;"	m	class:StorMErrorPanel
+isVisible	.\StormOutputView.py	/^    def isVisible(window=None):$/;"	m	class:StorMOutputView
 iterKey	.\panel_asset_base.py	/^    def iterKey(self, iterInfo):$/;"	m	class:PanelAssetBaseCommand
 json	.\cmd_clipboard_palette.py	/^import json$/;"	i
 json	.\cmd_storm_palette.py	/^import json$/;"	i
 json	.\record_base.py	/^import json$/;"	i
-makeTmpFile	.\cmd_clipboard_palette.py	/^    def makeTmpFile(self):$/;"	m	class:TmpFile
 makeVirtualAssets	.\panel_asset_base.py	/^    def makeVirtualAssets(self):$/;"	m	class:PanelAssetBaseCommand
-namedtuple	.\StormErrorPanel.py	/^from collections import namedtuple$/;"	i
+namedtuple	.\StormOutputView.py	/^from collections import namedtuple$/;"	i
 needTransf	.\record_base.py	/^    def needTransf(self, obj, isKey):$/;"	m	class:RecordContentBaseCommand
 onGotInput	.\cmd_eval.py	/^    def onGotInput(self, content):$/;"	m	class:EvalPythonCodePromptCommand
 onGotInput	.\cmd_run_shell.py	/^    def onGotInput(self, content):$/;"	m	class:RunShellCmdPromptCommand
@@ -209,30 +208,31 @@ on_post_save_async	.\cmd_search_ref_palette.py	/^    def on_post_save_async(view
 on_post_save_async	.\cmd_storm_palette.py	/^    def on_post_save_async(view):$/;"	m	class:StormPaletteEventListener
 opGetBase	.\cmd_snippet_base.py	/^    def opGetBase(self, args):$/;"	m	class:ManageSnippetBaseCommand
 opSetBase	.\cmd_snippet_base.py	/^    def opSetBase(self):$/;"	m	class:ManageSnippetBaseCommand
-open	.\StormErrorPanel.py	/^    def open(self, window=None):$/;"	m	class:StorMErrorPanel
+open	.\StormOutputView.py	/^    def open(self, window=None):$/;"	m	class:StorMOutputView
 os	.\cmd_clipboard_palette.py	/^import os$/;"	i
 os	.\cmd_search_ref_palette.py	/^import os$/;"	i
 os	.\cmd_storm_palette.py	/^import os$/;"	i
 os	.\record_base.py	/^import os$/;"	i
-plugin_loaded	.\StormErrorPanel.py	/^def plugin_loaded():$/;"	f
+outputView	.\StormOutputView.py	/^outputView = StorMOutputView()$/;"	v
+plugin_loaded	.\StormOutputView.py	/^def plugin_loaded():$/;"	f
 plugin_loaded	.\cmd_clipboard_palette.py	/^def plugin_loaded():$/;"	f
 plugin_loaded	.\cmd_run_shell.py	/^def plugin_loaded():$/;"	f
 plugin_loaded	.\cmd_search_ref_palette.py	/^def plugin_loaded():$/;"	f
 plugin_loaded	.\cmd_storm_palette.py	/^def plugin_loaded():$/;"	f
-plugin_unloaded	.\StormErrorPanel.py	/^def plugin_unloaded():$/;"	f
+plugin_unloaded	.\StormOutputView.py	/^def plugin_unloaded():$/;"	f
 plugin_unloaded	.\cmd_clipboard_palette.py	/^def plugin_unloaded():$/;"	f
 plugin_unloaded	.\cmd_run_shell.py	/^def plugin_unloaded():$/;"	f
 plugin_unloaded	.\cmd_search_ref_palette.py	/^def plugin_unloaded():$/;"	f
 plugin_unloaded	.\cmd_storm_palette.py	/^def plugin_unloaded():$/;"	f
-ps	.\StormErrorPanel.py	/^ps = Setting.PluginSetting(SKEY)$/;"	v
+ps	.\StormOutputView.py	/^ps = Setting.PluginSetting(SKEY)$/;"	v
 ps	.\cmd_clipboard_palette.py	/^ps = Setting.PluginSetting(SKEY)$/;"	v
 ps	.\cmd_run_shell.py	/^ps = Setting.PluginSetting(SKEY)$/;"	v
 ps	.\cmd_search_ref_palette.py	/^ps = Setting.PluginSetting(SKEY)$/;"	v
 ps	.\cmd_storm_palette.py	/^ps = Setting.PluginSetting(SKEY)$/;"	v
-purgeFile	.\cmd_clipboard_palette.py	/^    def purgeFile(self):$/;"	m	class:TmpFile
 pwa	.\cmd_clipboard_palette.py	/^pwa = Project.ProjectWiseAsset(srcExt=SRC_FILE_EXT)$/;"	v
 pwa	.\cmd_search_ref_palette.py	/^pwa = Project.ProjectWiseAsset(srcExt=SRC_FILE_EXT)$/;"	v
 pwa	.\cmd_storm_palette.py	/^pwa = Project.ProjectWiseAsset(srcExt=SRC_FILE_EXT)$/;"	v
+pylint	.\cmd_clipboard_palette.py	/^from MUtils import Os # pylint: disable=F0401$/;"	i
 pylint	.\cmd_clipboard_palette.py	/^from MUtils.FileDataSrc import JsonAssetSrcManager # pylint: disable=F0401$/;"	i
 pylint	.\cmd_clipboard_palette.py	/^from SublimeUtils import Setting, Project, WView # pylint: disable=F0401$/;"	i
 pylint	.\cmd_clipboard_palette.py	/^from SublimeUtils.Context import Context # pylint: disable=F0401$/;"	i
@@ -246,17 +246,15 @@ pylint	.\panel_asset_base.py	/^from MUtils import Str, Exp # pylint: disable=F04
 pylint	.\panel_asset_base.py	/^from SublimeUtils import Panel # pylint: disable=F0401$/;"	i
 pylint	.\record_base.py	/^from MUtils import Str, Exp, Input, Data # pylint: disable=F0401$/;"	i
 pylint	.\record_base.py	/^from SublimeUtils import Panel, Setting # pylint: disable=F0401$/;"	i
-quickPanelView	.\cmd_clipboard_palette.py	/^quickPanelView = WView.CaptureView()$/;"	v
-quickPanelView	.\cmd_search_ref_palette.py	/^quickPanelView = WView.CaptureView()$/;"	v
-re	.\StormErrorPanel.py	/^import re$/;"	i
+quickPanelView	.\cmd_clipboard_palette.py	/^quickPanelView = WView.NewGroupPane("right")$/;"	v
+quickPanelView	.\cmd_search_ref_palette.py	/^quickPanelView = WView.NewGroupPane()$/;"	v
+re	.\StormOutputView.py	/^import re$/;"	i
 re	.\cmd_run_shell.py	/^import re$/;"	i
 re	.\cmd_snippet_base.py	/^import re$/;"	i
-recoverPaneStatus	.\cmd_clipboard_palette.py	/^    def recoverPaneStatus(self):$/;"	m	class:ClipboardPaletteCommand
-recoverPaneStatus	.\cmd_search_ref_palette.py	/^    def recoverPaneStatus(self):$/;"	m	class:SearchRefPaletteCommand
 regionToItems	.\cmd_snippet_base.py	/^    def regionToItems(sRegion):$/;"	m	class:ManageSnippetBaseCommand
-run	.\StormErrorPanel.py	/^    def run(self, **kwds):$/;"	m	class:StormErrorPanelShowCommand
-run	.\StormErrorPanel.py	/^    def run(self, edit):$/;"	m	class:StormErrorPanelHideCommand
-run	.\StormErrorPanel.py	/^    def run(self, edit, **kwds):$/;"	m	class:StormErrorPanelFlushCommand
+run	.\StormOutputView.py	/^    def run(self, **kwds):$/;"	m	class:StormOutputViewShowCommand
+run	.\StormOutputView.py	/^    def run(self, edit):$/;"	m	class:StormOutputViewHideCommand
+run	.\StormOutputView.py	/^    def run(self, edit, **kwds):$/;"	m	class:StormOutputViewFlushCommand
 run	.\cmd_eval.py	/^    def run(self, **kwds):$/;"	m	class:EvalPythonCodePromptCommand
 run	.\cmd_eval.py	/^    def run(self, qAndaDict=None, **kwds):$/;"	m	class:EvalPythonCodeCommand
 run	.\cmd_mul_run.py	/^    def run(self, **args):$/;"	m	class:MulRunWindowCommand
@@ -267,7 +265,7 @@ run	.\cmd_run_shell.py	/^    def run(self, qAndaDict=None, **kwds):$/;"	m	class:
 run	.\cmd_snippet_base.py	/^    def run(self, **args):$/;"	m	class:ManageSnippetBaseCommand
 run	.\panel_asset_base.py	/^    def run(self, **kwds):$/;"	m	class:PanelAssetBaseCommand
 run	.\record_base.py	/^    def run(self, qAndaDict=None, **kwds):$/;"	m	class:RecordContentBaseCommand
-sublime	.\StormErrorPanel.py	/^import sublime$/;"	i
+sublime	.\StormOutputView.py	/^import sublime$/;"	i
 sublime	.\cmd_clipboard_palette.py	/^import sublime$/;"	i
 sublime	.\cmd_eval.py	/^import sublime$/;"	i
 sublime	.\cmd_mul_run.py	/^import sublime$/;"	i
@@ -277,7 +275,7 @@ sublime	.\cmd_snippet_base.py	/^import sublime$/;"	i
 sublime	.\cmd_storm_palette.py	/^import sublime$/;"	i
 sublime	.\panel_asset_base.py	/^import sublime$/;"	i
 sublime	.\record_base.py	/^import sublime$/;"	i
-sublime_plugin	.\StormErrorPanel.py	/^import sublime_plugin$/;"	i
+sublime_plugin	.\StormOutputView.py	/^import sublime_plugin$/;"	i
 sublime_plugin	.\cmd_clipboard_palette.py	/^import sublime_plugin$/;"	i
 sublime_plugin	.\cmd_eval.py	/^import sublime_plugin$/;"	i
 sublime_plugin	.\cmd_mul_run.py	/^import sublime_plugin$/;"	i
@@ -287,12 +285,12 @@ sublime_plugin	.\cmd_snippet_base.py	/^import sublime_plugin$/;"	i
 sublime_plugin	.\cmd_storm_palette.py	/^import sublime_plugin$/;"	i
 sublime_plugin	.\panel_asset_base.py	/^import sublime_plugin$/;"	i
 sublime_plugin	.\record_base.py	/^import sublime_plugin$/;"	i
-tempfile	.\cmd_clipboard_palette.py	/^import tempfile$/;"	i
-tmpShowFile	.\cmd_clipboard_palette.py	/^tmpShowFile = TmpFile()$/;"	v
+tmpShowFile	.\cmd_clipboard_palette.py	/^tmpShowFile = Os.TmpFile()$/;"	v
 traceback	.\cmd_eval.py	/^import traceback$/;"	i
 transf	.\record_base.py	/^    def transf(self, obj, _):$/;"	m	class:RecordContentBaseCommand
-update	.\StormErrorPanel.py	/^    def update(self, *, data=None, window=None, show=True):$/;"	m	class:StorMErrorPanel
-updateData	.\StormErrorPanel.py	/^    def updateData(self, data):$/;"	m	class:StorMErrorPanel
+update	.\StormOutputView.py	/^    def update(self, *, data=None, window=None, show=True):$/;"	m	class:StorMOutputView
+updateData	.\StormOutputView.py	/^    def updateData(self, data):$/;"	m	class:StorMOutputView
+vBeginRun	.\cmd_clipboard_palette.py	/^    def vBeginRun(self, **kwds):$/;"	m	class:ClipboardPaletteCommand
 vBeginRun	.\panel_asset_base.py	/^    def vBeginRun(self, **kwds):$/;"	m	class:PanelAssetBaseCommand
 vBuildAssetCat	.\cmd_search_ref_palette.py	/^    def vBuildAssetCat(self, asset):$/;"	m	class:RefKeyAssetManager
 vBuildAssetKey	.\cmd_clipboard_palette.py	/^    def vBuildAssetKey(key, val, srcFile):$/;"	m	class:ClipboardAssetManager
@@ -318,7 +316,7 @@ vGetRecordFilePath	.\record_base.py	/^    def vGetRecordFilePath(self, belong_to
 vInvokeAsset	.\cmd_clipboard_palette.py	/^    def vInvokeAsset(self, asset, assetType):$/;"	m	class:ClipboardPaletteCommand
 vInvokeAsset	.\cmd_search_ref_palette.py	/^    def vInvokeAsset(self, asset, _):$/;"	m	class:SearchRefPaletteCommand
 vInvokeAsset	.\cmd_storm_palette.py	/^    def vInvokeAsset(self, asset, _):$/;"	m	class:StormPaletteCommand
-vInvokeAsset	.\panel_asset_base.py	/^    def vInvokeAsset(self, asset=AssetType.ASSET_TYPE_CONCRETE):$/;"	m	class:PanelAssetBaseCommand
+vInvokeAsset	.\panel_asset_base.py	/^    def vInvokeAsset(self, asset, assetType):$/;"	m	class:PanelAssetBaseCommand
 vIsDynFile	.\cmd_clipboard_palette.py	/^    def vIsDynFile(srcFilePath):$/;"	m	class:ClipboardAssetManager
 vIsDynFile	.\cmd_storm_palette.py	/^    def vIsDynFile(srcFilePath):$/;"	m	class:PalAssetManager
 vMakeAssetFileAsset	.\panel_asset_base.py	/^    def vMakeAssetFileAsset():$/;"	m	class:PanelAssetBaseCommand
@@ -354,5 +352,5 @@ vReportStatus	.\cmd_search_ref_palette.py	/^    def vReportStatus(message):$/;"	
 vReportStatus	.\cmd_storm_palette.py	/^    def vReportStatus(message):$/;"	m	class:PalAssetManager
 vSaveRecordFile	.\record_base.py	/^    def vSaveRecordFile(self, recordFilePath, contentDict, belong_to_project):$/;"	m	class:ProjectWiseJsonAssetRecordBaseCommand
 vSaveRecordFile	.\record_base.py	/^    def vSaveRecordFile(self, recordFilePath, contentDict, belong_to_project):$/;"	m	class:RecordJsonAssetBaseCommand
-wrapTitle	.\StormErrorPanel.py	/^    def wrapTitle(cls, title):$/;"	m	class:Info
-wrapper	.\StormErrorPanel.py	/^    def wrapper(*args, **kwds):$/;"	f	function:fwNotify
+wrapTitle	.\StormOutputView.py	/^    def wrapTitle(cls, title):$/;"	m	class:Info
+wrapper	.\StormOutputView.py	/^    def wrapper(*args, **kwds):$/;"	f	function:fwNotify

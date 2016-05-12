@@ -4,7 +4,7 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-ANCHAOR_CONFIG	.\cmd_select_to_anchor.py	/^class ANCHAOR_CONFIG(object):$/;"	c
+ANCHAOR_CONFIG	.\cmd_select_to_anchor.py	/^class ANCHAOR_CONFIG(object): # pylint: disable=R0903$/;"	c
 ANCHOR_TYPE_CONTENT	.\cmd_select_to_anchor.py	/^ANCHOR_TYPE_CONTENT = "content"$/;"	v
 ANCHOR_TYPE_NEXT_CHAR	.\cmd_select_to_anchor.py	/^ANCHOR_TYPE_NEXT_CHAR = "next_char"$/;"	v
 ANCHOR_TYPE_PREV_CHAR	.\cmd_select_to_anchor.py	/^ANCHOR_TYPE_PREV_CHAR = "prev_char"$/;"	v
@@ -29,7 +29,6 @@ find_matching_point	.\cmd_selection.py	/^def find_matching_point(view, sel, sele
 fn	.\cmd_simple_transform.py	/^import fn$/;"	i
 getSearchContent	.\cmd_select_to_anchor.py	/^    def getSearchContent(view, basePos, selRegion, anchorCfg):$/;"	m	class:SelectToAnchorCommand
 itertools	.\cmd_simple_transform.py	/^import itertools$/;"	i
-namedtuple	.\cmd_select_to_anchor.py	/^from collections import namedtuple$/;"	i
 on_input_panel_done	.\cmd_pick_scope_name.py	/^    def on_input_panel_done(**args):$/;"	m	class:PickScopeNameCommand
 rSelector	.\cmd_selection.py	/^rSelector = re.compile(r"^(-?)(?:\\{(-?\\d+)\\}|\\[(.+)\\]|\/(.+)\/)$")$/;"	v
 re	.\cmd_selection.py	/^import re$/;"	i

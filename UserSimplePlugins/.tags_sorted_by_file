@@ -8,7 +8,7 @@ on_input_panel_done	cmd_pick_scope_name.py	/^    def on_input_panel_done(**args)
 run	cmd_pick_scope_name.py	/^    def run(self, edit):$/;"	m	class:PickScopeNameCommand
 sublime	cmd_pick_scope_name.py	/^import sublime$/;"	i
 sublime_plugin	cmd_pick_scope_name.py	/^import sublime_plugin$/;"	i
-ANCHAOR_CONFIG	cmd_select_to_anchor.py	/^class ANCHAOR_CONFIG(object):$/;"	c
+ANCHAOR_CONFIG	cmd_select_to_anchor.py	/^class ANCHAOR_CONFIG(object): # pylint: disable=R0903$/;"	c
 ANCHOR_TYPE_CONTENT	cmd_select_to_anchor.py	/^ANCHOR_TYPE_CONTENT = "content"$/;"	v
 ANCHOR_TYPE_NEXT_CHAR	cmd_select_to_anchor.py	/^ANCHOR_TYPE_NEXT_CHAR = "next_char"$/;"	v
 ANCHOR_TYPE_PREV_CHAR	cmd_select_to_anchor.py	/^ANCHOR_TYPE_PREV_CHAR = "prev_char"$/;"	v
@@ -20,7 +20,6 @@ TO_ANCHOR	cmd_select_to_anchor.py	/^TO_ANCHOR = "anchor"$/;"	v
 TO_LINE_ANCHOR	cmd_select_to_anchor.py	/^TO_LINE_ANCHOR = "line_anchor"$/;"	v
 __init__	cmd_select_to_anchor.py	/^    def __init__(self):$/;"	m	class:ANCHAOR_CONFIG
 getSearchContent	cmd_select_to_anchor.py	/^    def getSearchContent(view, basePos, selRegion, anchorCfg):$/;"	m	class:SelectToAnchorCommand
-namedtuple	cmd_select_to_anchor.py	/^from collections import namedtuple$/;"	i
 run	cmd_select_to_anchor.py	/^    def run(self, edit, **args):$/;"	m	class:SelectToAnchorCommand
 searchStrPos	cmd_select_to_anchor.py	/^def searchStrPos(view, fromPosition, content, search_ignorecase, isContentRegex):$/;"	f
 searchToContent	cmd_select_to_anchor.py	/^    def searchToContent(view, basePos, searchContent, anchorCfg):$/;"	m	class:SelectToAnchorCommand

@@ -13,4 +13,23 @@
             }
         }}
     },
+    {"keys": ["ctrl+alt+c"], "command": "mul_run", "args": {
+        "commands" : [
+            {"command": "copy"},
+            {"command": "clipboard_palette_record",  "args": {
+                "questions": [{"key": "palkey"}],
+                "ignore_keys": ["content"],
+                "belong_to_project": true,
+                "content": {
+                    "key": "{{palkey}}",
+                    "content": "$<<clipboard>>",
+                }}, "context": "window"}
+        ]},"context": [
+            {"key": "selection_empty", "operator": "equal", "operand": false}
+        ]
+    },
+    {"keys": ["ctrl+alt+v"], "command": "clipboard_palette",  "args": {
+        "run_mode": "repeat_lastkey",
+        "paste": true,
+    }},
 ]

@@ -65,4 +65,4 @@ class NewGroupPane:
                               sublime.TRANSIENT | sublime.ENCODED_POSITION)
 
         window.focus_view(self.view)
-        sublime.set_timeout(lambda: self.window.focus_view(self.view), 500)
+        sublime.set_timeout(lambda: window.focus_view(self.view), 500)

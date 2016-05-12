@@ -1,74 +1,74 @@
-DynamicUpdate	StormErrorPanel.py	/^def DynamicUpdate(infos, **notifyKwds):$/;"	f
-FILL_CHAR	StormErrorPanel.py	/^    FILL_CHAR = "*"$/;"	v	class:Info
-Info	StormErrorPanel.py	/^class Info(object):$/;"	c
-InfoSection	StormErrorPanel.py	/^InfoSection = namedtuple("InfoSection", "title, content, isOutput")$/;"	v
-SECTION_FILL_CHAR	StormErrorPanel.py	/^    SECTION_FILL_CHAR = "-"$/;"	v	class:Info
-SKEY	StormErrorPanel.py	/^SKEY = "StormErrorPanel"$/;"	v
-Setting	StormErrorPanel.py	/^from SublimeUtils import Setting$/;"	i
-StorMErrorPanel	StormErrorPanel.py	/^class StorMErrorPanel(object):$/;"	c
-StormErrorPanelFlushCommand	StormErrorPanel.py	/^class StormErrorPanelFlushCommand(sublime_plugin.TextCommand):$/;"	c
-StormErrorPanelHideCommand	StormErrorPanel.py	/^class StormErrorPanelHideCommand(sublime_plugin.TextCommand):$/;"	c
-StormErrorPanelShowCommand	StormErrorPanel.py	/^class StormErrorPanelShowCommand(sublime_plugin.WindowCommand):$/;"	c
-WIDTH	StormErrorPanel.py	/^    WIDTH = 80$/;"	v	class:Info
-__init__	StormErrorPanel.py	/^    def __init__(self):$/;"	m	class:StorMErrorPanel
-__init__	StormErrorPanel.py	/^    def __init__(self, header, *sections):$/;"	m	class:Info
-close	StormErrorPanel.py	/^    def close():$/;"	m	class:StorMErrorPanel
-errorPanel	StormErrorPanel.py	/^errorPanel = StorMErrorPanel()$/;"	v
-flush	StormErrorPanel.py	/^    def flush(self):$/;"	m	class:StorMErrorPanel
-formatHeaderLine	StormErrorPanel.py	/^    def formatHeaderLine(self):$/;"	m	class:Info
-formatSectionHeader	StormErrorPanel.py	/^    def formatSectionHeader(title):$/;"	m	class:Info
-formatSectionLines	StormErrorPanel.py	/^    def formatSectionLines(sec):$/;"	m	class:Info
-formatTolineData	StormErrorPanel.py	/^    def formatTolineData(infos):$/;"	m	class:StorMErrorPanel
-ft	StormErrorPanel.py	/^import functools as ft$/;"	i
-fwNotify	StormErrorPanel.py	/^def fwNotify(f):$/;"	f
-get_view	StormErrorPanel.py	/^    def get_view(self):$/;"	m	class:StorMErrorPanel
-hasOutput	StormErrorPanel.py	/^    def hasOutput(self):$/;"	m	class:Info
-initSettings	StormErrorPanel.py	/^def initSettings():$/;"	f
-isVisible	StormErrorPanel.py	/^    def isVisible(window=None):$/;"	m	class:StorMErrorPanel
-namedtuple	StormErrorPanel.py	/^from collections import namedtuple$/;"	i
-open	StormErrorPanel.py	/^    def open(self, window=None):$/;"	m	class:StorMErrorPanel
-plugin_loaded	StormErrorPanel.py	/^def plugin_loaded():$/;"	f
-plugin_unloaded	StormErrorPanel.py	/^def plugin_unloaded():$/;"	f
-ps	StormErrorPanel.py	/^ps = Setting.PluginSetting(SKEY)$/;"	v
-re	StormErrorPanel.py	/^import re$/;"	i
-run	StormErrorPanel.py	/^    def run(self, **kwds):$/;"	m	class:StormErrorPanelShowCommand
-run	StormErrorPanel.py	/^    def run(self, edit):$/;"	m	class:StormErrorPanelHideCommand
-run	StormErrorPanel.py	/^    def run(self, edit, **kwds):$/;"	m	class:StormErrorPanelFlushCommand
-sublime	StormErrorPanel.py	/^import sublime$/;"	i
-sublime_plugin	StormErrorPanel.py	/^import sublime_plugin$/;"	i
-update	StormErrorPanel.py	/^    def update(self, *, data=None, window=None, show=True):$/;"	m	class:StorMErrorPanel
-updateData	StormErrorPanel.py	/^    def updateData(self, data):$/;"	m	class:StorMErrorPanel
-wrapTitle	StormErrorPanel.py	/^    def wrapTitle(cls, title):$/;"	m	class:Info
-wrapper	StormErrorPanel.py	/^    def wrapper(*args, **kwds):$/;"	f	function:fwNotify
+DynamicUpdate	StormOutputView.py	/^def DynamicUpdate(infos, **notifyKwds):$/;"	f
+FILL_CHAR	StormOutputView.py	/^    FILL_CHAR = "*"$/;"	v	class:Info
+Info	StormOutputView.py	/^class Info(object):$/;"	c
+InfoSection	StormOutputView.py	/^InfoSection = namedtuple("InfoSection", "title, content, isOutput")$/;"	v
+SECTION_FILL_CHAR	StormOutputView.py	/^    SECTION_FILL_CHAR = "-"$/;"	v	class:Info
+SKEY	StormOutputView.py	/^SKEY = "StormOutputView"$/;"	v
+Setting	StormOutputView.py	/^from SublimeUtils import Setting$/;"	i
+StorMOutputView	StormOutputView.py	/^class StorMOutputView(object):$/;"	c
+StormOutputViewFlushCommand	StormOutputView.py	/^class StormOutputViewFlushCommand(sublime_plugin.TextCommand):$/;"	c
+StormOutputViewHideCommand	StormOutputView.py	/^class StormOutputViewHideCommand(sublime_plugin.TextCommand):$/;"	c
+StormOutputViewShowCommand	StormOutputView.py	/^class StormOutputViewShowCommand(sublime_plugin.WindowCommand):$/;"	c
+WIDTH	StormOutputView.py	/^    WIDTH = 80$/;"	v	class:Info
+__init__	StormOutputView.py	/^    def __init__(self):$/;"	m	class:StorMOutputView
+__init__	StormOutputView.py	/^    def __init__(self, header, *sections):$/;"	m	class:Info
+close	StormOutputView.py	/^    def close():$/;"	m	class:StorMOutputView
+flush	StormOutputView.py	/^    def flush(self):$/;"	m	class:StorMOutputView
+formatHeaderLine	StormOutputView.py	/^    def formatHeaderLine(self):$/;"	m	class:Info
+formatSectionHeader	StormOutputView.py	/^    def formatSectionHeader(title):$/;"	m	class:Info
+formatSectionLines	StormOutputView.py	/^    def formatSectionLines(sec):$/;"	m	class:Info
+formatTolineData	StormOutputView.py	/^    def formatTolineData(infos):$/;"	m	class:StorMOutputView
+ft	StormOutputView.py	/^import functools as ft$/;"	i
+fwNotify	StormOutputView.py	/^def fwNotify(f):$/;"	f
+get_view	StormOutputView.py	/^    def get_view(self):$/;"	m	class:StorMOutputView
+hasOutput	StormOutputView.py	/^    def hasOutput(self):$/;"	m	class:Info
+initSettings	StormOutputView.py	/^def initSettings():$/;"	f
+isVisible	StormOutputView.py	/^    def isVisible(window=None):$/;"	m	class:StorMOutputView
+namedtuple	StormOutputView.py	/^from collections import namedtuple$/;"	i
+open	StormOutputView.py	/^    def open(self, window=None):$/;"	m	class:StorMOutputView
+outputView	StormOutputView.py	/^outputView = StorMOutputView()$/;"	v
+plugin_loaded	StormOutputView.py	/^def plugin_loaded():$/;"	f
+plugin_unloaded	StormOutputView.py	/^def plugin_unloaded():$/;"	f
+ps	StormOutputView.py	/^ps = Setting.PluginSetting(SKEY)$/;"	v
+re	StormOutputView.py	/^import re$/;"	i
+run	StormOutputView.py	/^    def run(self, **kwds):$/;"	m	class:StormOutputViewShowCommand
+run	StormOutputView.py	/^    def run(self, edit):$/;"	m	class:StormOutputViewHideCommand
+run	StormOutputView.py	/^    def run(self, edit, **kwds):$/;"	m	class:StormOutputViewFlushCommand
+sublime	StormOutputView.py	/^import sublime$/;"	i
+sublime_plugin	StormOutputView.py	/^import sublime_plugin$/;"	i
+update	StormOutputView.py	/^    def update(self, *, data=None, window=None, show=True):$/;"	m	class:StorMOutputView
+updateData	StormOutputView.py	/^    def updateData(self, data):$/;"	m	class:StorMOutputView
+wrapTitle	StormOutputView.py	/^    def wrapTitle(cls, title):$/;"	m	class:Info
+wrapper	StormOutputView.py	/^    def wrapper(*args, **kwds):$/;"	f	function:fwNotify
 AssetType	cmd_clipboard_palette.py	/^from .panel_asset_base import PanelJsonAssetBaseCommand, AssetType$/;"	i
 ClipboardAssetManager	cmd_clipboard_palette.py	/^class ClipboardAssetManager(JsonAssetSrcManager):$/;"	c
 ClipboardPaletteCommand	cmd_clipboard_palette.py	/^class ClipboardPaletteCommand(PanelJsonAssetBaseCommand):$/;"	c
 ClipboardPaletteEventListener	cmd_clipboard_palette.py	/^class ClipboardPaletteEventListener(sublime_plugin.EventListener):$/;"	c
 ClipboardPaletteRecordCommand	cmd_clipboard_palette.py	/^class ClipboardPaletteRecordCommand(ProjectWiseJsonAssetRecordBaseCommand):$/;"	c
 Context	cmd_clipboard_palette.py	/^from SublimeUtils.Context import Context # pylint: disable=F0401$/;"	i
+F0401	cmd_clipboard_palette.py	/^from MUtils import Os # pylint: disable=F0401$/;"	i
 F0401	cmd_clipboard_palette.py	/^from MUtils.FileDataSrc import JsonAssetSrcManager # pylint: disable=F0401$/;"	i
 F0401	cmd_clipboard_palette.py	/^from SublimeUtils import Setting, Project, WView # pylint: disable=F0401$/;"	i
 F0401	cmd_clipboard_palette.py	/^from SublimeUtils.Context import Context # pylint: disable=F0401$/;"	i
+Info	cmd_clipboard_palette.py	/^from .StormOutputView import Info$/;"	i
 JsonAssetSrcManager	cmd_clipboard_palette.py	/^from MUtils.FileDataSrc import JsonAssetSrcManager # pylint: disable=F0401$/;"	i
+Os	cmd_clipboard_palette.py	/^from MUtils import Os # pylint: disable=F0401$/;"	i
 PanelJsonAssetBaseCommand	cmd_clipboard_palette.py	/^from .panel_asset_base import PanelJsonAssetBaseCommand, AssetType$/;"	i
 Project	cmd_clipboard_palette.py	/^from SublimeUtils import Setting, Project, WView # pylint: disable=F0401$/;"	i
 ProjectWiseJsonAssetRecordBaseCommand	cmd_clipboard_palette.py	/^from .record_base import ProjectWiseJsonAssetRecordBaseCommand$/;"	i
 SKEY	cmd_clipboard_palette.py	/^SKEY = "clipboard_palette"$/;"	v
-SRC_FILE_EXT	cmd_clipboard_palette.py	/^SRC_FILE_EXT = ".clipboard.key"$/;"	v
+SRC_FILE_EXT	cmd_clipboard_palette.py	/^SRC_FILE_EXT = ".clipboard.json"$/;"	v
 Setting	cmd_clipboard_palette.py	/^from SublimeUtils import Setting, Project, WView # pylint: disable=F0401$/;"	i
-TmpFile	cmd_clipboard_palette.py	/^class TmpFile:$/;"	c
 WView	cmd_clipboard_palette.py	/^from SublimeUtils import Setting, Project, WView # pylint: disable=F0401$/;"	i
-__init__	cmd_clipboard_palette.py	/^    def __init__(self):$/;"	m	class:TmpFile
 __init__	cmd_clipboard_palette.py	/^    def __init__(self, *arg, **kwds):$/;"	m	class:ClipboardAssetManager
 __init__	cmd_clipboard_palette.py	/^    def __init__(self, *args):$/;"	m	class:ClipboardPaletteCommand
 __init__	cmd_clipboard_palette.py	/^    def __init__(self, *args):$/;"	m	class:ClipboardPaletteRecordCommand
+disable	cmd_clipboard_palette.py	/^from MUtils import Os # pylint: disable=F0401$/;"	i
 disable	cmd_clipboard_palette.py	/^from MUtils.FileDataSrc import JsonAssetSrcManager # pylint: disable=F0401$/;"	i
 disable	cmd_clipboard_palette.py	/^from SublimeUtils import Setting, Project, WView # pylint: disable=F0401$/;"	i
 disable	cmd_clipboard_palette.py	/^from SublimeUtils.Context import Context # pylint: disable=F0401$/;"	i
-getStrFileWithLineNum	cmd_clipboard_palette.py	/^    def getStrFileWithLineNum(filepath, num):$/;"	m	class:ClipboardPaletteCommand
 initSettings	cmd_clipboard_palette.py	/^def initSettings():$/;"	f
 json	cmd_clipboard_palette.py	/^import json$/;"	i
-makeTmpFile	cmd_clipboard_palette.py	/^    def makeTmpFile(self):$/;"	m	class:TmpFile
 onQuickPanelHighlight	cmd_clipboard_palette.py	/^    def onQuickPanelHighlight(self, index):$/;"	m	class:ClipboardPaletteCommand
 on_activated	cmd_clipboard_palette.py	/^    def on_activated(view):$/;"	m	class:ClipboardPaletteEventListener
 on_load_async	cmd_clipboard_palette.py	/^    def on_load_async(view):$/;"	m	class:ClipboardPaletteEventListener
@@ -77,17 +77,16 @@ os	cmd_clipboard_palette.py	/^import os$/;"	i
 plugin_loaded	cmd_clipboard_palette.py	/^def plugin_loaded():$/;"	f
 plugin_unloaded	cmd_clipboard_palette.py	/^def plugin_unloaded():$/;"	f
 ps	cmd_clipboard_palette.py	/^ps = Setting.PluginSetting(SKEY)$/;"	v
-purgeFile	cmd_clipboard_palette.py	/^    def purgeFile(self):$/;"	m	class:TmpFile
 pwa	cmd_clipboard_palette.py	/^pwa = Project.ProjectWiseAsset(srcExt=SRC_FILE_EXT)$/;"	v
+pylint	cmd_clipboard_palette.py	/^from MUtils import Os # pylint: disable=F0401$/;"	i
 pylint	cmd_clipboard_palette.py	/^from MUtils.FileDataSrc import JsonAssetSrcManager # pylint: disable=F0401$/;"	i
 pylint	cmd_clipboard_palette.py	/^from SublimeUtils import Setting, Project, WView # pylint: disable=F0401$/;"	i
 pylint	cmd_clipboard_palette.py	/^from SublimeUtils.Context import Context # pylint: disable=F0401$/;"	i
-quickPanelView	cmd_clipboard_palette.py	/^quickPanelView = WView.CaptureView()$/;"	v
-recoverPaneStatus	cmd_clipboard_palette.py	/^    def recoverPaneStatus(self):$/;"	m	class:ClipboardPaletteCommand
+quickPanelView	cmd_clipboard_palette.py	/^quickPanelView = WView.NewGroupPane("right")$/;"	v
 sublime	cmd_clipboard_palette.py	/^import sublime$/;"	i
 sublime_plugin	cmd_clipboard_palette.py	/^import sublime_plugin$/;"	i
-tempfile	cmd_clipboard_palette.py	/^import tempfile$/;"	i
-tmpShowFile	cmd_clipboard_palette.py	/^tmpShowFile = TmpFile()$/;"	v
+tmpShowFile	cmd_clipboard_palette.py	/^tmpShowFile = Os.TmpFile()$/;"	v
+vBeginRun	cmd_clipboard_palette.py	/^    def vBeginRun(self, **kwds):$/;"	m	class:ClipboardPaletteCommand
 vBuildAssetKey	cmd_clipboard_palette.py	/^    def vBuildAssetKey(key, val, srcFile):$/;"	m	class:ClipboardAssetManager
 vEndRun	cmd_clipboard_palette.py	/^    def vEndRun(self, panelData):$/;"	m	class:ClipboardPaletteCommand
 vFormatAssetFileAssetVal	cmd_clipboard_palette.py	/^    def vFormatAssetFileAssetVal(srcFile, key):$/;"	m	class:ClipboardPaletteCommand
@@ -160,11 +159,12 @@ sublime	cmd_run_shell.py	/^import sublime$/;"	i
 sublime_plugin	cmd_run_shell.py	/^import sublime_plugin$/;"	i
 Asset	cmd_search_ref_palette.py	/^from MUtils.FileDataSrc import AssetSrcManager, Asset  # pylint: disable=F0401$/;"	i
 AssetSrcManager	cmd_search_ref_palette.py	/^from MUtils.FileDataSrc import AssetSrcManager, Asset  # pylint: disable=F0401$/;"	i
+AssetType	cmd_search_ref_palette.py	/^from .panel_asset_base import PanelAssetBaseCommand,AssetType$/;"	i
 F0401	cmd_search_ref_palette.py	/^from MUtils import MarkDownInfo  # pylint: disable=F0401$/;"	i
 F0401	cmd_search_ref_palette.py	/^from MUtils.FileDataSrc import AssetSrcManager, Asset  # pylint: disable=F0401$/;"	i
 F0401	cmd_search_ref_palette.py	/^from SublimeUtils import Setting, Project,WView  # pylint: disable=F0401$/;"	i
 MarkDownInfo	cmd_search_ref_palette.py	/^from MUtils import MarkDownInfo  # pylint: disable=F0401$/;"	i
-PanelAssetBaseCommand	cmd_search_ref_palette.py	/^from .panel_asset_base import PanelAssetBaseCommand$/;"	i
+PanelAssetBaseCommand	cmd_search_ref_palette.py	/^from .panel_asset_base import PanelAssetBaseCommand,AssetType$/;"	i
 Project	cmd_search_ref_palette.py	/^from SublimeUtils import Setting, Project,WView  # pylint: disable=F0401$/;"	i
 RefKeyAssetManager	cmd_search_ref_palette.py	/^class RefKeyAssetManager(AssetSrcManager):$/;"	c
 SKEY	cmd_search_ref_palette.py	/^SKEY = "search_ref_palette"$/;"	v
@@ -179,7 +179,6 @@ __init__	cmd_search_ref_palette.py	/^    def __init__(self, *args):$/;"	m	class:
 disable	cmd_search_ref_palette.py	/^from MUtils import MarkDownInfo  # pylint: disable=F0401$/;"	i
 disable	cmd_search_ref_palette.py	/^from MUtils.FileDataSrc import AssetSrcManager, Asset  # pylint: disable=F0401$/;"	i
 disable	cmd_search_ref_palette.py	/^from SublimeUtils import Setting, Project,WView  # pylint: disable=F0401$/;"	i
-getStrFileWithLineNum	cmd_search_ref_palette.py	/^    def getStrFileWithLineNum(asset):$/;"	m	class:SearchRefPaletteCommand
 initSettings	cmd_search_ref_palette.py	/^def initSettings():$/;"	f
 onQuickPanelHighlight	cmd_search_ref_palette.py	/^    def onQuickPanelHighlight(self, index):$/;"	m	class:SearchRefPaletteCommand
 on_activated	cmd_search_ref_palette.py	/^    def on_activated(view):$/;"	m	class:SearchRefPaletteEventListener
@@ -193,8 +192,7 @@ pwa	cmd_search_ref_palette.py	/^pwa = Project.ProjectWiseAsset(srcExt=SRC_FILE_E
 pylint	cmd_search_ref_palette.py	/^from MUtils import MarkDownInfo  # pylint: disable=F0401$/;"	i
 pylint	cmd_search_ref_palette.py	/^from MUtils.FileDataSrc import AssetSrcManager, Asset  # pylint: disable=F0401$/;"	i
 pylint	cmd_search_ref_palette.py	/^from SublimeUtils import Setting, Project,WView  # pylint: disable=F0401$/;"	i
-quickPanelView	cmd_search_ref_palette.py	/^quickPanelView = WView.CaptureView()$/;"	v
-recoverPaneStatus	cmd_search_ref_palette.py	/^    def recoverPaneStatus(self):$/;"	m	class:SearchRefPaletteCommand
+quickPanelView	cmd_search_ref_palette.py	/^quickPanelView = WView.NewGroupPane()$/;"	v
 sublime	cmd_search_ref_palette.py	/^import sublime$/;"	i
 sublime_plugin	cmd_search_ref_palette.py	/^import sublime_plugin$/;"	i
 vBuildAssetCat	cmd_search_ref_palette.py	/^    def vBuildAssetCat(self, asset):$/;"	m	class:RefKeyAssetManager
@@ -300,7 +298,7 @@ vEndRun	panel_asset_base.py	/^    def vEndRun(panelData):$/;"	m	class:PanelAsset
 vFilterAsset	panel_asset_base.py	/^    def vFilterAsset(_view, _asset): # pylint: disable=W0613$/;"	m	class:PanelAssetBaseCommand
 vFormatAssetFileAssetKey	panel_asset_base.py	/^    def vFormatAssetFileAssetKey(self, srcFile):$/;"	m	class:PanelJsonAssetBaseCommand
 vFormatAssetFileAssetVal	panel_asset_base.py	/^    def vFormatAssetFileAssetVal(self, srcFile, key):$/;"	m	class:PanelJsonAssetBaseCommand
-vInvokeAsset	panel_asset_base.py	/^    def vInvokeAsset(self, asset=AssetType.ASSET_TYPE_CONCRETE):$/;"	m	class:PanelAssetBaseCommand
+vInvokeAsset	panel_asset_base.py	/^    def vInvokeAsset(self, asset, assetType):$/;"	m	class:PanelAssetBaseCommand
 vMakeAssetFileAsset	panel_asset_base.py	/^    def vMakeAssetFileAsset():$/;"	m	class:PanelAssetBaseCommand
 vMakeAssetFileAsset	panel_asset_base.py	/^    def vMakeAssetFileAsset(self):$/;"	m	class:PanelJsonAssetBaseCommand
 vOnQuickPanelCancel	panel_asset_base.py	/^    def vOnQuickPanelCancel(self):$/;"	m	class:PanelAssetBaseCommand

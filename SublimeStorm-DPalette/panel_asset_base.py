@@ -43,9 +43,12 @@ class PanelAssetBaseCommand(sublime_plugin.WindowCommand):
             return
         elif run_mode == "repeat_lastkey":
             lastKey = self.vPrjInfo().tVal("last_key")
-            if lastKey is None:
+            concreteAssets = self.vConcreteAssets()
+            if len(concreteAssets) == 0:
                 sublime.error_message("no invoke yet, can't repeate last key!")
                 return
+
+            lastKey = concreteAssets[-1].key
 
             self.invokeKey(lastKey)
             return
@@ -132,8 +135,11 @@ class PanelAssetBaseCommand(sublime_plugin.WindowCommand):
 
     def alignAssetKey(self, view, assets):
         ext = view.viewport_extent()
-        viewportRate = (ext[0]+self.getLineNumerExt(view))/self.vOpts("screen_param")
-        panelWidth = int(viewportRate * self.vOpts("panel_param"))
+        if self.needLongPanel:
+            viewportRate = (ext[0]+self.getLineNumerExt(view))/self.vOpts("screen_param")
+            panelWidth = int(viewportRate * self.vOpts("panel_param"))
+        else:
+            panelWidth = self.vOpts("panel_width")
         assetKeys = []
         for asset in assets:
             infoCount = len(asset.keyInfo) if asset.keyInfo else 0

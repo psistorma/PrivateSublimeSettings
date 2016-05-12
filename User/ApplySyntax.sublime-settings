@@ -38,6 +38,10 @@
       {
           "syntax": "UserSyntax/PythonByStorm",
           "extensions": ["py"]
+      },
+      {
+          "syntax": "SublimeStorm-DPalette/StormOutputView",
+          "extensions": ["stormoutput"]
       }
     ]
 }

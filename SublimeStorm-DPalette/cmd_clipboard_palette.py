@@ -1,33 +1,18 @@
 import os
 import json
-import tempfile
 import sublime_plugin
 import sublime
+from MUtils import Os # pylint: disable=F0401
 from SublimeUtils import Setting, Project, WView # pylint: disable=F0401
 from MUtils.FileDataSrc import JsonAssetSrcManager # pylint: disable=F0401
 from SublimeUtils.Context import Context # pylint: disable=F0401
 from .panel_asset_base import PanelJsonAssetBaseCommand, AssetType
 from .record_base import ProjectWiseJsonAssetRecordBaseCommand
+from .StormOutputView import Info
 
 SKEY = "clipboard_palette"
 ps = Setting.PluginSetting(SKEY)
 
-class TmpFile:
-    def __init__(self):
-        self.tmpFile = None
-        self.path = "E:\\Tmp2\\test.json"
-
-    def makeTmpFile(self):
-        self.purgeFile()
-        self.tmpFile = open(self.path, "w")
-        self.tmpFile.seek(0)
-
-    def purgeFile(self):
-        if self.tmpFile:
-            self.tmpFile.close()
-            self.tmpFile = None
-
-tmpShowFile = TmpFile()
 
 def plugin_loaded():
     initSettings()
@@ -36,7 +21,7 @@ def plugin_unloaded():
     ps.onPluginUnload()
     tmpShowFile.purgeFile()
 
-SRC_FILE_EXT = ".clipboard.key"
+SRC_FILE_EXT = ".clipboard.json"
 
 def initSettings():
     defaultOptions = {
@@ -55,13 +40,10 @@ def initSettings():
 
         "project_dyn_token": ">>",
 
-        "screen_param": 1300,
-
-        "panel_param": 132,
+        "panel_width": 45,
     }
     ps.loadWithDefault(defaultOptions, onChanged=pwa.onOptionChanged)
 
-quickPanelView = NewGroupPane()
 
 class ClipboardPaletteEventListener(sublime_plugin.EventListener):
     @staticmethod
@@ -99,6 +81,8 @@ class ClipboardAssetManager(JsonAssetSrcManager):
 
         return key, rkey
 
+tmpShowFile = Os.TmpFile()
+quickPanelView = WView.NewGroupPane("right")
 
 
 pwa = Project.ProjectWiseAsset(srcExt=SRC_FILE_EXT)
@@ -112,14 +96,22 @@ class ClipboardPaletteCommand(PanelJsonAssetBaseCommand):
         super().__init__(*args)
         self.curWorkingFile = None
         self.keyIdxLineNumDict = None
+        self.paste = True
+        self.needLongPanel = False
 
     @staticmethod
     def vProjectWiseAssetManager():
         return pwa
 
+    def vBeginRun(self, **kwds):
+        self.paste = kwds.get("paste", True)
+
     def vEndRun(self, panelData):
+        if panelData is None:
+            return
+
         retKeyArr = panelData[1]
-        tmpShowFile.makeTmpFile()
+        tmpShowFile.makeTmpFile(suffix=".stormoutput")
         self.keyIdxLineNumDict = {}
         lineNum = 1
         for idx, key in enumerate(retKeyArr):
@@ -127,11 +119,15 @@ class ClipboardPaletteCommand(PanelJsonAssetBaseCommand):
             if assetType != AssetType.ASSET_TYPE_CONCRETE:
                 continue
 
-            tmpShowFile.tmpFile.write("{}:\n".format(key))
-            tmpShowFile.tmpFile.write(asset.val["content"])
+            if idx != 0:
+                tmpShowFile.write("\n")
+            tmpShowFile.write("{}\n".format(Info.formatSectionHeader(asset.orgKey, False)))
+            tmpShowFile.write(asset.val["content"])
 
             self.keyIdxLineNumDict[idx] = lineNum
             lineNum += 1 + len(asset.val["content"].split("\n"))
+
+        tmpShowFile.close()
 
         quickPanelView.startPane()
         return panelData
@@ -148,25 +144,29 @@ class ClipboardPaletteCommand(PanelJsonAssetBaseCommand):
         }
         return val
 
-    @staticmethod
-    def getStrFileWithLineNum(filepath, num):
-        return "{0}:{1}".format(filepath, num)
-
     def onQuickPanelHighlight(self, index):
         assetType, asset = self.assetFromIndex(index)
-        if assetType == AssetType.ASSET_TYPE_DUMMY:
+        filePath = None
+        lineNum = 0
+        if assetType == AssetType.ASSET_TYPE_CONCRETE:
+            filePath = tmpShowFile.path
+            lineNum = self.keyIdxLineNumDict[index]
+        elif assetType == AssetType.ASSET_TYPE_VIRTUAL_FILE:
+            filePath = asset.val["content"]
+            lineNum = 1
+        else:
             return
 
-        lineNum = self.keyIdxLineNumDict[index]
 
-        quickPanelView.openFileTransient(tmpShowFile.path, lineNum)
+        quickPanelView.openFileTransient(filePath, lineNum)
 
     def vInvokeAsset(self, asset, assetType):
         quickPanelView.endPane()
         content = asset.val["content"]
         if assetType == AssetType.ASSET_TYPE_CONCRETE:
             sublime.set_clipboard(content)
-            self.window.active_view().run_command("paste")
+            if self.paste:
+                self.window.active_view().run_command("paste")
         elif assetType == AssetType.ASSET_TYPE_VIRTUAL_FILE:
             self.window.open_file(content)
         else:
