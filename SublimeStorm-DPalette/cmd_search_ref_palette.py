@@ -7,22 +7,18 @@ from MUtils.FileDataSrc import AssetSrcManager, Asset  # pylint: disable=F0401
 from .panel_asset_base import PanelAssetBaseCommand,AssetType
 
 SKEY = "search_ref_palette"
-ps = Setting.PluginSetting(SKEY)
-
-
-def plugin_loaded():
-    initSettings()
-
-
-def plugin_unloaded():
-    ps.onPluginUnload()
-
 SRC_FILE_EXT = ".ref.md"
 SRC_RAW_FILE_EXT = ".raw.ref.md"
 
+def plugin_loaded():
+    defOpts = defaultOptions()
+    pwa.onPluginLoaded(SKEY, defOpts)
 
-def initSettings():
-    defaultOptions = {
+def plugin_unloaded():
+    pwa.onPluginUnload()
+
+def defaultOptions():
+    return {
         #----------------- hidden setting ---------------------
         "project_src_basename": ".search_ref_palette",
         "virtual_asset_token": "~",
@@ -42,10 +38,7 @@ def initSettings():
 
         "panel_param": 132,
     }
-    ps.loadWithDefault(defaultOptions, onChanged=pwa.onOptionChanged)
 
-
-quickPanelView = WView.NewGroupPane()
 
 class SearchRefPaletteEventListener(sublime_plugin.EventListener):
     @staticmethod
@@ -112,13 +105,6 @@ class RefKeyAssetManager(AssetSrcManager):
 
         return [lkey, rkey]
 
-
-pwa = Project.ProjectWiseAsset(srcExt=SRC_FILE_EXT)
-pwa.am = RefKeyAssetManager(SRC_FILE_EXT)
-pwa.ps = ps
-pwa.prjInfo = Project.ProjectInfo()
-
-
 class SearchRefPaletteCommand(PanelAssetBaseCommand):
     def __init__(self, *args):
         super().__init__(*args)
@@ -166,3 +152,9 @@ class SearchRefPaletteCommand(PanelAssetBaseCommand):
     def vOnQuickPanelCancel(self):
         quickPanelView.endPane()
 
+pwa = Project.ProjectWiseAsset(srcExt=SRC_FILE_EXT)
+pwa.am = RefKeyAssetManager(SRC_FILE_EXT)
+pwa.ps = Setting.PluginSetting(SKEY)
+pwa.prjInfo = Project.ProjectInfo()
+
+quickPanelView = WView.NewGroupPane()

@@ -11,20 +11,19 @@ from .record_base import ProjectWiseJsonAssetRecordBaseCommand
 from .StormOutputView import Info
 
 SKEY = "clipboard_palette"
-ps = Setting.PluginSetting(SKEY)
-
-
-def plugin_loaded():
-    initSettings()
-
-def plugin_unloaded():
-    ps.onPluginUnload()
-    tmpShowFile.purgeFile()
-
 SRC_FILE_EXT = ".clipboard.json"
 
-def initSettings():
-    defaultOptions = {
+def plugin_loaded():
+    defOpts = defaultOptions()
+    pwa.onPluginLoaded(SKEY, defOpts)
+
+def plugin_unloaded():
+    pwa.onPluginUnload()
+
+
+
+def defaultOptions():
+    return {
         #----------------- hidden setting ---------------------
         "project_src_basename": ".clipboard_palette",
         "virtual_asset_token" : "~",
@@ -42,7 +41,6 @@ def initSettings():
 
         "panel_width": 45,
     }
-    ps.loadWithDefault(defaultOptions, onChanged=pwa.onOptionChanged)
 
 
 class ClipboardPaletteEventListener(sublime_plugin.EventListener):
@@ -80,16 +78,6 @@ class ClipboardAssetManager(JsonAssetSrcManager):
             rkey = headToken
 
         return key, rkey
-
-tmpShowFile = Os.TmpFile()
-quickPanelView = WView.NewGroupPane("right")
-
-
-pwa = Project.ProjectWiseAsset(srcExt=SRC_FILE_EXT)
-pwa.am = ClipboardAssetManager(srcExt=SRC_FILE_EXT, assetKey="assets", key="key")
-pwa.ps = ps
-pwa.prjInfo = Project.ProjectInfo()
-
 
 class ClipboardPaletteCommand(PanelJsonAssetBaseCommand):
     def __init__(self, *args):
@@ -191,7 +179,13 @@ class ClipboardPaletteRecordCommand(ProjectWiseJsonAssetRecordBaseCommand):
 
         return True
 
+pwa = Project.ProjectWiseAsset(srcExt=SRC_FILE_EXT)
+pwa.am = ClipboardAssetManager(srcExt=SRC_FILE_EXT, assetKey="assets", key="key")
+pwa.ps = Setting.PluginSetting(SKEY)
+pwa.prjInfo = Project.ProjectInfo()
 
+tmpShowFile = Os.TmpFile()
+quickPanelView = WView.NewGroupPane("right")
 
 
 

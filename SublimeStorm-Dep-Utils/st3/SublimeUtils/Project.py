@@ -1,11 +1,20 @@
 import os
+import threading
+import json
 from collections import defaultdict
-from MUtils import Os
+from MUtils import Os, Exp # pylint: disable=F0401
 import sublime
 from . import WView
 
+def getSessionPath():
+    sublimePackagePath = os.path.dirname(os.path.splitext(sublime.packages_path())[0])
+    return os.path.join(sublimePackagePath, "Local")
+
 class ProjectInfo:
-    def __init__(self):
+    KEY_GLOBALINFO = "global_info"
+    KEY_PRJINFO = "project_info"
+    def __init__(self, clientKey):
+        self.clientKey = clientKey
         self.globalInfo = defaultdict(lambda: None)
         self.prjInfoMap = defaultdict(lambda: defaultdict(lambda: None))
 
@@ -20,6 +29,9 @@ class ProjectInfo:
         self.info()[key] = val
         if alsoUpdateGlobal:
             self.globalInfo[key] = val
+
+        if self.clientKey is not None:
+            threading.Thread(target=self.saveToSession).start()
 
     def val(self, key, defVal=None):
         return self.info().get(key, defVal)
@@ -37,6 +49,52 @@ class ProjectInfo:
             return self.globalInfo[key]
 
         return defVal
+
+    def sessionFilePath(self):
+        if self.clientKey is None:
+            raise Exp.WrongCallError("clientKey is not exist!")
+
+        return os.path.join(getSessionPath(), self.clientKey+".storm_session")
+
+    def loadFromSession(self):
+        sessionFile = self.sessionFilePath()
+        if not os.path.exists(sessionFile):
+            return
+
+        with open(sessionFile, "r") as f:
+            contentDict = json.load(f)
+
+        self.globalInfo = defaultdict(lambda: None)
+        self.prjInfoMap = defaultdict(lambda: defaultdict(lambda: None))
+        for k, v in contentDict[self.KEY_GLOBALINFO].items():
+            self.globalInfo[k] = v
+
+        for k, v in contentDict[self.KEY_PRJINFO].items():
+            prjInfo = defaultdict(lambda: None)
+            for kk, vv in v.items():
+                prjInfo[kk] = vv
+
+            self.prjInfoMap[k] = prjInfo
+
+    def saveToSession(self):
+        sessionFile = self.sessionFilePath()
+
+        contentDict = {}
+        contentDict[self.KEY_GLOBALINFO] = self.globalInfo
+        contentDict[self.KEY_PRJINFO] = self.prjInfoMap
+
+        with open(sessionFile, "w") as f:
+            json.dump(contentDict, f, indent=4)
+
+
+    def onPluginLoaded(self, clientKey):
+        if clientKey is not None:
+            self.clientKey = clientKey
+            self.loadFromSession()
+
+    def onPluginUnload(self):
+        if self.clientKey is not None:
+            self.saveToSession()
 
 @WView.fwPrepareWindow
 def getProjectAuxiDirectory(window, fileDirectoryName, *, makeIfNotExist=False):
@@ -170,3 +228,11 @@ class ProjectWiseAsset:
 
     def onFileLoad(self, view):
         self.refreshProjectAssets(view.window())
+
+    def onPluginLoaded(self, clientKey, defOpts):
+        self.prjInfo.onPluginLoaded(clientKey)
+        self.ps.loadWithDefault(defOpts, onChanged=self.onOptionChanged)
+
+    def onPluginUnload(self):
+        self.prjInfo.onPluginUnload()
+        self.ps.onPluginUnload()

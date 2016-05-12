@@ -9,17 +9,17 @@ from .panel_asset_base import PanelJsonAssetBaseCommand
 from .record_base import ProjectWiseJsonAssetRecordBaseCommand
 
 SKEY = "storm_palette"
-ps = Setting.PluginSetting(SKEY)
-def plugin_loaded():
-    initSettings()
-
-def plugin_unloaded():
-    ps.onPluginUnload()
-
 SRC_FILE_EXT = ".stormpal.key"
 
-def initSettings():
-    defaultOptions = {
+def plugin_loaded():
+    defOpts = defaultOptions()
+    pwa.onPluginLoaded(SKEY, defOpts)
+
+def plugin_unloaded():
+    pwa.onPluginUnload()
+
+def defaultOptions():
+    return {
         #----------------- hidden setting ---------------------
         "project_src_basename": ".storm_palette",
         "virtual_asset_token" : "~",
@@ -39,7 +39,6 @@ def initSettings():
 
         "panel_param": 132,
     }
-    ps.loadWithDefault(defaultOptions, onChanged=pwa.onOptionChanged)
 
 class StormPaletteEventListener(sublime_plugin.EventListener):
     @staticmethod
@@ -68,11 +67,6 @@ class PalAssetManager(JsonAssetSrcManager):
         headToken, pathToken = pwa.getAssetHelpInfo(srcFile)
         rkey = "".join([headToken, pathToken])
         return key, rkey
-
-pwa = Project.ProjectWiseAsset(srcExt=SRC_FILE_EXT)
-pwa.am = PalAssetManager(srcExt=SRC_FILE_EXT, assetKey="assets", key="key")
-pwa.ps = ps
-pwa.prjInfo = Project.ProjectInfo()
 
 class StormPaletteCommand(PanelJsonAssetBaseCommand):
     def __init__(self, *args):
@@ -129,6 +123,10 @@ class StormPaletteRecordCommand(ProjectWiseJsonAssetRecordBaseCommand):
     def vProjectWiseAssetManager():
         return pwa
 
+pwa = Project.ProjectWiseAsset(srcExt=SRC_FILE_EXT)
+pwa.am = PalAssetManager(srcExt=SRC_FILE_EXT, assetKey="assets", key="key")
+pwa.ps = Setting.PluginSetting(SKEY)
+pwa.prjInfo = Project.ProjectInfo(SKEY)
 
 
 
