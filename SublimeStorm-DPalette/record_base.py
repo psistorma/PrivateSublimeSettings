@@ -58,18 +58,22 @@ class RecordContentBaseCommand(sublime_plugin.WindowCommand):
     def vPostTransContent(self, content):
         pass
 
-    def needTransf(self, obj, isKey):
-        if isKey:
+    def needTransf(self, transfType, k, v):
+        obj = None
+        if transfType == Data.NEED_TRANSF_KEY:
             if not self.transfKey:
                 return False
-
-            if obj in self.ignoreKeys:
+            obj = k
+        elif transfType == Data.NEED_TRANSF_VAL:
+            if not self.transfVal:
                 return False
-
-            return False
-
-        if not isKey and not self.transfVal:
-            return False
+            obj = v
+        elif transfType == Data.NEED_TRANSF_VAL_OF_KEY:
+            if k in self.ignoreKeys:
+                return False
+            return True
+        else:
+            raise ValueError("transfType:{} is not support!".format(transfType))
 
         return isinstance(obj, str)
 

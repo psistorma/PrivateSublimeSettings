@@ -281,6 +281,9 @@ class PanelJsonAssetBaseCommand(PanelAssetBaseCommand):
         pwa = self.vProjectWiseAssetManager()
         assetFileAssets = []
         for srcFile in pwa.am.srcFiles:
+            if not srcFile.srcDir.isStatic and pwa.am.projectSrc is not srcFile.srcDir:
+                continue
+
             key = self.vFormatAssetFileAssetKey(srcFile)
             val = self.vFormatAssetFileAssetVal(srcFile, key)
 

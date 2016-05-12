@@ -23,6 +23,8 @@ def toNormalDict(dictObj):
 def transfJsonObj(obj, fnNeedTransf, fnTransf):
     return _TransfJsonobj(fnNeedTransf, fnTransf).transf(obj)
 
+NEED_TRANSF_KEY, NEED_TRANSF_VAL, NEED_TRANSF_VAL_OF_KEY = range(0, 3)
+
 class _TransfJsonobj:
     def __init__(self, fnNeedTransf, fnTransf):
         self.fnNeedTransf = fnNeedTransf
@@ -37,17 +39,24 @@ class _TransfJsonobj:
             return self._transfPrimitive(obj)
 
     def _transfIt(self, obj, isKey):
-        nobj = obj
-        if self.fnNeedTransf(obj, isKey):
-            nobj = self.fnTransf(obj, isKey)
+        if isKey:
+            needTransf = self.fnNeedTransf(NEED_TRANSF_KEY, obj, None)
+        else:
+            needTransf = self.fnNeedTransf(NEED_TRANSF_VAL, None, obj)
+        if needTransf:
+            obj = self.fnTransf(obj, isKey)
 
-        return nobj
+        return obj
 
     def _transfDict(self, obj):
         altered = {}
         for k, v in obj.items():
             nk = self._transfIt(k, True)
-            nv = self.transf(v)
+            if self.fnNeedTransf(NEED_TRANSF_VAL_OF_KEY, k, v):
+                nv = self.transf(v)
+            else:
+                nv = v
+
             altered[nk] = nv
 
         return altered

@@ -175,9 +175,6 @@ class ClipboardPaletteRecordCommand(ProjectWiseJsonAssetRecordBaseCommand):
     def vPreTransContent(self, _, val):
         if val["content"] == "$<<clipboard>>":
             val["content"] = sublime.get_clipboard()
-            return False
-
-        return True
 
 pwa = Project.ProjectWiseAsset(srcExt=SRC_FILE_EXT)
 pwa.am = ClipboardAssetManager(srcExt=SRC_FILE_EXT, assetKey="assets", key="key")
