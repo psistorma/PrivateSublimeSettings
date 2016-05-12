@@ -142,7 +142,7 @@ class StorMOutputView(object):
             outputView.view.settings().set("result_file_regex", result_file_regex)
 
         self.view.run_command(
-            "storm_error_panel_flush",
+            "storm_output_panel_flush",
             {"data": self.data,
              "erase": ps.dynOpts["erase_panel_content"],
              "scroll_end": ps.dynOpts["scroll_end"],
@@ -161,7 +161,7 @@ class StorMOutputView(object):
 
     @staticmethod
     def close():
-        outputView.view.run_command("storm_error_panel_hide")
+        outputView.view.run_command("storm_output_panel_hide")
         sublime.active_window().run_command("hide_panel", {"panel": "output.storm"})
 
 outputView = StorMOutputView()
