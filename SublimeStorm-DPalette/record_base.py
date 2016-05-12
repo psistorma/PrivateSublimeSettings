@@ -177,6 +177,7 @@ class ProjectWiseJsonAssetRecordBaseCommand(RecordJsonAssetBaseCommand):
             pwa.am.refreshFile(recordFilePath)
         else:
             if belong_to_project:
+                pwa.am.projectSrc = None
                 pwa.refreshProjectAssets(self.window)
             else:
                 pwa.am.loadStatic(recordFilePath)
