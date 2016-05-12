@@ -147,7 +147,8 @@ class SearchRefPaletteCommand(PanelAssetBaseCommand):
     def vInvokeAsset(self, asset, _):
         quickPanelView.endPane()
         self.window.open_file(
-            self.getStrFileWithLineNum(asset), sublime.ENCODED_POSITION)
+            "{0}:{1}".format(asset.srcFile.path, asset.val.lineNum),
+            sublime.ENCODED_POSITION)
 
     def vOnQuickPanelCancel(self):
         quickPanelView.endPane()
@@ -155,6 +156,6 @@ class SearchRefPaletteCommand(PanelAssetBaseCommand):
 pwa = Project.ProjectWiseAsset(srcExt=SRC_FILE_EXT)
 pwa.am = RefKeyAssetManager(SRC_FILE_EXT)
 pwa.ps = Setting.PluginSetting(SKEY)
-pwa.prjInfo = Project.ProjectInfo()
+pwa.prjInfo = Project.ProjectInfo(SKEY)
 
 quickPanelView = WView.NewGroupPane()

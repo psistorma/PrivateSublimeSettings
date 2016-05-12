@@ -42,13 +42,14 @@ class PanelAssetBaseCommand(sublime_plugin.WindowCommand):
             self.iterKey(iterInfo)
             return
         elif run_mode == "repeat_lastkey":
-            lastKey = self.vPrjInfo().tVal("last_key")
             concreteAssets = self.vConcreteAssets()
             if len(concreteAssets) == 0:
-                sublime.error_message("no invoke yet, can't repeate last key!")
+                sublime.error_message("no asset yet, can't repeate last key!")
                 return
 
-            lastKey = concreteAssets[-1].key
+            lastKey = self.vPrjInfo().tVal("last_key")
+            if lastKey is None:
+                lastKey = concreteAssets[-1].key
 
             self.invokeKey(lastKey)
             return

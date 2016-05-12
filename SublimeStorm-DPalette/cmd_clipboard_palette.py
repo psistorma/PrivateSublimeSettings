@@ -182,7 +182,7 @@ class ClipboardPaletteRecordCommand(ProjectWiseJsonAssetRecordBaseCommand):
 pwa = Project.ProjectWiseAsset(srcExt=SRC_FILE_EXT)
 pwa.am = ClipboardAssetManager(srcExt=SRC_FILE_EXT, assetKey="assets", key="key")
 pwa.ps = Setting.PluginSetting(SKEY)
-pwa.prjInfo = Project.ProjectInfo()
+pwa.prjInfo = Project.ProjectInfo(SKEY)
 
 tmpShowFile = Os.TmpFile()
 quickPanelView = WView.NewGroupPane("right")

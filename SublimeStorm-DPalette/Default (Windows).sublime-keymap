@@ -28,6 +28,17 @@
             {"key": "selection_empty", "operator": "equal", "operand": false}
         ]
     },
+    {"keys": ["ctrl+alt+c"], "command": "clipboard_palette_record", "args": {
+        "questions": [{"key": "palkey"}],
+        "ignore_keys": ["content"],
+        "belong_to_project": true,
+        "content": {
+            "key": "{{palkey}}",
+            "content": "$<<clipboard>>",
+        }},"context": [
+            {"key": "selection_empty", "operator": "equal", "operand": true}
+        ]
+    },
     {"keys": ["ctrl+alt+v"], "command": "clipboard_palette",  "args": {
         "run_mode": "repeat_lastkey",
         "paste": true,
