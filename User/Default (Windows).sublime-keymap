@@ -158,12 +158,6 @@
     {"keys": ["ctrl+4"], "command": "move_to", "args": {"to": "bof", "extend": false} },
     {"keys": ["ctrl+5"], "command": "move_to", "args": {"to": "eof", "extend": false} },
     {"keys": ["alt+."],  "command": "soft_undo" },
-//__SublimeStorm
-    {"keys": ["alt+`"], "command": "storm_error_panel_show", "args": {"toggle": true}},
-    {"keys": ["ctrl+g"], "command": "storm_palette"},
-    {"keys": ["ctrl+alt+r"], "command": "storm_palette",  "args": {"run_mode": "repeat_lastkey"} },
-    {"keys": ["alt+g"], "command": "run_shell_cmd_prompt", "args": {"show_result": "allways"}},
-    {"keys": ["ctrl+alt+g"], "command": "eval_python_code_prompt"},
 //__deleteIt
     { "keys": ["f9"], "command": "not_valid_yet"},
     { "keys": ["ctrl+f9"], "command": "not_valid_yet"},
@@ -225,7 +219,9 @@
             {"key": "setting.auto_select", "operand": true, "operator": "equal"},
             {"key": "selection_empty", "match_all": true, "operand": true, "operator": "equal"
         }]
-    }
+    },
+//Insert Num
+    { "keys": ["ctrl+k","ctrl+m"], "command": "prompt_insert_nums" },
 //test
     // {"keys": ["alt+t"], "command": "run_shell_cmd",  "args": {
     //     "questions": [{"key": "message", "title": "commit message",

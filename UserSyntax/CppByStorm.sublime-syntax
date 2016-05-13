@@ -286,7 +286,7 @@ contexts:
           pop: true
         - match: ;
           scope: invalid.illegal.semicolon.end
-        - match: (?=\w|\(|\")
+        - match: \s*(?=\w|\(|\")
           push:
             - match: (?=\s*\{)
               push:
@@ -714,7 +714,7 @@ contexts:
             - include: lex-internal-fun
             - match: \s*{{svIdent}}?(?=\(|{{svOverrideFnInvoke}})
               scope: support.function.any-method.c
-            - match: (?=\(|{{svOverrideFnInvoke}})
+            - match: \s*(?=\(|{{svOverrideFnInvoke}})
               pop: true
             - include: lex-literal-value
             - include: lex-declaration-type
