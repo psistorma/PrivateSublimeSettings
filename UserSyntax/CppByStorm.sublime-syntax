@@ -189,7 +189,7 @@ contexts:
       push:
         - match: \b(?:case|default)\b
           scope: keyword.control.c
-        - match: '\:'
+        - match: '(?!<:)\:(?!:)'
           scope: punctuation.definition.colon.case.c
           set:
             - match: (?=\s*\bcase)\b

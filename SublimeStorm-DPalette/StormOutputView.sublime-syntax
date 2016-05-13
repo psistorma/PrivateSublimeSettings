@@ -6,13 +6,13 @@ file_extensions:
   - stormoutput
 scope: text.userstormError
 variables:
-  svIdent: '[A-Za-z_][A-Za-z_0-9]*+'
-  svIdentUpper: '[A-Z_][A-Z_0-9]*+(?![a-z_0-9])'
+  svIdent: '\b[A-Za-z_][A-Za-z_0-9]*+'
+  svIdentUpper: '\b[A-Z_][A-Z_0-9]*+(?![a-z_0-9])'
   svIdentFirstUpper: '(?:_+)?[A-Z][A-Za-z_0-9]*+'
-  svIdentEvt: '(?:_+)?(?:On|on)[A-Z][A-Za-z_0-9]*+'
+  svIdentEvt: '\b(?:_+)?(?:On|on)[A-Z][A-Za-z_0-9]*+'
   svIdentMember: |-
     (?x)
-    (?:
+    \b(?:
       m_{{svIdent}}|
       _[A-Za-z][A-Za-z_0-9]*+|
       [A-Za-z][A-Za-z_0-9]*?+[A-Za-z]_(?!\w)|
@@ -88,7 +88,7 @@ contexts:
     - match: \b(self|this)\b
       scope: variable.parameter.function.language.python
 
-    - match: '([A-Za-z_][A-Za-z_0-9]*+)(?=\(.*?\))'
+    - match: '\b([A-Za-z_][A-Za-z_0-9]*+)(?=\(.*?\))'
       scope: meta.function-call
 
     - match: (?=^\s*#pragma\s*region\b)
@@ -102,13 +102,18 @@ contexts:
       scope: variable.other.ident.evt
     - match: \s*{{svIdentMember}}
       scope: variable.other.ident.member
+    - match: \s*({{svIdent}})(:)
+      captures:
+        1: variable.entity.name
+        2: punctuation
 
-
-    - match: '__[A-Za-z_0-9]*?__'
+    - match: '\b__[A-Za-z_0-9]*?__'
       scope: meta.preprocessor.macro
 
     - match: \W
       scope: punctuation
 
-    - match: '[0-9]'
-      scope: constant.numeric
+    - match: '(\b[0-9]+)([a-zA-Z])?'
+      captures:
+        1: constant.numeric
+        2: keyword

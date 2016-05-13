@@ -57,12 +57,14 @@ class NewGroupPane:
         self.isCapturingView = True
 
     def endPane(self):
-        window = sublime.active_window()
-        window.focus_group(self.orgActiveGroup)
-        window.run_command("destroy_pane", {"direction": self.direction})
-        self.view = None
-        self.group = None
-        self.orgActiveGroup = None
+        if self.orgActiveGroup is not None:
+            window = sublime.active_window()
+            window.focus_group(self.orgActiveGroup)
+            window.run_command("destroy_pane", {"direction": self.direction})
+            self.view = None
+            self.group = None
+            self.orgActiveGroup = None
+            self.isCapturingView = False
 
     def openFileTransient(self, filePath, lineNum):
         window = self.view.window()
