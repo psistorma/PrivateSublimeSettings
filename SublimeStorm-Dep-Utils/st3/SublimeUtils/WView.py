@@ -1,5 +1,6 @@
 import functools as ft
 import sublime
+from MUtils import Os # pylint: disable=F0401
 
 NO_PROJECT = "___NO_PROJECT_PRESENT____"
 
@@ -29,7 +30,8 @@ def getProjectPath(window=None, lower=True):
     if not projectPath:
         projectPath = NO_PROJECT
 
-    return projectPath.lower()
+    return projectPath.lower() if lower else projectPath
+
 
 
 class NewGroupPane:
@@ -45,7 +47,7 @@ class NewGroupPane:
 
     def startPane(self):
         sublime.active_window().run_command(
-                    "create_pane", {"direction": self.direction, "give_focus": False})
+            "create_pane", {"direction": self.direction, "give_focus": False})
         self.isCapturingView = True
 
     def endPane(self):
@@ -62,7 +64,18 @@ class NewGroupPane:
             window.open_file(filePath, sublime.TRANSIENT)
         else:
             window.open_file("{0}:{1}".format(filePath, lineNum),
-                              sublime.TRANSIENT | sublime.ENCODED_POSITION)
+                             sublime.TRANSIENT | sublime.ENCODED_POSITION)
 
         window.focus_view(self.view)
-        sublime.set_timeout(lambda: window.focus_view(self.view), 500)
+        def promiseViewCondition():
+            window.focus_view(self.view)
+            if any(Os.isSameFile(filePath, v.file_name())
+                   for v in window.views_in_group(1)):
+                return
+
+            for v in window.views_in_group(0):
+                if Os.isSameFile(filePath, v.file_name()):
+                    window.set_view_index(v, 1, 0)
+                    window.focus_view(self.view)
+
+        sublime.set_timeout(promiseViewCondition, 500)
