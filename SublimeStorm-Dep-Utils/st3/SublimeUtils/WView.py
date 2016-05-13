@@ -39,6 +39,8 @@ class NewGroupPane:
         self.isCapturingView = False
         self.view = None
         self.direction = direction
+        self.orgActiveGroup = None
+        self.group = None
 
     def onViewActivated(self, view):
         if self.isCapturingView:
@@ -46,19 +48,25 @@ class NewGroupPane:
             self.view = view
 
     def startPane(self):
-        sublime.active_window().run_command(
+        actveiWindow = sublime.active_window()
+        self.orgActiveGroup = actveiWindow.active_group()
+        self.group = actveiWindow.num_groups()
+
+        actveiWindow.run_command(
             "create_pane", {"direction": self.direction, "give_focus": False})
         self.isCapturingView = True
 
     def endPane(self):
         window = sublime.active_window()
-        window.focus_group(0)
+        window.focus_group(self.orgActiveGroup)
         window.run_command("destroy_pane", {"direction": self.direction})
         self.view = None
+        self.group = None
+        self.orgActiveGroup = None
 
     def openFileTransient(self, filePath, lineNum):
         window = self.view.window()
-        window.focus_group(1)
+        window.focus_group(self.group)
 
         if lineNum is None:
             window.open_file(filePath, sublime.TRANSIENT)
@@ -69,13 +77,16 @@ class NewGroupPane:
         window.focus_view(self.view)
         def promiseViewCondition():
             window.focus_view(self.view)
+
             if any(Os.isSameFile(filePath, v.file_name())
-                   for v in window.views_in_group(1)):
+                   for v in window.views_in_group(self.group)):
                 return
 
-            for v in window.views_in_group(0):
-                if Os.isSameFile(filePath, v.file_name()):
-                    window.set_view_index(v, 1, 0)
-                    window.focus_view(self.view)
+            for grp in [grp for grp in range(0, window.num_groups()) if grp != self.group]:
+                for v in window.views_in_group(grp):
+                    if Os.isSameFile(filePath, v.file_name()):
+                        window.set_view_index(v, self.group, 0)
+                        window.focus_view(self.view)
+                        return
 
         sublime.set_timeout(promiseViewCondition, 500)
