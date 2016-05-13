@@ -12,6 +12,9 @@
         {"keys": ["alt+f8"], "command": "pretty_json", "context": [
                         {"key": "selector", "operator": "equal", "operand": "source.sublimekeymap,source.json"}
         ]},
+        {"keys": ["alt+f8"], "command": "clang_format", "context": [
+                        {"key": "selector", "operator": "equal", "operand": "source.c++, source.c"}
+        ]},
 //alligment
         {"keys": ["alt+f1"], "command": "alignment" },
 //  {"keys": ["ctrl+shift+f1"], "command": "cpp_auto_completion_by_storm" },
