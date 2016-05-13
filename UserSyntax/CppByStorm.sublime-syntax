@@ -907,6 +907,8 @@ contexts:
         - include: step-finish-now
 
   step-expression-statement:
+    - match: (?<=\))\s*$
+      pop: true
     - include: step-finish-at-end-of-statement
     - match: \s*\)
       scope: invalid.illegal.stray-bracket-end
