@@ -116,6 +116,10 @@ class ClipboardPaletteCommand(PanelJsonAssetBaseCommand):
             lineNum += 1 + len(asset.val["content"].split("\n"))
 
         tmpShowFile.close()
+        if self.window.num_groups() == 1:
+            quickPanelView.direction = "right"
+        else:
+            quickPanelView.direction = "down"
 
         quickPanelView.startPane()
         return panelData
