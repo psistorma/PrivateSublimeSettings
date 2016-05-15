@@ -744,14 +744,15 @@ contexts:
   rule-statement-flow:
     - include: rule-statement-flow-for
     - include: rule-statement-flow-switch
-    - match: (?=\s*\b(?:else\s+if|if|else|for|while|switch)\b)
+    - match: (?=\s*\b(?:else\s+if|if|else|for|do|while|switch)\b)
       push:
         - meta_scope: meta.flow
-        - match: \s*\b(else\s+if|if|else|for|while|switch)\b
+        - match: \s*\b(else\s+if|if|else|for|do|while|switch)\b
           scope: keyword.control.c
         - match: (?=\s*\()
           push: step-parens-invoke
         - include: step-flow-block
+        - include: step-finish-at-end-of-statement
   step-flow-block:
     - match: (?=\s*#endif\s*)
       pop: true
