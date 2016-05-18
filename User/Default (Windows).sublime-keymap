@@ -225,6 +225,7 @@
         },
 //clipboard_path
         { "keys": ["ctrl+k","ctrl+p"], "command": "open_clipboard_path"},
+        { "keys": ["ctrl+k","ctrl+g"], "command": "goto_file"},
 //Insert Num
         { "keys": ["ctrl+k","ctrl+m"], "command": "prompt_insert_nums" },
 //test

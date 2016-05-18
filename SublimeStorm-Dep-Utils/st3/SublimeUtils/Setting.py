@@ -41,6 +41,18 @@ def expandVariables(window, *strs, forSublime=True, forEnv=True):
 
     return retStrs
 
+class ProjectSetting():
+    def __init__(self, pluginKey):
+        self._project_data = sublime.active_window().project_data().get(pluginKey, {}) if int(sublime.version()) >= 3000 else {}
+
+    def get(self, key, default):
+        return self._project_data.get(key, default)
+
+    def has(self, key):
+        return key in self._project_data
+
+    def items(self):
+        return self._project_data.items()
 
 class PluginSetting(object):
     def __init__(self, key, ext='sublime-settings'):
@@ -79,7 +91,9 @@ class PluginSetting(object):
         self.clear_on_change()
 
     def updateDynOpts(self, **dynKwds):
-        self.dynOpts = {k: dynKwds.get(k, v) for k, v in self.opts.items()}
+        projSetting = ProjectSetting(self.key)
+        self.dynOpts = {k: projSetting.get(k, v) for k, v in self.opts.items()}
+        self.dynOpts = {k: dynKwds.get(k, v) for k, v in self.dynOpts.items()}
 
     def isValid(self):
         return self.settings is not None

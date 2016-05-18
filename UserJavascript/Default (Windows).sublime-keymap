@@ -9,7 +9,7 @@
         "context": [
             {"key": "selection_empty", "operator": "equal", "operand": true},
             {"key": "following_text", "operator": "regex_match", "operand": "$"},
-            {"key": "selector", "operator": "equal", "operand": "source.js"}
+            {"key": "selector", "operator": "equal", "operand": "source.js, source.ts"}
         ]
     },
     {
@@ -19,7 +19,7 @@
         "context": [
             {"key": "selection_empty", "operator": "equal", "operand": true},
             {"key": "following_text", "operator": "regex_match", "operand": "\\s$"},
-            {"key": "selector", "operator": "equal", "operand": "source.js"}
+            {"key": "selector", "operator": "equal", "operand": "source.js, source.ts"}
         ]
     },
     //e for }e --> } else {}
@@ -28,7 +28,7 @@
             {"key": "selection_empty", "operator": "equal", "operand": true},
             {"key": "following_text", "operator": "regex_match", "operand": "$"},
             {"key": "preceding_text", "operator": "regex_match", "operand": "^\\s*}$"},
-            {"key": "selector", "operator": "equal", "operand": "source.js"}
+            {"key": "selector", "operator": "equal", "operand": "source.js, source.ts"}
         ]
     },
     {"keys": ["e"], "command": "insert_snippet", "args": {"contents": "else {\n\t$0\n}"},
@@ -36,7 +36,7 @@
             {"key": "selection_empty", "operator": "equal", "operand": true},
             {"key": "following_text", "operator": "regex_match", "operand": "$"},
             {"key": "preceding_text", "operator": "regex_match", "operand": "^\\s*}\\s+$"},
-            {"key": "selector", "operator": "equal", "operand": "source.js"}
+            {"key": "selector", "operator": "equal", "operand": "source.js, source.ts"}
         ]
     },
     //i for }i --> } else if {}
@@ -45,7 +45,7 @@
             {"key": "selection_empty", "operator": "equal", "operand": true},
             {"key": "following_text", "operator": "regex_match", "operand": "$"},
             {"key": "preceding_text", "operator": "regex_match", "operand": "^\\s*}$"},
-            {"key": "selector", "operator": "equal", "operand": "source.js"}
+            {"key": "selector", "operator": "equal", "operand": "source.js, source.ts"}
         ]
     },
     {"keys": ["i"], "command": "insert_snippet", "args": {"contents": "else if {\n\t$0\n}"},
@@ -53,7 +53,7 @@
             {"key": "selection_empty", "operator": "equal", "operand": true},
             {"key": "following_text", "operator": "regex_match", "operand": "$"},
             {"key": "preceding_text", "operator": "regex_match", "operand": "^\\s*}\\s+$"},
-            {"key": "selector", "operator": "equal", "operand": "source.js"}
+            {"key": "selector", "operator": "equal", "operand": "source.js, source.ts"}
         ]
     },
     //auto visit pointer
@@ -70,7 +70,7 @@
         "context": [
             {"key": "selection_empty", "operator": "equal", "operand": true},
             { "key": "auto_complete_visible", "operator": "equal", "operand": true },
-            {"key": "selector", "operator": "equal", "operand": "source.js"}
+            {"key": "selector", "operator": "equal", "operand": "source.js, source.ts"}
         ]
     },
     {
@@ -86,7 +86,7 @@
             {"key": "selection_empty", "operator": "equal", "operand": true},
             {"key": "preceding_text", "operator": "regex_contains", "operand": "(?:this|\\bp\\w*)$"},
             { "key": "auto_complete_visible", "operator": "equal", "operand": false },
-            {"key": "selector", "operator": "equal", "operand": "source.js"}
+            {"key": "selector", "operator": "equal", "operand": "source.js, source.ts"}
         ]
     },
 ]

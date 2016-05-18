@@ -80,6 +80,11 @@
 	[
 		"stormoutput"
 	],
+	"TypeScript":
+	[
+		"js",
+		"ts"
+	],
 	"XML":
 	[
 		"xml.dist"

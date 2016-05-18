@@ -40,6 +40,10 @@
           "extensions": ["py"]
       },
       {
+          "syntax": "TypeScript/TypeScript",
+          "extensions": ["ts", "js"]
+      },
+      {
           "syntax": "SublimeStorm-DPalette/StormOutputView",
           "extensions": ["stormoutput"]
       }

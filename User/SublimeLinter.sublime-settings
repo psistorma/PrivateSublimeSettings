@@ -8,9 +8,9 @@
         "lint_mode": "background",
         "linters": {
             "eslint": {
-                "@disable": false,
+                "@disable": true,
                 "args": [],
-                "excludes": [],
+                "excludes": ["**/node_modules/**"],
                 "paths": [
                     "${project}"
                 ]
@@ -28,6 +28,11 @@
                 ],
                 "rcfile": "C:\\Users\\Administrator\\AppData\\Roaming\\Sublime Text 3\\Packages\\UserLinter\\pylint.rc",
                 "show-codes": false
+            },
+            "tslint": {
+                "@disable": false,
+                "args": ["--config", "C:\\Users\\Administrator\\AppData\\Roaming\\Sublime Text 3\\Packages\\UserLinter\\tslint.json"],
+                "excludes": ["**/node_modules/**"]
             }
         },
         "mark_style": "none",

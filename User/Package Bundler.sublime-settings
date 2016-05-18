@@ -9,9 +9,9 @@
 				"GitGutter",
 				"Vintage",
 				"Anaconda",
-				"SublimeCodeIntel",
 				"SublimeLinter",
-				"TypeScript"
+				"TypeScript",
+				"tern_for_sublime"
 			]
 		},
 		"edit syntax":
@@ -60,7 +60,6 @@
 				"GitGutter",
 				"Vintage",
 				"SublimeClang",
-				"SublimeCodeIntel",
 				"TypeScript"
 			]
 		}

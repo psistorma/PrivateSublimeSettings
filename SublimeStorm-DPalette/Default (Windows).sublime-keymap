@@ -1,5 +1,5 @@
 [
-    {"keys": ["alt+`"], "command": "storm_error_panel_show", "args": {"toggle": true}},
+    {"keys": ["alt+`"], "command": "storm_output_view_show", "args": {"toggle": true}},
     {"keys": ["ctrl+g"], "command": "storm_palette"},
     {"keys": ["alt+g"], "command": "storm_palette",  "args": {"run_mode": "repeat_lastkey"} },
     {"keys": ["ctrl+alt+g"], "command": "run_shell_cmd_prompt", "args": {"show_result": "allways"}},

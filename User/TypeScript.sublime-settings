@@ -1,4 +1,15 @@
 {
-    "auto_complete_triggers" : [ {"selector": "source.ts", "characters": "."} ],
-    "use_tab_stops": false
+	"auto_complete_triggers":
+	[
+		{
+			"characters": ".",
+			"selector": "source.ts"
+		}
+	],
+	"extensions":
+	[
+		"js",
+		"ts"
+	],
+	"use_tab_stops": false
 }

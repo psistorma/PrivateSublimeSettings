@@ -114,7 +114,7 @@
       <key>name</key>
       <string>preprocessor macro keyword</string>
       <key>scope</key>
-      <string>meta.preprocessor.macro keyword, variable.parameter.definition</string>
+      <string>meta.preprocessor.macro keyword, variable.parameter.definition,variable.parameter.function</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -180,7 +180,7 @@
       <key>name</key>
       <string>entity name</string>
       <key>scope</key>
-      <string>entity.name, variable.entity.name</string>
+      <string>entity.name, variable.entity.name, meta.type.name, meta.instance.constructor, meta.property.class variable.other.class</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -257,7 +257,7 @@
       <key>name</key>
       <string>parameter</string>
       <key>scope</key>
-      <string>meta.function.parameters,entity.other.attribute-name,variable.parameter.function</string>
+      <string>meta.function.parameters,entity.other.attribute-name</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -312,7 +312,7 @@
       <key>name</key>
       <string>constant</string>
       <key>scope</key>
-      <string>constant - string.regexp</string>
+      <string>constant - string.regexp - meta.flowtype.annotation</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
