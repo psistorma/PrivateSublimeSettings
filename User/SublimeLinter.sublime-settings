@@ -10,7 +10,10 @@
             "eslint": {
                 "@disable": false,
                 "args": [],
-                "excludes": []
+                "excludes": [],
+                "paths": [
+                    "${project}"
+                ]
             },
             "pylint": {
                 "@disable": false,

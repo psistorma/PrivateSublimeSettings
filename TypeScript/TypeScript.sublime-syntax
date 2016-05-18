@@ -1,0 +1,1353 @@
+%YAML 1.2
+---
+# http://www.sublimetext.com/docs/3/syntax.html
+name: TypeScriptByStorm
+file_extensions: [ts, js, jsx, babel, es6]
+first_line_match: ^#!\s*/.*\b(node|js)$\n?
+scope: source.ts
+
+variables:
+  ident: '[_$a-zA-Z][$\w]*'
+
+contexts:
+  main:
+    - include: core
+
+  prototype:
+    - include: comments
+
+  core:
+    - include: literal-function-labels
+    - include: literal-arrow-function-labels
+    - include: literal-labels
+    - include: literal-for
+    - include: literal-switch
+    - include: expression
+    - include: literal-punctuation
+
+  expression:
+    - include: merge-conflits
+    - include: literal-regexp             # before operators and keywords to avoid ambiguities
+    - include: literal-jsx
+    - include: es7-decorators
+    - include: support-class
+    - include: support-other
+
+    - include: literal-function
+    - include: literal-arrow-function
+    - include: literal-prototype          # after literal-function, which includes some prototype strings
+
+    - include: literal-keywords
+
+    - include: literal-method
+    - include: literal-module
+    - include: literal-class
+    - include: flowtype-declaration
+
+    - include: literal-number               # after literal-method since short methods can be numbers
+    - include: literal-template-string
+    - include: literal-string
+    - include: literal-language-constant
+    - include: literal-language-variable
+
+    - include: literal-constructor
+    - include: literal-method-call
+    - include: literal-function-call
+
+    - include: brackets
+
+    - include: literal-operators
+    - include: literal-variable
+
+  round-brackets:
+    - match: \(
+      scope: meta.brace.round.begin.ts
+      push:
+        - meta_scope: meta.group.braces.round.ts
+        - match: \)
+          scope: meta.brace.round.end.ts
+          pop: true
+        - include: expression
+
+  square-brackets:
+    - match: \[
+      scope: meta.brace.square.begin.ts
+      push:
+        - meta_scope: meta.group.braces.square.ts
+        - match: \]
+          scope: meta.brace.square.end.ts
+          pop: true
+        - include: expression
+
+  curly-brackets:
+    - match: '{'
+      scope: meta.brace.curly.begin.ts
+      push:
+        - meta_scope: meta.group.braces.curly.ts
+        - match: '}'
+          scope: meta.brace.curly.end.ts
+          pop: true
+        - include: main
+
+  brackets:
+    - include: round-brackets
+    - include: square-brackets
+    - include: curly-brackets
+
+  comments:
+    - match: /\*\*(?!/)
+      scope: punctuation.definition.comment.ts
+      push:
+        - meta_scope: comment.block.documentation.ts
+        - match: \*/
+          scope: punctuation.definition.comment.ts
+          pop: true
+
+    - match: /\*
+      scope: punctuation.definition.comment.begin.ts
+      push:
+        - meta_scope: comment.block.ts
+        - match: \*/
+          scope: punctuation.definition.comment.end.ts
+          pop: true
+
+    - match: (?><!--|-->)
+      scope: comment.block.html.ts
+      captures:
+        0: punctuation.definition.comment.ts
+
+    - match: //
+      scope: punctuation.definition.comment.ts
+      push:
+        - meta_scope: comment.line.double-slash.ts
+        - match: $\n?
+          pop: true
+
+    - match: ^#!
+      scope: punctuation.definition.comment.ts
+      push:
+        - meta_scope: comment.line.shebang.ts
+        - match: $
+          pop: true
+
+  function-declaration-parameters:
+    - match: \(
+      scope: punctuation.definition.parameters.begin.ts
+      push:
+        - include: flowtype-annotation
+        - match: \)
+          scope: punctuation.definition.parameters.end.ts
+          pop: true
+        - match: (?<!\.)\.\.\.
+          scope: keyword.operator.spread.ts
+        - match: ({{ident}})
+          scope: variable.parameter.function.ts
+        - match: ','
+          scope: punctuation.separator.parameter.function.ts
+        - match: =
+          scope: keyword.operator.assignment.ts
+          push:
+            - meta_scope: meta.parameter.optional.ts
+            - match: (?=[,)])
+              pop: true
+            - include: expression
+
+  literal-module:
+    - match: (?<!\.)\b(?>import|export|default|from|as)\b
+      scope: keyword.operator.module.ts
+
+  literal-class:
+    # e.g. class MyClass extends OtherClass {  }
+    - match: (?<!\.)(?=\b(class|interface)\b)
+      push: class_def
+
+  class_def:
+    - meta_scope: meta.class.ts
+    - match: \b(class|interface)\b
+      captures:
+        1: storage.type.class.ts
+        2: storage.type.interface.flowtype.ts
+      scope: storage.type.class.ts
+      push: [class_body, class_extends, class_name]
+    - match: (?<=})
+      pop: true
+
+  class_name:
+    - match: ({{ident}})
+      scope: entity.name.class.ts
+      set:
+        - include: flowtype-polymorph
+        - match: (?=\s*(?>extends|>|{))
+          pop: true
+
+  class_extends:
+    - match: \b(extends)\b
+      scope: storage.type.extends.ts
+      set:
+        - match: (?={)
+          pop: true
+        - include: flowtype-polymorph
+        - include: expression
+    - match: (?={)
+      pop: true
+
+  class_body:
+    - match: '{'
+      scope: punctuation.definition.class.body.begin.ts
+      set:
+        - match: '}'
+          scope: punctuation.definition.class.body.end.ts
+          pop: true
+        - include: es7-decorators
+        - include: class-properties
+        - include: class-method-definition
+        - include: class-method-storage
+        - include: brackets
+
+  flowtype-declaration:
+    - match: (?<!\.)\b(declare)\b
+      scope: support.type.declare.flowtype.ts
+
+    - match: (?<!\.)\b(type)\b(?=\s*[_$a-zA-Z])
+      scope: support.type.type.flowtype.ts
+      push:
+        - meta_scope: meta.type.flowtype.ts
+        - match: (?=\s*(;|from))
+          pop: true
+        - include: flowtype-tokens
+
+    - match: (?<!\.)\b(type)\b(?=\s*{)
+      scope: support.type.type.flowtype.ts
+      push:
+        - meta_scope: meta.type.flowtype.ts
+        - match: (?<=})
+          pop: true
+        - include: flowtype-brackets
+        - include: flowtype-polymorph
+        - match: ([_$a-zA-Z][$\w]*)
+          scope: entity.name.type.ts
+
+  class-method-definition:
+    # e,g. @@iterator(): Iterator<[K, V]>;
+    # e.g. static (o: ?void): {[key: any]: any};
+    # e.g. return<R>(value: R): { done: true, value: R };
+    # e.g. <T: Object>(o: T): T;
+    - match: (@@[_$a-zA-Z][$\w]*|static|return)(?=\s*[<(])|(?=\s*<)
+      scope: keyword.operator.flowtype.ts
+      push:
+        - meta_scope: meta.short-method.flowtype.ts
+        - match: (?=\s*[;{])
+          pop: true
+        - include: flowtype-polymorph
+        - include: function-declaration-parameters
+        - include: flowtype-annotation
+        - include: curly-brackets
+
+    # In objects and flow annotations it can't be assumed that a start quote
+    # or start square-bracket is for a method - it may be a computed property.
+    # For multi-line quoted short methods and computed property methods, only
+    # the polymorphism constraints and parameters are matched.
+    - match: (?<=[]"''])\s*(?=[<(])
+      push:
+        - meta_scope: meta.class-method.computed.ts
+        - match: (?=\s*[;{])
+          pop: true
+        - include: flowtype-polymorph
+        - include: function-declaration-parameters
+        - include: flowtype-annotation
+        - include: curly-brackets
+
+    - match: >-
+        (?x)
+          ((?>get|set)\s+)
+          (?>
+            ((')((?>[^'\\]|\\.)*)('))|
+            ((")((?>[^"\\]|\\.)*)("))|
+            (([_$a-zA-Z][$\w]*|\d+))
+          )(?=\s*[<(])
+      captures:
+        1: storage.type.ts
+        2: string.quoted.ts
+        3: punctuation.definition.string.begin.ts
+        4: entity.name.function.ts
+        5: punctuation.definition.string.end.ts
+        6: string.quoted.ts
+        7: punctuation.definition.string.begin.ts
+        8: entity.name.function.ts
+        9: punctuation.definition.string.end.ts
+        10: string.unquoted.ts
+        11: entity.name.function.ts
+      push:
+        - meta_scope: meta.class-accessor.ts
+        - match: (?=\s*[;{])
+          pop: true
+        - include: flowtype-polymorph
+        - include: function-declaration-parameters
+        - include: flowtype-annotation
+        - include: curly-brackets
+
+    - match: >-
+        (?x)
+          (?>
+            ((')((?>[^'\\]|\\.)*)('))|
+            ((")((?>[^"\\]|\\.)*)("))|
+            (([_$a-zA-Z][$\w]*|\d+))
+          )(?=\s*[<(])
+      captures:
+        1: string.quoted.ts
+        2: punctuation.definition.string.begin.ts
+        3: entity.name.function.ts
+        4: punctuation.definition.string.end.ts
+        5: string.quoted.ts
+        6: punctuation.definition.string.begin.ts
+        7: entity.name.function.ts
+        8: punctuation.definition.string.end.ts
+        9: string.unquoted.ts
+        10: entity.name.function.ts
+      push:
+        - meta_scope: meta.class-method.ts
+        - match: (?=\s*[;{])
+          pop: true
+        - include: flowtype-polymorph
+        - include: function-declaration-parameters
+        - include: flowtype-annotation
+        - include: curly-brackets
+
+  class-method-storage:
+    - match: (?<!\.)\b(?>static|declare)\b
+      scope: storage.modifier.ts
+
+    - match: (?<!\.)\b(async)\b
+      scope: storage.type.ts
+
+    - match: (?<!\.)\b(get|set)\b(?!\s*\()
+      scope: storage.type.ts
+
+    - match: \*
+      scope: keyword.generator.asterisk.ts
+
+  class-properties:
+    - match: ([_$a-zA-Z][$\w]*)(?=\s*[:=])
+      scope: variable.other.property.ts
+      push:
+        - meta_scope: meta.class.property.ts
+        - match: (?=\s*[;}])
+          pop: true
+        - include: flowtype-annotation
+        - include: expression
+
+  literal-method:
+    # e.g. play(arg1, arg2) {  }
+    - match: >-
+        (?x)
+          (?:\b(static)\s+)?
+          (?:\b(async)\s+)?
+          (?:(\*)\s*)?
+          (?>
+            ((')((?>[^'\\]|\\.)*)('))|
+            ((")((?>[^"\\]|\\.)*)("))|
+            (([_$a-zA-Z][$\w]*|\d+))
+          )
+          (?=\s*(\((?>(?>[^()]+)|\g<-1>)*\))(?>\s|/\*.*\*/)*\{)
+      captures:
+        1: storage.type.ts
+        2: storage.type.ts
+        3: keyword.generator.asterisk.ts
+        4: string.quoted.ts
+        5: punctuation.definition.string.begin.ts
+        6: entity.name.function.ts
+        7: punctuation.definition.string.end.ts
+        8: string.quoted.ts
+        9: punctuation.definition.string.begin.ts
+        10: entity.name.function.ts
+        11: punctuation.definition.string.end.ts
+        12: string.unquoted.ts
+        13: entity.name.function.ts
+      push:
+        - meta_scope: meta.method.ts
+        - match: (?<=\))
+          pop: true
+        - include: function-declaration-parameters
+
+    # getter/setter
+    - match: >-
+        (?x)
+          \b(?:(static)\s+)?
+          (get|set)\s+
+          ({{ident}}|\d+)\s*
+          (?=(\((?>(?>[^()]+)|\g<-1>)*\))(?>\s|/\*.*\*/)*\{)
+      captures:
+        1: storage.type.ts
+        2: storage.type.accessor.ts
+        3: entity.name.accessor.ts
+      push:
+        - meta_scope: meta.accessor.ts
+        - match: (?<=\))
+          pop: true
+        - include: function-declaration-parameters
+
+  literal-prototype:
+    # e.g. Sound.prototype = {  } when extending an object
+    - match: ({{ident}})(\.)(prototype)\s*(=)\s*
+      scope: meta.prototype.declaration.ts
+      captures:
+        1: entity.name.class.ts
+        2: keyword.operator.accessor.ts
+        3: variable.language.prototype.ts
+        4: keyword.operator.assignment.ts
+
+    # e.g. Sound.prototype
+    - match: ({{ident}})(\.)(prototype)\b
+      scope: meta.prototype.access.ts
+      captures:
+        1: entity.name.class.ts
+        2: keyword.operator.accessor.ts
+        3: variable.language.prototype.ts
+
+  literal-function:
+    # e.g. function play(arg1, arg2) {  }
+    # e.g. play = function(arg1, arg2) {  }
+    - match: >-
+        (?x)
+          (?:({{ident}})\s*(=)\s*)?
+          (?:(async)\s+)?
+          (function)(?>\s*(\*)|(?=[\s(<]))
+          \s*({{ident}})?
+      captures:
+        1: entity.name.function.ts
+        2: keyword.operator.assignment.ts
+        3: storage.type.ts
+        4: storage.type.function.ts
+        5: keyword.generator.asterisk.ts
+        6: entity.name.function.ts
+      push:
+        - meta_scope: meta.function.ts
+        - match: (?<=\))
+          pop: true
+        - include: flowtype-polymorph
+        - include: function-declaration-parameters
+
+    # e.g. Sound.prototype.play = function(arg1, arg2) {  }
+    - match: >-
+        (?x)
+          (\b_?[A-Z][$\w]*)?
+          (\.)(prototype)
+          (\.)({{ident}})
+          \s*(=)
+          \s*(?:(async)\s+)?
+          \s*(function)(?>\s*(\*)|(?=[\s(<]))
+          \s*({{ident}})?\s*
+      captures:
+        1: entity.name.class.ts
+        2: keyword.operator.accessor.ts
+        3: variable.language.prototype.ts
+        4: keyword.operator.accessor.ts
+        5: entity.name.function.ts
+        6: keyword.operator.assignment.ts
+        7: storage.type.ts
+        8: storage.type.function.ts
+        9: keyword.generator.asterisk.ts
+        10: entity.name.function.ts
+      push:
+        - meta_scope: meta.function.prototype.ts
+        - match: (?<=\))
+          pop: true
+        - include: flowtype-polymorph
+        - include: function-declaration-parameters
+
+    # e.g. Sound.play = function(arg1, arg2) {  }
+    - match: >-
+        (?x)
+          (\b_?[A-Z][$\w]*)?
+          (\.)({{ident}})
+          \s*(=)
+          \s*(?:(async)\s+)?
+          \s*(function)(?>\s*(\*)|(?=[\s(<]))
+          \s*({{ident}})?\s*
+      captures:
+        1: entity.name.class.ts
+        2: keyword.operator.accessor.ts
+        3: entity.name.function.ts
+        4: keyword.operator.assignment.ts
+        5: storage.type.ts
+        6: storage.type.function.ts
+        7: keyword.generator.asterisk.ts
+        8: entity.name.function.ts
+      push:
+        - meta_scope: meta.function.static.ts
+        - match: (?<=\))
+          pop: true
+        - include: flowtype-polymorph
+        - include: function-declaration-parameters
+
+  literal-function-labels:
+    # e.g. play: function(arg1, arg2) {  }
+    # e.g. "play": function(arg1, arg2) {  }
+    - match: >-
+        (?x)
+        (?>
+          ((')((?>[^'\\]|\\.)*)('))|
+          ((")((?>[^"\\]|\\.)*)("))|
+          (({{ident}}|\d+))
+        )
+        \s*(:)
+        \s*(?:\b(async)\s+)?
+        \s*(function)(?>\s*(\*)|(?=[\s(<]))
+        \s*({{ident}})?
+      captures:
+        1: string.quoted.ts
+        2: punctuation.definition.string.begin.ts
+        3: entity.name.function.ts
+        4: punctuation.definition.string.end.ts
+        5: string.quoted.ts
+        6: punctuation.definition.string.begin.ts
+        7: entity.name.function.ts
+        8: punctuation.definition.string.end.ts
+        9: string.unquoted.ts
+        10: entity.name.function.ts
+        11: punctuation.separator.key-value.ts
+        12: storage.type.ts
+        13: storage.type.function.ts
+        14: keyword.generator.asterisk.ts
+        15: entity.name.function.ts
+      push:
+        - meta_scope: meta.function.tson.ts
+        - match: (?<=\))
+          pop: true
+        - include: flowtype-polymorph
+        - include: function-declaration-parameters
+
+  literal-arrow-function:
+    # e.g. (args) => { }
+    # e.g. play = (args) => { }
+    - match: >-
+        (?x)
+          (?:({{ident}})\s*(=)\s*)?
+          (?:\b(async)\s+)?
+          (?=(\((?>(?>[^()]+)|\g<-1>)*\))\s*(=>))
+      captures:
+        1: entity.name.function.ts
+        2: keyword.operator.assignment.ts
+        3: storage.type.ts
+      push:
+        - meta_scope: meta.function.arrow.ts
+        - match: (?<=\))\s*(=>)
+          captures:
+            1: storage.type.function.arrow.ts
+          pop: true
+        - include: function-declaration-parameters
+
+    # e.g. arg => { }
+    # e.g. play = arg => { }
+    - match: >-
+        (?x)
+          (?:({{ident}})\s*(=)\s*)?
+          (?:(async)\s+)?
+          \b({{ident}})\s*(=>)
+      scope: meta.function.arrow.ts
+      captures:
+        1: entity.name.function.ts
+        2: keyword.operator.assignment.ts
+        3: storage.type.ts
+        4: variable.parameter.function.ts
+        5: storage.type.function.arrow.ts
+
+    # e.g. Sound.prototype.play = (args) => { }
+    - match: >-
+        (?x)
+          (\b_?[A-Z][$\w]*)?
+          (\.)(prototype)
+          (\.)({{ident}})
+          \s*(=)
+          \s*(async)?
+          \s*(?=(\((?>(?>[^()]+)|\g<-1>)*\))\s*(=>))
+      captures:
+        1: entity.name.class.ts
+        2: keyword.operator.accessor.ts
+        3: variable.language.prototype.ts
+        4: keyword.operator.accessor.ts
+        5: entity.name.function.ts
+        6: keyword.operator.assignment.ts
+        7: storage.type.ts
+      push:
+        - meta_scope: meta.prototype.function.arrow.ts
+        - match: (?<=\))\s*(=>)
+          captures:
+            1: storage.type.function.arrow.ts
+          pop: true
+        - include: function-declaration-parameters
+
+    # e.g. Sound.prototype.play = arg => { }
+    - match: >-
+        (?x)
+          (\b_?[A-Z][$\w]*)?
+          (\.)(prototype)
+          (\.)({{ident}})
+          \s*(=)
+          \s*(async)?
+          \s*\b({{ident}})\s*(=>)
+      scope: meta.prototype.function.arrow.ts
+      captures:
+        1: entity.name.class.ts
+        2: keyword.operator.accessor.ts
+        3: variable.language.prototype.ts
+        4: keyword.operator.accessor.ts
+        5: entity.name.function.ts
+        6: keyword.operator.assignment.ts
+        7: storage.type.ts
+        8: variable.parameter.function.ts
+        9: storage.type.function.arrow.ts
+
+    # e.g. Sound.play = (args) => { }
+    - match: >-
+        (?x)
+          (\b_?[A-Z][$\w]*)?
+          (\.)({{ident}})
+          \s*(=)
+          \s*(async)?
+          \s*(?=(\((?>(?>[^()]+)|\g<-1>)*\))\s*(=>))
+      captures:
+        1: entity.name.class.ts
+        2: keyword.operator.accessor.ts
+        3: entity.name.function.ts
+        4: keyword.operator.assignment.ts
+        5: storage.type.ts
+      push:
+        - meta_scope: meta.function.static.arrow.ts
+        - match: (?<=\))\s*(=>)
+          captures:
+            1: storage.type.function.arrow.ts
+          pop: true
+        - include: function-declaration-parameters
+
+    # e.g. Sound.play = arg => { }
+    - match: >-
+        (?x)
+          (\b_?[A-Z][$\w]*)?
+          (\.)({{ident}})
+          \s*(=)
+          \s*(async)?
+          \s*\b({{ident}})\s*(=>)
+      scope: meta.function.static.arrow.ts
+      captures:
+        1: entity.name.class.ts
+        2: keyword.operator.accessor.ts
+        3: entity.name.function.ts
+        4: keyword.operator.assignment.ts
+        5: storage.type.ts
+        6: variable.parameter.function.ts
+        7: storage.type.function.arrow.ts
+
+  literal-arrow-function-labels:
+    # e.g. play: (args) => { }
+    # e.g. "play": (args) => { }
+    - match: >-
+        (?x)
+          (?>
+            ((')((?>[^'\\]|\\.)*)('))|
+            ((")((?>[^"\\]|\\.)*)("))|
+            (({{ident}}|\d+))
+          )
+          \s*(:)
+          \s*(?:\b(async)\s+)?
+          \s*(?=(\((?>(?>[^()]+)|\g<-1>)*\))\s*(=>))
+      captures:
+        1: string.quoted.ts
+        2: punctuation.definition.string.begin.ts
+        3: entity.name.function.ts
+        4: punctuation.definition.string.end.ts
+        5: string.quoted.ts
+        6: punctuation.definition.string.begin.ts
+        7: entity.name.function.ts
+        8: punctuation.definition.string.end.ts
+        9: string.unquoted.ts
+        10: entity.name.function.ts
+        11: punctuation.separator.key-value.ts
+        12: storage.type.ts
+      push:
+        - meta_scope: meta.function.tson.arrow.ts
+        - match: (?<=\))\s*(=>)
+          captures:
+            1: storage.type.function.arrow.ts
+          pop: true
+        - include: function-declaration-parameters
+
+    # e.g. play: arg => { }
+    # e.g. "play": arg => { }
+    - match: >-
+        (?x)
+          (?>
+            ((')((?>[^'\\]|\\.)*)('))|
+            ((")((?>[^"\\]|\\.)*)("))|
+            (({{ident}}|\d+))
+          )
+          \s*(:)
+          \s*(?:\b(async)\s+)?
+          \s*\b({{ident}})\s*(=>)
+      scope: meta.function.tson.arrow.ts
+      captures:
+        1: string.quoted.ts
+        2: punctuation.definition.string.begin.ts
+        3: entity.name.function.ts
+        4: punctuation.definition.string.end.ts
+        5: string.quoted.ts
+        6: punctuation.definition.string.begin.ts
+        7: entity.name.function.ts
+        8: punctuation.definition.string.end.ts
+        9: string.unquoted.ts
+        10: entity.name.function.ts
+        11: punctuation.separator.key-value.ts
+        12: storage.type.ts
+        13: variable.parameter.function.ts
+        14: storage.type.function.arrow.ts
+
+  literal-function-call:
+    - match: ({{ident}})\s*(\(\s*\))
+      scope: meta.function-call.without-arguments.ts
+      captures:
+        1: variable.function.ts
+        2: meta.group.braces.round.function.arguments.ts
+
+    - match: ({{ident}})\s*(?=\()
+      scope: meta.function-call.with-arguments.ts
+      captures:
+        1: variable.function.ts
+
+    - match: ({{ident}})\s*(?=`)
+      scope: meta.function-call.tagged-template.ts
+      captures:
+        1: variable.function.ts
+
+  literal-method-call:
+    - match: >-
+        (?x)
+          (?:(?<=\.)|\b)
+          ([A-Z][$\w]*)\s*(\.)
+          ({{ident}})\s*
+          (\(\s*\))
+      scope: meta.function-call.static.without-arguments.ts
+      captures:
+        1: variable.other.class.ts
+        2: keyword.operator.accessor.ts
+        3: variable.function.ts
+        4: meta.group.braces.round.function.arguments.ts
+
+    - match: >-
+        (?x)
+          (?:(?<=\.)|\b)
+          ([A-Z][$\w]*)\s*(\.)
+          ({{ident}})\s*
+          (?=\()
+      scope: meta.function-call.static.with-arguments.ts
+      captures:
+        1: variable.other.class.ts
+        2: keyword.operator.accessor.ts
+        3: variable.function.ts
+
+    - match: >-
+        (?x)
+          (?<=\.)
+          ({{ident}})\s*
+          (\(\s*\))
+      scope: meta.function-call.method.without-arguments.ts
+      captures:
+        1: variable.function.ts
+        2: meta.group.braces.round.function.arguments.ts
+
+    - match: >-
+        (?x)
+          (?<=\.)
+          ({{ident}})\s*
+          (?=\()
+      scope: meta.function-call.method.with-arguments.ts
+      captures:
+        1: variable.function.ts
+
+  literal-language-variable:
+    - match: (?<!(?<!\.\.)\.)\b(arguments)\b
+      scope: variable.language.arguments.ts
+
+    - match: (?<!(?<!\.\.)\.)\b(super)\b
+      scope: variable.language.super.ts
+
+    - match: (?<!(?<!\.\.)\.)\b(this)\b
+      scope: variable.language.this.ts
+
+    - match: (?<!(?<!\.\.)\.)\b(self)\b
+      scope: variable.language.self.ts
+
+    - match: (?<=\.)(__proto__)\b
+      scope: variable.language.proto.ts
+
+    - match: (?<=\.)(constructor)\b
+      scope: variable.language.constructor.ts
+
+    - match: (?<=\.)(prototype)\b
+      scope: variable.language.prototype.ts
+
+  literal-language-constant:
+    - match: (?<!\.)\b(true)\b
+      scope: constant.language.boolean.true.ts
+
+    - match: (?<!\.)\b(false)\b
+      scope: constant.language.boolean.false.ts
+
+    - match: (?<!\.)\b(null)\b
+      scope: constant.language.null.ts
+
+    - match: (?<!\.)\b(undefined)\b
+      scope: constant.language.undefined.ts
+
+    - match: (?<!\.)\b(NaN)\b
+      scope: constant.language.nan.ts
+
+  literal-constructor:
+    - match: (new)\s+(?=[_$a-zA-Z][$\w.]*)
+      captures:
+        1: keyword.operator.new.ts
+      push:
+        - meta_scope: meta.instance.constructor.ts
+        - match: (?![_$a-zA-Z][$\w.]*)
+          pop: true
+        - include: support-class
+        - include: support-other
+        - match: ([_$a-zA-Z][$\w.]*\.)?({{ident}})
+          captures:
+            2: variable.function.constructor.ts
+
+  literal-keyword-storage:
+    - match: (?<!\.)\b(?>const|let|var)\b
+      scope: storage.type.ts
+
+  literal-keywords:
+    - include: literal-keyword-storage
+
+    - match: (?<!\.)\b((?>await|yield))\b(?:\s*(\*))?
+      captures:
+        1: keyword.control.flow.ts
+        2: keyword.generator.asterisk.ts
+
+    - match: (?<!\.)\b(return)\b
+      scope: keyword.control.flow.ts
+
+    - match: (?<!\.)\b(?>if|else)\b
+      scope: keyword.control.conditional.ts
+
+    - match: (?<!\.)\b(?>catch|finally|throw|try)\b
+      scope: keyword.control.trycatch.ts
+
+    - match: (?<!\.)\b(?>break|continue|do|goto|while|case|default)\b
+      scope: keyword.control.loop.ts
+
+    - match: (?<!\.)\b(?>enum|public|package|private|interface|protected)\b
+      scope: keyword.other.reserved.ts
+
+    - match: (?<!\.)\b(debugger)\b
+      scope: keyword.other.ts
+
+  literal-for:
+    - match: (?<!\.)\b(for)\b
+      scope: keyword.control.loop.ts
+      push:
+        - meta_scope: meta.for.ts
+        - match: \)
+          scope: meta.brace.round.end.ts
+          pop: true
+        - match: \(
+          scope: meta.brace.round.begin.ts
+          push:
+            - match: (?=\))
+              pop: true
+            - include: literal-keyword-storage
+            - include: expression
+            - include: literal-punctuation
+
+  literal-switch:
+    - match: (?<!\.)\b(switch)\b
+      scope: keyword.control.switch.ts
+      push:
+        - meta_scope: meta.switch.ts
+        - match: \}
+          scope: meta.brace.curly.end.ts
+          pop: true
+        - include: round-brackets
+        - match: \{
+          scope: meta.brace.curly.begin.ts
+          push:
+            - match: (?=})
+              pop: true
+            - match: (?<!\.)\b(case|default)\b
+              captures:
+                1: keyword.control.switch.ts
+              push:
+                - match: (?=:)
+                  pop: true
+                - include: expression
+            - include: main
+
+  literal-operators:
+    - match: (?<!\.)\b(?>delete|instanceof|in|new|of|typeof|void|with)\b
+      scope: keyword.operator.ts
+
+    - match: >-
+        (?x)
+          !(?!=)| # logical-not     right-to-left   right
+          &&    | # logical-and     left-to-right   both
+          \|\|  | # logical-or      left-to-right   both
+      scope: keyword.operator.logical.ts
+
+    - match: >-
+        (?x)
+          =(?!=)| # assignment      right-to-left   both
+      scope: keyword.operator.assignment.ts
+
+    - match: >-
+        (?x)
+          %=   | # assignment      right-to-left   both
+          &=   | # assignment      right-to-left   both
+          \*=  | # assignment      right-to-left   both
+          \+=  | # assignment      right-to-left   both
+          -=   | # assignment      right-to-left   both
+          /=   | # assignment      right-to-left   both
+          \^=  | # assignment      right-to-left   both
+          \|=  | # assignment      right-to-left   both
+          <<=  | # assignment      right-to-left   both
+          >>=  | # assignment      right-to-left   both
+          >>>= | # assignment      right-to-left   both
+      scope: keyword.operator.assignment.augmented.ts
+
+    - match: >-
+        (?x)
+          ~    | # bitwise-not     right-to-left   right
+          <<   | # bitwise-shift   left-to-right   both
+          >>>  | # bitwise-shift   left-to-right   both
+          >>   | # bitwise-shift   left-to-right   both
+          &    | # bitwise-and     left-to-right   both
+          \^   | # bitwise-xor     left-to-right   both
+          \|     # bitwise-or      left-to-right   both
+      scope: keyword.operator.bitwise.ts
+
+    - match: >-
+        (?x)
+          <=   | # relational      left-to-right   both
+          >=   | # relational      left-to-right   both
+          <    | # relational      left-to-right   both
+          >      # relational      left-to-right   both
+      scope: keyword.operator.relational.ts
+
+    - match: >-
+        (?x)
+          ===  | # equality        left-to-right   both
+          !==  | # equality        left-to-right   both
+          ==   | # equality        left-to-right   both
+          !=     # equality        left-to-right   both
+      scope: keyword.operator.comparison.ts
+
+    - match: >-
+        (?x)
+          --   | # decrement       n/a             right-or-left
+          \+\+ | # increment       n/a             right-or-left
+          /    | # division        left-to-right   both
+          %    | # modulus         left-to-right   both
+          \*   | # multiplication  left-to-right   both
+          \+   | # addition        left-to-right   both
+          -      # subtraction     left-to-right   both
+      scope: keyword.operator.arithmetic.ts
+
+    - match: '[?:]'
+      scope: keyword.operator.ternary.ts
+
+    - match: (?<!\.)\.\.\.
+      scope: keyword.operator.spread.ts
+
+    - match: \.
+      scope: keyword.operator.accessor.ts
+
+  literal-labels:
+    - match: >-
+        (?x)
+          (?<!\?)(?<!\?\s)(?=(?>
+            ((')((?>[^'\\]|\\.)*)('))|
+            ((")((?>[^"\\]|\\.)*)("))
+          )\s*:)
+      push:
+        - match: ':'
+          scope: punctuation.separator.key-value.ts
+          pop: true
+        - include: literal-string
+
+    - match: (?<!\.|\?|\?\s)({{ident}})\s*(:)
+      scope: constant.other.object.key.ts
+      captures:
+        1: string.unquoted.label.ts
+        2: punctuation.separator.key-value.ts
+
+  literal-number:
+    - match: (?i)(?:\B[-+]|\b)0x[0-9a-f]*\.(\B|\b[0-9]+)
+      scope: invalid.illegal.numeric.hex.ts
+
+    - match: (?:\B[-+]|\b)0[0-9]+\.(\B|\b[0-9]+)
+      scope: invalid.illegal.numeric.octal.ts
+
+    - match: >-
+        (?xi)
+          (?:\B[-+])?
+          (?:
+            \b0b[0-1]*|                 # binary
+            \b0o[0-7]*|                 # octal
+            \b0x[0-9a-f]*|              # hex
+            (
+              \B\.[0-9]+|               # e.g. .999
+              \b[0-9]+(\.[0-9]*)?       # e.g. 999.999, 999. or 999
+            )(e[-+]?[0-9]+)?            # e.g. e+123, E-123
+          )
+      scope: constant.numeric.ts
+
+    - match: (?:\B[-+]|\b)(Infinity)\b
+      scope: constant.language.infinity.ts
+
+  literal-punctuation:
+    - match: ;
+      scope: punctuation.terminator.statement.ts
+
+    - match: ','
+      scope: meta.delimiter.comma.ts
+
+  literal-regexp:
+    # ignore ++, -- since they're uncommon, distinguishing them is not possible in sublime text, see:
+    # http://stackoverflow.com/questions/5519596/when-parsing-javascript-what-determines-the-meaning-of-a-slash
+    - match: >-
+        (?x)
+          (?<=
+            \.|\(|,|{|}|\[|;|<|>|<=|>=|==|!=|===|!==|\+|-|\*|%|\+\+|--|<<|>>|>>>|&|\||\^|!|~|&&|\|\||\?|:|=|\+=|-=|\*=|%=|<<=|>>=|>>>=|&=|\|=|\^=|/|/=|
+            \Wnew|\Wdelete|\Wvoid|\Wtypeof|\Winstanceof|\Win|\Wdo|\Wreturn|\Wcase|\Wthrow|\Wyield
+            ^new|^delete|^void|^typeof|^instanceof|^in|^do|^return|^case|^throw|^yield|^
+          )\s*
+          (/)
+          (?!/|\*|$)
+      captures:
+        1: punctuation.definition.string.begin.ts
+      push:
+        - meta_scope: string.regexp.ts
+        - match: (/)([gimy]*)
+          captures:
+            1: punctuation.definition.string.end.ts
+            2: keyword.other.ts
+          pop: true
+        - include: scope:source.regexp.ts
+
+  literal-string:
+    - match: (["'])
+      scope: punctuation.definition.string.quoted.begin.ts
+      push:
+        - meta_include_prototype: false
+        - meta_scope: string.quoted.ts
+        - match: \n
+          scope: invalid.illegal.newline.ts
+          pop: true
+        - match: \1
+          scope: punctuation.definition.string.quoted.end.ts
+          pop: true
+        - include: string-content
+
+  literal-template-string:
+    - match: '`'
+      scope: keyword.other.template.begin.ts
+      push: template-string-body
+
+  template-string-body:
+    - meta_include_prototype: false
+    - meta_scope: string.interpolated.ts
+    - match: \\`
+      scope: constant.character.escape.ts
+    - match: '`'
+      scope: keyword.other.template.end.ts
+      pop: true
+    - match: \${
+      scope: keyword.other.substitution.begin.ts
+      set:
+        - match: '}'
+          scope: keyword.other.substitution.end.ts
+          set: template-string-body
+        - include: expression
+    - include: string-content
+
+  string-content:
+    # https://mathiasbynens.be/notes/javascript-escapes
+    - match: \\\s*\n
+      scope: constant.character.escape.newline.ts
+
+    - match: \\([1-7][0-7]{0,2}|[0-7]{2,3}|[bfnrtv0'"\\]|x\h{2}|u\{\h+\}|u\h{4})
+      scope: constant.character.escape.ts
+
+  literal-variable:
+    # e.g. CONSTANT
+    - match: _*?[A-Z][_$\dA-Z]*\b
+      scope: variable.other.constant.ts
+
+    # e.g. Class.property
+    - match: \b([A-Z][$\w]*)\s*(\.)({{ident}})
+      scope: meta.property.class.ts
+      captures:
+        1: variable.other.class.ts
+        2: keyword.operator.accessor.ts
+        3: variable.other.property.static.ts
+
+    # e.g. obj.property
+    - match: (?<!\.)({{ident}})\s*(?=[\[\.])
+      scope: variable.other.object.ts
+      captures:
+        1: variable.other.object.ts
+
+    # e.g. obj.property
+    - match: (?<=\.)\s*({{ident}})
+      scope: meta.property.object.ts
+      captures:
+        1: variable.other.object.ts
+
+    - match: '{{ident}}'
+      scope: variable.other.readwrite.ts
+
+  support-class:
+    - match: (?<!\.)\b(Array|ArrayBuffer|Boolean|DataView|Date|Float32Array|Float64Array|Function|Infinity|Int16Array|Int32Array|Int8Array|JSON|Map|Math|NaN|Number|Object|Promise|Proxy|Reflect|RegExp|Set|String|Symbol|System|TypeError|Uint16Array|Uint32Array|Uint8Array|Uint8ClampedArray|WeakMap|WeakSet)\b
+      scope: support.class.builtin.ts
+
+    - match: (?<!\.)\b((?>Eval|Range|Reference|Syntax|Type|URI)?Error)\b
+      scope: support.class.error.ts
+
+    - match: \b(?>Buffer)\b
+      scope: support.class.node.ts
+
+  support-other:
+    - match: (?<!\.)\b(constructor|decodeURI|decodeURIComponent|encodeURI|encodeURIComponent|escape|eval|hasOwnProperty|isFinite|isNaN|isPrototypeOf|parseFloat|parseInt|propertyIsEnumerable|toLocaleString|toString|unescape|valueOf)\b
+      scope: support.function.builtin.ts
+
+    - match: (?<!\.)\b(clearImmediate|clearInterval|clearTimeout|require|setImmediate|setInterval|setTimeout)\b
+      scope: support.function.node.ts
+
+    - match: (?<!\.)\b(?>document|window)\b
+      scope: support.type.object.dom.ts
+
+    - match: (?<!\.)\b(?>global|GLOBAL|root|__dirname|__filename)\b
+      scope: support.type.object.node.ts
+
+    - match: (?<!\.)\b(console)(?:(\.)(assert|count|dir|error|group|groupCollapsed|groupEnd|info|log|profile|profileEnd|table|time|timeEnd|trace|warn))?\b
+      captures:
+        1: support.type.object.console.ts
+        2: keyword.operator.accessor.ts
+        3: support.function.console.ts
+
+    - match: (?<!\.)\b(process)(?:(\.)(?:(arch|argv|config|env|execArgv|execPath|exitCode|mainModule|pid|platform|stderr|stdin|stdout|title|version|versions)|(abort|chdir|cwd|exit|getgid|getgroups|getuid|hrtime|initgroups|kill|memoryUsage|nextTick|setgid|setgroups|setuid|umask|uptime)))?\b
+      captures:
+        1: support.type.object.process.ts
+        2: keyword.operator.accessor.ts
+        3: support.type.object.process.ts
+        4: support.function.process.ts
+
+    - match: (?<!\.)\b(exports|module(?:(\.)(children|exports|filename|id|loaded|parent)))?\b
+      captures:
+        1: support.type.object.module.ts
+        2: keyword.operator.accessor.ts
+        3: support.type.object.module.ts
+
+    - match: '{{'
+      push:
+        - meta_scope: meta.tag.mustache.ts
+        - match: '}}'
+          pop: true
+
+  literal-jsx:
+    - match: (?<=\(|\{|\[|,|&&|\|\||\?|:|=|=>|\Wreturn|^return|^)(?=\s*<[_$a-zA-Z])
+      push:
+        - meta_content_scope: meta.tsx.ts
+        - match: (?<=/>|>)
+          pop: true
+        - include: jsx-tag-start
+
+  jsx-attribute-assignment:
+    - match: =
+      scope: keyword.operator.assignment.tsx
+
+  jsx-attribute-name:
+    - match: '[_$a-zA-Z][-$\w]*'
+      scope: entity.other.attribute-name.tsx
+
+  jsx-attributes:
+    - include: jsx-attribute-name
+    - include: jsx-attribute-assignment
+    - include: jsx-string-quoted
+    - include: jsx-evaluated-code
+
+  jsx-entities:
+    - match: '&(?:[a-zA-Z0-9]+|#\d+|#x\h+);'
+      scope: constant.character.entity.tsx
+    - match: '&\S*;'
+      scope: invalid.illegal.bad-ampersand.tsx
+
+  jsx-evaluated-code:
+    - match: \{
+      scope: punctuation.section.embedded.begin.tsx
+      push:
+        - meta_scope: meta.embedded.expression.tsx
+        - match: \}
+          scope: punctuation.section.embedded.end.tsx
+          pop: true
+        - include: expression
+
+  jsx-string-quoted:
+    - match: (["'])
+      scope: punctuation.definition.string.begin.tsx
+      push:
+        - meta_include_prototype: false
+        - meta_scope: string.quoted.tsx
+        - match: \1
+          scope: punctuation.definition.string.end.tsx
+          pop: true
+        - include: jsx-entities
+
+  jsx-tag-end:
+    - match: '>'
+      scope: meta.tag.tsx punctuation.definition.tag.end.tsx
+      push:
+        - meta_include_prototype: false
+        - match: (?=</)
+          pop: true
+        - include: jsx-tag-start
+        - include: jsx-evaluated-code
+        - include: jsx-entities
+
+  jsx-tag-start:
+    - match: (<)([_$a-zA-Z][-$:.\w]*[$\w]*)
+      captures:
+        1: meta.tag.tsx punctuation.definition.tag.begin.tsx
+        2: meta.tag.tsx entity.name.tag.tsx
+      push:
+        - match: (</)(\2)(>)|(/>)
+          captures:
+            1: meta.tag.tsx punctuation.definition.tag.begin.tsx
+            2: meta.tag.tsx entity.name.tag.tsx
+            3: meta.tag.tsx punctuation.definition.tag.end.tsx
+            4: meta.tag.tsx punctuation.definition.tag.end.tsx
+          pop: true
+        - include: jsx-tag-end
+        - include: jsx-attributes
+
+    - match: '<'
+      scope: invalid.illegal.tag.incomplete.tsx
+
+  # https://github.com/wycats/javascript-decorators
+  es7-decorators:
+    - match: (@)([_$a-zA-Z][$\w]*)\b
+      scope: tag.decorator.ts
+      captures:
+        1: punctuation.definition.tag.ts
+        2: entity.name.tag.ts
+
+  merge-conflits:
+    - match: ^([<]{7})\s(.+)$
+      captures:
+        1: invalid.illegal.conflict-marker.merge-into.ts
+        2: invalid.illegal.string.ts
+    - match: ^([=|]{7})$
+      captures:
+        1: invalid.illegal.conflict-marker.separator.ts
+    - match: ^([>]{7})\s(.+)$
+      captures:
+        1: invalid.illegal.conflict-marker.other-commit.ts
+        2: invalid.illegal.string.ts
+
+  flowtype-polymorph:
+    # http://flowtype.org/blog/2015/03/12/Bounded-Polymorphism.html
+    - match: '<'
+      scope: punctuation.section.flowtype.begin.ts
+      push:
+      - meta_scope: meta.flowtype.polymorph.ts
+      - match: '>'
+        scope: punctuation.section.flowtype.end.ts
+        pop: true
+      - include: flowtype-tokens
+
+  flowtype-annotation:
+    - match: (?:(\?)\s*)?(:)
+      captures:
+        1: keyword.operator.flowtype.optional.ts
+        2: keyword.operator.flowtype.annotation.ts
+      push:
+        - meta_scope: meta.flowtype.annotation.ts
+        - include: flowtype-tokens
+        - match: (?=\S)
+          pop: true
+
+  flowtype-brackets:
+    - match: '{'
+      scope: punctuation.section.flowtype.begin.ts
+      push:
+      - match: '}'
+        scope:  punctuation.section.flowtype.end.ts
+        pop: true
+      - include: flowtype-tokens
+
+  flowtype-identifier:
+    - include: support-class
+
+    - match: \b(?:any|bool|boolean|mixed|number|string|void)\b
+      scope: constant.other.primitve.flowtype.ts
+
+    - match: '[_$a-zA-Z][$\w]*'
+      scope: variable.other.flowtype.ts
+
+    - match: \?
+      scope: keyword.operator.flowtype.optional.ts
+
+  flowtype-tokens:
+    - match: (?<=[:?|&=])(?=\s*{)
+      push:
+        - match: (?<=})
+          pop: true
+        - include: flowtype-brackets
+
+    - match: \s*([|&])\s*
+      scope: meta.flowtype.set.ts
+      captures:
+        1: keyword.operator.flowtype.other.ts
+
+    - match: '[*:?&|.]|\.\.\.|\b(typeof)\b'
+      scope: keyword.operator.flowtype.other.ts
+
+    - match: '<'
+      scope: punctuation.section.flowtype.begin.ts
+      push:
+      - match: '>'
+        scope: punctuation.section.flowtype.end.ts
+        pop: true
+      - include: flowtype-tokens
+
+    - match: \[
+      scope: punctuation.section.flowtype.begin.ts
+      push:
+      - match: \]
+        scope: punctuation.section.flowtype.end.ts
+        pop: true
+      - include: flowtype-tokens
+
+    - match: \(
+      scope: punctuation.section.flowtype.begin.ts
+      push:
+      - match: \)
+        scope: punctuation.section.flowtype.end.ts
+        pop: true
+      - include: flowtype-tokens
+
+    - match: '=>'
+      scope: keyword.operator.flowtype.ts
+      push:
+      - meta_scope: meta.flowtype.function.ts
+      - match: (?<=}|[_$a-zA-Z])
+        pop: true
+      - include: flowtype-brackets
+      - include: flowtype-identifier
+      - include: comments
+
+    - include: flowtype-identifier
+    - include: literal-string
+    - include: comments

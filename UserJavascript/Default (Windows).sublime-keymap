@@ -1,0 +1,92 @@
+[
+//javascript
+    //smart quick autocompletion
+    //{ for { --> { new line }
+    {
+        "keys": ["{"],
+        "command": "insert_snippet",
+        "args": {"contents": " {\n\t$0\n}"},
+        "context": [
+            {"key": "selection_empty", "operator": "equal", "operand": true},
+            {"key": "following_text", "operator": "regex_match", "operand": "$"},
+            {"key": "selector", "operator": "equal", "operand": "source.js"}
+        ]
+    },
+    {
+        "keys": ["{"],
+        "command": "insert_snippet",
+        "args": {"contents": "{\n\t$0\n}"},
+        "context": [
+            {"key": "selection_empty", "operator": "equal", "operand": true},
+            {"key": "following_text", "operator": "regex_match", "operand": "\\s$"},
+            {"key": "selector", "operator": "equal", "operand": "source.js"}
+        ]
+    },
+    //e for }e --> } else {}
+    {"keys": ["e"], "command": "insert_snippet", "args": {"contents": " else {\n\t$0\n}"},
+        "context": [
+            {"key": "selection_empty", "operator": "equal", "operand": true},
+            {"key": "following_text", "operator": "regex_match", "operand": "$"},
+            {"key": "preceding_text", "operator": "regex_match", "operand": "^\\s*}$"},
+            {"key": "selector", "operator": "equal", "operand": "source.js"}
+        ]
+    },
+    {"keys": ["e"], "command": "insert_snippet", "args": {"contents": "else {\n\t$0\n}"},
+        "context": [
+            {"key": "selection_empty", "operator": "equal", "operand": true},
+            {"key": "following_text", "operator": "regex_match", "operand": "$"},
+            {"key": "preceding_text", "operator": "regex_match", "operand": "^\\s*}\\s+$"},
+            {"key": "selector", "operator": "equal", "operand": "source.js"}
+        ]
+    },
+    //i for }i --> } else if {}
+    {"keys": ["i"], "command": "insert_snippet", "args": {"contents": " else if {\n\t$0\n}"},
+        "context": [
+            {"key": "selection_empty", "operator": "equal", "operand": true},
+            {"key": "following_text", "operator": "regex_match", "operand": "$"},
+            {"key": "preceding_text", "operator": "regex_match", "operand": "^\\s*}$"},
+            {"key": "selector", "operator": "equal", "operand": "source.js"}
+        ]
+    },
+    {"keys": ["i"], "command": "insert_snippet", "args": {"contents": "else if {\n\t$0\n}"},
+        "context": [
+            {"key": "selection_empty", "operator": "equal", "operand": true},
+            {"key": "following_text", "operator": "regex_match", "operand": "$"},
+            {"key": "preceding_text", "operator": "regex_match", "operand": "^\\s*}\\s+$"},
+            {"key": "selector", "operator": "equal", "operand": "source.js"}
+        ]
+    },
+    //auto visit pointer
+    {
+        "keys": ["ctrl+j"],
+        "command": "mul_run",
+        "args": {
+            "commands" : [
+                {"command": "insert_best_completion", "args": {"default": "\t", "exact": true}},
+                {"command": "insert", "args": {"characters": "-"}},
+                {"command": "clang_complete", "args": {"characters": ">"}}
+            ]
+        },
+        "context": [
+            {"key": "selection_empty", "operator": "equal", "operand": true},
+            { "key": "auto_complete_visible", "operator": "equal", "operand": true },
+            {"key": "selector", "operator": "equal", "operand": "source.js"}
+        ]
+    },
+    {
+        "keys": ["ctrl+j"],
+        "command": "mul_run",
+        "args": {
+            "commands" : [
+                {"command": "insert", "args": {"characters": "-"}},
+                {"command": "clang_complete", "args": {"characters": ">"}}
+            ]
+        },
+        "context": [
+            {"key": "selection_empty", "operator": "equal", "operand": true},
+            {"key": "preceding_text", "operator": "regex_contains", "operand": "(?:this|\\bp\\w*)$"},
+            { "key": "auto_complete_visible", "operator": "equal", "operand": false },
+            {"key": "selector", "operator": "equal", "operand": "source.js"}
+        ]
+    },
+]

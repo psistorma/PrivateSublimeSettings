@@ -247,7 +247,7 @@ class SublimeLinter(sublime_plugin.EventListener):
 
     # sublime_plugin.EventListener event handlers
 
-    def on_modified(self, view):
+    def on_modified_async(self, view):
         """Called when a view is modified."""
 
         if self.is_scratch(view):

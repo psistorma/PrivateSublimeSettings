@@ -99,6 +99,8 @@
         [["source.c++", "windows"], "C:\\Program Files (x86)\\Windows Kits\\8.1\\Include"],
         [["source.c++", "windows"], "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\include"],
         [["source.c++", "windows"], "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\atlmfc\\include"],
+        [["source.c++", "windows"], "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\atlmfc\\include"],
+        [["source.js", "windows"], "E:\\ForDevEnv\\nodejs\\node_modules"],
     ],
 
     // Enable highlighting of selected symbol.

@@ -4,8 +4,178 @@
         "command": "typescript_paste_and_format",
         "context": [
             { "key": "setting.typescript_auto_format", "operator": "equal", "operand": true },
-            { "key": "selector", "operator": "equal", "operand": "source.ts, source.tsx" },
+            { "key": "selector", "operator": "equal", "operand": "source.ts, source.tsx, source.js" },
             { "key": "setting.enable_typescript_language_service", "operator": "equal", "operand": true }
+        ]
+    },
+    {
+        "keys": [ "alt+d", "alt+d" ],
+        "command": "typescript_go_to_definition",
+        "context": [
+            { "key": "selector", "operator": "equal", "operand": "source.ts, source.tsx, source.js" }
+        ]
+    },
+    {
+        "keys": [ "alt+f8" ],
+        "command": "typescript_format_selection",
+        "context": [
+            { "key": "selection_empty", "operator": "equal", "operand": false, "match_all": true },
+            { "key": "num_selections", "operator": "equal", "operand": 1, "match_all": true },
+            { "key": "selector", "operator": "equal", "operand": "source.ts, source.tsx, source.js" }
+        ]
+    },
+    {
+        "keys": [ "f6"],
+        "command": "typescript_nav_to",
+        "context": [
+            { "key": "selector", "operator": "equal", "operand": "source.ts, source.tsx, source.js" }
+        ]
+    },
+    {
+        "keys": [ "alt+f8" ],
+        "command": "typescript_format_document",
+        "context": [
+            { "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+            { "key": "num_selections", "operator": "equal", "operand": 1, "match_all": true },
+            { "key": "selector", "operator": "equal", "operand": "source.ts, source.tsx, source.js" }
+        ]
+    },
+    {
+        "keys": [ "alt+d", "alt+r" ],
+        "command": "typescript_rename",
+        "context": [
+            { "key": "selector", "operator": "equal", "operand": "source.ts, source.tsx, source.js" }
+        ]
+    },
+    {
+        "keys": [ "alt+d", "alt+f" ],
+        "command": "typescript_next_ref",
+        "context": [
+            { "key": "selector", "operator": "equal", "operand": "source.ts, source.tsx, source.js" }
+        ]
+    },
+    {
+        "keys": [ "alt+d", "alt+f" ],
+        "command": "typescript_next_ref",
+        "context": [
+            { "key": "selector", "operator": "equal", "operand": "text.find-refs" }
+        ]
+    },
+    {
+        "keys": [ "alt+d", "alt+shift+f" ],
+        "command": "typescript_prev_ref",
+        "context": [
+            { "key": "selector", "operator": "equal", "operand": "source.ts, source.tsx, source.js" }
+        ]
+    },
+    {
+        "keys": [ "alt+d", "alt+shift+f" ],
+        "command": "typescript_prev_ref",
+        "context": [
+            { "key": "selector", "operator": "equal", "operand": "text.find-refs" }
+        ]
+    },
+    {
+        "keys": [ "f1" ],
+        "command": "typescript_quick_info_doc",
+        "context": [
+            { "key": "selector", "operator": "equal", "operand": "source.ts, source.tsx, source.js" }
+        ]
+    },
+    {
+        "keys": [ "alt+d", "ctrl+f" ],
+        "command": "typescript_find_references",
+        "context": [
+            { "key": "selector", "operator": "equal", "operand": "source.ts, source.tsx, source.js" }
+        ]
+    },
+    {
+        "keys": [ "alt+d", "ctrl+s" ],
+        "command": "typescript_save",
+        "context": [
+            { "key": "selector", "operator": "equal", "operand": "source.ts, source.tsx, source.js" }
+        ]
+    },
+    {
+        "keys": [ "alt+d", "alt+b" ],
+        "command": "typescript_signature_panel",
+        "context": [
+            { "key": "selector", "operator": "equal", "operand": "source.ts, source.tsx, source.js" }
+        ]
+    },
+    {
+        "keys": ["("],
+        "command": "typescript_signature_popup",
+        "context": [
+            { "key": "selector", "operator": "equal", "operand": "source.ts, source.tsx, source.js" },
+            { "key": "paren_pressed"}
+        ]
+    },
+    {
+        "keys": ["alt+down"],
+        "command": "typescript_signature_popup",
+        "args": {"move": "next"},
+        "context": [
+            { "key": "selector", "operator": "equal", "operand": "source.ts, source.tsx, source.js" },
+            { "key": "is_popup_visible"}
+        ]
+    },
+    {
+        "keys": ["alt+up"],
+        "command": "typescript_signature_popup",
+        "args": {"move": "prev"},
+        "context": [
+            { "key": "selector", "operator": "equal", "operand": "source.ts, source.tsx, source.js" },
+            { "key": "is_popup_visible"}
+        ]
+    },    // In case when auto match is enabled, only format if not within {}
+    {
+        "keys": [ "alt+,"],
+        "command": "typescript_signature_popup",
+        "context": [
+            { "key": "selector", "operator": "equal", "operand": "source.ts, source.tsx, source.js" },
+            { "key": "tooltip_supported", "operator": "equal", "operand": true}
+
+        ]
+    },
+    {
+        "keys": [ "enter" ],
+        "command": "typescript_go_to_ref",
+        "context": [
+            { "key": "selector", "operator": "equal", "operand": "text.find-refs" }
+        ]
+    },
+    {
+        "keys": [ "enter" ],
+        "command": "typescript_go_to_error",
+        "context": [
+            { "key": "selector", "operator": "equal", "operand": "text.error-list" }
+        ]
+    },
+    {
+        "keys": [ "enter" ],
+        "command": "typescript_auto_indent_on_enter_between_curly_brackets",
+        "context": [
+            { "key": "setting.typescript_auto_indent", "operator": "equal", "operand": true },
+            { "key": "auto_complete_visible", "operator": "equal", "operand": false },
+            { "key": "selection_empty", "operator": "equal", "operand": true },
+            { "key": "preceding_text", "operator": "regex_contains", "operand": "\\{$" },
+            { "key": "following_text", "operator": "regex_contains", "operand": "^\\}" },
+            { "key": "selector", "operator": "equal", "operand": "source.ts, source.tsx, source.js" }
+        ]
+    },
+    {
+        "keys": [ "ctrl+;" ],
+        "command": "typescript_format_line",
+        "context": [
+            { "key": "selector", "operator": "equal", "operand": "source.ts, source.tsx, source.js" }
+        ]
+    },
+    {
+        "keys": [ "ctrl+shift+]" ],
+        "command": "typescript_format_brackets",
+        "context": [
+            { "key": "selector", "operator": "equal", "operand": "source.ts, source.tsx, source.js" }
         ]
     }
 ]

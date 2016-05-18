@@ -34,7 +34,8 @@
     {
        "Python Django": "Python",
        "PythonByStorm": "Python",
-       "JavaScript": "Node.js"
+       "JavaScript": "Node.js",
+       "JavaScript (Babel)": "Node.js",
     },
 
 

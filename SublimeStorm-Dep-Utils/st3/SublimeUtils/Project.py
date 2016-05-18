@@ -221,12 +221,16 @@ class ProjectWiseAsset:
             self.am.reBuildAssetKey()
 
     def onFileSave(self, view):
+        if view.window() is None:
+            return
         variables = view.window().extract_variables()
         _file = variables["file"].lower()
         if _file.endswith(self.srcExt):
             self.am.refreshFile(_file)
 
     def onFileLoad(self, view):
+        if view.window() is None:
+            return
         self.refreshProjectAssets(view.window())
 
     def onPluginLoaded(self, clientKey, defOpts):

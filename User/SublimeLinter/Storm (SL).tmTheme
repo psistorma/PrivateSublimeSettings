@@ -114,7 +114,7 @@
       <key>name</key>
       <string>preprocessor macro keyword</string>
       <key>scope</key>
-      <string>meta.preprocessor.macro keyword</string>
+      <string>meta.preprocessor.macro keyword, variable.parameter.definition</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -158,7 +158,7 @@
       <key>name</key>
       <string>punctuation</string>
       <key>scope</key>
-      <string>punctuation - punctuation.definition.comment - meta.tip.notify - meta.tip.highlight - meta.diff, source.sublimecompletions,meta.completion.trigger-based.sublimecompletions</string>
+      <string>punctuation - punctuation.definition.comment - meta.tip.notify - meta.tip.highlight - meta.diff, source.sublimecompletions,meta.completion.trigger-based.sublimecompletions,meta.brace - meta.brace.curly</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -191,7 +191,7 @@
       <key>name</key>
       <string>entity name type value</string>
       <key>scope</key>
-      <string>entity.name.type.value, entity.name.function.c</string>
+      <string>entity.name.type.value, entity.name.function</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -224,7 +224,7 @@
       <key>name</key>
       <string>entity other ident member</string>
       <key>scope</key>
-      <string>variable.other.ident.member</string>
+      <string>variable.other.ident.member,meta.property</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -356,7 +356,7 @@
       <key>name</key>
       <string>tip highlight</string>
       <key>scope</key>
-      <string>meta.tip.highlight, punctuation.definition.brace.impl - meta.flow, meta.block.statement punctuation.definition.brace.block,punctuation.definition.brace.definition, keyword.other.block.start.sublimesnippetraw, constant.numeric.name.sublimesnippetraw,markup.bold - punctuation</string>
+      <string>meta.tip.highlight, punctuation.definition.brace.impl - meta.flow, meta.block.statement punctuation.definition.brace.block,punctuation.definition.brace.definition, keyword.other.block.start.sublimesnippetraw, constant.numeric.name.sublimesnippetraw,markup.bold - punctuation,meta.brace.curly</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -746,16 +746,6 @@
             </dict>
         </dict><dict>
             <key>name</key>
-            <string>SublimeLinter Warning</string>
-            <key>scope</key>
-            <string>sublimelinter.mark.warning</string>
-            <key>settings</key>
-            <dict>
-                <key>foreground</key>
-                <string>#DDB700</string>
-            </dict>
-        </dict><dict>
-            <key>name</key>
             <string>SublimeLinter Gutter Mark</string>
             <key>scope</key>
             <string>sublimelinter.gutter-mark</string>
@@ -763,6 +753,16 @@
             <dict>
                 <key>foreground</key>
                 <string>#FFFFFF</string>
+            </dict>
+        </dict><dict>
+            <key>name</key>
+            <string>SublimeLinter Warning</string>
+            <key>scope</key>
+            <string>sublimelinter.mark.warning</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#DDB700</string>
             </dict>
         </dict></array>
   <key>uuid</key>
