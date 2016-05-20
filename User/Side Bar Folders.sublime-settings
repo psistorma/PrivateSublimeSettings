@@ -35,6 +35,9 @@
 			"path": "E:\\Tmp\\oglpg-8th-edition"
 		},
 		{
+			"path": "E:\\Tmp\\awesome-typescript-loader"
+		},
+		{
 			"path": "E:\\ForDevEnv\\sublimeDev"
 		},
 		{
@@ -44,10 +47,22 @@
 			"path": "E:\\ForDevEnv\\contribute\\sublime\\FavoriteFiles"
 		},
 		{
+			"path": "E:\\electron\\TypeScriptSamples\\react-flux-babel-karma"
+		},
+		{
+			"path": "E:\\electron\\TYCADWeb\\node_modules"
+		},
+		{
+			"path": "E:\\electron\\TYCADWeb"
+		},
+		{
 			"path": "E:\\electron\\testp2p"
 		},
 		{
 			"path": "E:\\electron\\simple_peer"
+		},
+		{
+			"path": "E:\\electron\\material-ui\\examples"
 		},
 		{
 			"path": "E:\\electron\\electron-webrtc"

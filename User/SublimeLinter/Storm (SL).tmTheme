@@ -70,7 +70,7 @@
       <key>name</key>
       <string>function name</string>
       <key>scope</key>
-      <string>meta.function-call -meta.parens - meta.tip.highlight, meta.function-call meta.function-call.arguments meta.function-call -meta.parens - meta.tip.highlight,meta.function-call meta.function-call.arguments meta.function-call meta.function-call.arguments meta.function-call meta.function-call -meta.parens - meta.tip.highlight,support.function - support.function.builtin, keyword.function</string>
+      <string>meta.function-call -meta.parens - meta.tip.highlight - variable.other.readwrite, meta.function-call meta.function-call.arguments meta.function-call -meta.parens - meta.tip.highlight,meta.function-call meta.function-call.arguments meta.function-call meta.function-call.arguments meta.function-call meta.function-call -meta.parens - meta.tip.highlight,support.function - support.function.builtin, keyword.function</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -736,16 +736,6 @@
 
   <dict>
             <key>name</key>
-            <string>SublimeLinter Error</string>
-            <key>scope</key>
-            <string>sublimelinter.mark.error</string>
-            <key>settings</key>
-            <dict>
-                <key>foreground</key>
-                <string>#D02000</string>
-            </dict>
-        </dict><dict>
-            <key>name</key>
             <string>SublimeLinter Gutter Mark</string>
             <key>scope</key>
             <string>sublimelinter.gutter-mark</string>
@@ -753,6 +743,16 @@
             <dict>
                 <key>foreground</key>
                 <string>#FFFFFF</string>
+            </dict>
+        </dict><dict>
+            <key>name</key>
+            <string>SublimeLinter Error</string>
+            <key>scope</key>
+            <string>sublimelinter.mark.error</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#D02000</string>
             </dict>
         </dict><dict>
             <key>name</key>

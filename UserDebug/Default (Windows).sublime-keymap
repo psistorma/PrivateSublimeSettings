@@ -95,6 +95,50 @@
             {"key": "selector", "operator": "equal", "operand": "source.cmake"}
         ]
     },
+//typescript
+    {"keys": ["f11"], "command": "mul_run" , "args": {
+        "commands" : [
+            {"command": "save"},
+            {"command": "run_shell_cmd",
+                "args":{
+                    "commands": ["tsc --jsx react \"${file}\" && node.exe \"${file_path}/${file_base_name}.js\""]
+                },
+                "context": "window"
+            },
+        ]},
+        "context": [
+            {"key": "selector", "operator": "equal", "operand": "source.ts"}
+        ]
+    },
+    {"keys": ["ctrl+f5"], "command": "mul_run" , "args": {
+        "commands" : [
+            {"command": "save"},
+            {"command": "run_shell_cmd",
+                "args":{
+                    "commands": ["tsc --jsx react \"${file}\" && node.exe \"${file_path}/${file_base_name}.js\""],"async": false
+                },
+                "context": "window"
+            },
+        ]},
+        "context": [
+            {"key": "selector", "operator": "equal", "operand": "source.ts"}
+        ]
+    },
+    {"keys": ["alt+f5"], "command": "mul_run" , "args": {
+        "commands" : [
+            {"command": "save"},
+            {"command": "run_shell_cmd",
+                "args":{
+                    "commands": ["tsc --jsx react \"${file}\" && node.exe \"${file_path}/${file_base_name}.js\""],
+                    "run_mode": "run","win_mode": "show"
+                },
+                "context": "window"
+            },
+        ]},
+        "context": [
+            {"key": "selector", "operator": "equal", "operand": "source.ts"}
+        ]
+    },
 //nodejs
     {"keys": ["f11"], "command": "mul_run" , "args": {
         "commands" : [
@@ -137,50 +181,6 @@
         ]},
         "context": [
             {"key": "selector", "operator": "equal", "operand": "source.js"}
-        ]
-    },
-//typescript
-    {"keys": ["f11"], "command": "mul_run" , "args": {
-        "commands" : [
-            {"command": "save"},
-            {"command": "run_shell_cmd",
-                "args":{
-                    "commands": ["tsc --target es5 \"${file}\" && node.exe \"${file_path}/${file_base_name}.js\""]
-                },
-                "context": "window"
-            },
-        ]},
-        "context": [
-            {"key": "selector", "operator": "equal", "operand": "source.ts"}
-        ]
-    },
-    {"keys": ["ctrl+f5"], "command": "mul_run" , "args": {
-        "commands" : [
-            {"command": "save"},
-            {"command": "run_shell_cmd",
-                "args":{
-                    "commands": ["tsc --target es5 \"${file}\" && node.exe \"${file_path}/${file_base_name}.js\""],"async": false
-                },
-                "context": "window"
-            },
-        ]},
-        "context": [
-            {"key": "selector", "operator": "equal", "operand": "source.ts"}
-        ]
-    },
-    {"keys": ["alt+f5"], "command": "mul_run" , "args": {
-        "commands" : [
-            {"command": "save"},
-            {"command": "run_shell_cmd",
-                "args":{
-                    "commands": ["tsc --target es5 \"${file}\" && node.exe \"${file_path}/${file_base_name}.js\""],
-                    "run_mode": "run","win_mode": "show"
-                },
-                "context": "window"
-            },
-        ]},
-        "context": [
-            {"key": "selector", "operator": "equal", "operand": "source.ts"}
         ]
     },
 //python

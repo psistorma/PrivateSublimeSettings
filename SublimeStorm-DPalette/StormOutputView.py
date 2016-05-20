@@ -13,6 +13,8 @@ def plugin_loaded():
 def plugin_unloaded():
     ps.onPluginUnload()
 
+SCROLL_TO_END = "__toend__"
+
 def initSettings():
     defaultOptions = {
         "syntax_file":
@@ -26,7 +28,7 @@ def initSettings():
 
         "erase_panel_content": True,
 
-        "scroll_end": True,
+        "scroll_to": SCROLL_TO_END,
     }
     ps.loadWithDefault(defaultOptions)
 
@@ -69,15 +71,25 @@ class StormOutputViewFlushCommand(sublime_plugin.TextCommand):
     def run(self, edit, **kwds):
         data = kwds["data"]
         erase = kwds.get("erase", True)
-        scroll_end = kwds.get("scroll_end", True)
+        scroll_to = kwds.get("scroll_to", SCROLL_TO_END)
 
         if erase:
             self.view.erase(edit, sublime.Region(0, self.view.size()))
         elif self.view.size() > 0:
             self.view.insert(edit, self.view.size(), "\n")
         self.view.insert(edit, self.view.size(), data)
-        if scroll_end:
+        if scroll_to is None:
+            return
+
+        if scroll_to == SCROLL_TO_END:
             self.view.show(self.view.size())
+            return
+
+        foundReg = self.view.find(scroll_to, 1)
+        if foundReg is None or foundReg.a == -1:
+            self.view.show(self.view.size())
+        else:
+            self.view.show(foundReg)
 
 class StormOutputViewHideCommand(sublime_plugin.TextCommand):
     def run(self, edit):
@@ -137,6 +149,7 @@ class StorMOutputView(object):
         return "\n".join(lines)
 
     def flush(self):
+        ps.updateDynOpts()
         result_file_regex = ps.dynOpts["result_file_regex"]
         if result_file_regex:
             outputView.view.settings().set("result_file_regex", result_file_regex)
@@ -145,10 +158,11 @@ class StorMOutputView(object):
             "storm_output_view_flush",
             {"data": self.data,
              "erase": ps.dynOpts["erase_panel_content"],
-             "scroll_end": ps.dynOpts["scroll_end"],
+             "scroll_to": ps.dynOpts["scroll_to"],
             })
 
     def open(self, window=None):
+        ps.updateDynOpts()
         window = window or sublime.active_window()
         if not self.isVisible(window):
             self.view = window.get_output_panel("storm")
@@ -157,7 +171,6 @@ class StorMOutputView(object):
             fileName = ps.dynOpts["syntax_file"]
             self.view.set_syntax_file(fileName)
             self.view.set_read_only(False)
-
 
     @staticmethod
     def close():
@@ -205,8 +218,8 @@ def DynamicUpdate(infos, **notifyKwds):
     if "erase_panel_content" not in notifyKwds:
         ps.dynOpts["erase_panel_content"] = False
 
-    if "scroll_end" not in notifyKwds:
-        ps.dynOpts["scroll_end"] = False
+    if "scroll_to" not in notifyKwds:
+        ps.dynOpts["scroll_to"] = None
 
     lines = outputView.formatTolineData(infos)
     outputView.update(data=lines)

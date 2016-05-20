@@ -5,6 +5,7 @@ import sublime_plugin
 from SublimeUtils import Setting
 
 FILE_REGEX_ARR = [
+    "(?i)^.+?\\s(\\S+?):([0-9]+).*",
     "(?i)^\\s*File\\s*:?\\s*(?:\"|')?(.+?)(?:\"|')?,\\s*line\\s*:?\\s*([0-9]+)",
     "(?i)^(\\w+\\.ts)\\(([0-9]+),[0-9]+\\):"
 ]
@@ -18,7 +19,7 @@ class GotoFileCommand(sublime_plugin.TextCommand):
             res = re.match(filePattern, sLine)
             if res is None:
                 continue
-            filePath = res.group(1)
+            filePath = res.group(1).replace("/", "\\")
             line = res.group(2)
             if not os.path.exists(filePath):
                 fileDirectory, = Setting.expandVariables(window, "${file_path}")

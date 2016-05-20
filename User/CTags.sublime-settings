@@ -101,6 +101,7 @@
         [["source.c++", "windows"], "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\atlmfc\\include"],
         [["source.c++", "windows"], "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\atlmfc\\include"],
         [["source.js", "windows"], "E:\\ForDevEnv\\nodejs\\node_modules"],
+        [["source.ts", "windows"], "E:\\ForDevEnv\\nodejs\\node_modules"],
     ],
 
     // Enable highlighting of selected symbol.
@@ -135,6 +136,10 @@
                     "eventHandler"
                 ]
             }
+        },
+        "source.ts": {
+            //python settings inherit JavaScript, with some overrides
+            "inherit": "source.js"
         },
         "source.python": {
             //python settings inherit JavaScript, with some overrides

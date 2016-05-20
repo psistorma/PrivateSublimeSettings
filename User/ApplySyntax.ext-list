@@ -83,7 +83,13 @@
 	"TypeScript":
 	[
 		"js",
-		"ts"
+		"ts",
+		"tsx"
+	],
+	"TypeScriptByStorm":
+	[
+		"ts",
+		"tsx"
 	],
 	"XML":
 	[

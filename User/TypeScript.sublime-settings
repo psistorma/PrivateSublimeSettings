@@ -3,12 +3,13 @@
 	[
 		{
 			"characters": ".",
-			"selector": "source.ts"
+			"selector": "source.js, source.ts"
 		}
 	],
 	"extensions":
 	[
 		"js",
+		"tsx",
 		"ts"
 	],
 	"use_tab_stops": false
