@@ -55,7 +55,9 @@
     // example:
     //
     //     ["--exclude=some/path", "--exclude=some/other/path", ...]
-    "opts" : ["--exclude=build", "--exclude=docs", "--exclude=node_modules"
+    "opts" : ["--exclude=build", "--exclude=docs", "--exclude=node_modules",
+              "--exclude=CMakeLists.txt",
+      //        "--language-force=c++",
              ],
 
     // Tag "kind"s to ignore.
@@ -100,6 +102,9 @@
         [["source.c++", "windows"], "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\include"],
         [["source.c++", "windows"], "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\atlmfc\\include"],
         [["source.c++", "windows"], "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\atlmfc\\include"],
+        [["source.c++", "windows"], "E:\\try\\osgearth-1.4\\src"],
+        [["source.c++", "windows"], "E:\\try\\OpenSceneGraph-3.4.0\\include"],
+        [["source.c++", "windows"], "E:\\try\\OpenSceneGraph-3.4.0\\src"],
         [["source.js", "windows"], "E:\\ForDevEnv\\nodejs\\node_modules"],
         [["source.ts", "windows"], "E:\\ForDevEnv\\nodejs\\node_modules"],
     ],

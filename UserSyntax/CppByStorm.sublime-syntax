@@ -105,9 +105,6 @@ contexts:
               scope: invalid.illegal.stray-brace-begin
               pop: true
             - include: __step-declaration-statement
-        - match: \s*\}
-          scope: invalid.illegal.stray-brace-end
-          pop: true
         - include: step-finish-now
 
   step-declaration-block:
@@ -476,8 +473,8 @@ contexts:
       set:
         - match: (?=^\s*(#)(endif)\b)
           pop: true
-        - include: rule-impl-statement
         - include: rule-declaration-preprocessor-safe
+        - include: rule-impl-statement
         - include: __step-preprocessor-condition-else
 
     - match: \s*\bdefined(?=\s*\()
@@ -571,7 +568,7 @@ contexts:
     - include: lex-continuation
 # class definition
   rule-definition-class:
-    - match: (?=\b(?:class|struct)\s+{{svIdent}}(?!\s*\*)\s*(?::)?)
+    - match: (?=\s*\b(?:class|struct)\s+{{svIdent}}(?!\s*\*)\s*(?::)?)
       push:
         - match: (?=.?)
           set: [__step-definition-class-body, __step-definition-class-header]

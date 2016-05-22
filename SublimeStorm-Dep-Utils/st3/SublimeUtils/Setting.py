@@ -43,7 +43,9 @@ def expandVariables(window, *strs, forSublime=True, forEnv=True):
 
 class ProjectSetting():
     def __init__(self, pluginKey):
-        self._project_data = sublime.active_window().project_data().get(pluginKey, {}) if int(sublime.version()) >= 3000 else {}
+        prjData = sublime.active_window().project_data()
+        self._project_data = prjData.get(pluginKey, {}) if prjData is not None else {}
+
 
     def get(self, key, default):
         return self._project_data.get(key, default)

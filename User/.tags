@@ -1,0 +1,18 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+FF00FF00	.\Color Highlighter\ColorPicker\ColorPicker_win.exe.recent	/^; For example, this would specify green: FF00FF00$/;"	v
+color	.\Color Highlighter\ColorPicker\ColorPicker_win.exe.recent	/^; A palette must consist of ninety six (96) colors. If there are less than this, the remaining color$/;"	v
+comment	.\Color Highlighter\themes\MarkdownEditor-Dark.tmTheme	/^            <string>comment, comment punctuation<\/string>$/;"	v
+comment	.\Oasis.tmTheme	/^			<string>comment, string.quoted.double.block<\/string>$/;"	v
+comment	.\SublimeLinter\Oasis (SL).tmTheme	/^			<string>comment, string.quoted.double.block<\/string>$/;"	v
+comments	.\Color Highlighter\ColorPicker\ColorPicker_win.exe.recent	/^; Lines that start with a semicolon are comments$/;"	v
+example	.\Color Highlighter\ColorPicker\ColorPicker_win.exe.recent	/^; For example, this would specify green: FF00FF00$/;"	v
+more	.\Color Highlighter\ColorPicker\ColorPicker_win.exe.recent	/^; slots will be set to white (FFFFFFFF). If there are more, then the remaining colors will be ignored.$/;"	v
+source	.\Color Highlighter\themes\Storm.tmTheme	/^      <string>source, text.plain<\/string>$/;"	v
+source	.\Storm.tmTheme	/^      <string>source, text.plain<\/string>$/;"	v
+string	.\Oasis.tmTheme	/^			<string>string, string, meta.structure.dictionary.json meta.structure.dictionary.value.json string.quoted.double.json, source.c++ meta.function.c meta.block.c string.quoted.double.c constant.other.placeholder.c<\/string>$/;"	v
+string	.\SublimeLinter\Oasis (SL).tmTheme	/^			<string>string, string, meta.structure.dictionary.json meta.structure.dictionary.value.json string.quoted.double.json, source.c++ meta.function.c meta.block.c string.quoted.double.c constant.other.placeholder.c<\/string>$/;"	v

@@ -92,7 +92,7 @@
       <key>name</key>
       <string>preprocessor Keyword</string>
       <key>scope</key>
-      <string>meta.preprocessor keyword - meta.preprocessor.macro</string>
+      <string>keyword.other.preprocessor</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -114,7 +114,7 @@
       <key>name</key>
       <string>preprocessor macro keyword</string>
       <key>scope</key>
-      <string>meta.preprocessor.macro keyword, variable.parameter.definition,variable.parameter.function</string>
+      <string>meta.preprocessor.macro keyword, meta.preprocessor.macro keyword.other.preprocessor,keyword.other.preprocessor.define, variable.parameter.definition,variable.parameter.function</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -539,7 +539,7 @@
       <key>name</key>
       <string>regex keyword operator</string>
       <key>scope</key>
-      <string>keyword.operator.regexp</string>
+      <string>keyword</string>
       <key>settings</key>
       <dict>
         <key>fontStyle</key>

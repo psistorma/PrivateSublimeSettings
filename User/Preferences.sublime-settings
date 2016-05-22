@@ -21,7 +21,7 @@
 		}
 	],
 	"caret_style": "blink",
-	"color_scheme": "Packages/User/SublimeLinter/Storm (SL).tmTheme",
+	"color_scheme": "Packages/User/Storm.tmTheme",
 	"detect_indentation": false,
 	"detect_slow_plugins": true,
 	"draw_white_space": "selection",
@@ -48,7 +48,7 @@
 	[
 		"directwrite"
 	],
-	"font_size": 20,
+	"font_size": 21,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
@@ -56,7 +56,9 @@
 		"Anaconda",
 		"Bookmarks",
 		"GitGutter",
-		"SublimeClang",
+		"SublimeLinter",
+		"tern_for_sublime",
+		"TypeScript",
 		"Vintage"
 	],
 	"line_numbers": true,

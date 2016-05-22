@@ -21,7 +21,8 @@
 				"Bookmarks",
 				"GitGutter",
 				"Vintage",
-				"SublimeLinter"
+				"SublimeLinter",
+				"SublimeClang"
 			]
 		},
 		"git commit":
@@ -64,5 +65,5 @@
 			]
 		}
 	},
-	"loaded_bundle": "javascript"
+	"loaded_bundle": "c++"
 }

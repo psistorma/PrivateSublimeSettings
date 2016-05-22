@@ -120,8 +120,7 @@
                         {"key": "selector", "operator": "equal", "operand": "string"}
         ]},
         {"keys": ["/"], "command": "toggle_comment", "args": { "block": false }, "context": [
-                        { "key": "selection_empty", "operator": "equal", "operand": false },
-                        {"key": "selector", "operator": "equal", "operand": "source - string"}
+                        { "key": "selection_empty", "operator": "equal", "operand": false }
         ]},
         //Goto
         { "keys": ["alt+\\"], "command": "show_overlay", "args": {"overlay": "goto", "text": ":"} },
