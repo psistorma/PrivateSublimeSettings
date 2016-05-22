@@ -93,6 +93,7 @@
 	],
 	"XML":
 	[
+		"earth",
 		"xml.dist"
 	],
 	"YAML":

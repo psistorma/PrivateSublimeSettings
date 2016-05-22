@@ -2,6 +2,7 @@
 	"extensions":
 	[
 		"xml.dist",
+		"earth",
 		"xsd",
 		"svg",
 		"xml",

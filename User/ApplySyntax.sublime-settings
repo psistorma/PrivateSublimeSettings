@@ -50,6 +50,10 @@
       {
           "syntax": "SublimeStorm-DPalette/StormOutputView",
           "extensions": ["stormoutput"]
+      },
+      {
+          "syntax": "XML/XML",
+          "extensions": ["earth"]
       }
     ]
 }
