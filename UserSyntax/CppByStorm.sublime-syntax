@@ -237,11 +237,13 @@ contexts:
     - include: rule-memory-control
     - include: rule-macro-expandsion
     - include: rule-expression-impl-function-call
+    - include: rule-expression-override-operation
     - include: rule-expression-index-visit
     - include: lex-variable
     - include: lex-operator
     - include: lex-sep
     - include: rule-invalid-expression-symbol
+
 # parens
   __step-parens-definition:
     - meta_scope: meta.function-call.arguments.c
@@ -278,8 +280,9 @@ contexts:
     - match: \s*\(
       scope: punctuation.definition.arguments.begin
       push:
+        - meta_scope: meta.ttt
         - match: \s*\)
-          scope: punctuation.definition.arguments.end
+          scope: punctuation.definition.arguments.end1
           pop: true
         - match: ;
           scope: invalid.illegal.semicolon.end
@@ -702,8 +705,7 @@ contexts:
       push:
         - match: (?=\s*\()
           set: step-parens-invoke
-        - match: \s*{{svOverrideFnInvoke}}
-          scope: variable.function.override
+        - match: (?=\s*{{svOverrideFnInvoke}})
           set: step-expression
         - match: (?=.?)
           push:
@@ -723,6 +725,15 @@ contexts:
           scope: punctuation.definition.square.begin
         - match: \s*\]
           scope: punctuation.definition.square.end
+          pop: true
+        - include: step-expression-statement
+# expression override operation
+  rule-expression-override-operation:
+    - match: (?=\s*(?:<<|>>))
+      push:
+        - match: \s*(<<|>>)
+          scope: variable.function.override
+        - match: (?=;)
           pop: true
         - include: step-expression-statement
 # brace init
@@ -877,7 +888,7 @@ contexts:
         - include: step-expression-statement
 # statement expression
   rule-statement-expression:
-    - match: (?=\w|\()
+    - match: (?=\w|\(|{{svOverrideFnInvoke}})
       push: step-expression-statement
 # declare friend
   rule-declare-friend:

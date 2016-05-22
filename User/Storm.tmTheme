@@ -70,7 +70,7 @@
       <key>name</key>
       <string>function name</string>
       <key>scope</key>
-      <string>meta.function-call -meta.parens - meta.tip.highlight - variable.other.readwrite, meta.function-call meta.function-call.arguments meta.function-call -meta.parens - meta.tip.highlight,meta.function-call meta.function-call.arguments meta.function-call meta.function-call.arguments meta.function-call meta.function-call -meta.parens - meta.tip.highlight,support.function - support.function.builtin, keyword.function</string>
+      <string>meta.function-call -meta.parens - meta.tip.highlight - variable.other.readwrite, meta.function-call meta.function-call.arguments meta.function-call -meta.parens - meta.tip.highlight,meta.function-call meta.function-call.arguments meta.function-call meta.function-call.arguments meta.function-call meta.function-call -meta.parens - meta.tip.highlight,support.function - support.function.builtin, keyword.function,variable.function.override</string>
       <key>settings</key>
       <dict>
         <key>foreground</key>
@@ -539,7 +539,7 @@
       <key>name</key>
       <string>regex keyword operator</string>
       <key>scope</key>
-      <string>keyword</string>
+      <string>keyword - meta.tip.notify - meta.tip.highlight</string>
       <key>settings</key>
       <dict>
         <key>fontStyle</key>

@@ -188,7 +188,7 @@
         },
 //better bookmarks
         {
-            "keys": ["f12"], "command": "better_bookmarks_swap_layer",
+            "keys": ["alt+f12"], "command": "better_bookmarks_swap_layer",
             "args": {"direction": "prev"}
         },
         {
@@ -201,7 +201,7 @@
             "keys": ["ctrl+f2"], "command": "better_bookmarks_mark_line",
         },
         {
-            "keys": ["shift+f2"], "command": "better_bookmarks_clear_marks",
+            "keys": ["shift+f12"], "command": "better_bookmarks_clear_marks",
         },
         {
             "keys": ["alt+shift+f12"], "command": "better_bookmarks_clear_all_marks",
