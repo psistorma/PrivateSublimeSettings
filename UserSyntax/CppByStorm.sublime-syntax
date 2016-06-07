@@ -52,9 +52,10 @@ contexts:
     - match: ，|。|（|）|“|”
       scope: invalid.illegal.punctuation
   main:
-    - include: rule-declaration-preprocessor-safe
+    - include: rule-declaration-preprocessor-safe-sure
+    - include: rule-declaration-preprocessor-safe-notsure
 # declaration
-  rule-declaration-preprocessor-safe:
+  rule-declaration-preprocessor-safe-sure:
     - include: rule-preprocessor-include
     - include: rule-statement-extern
     - include: rule-pragma-region
@@ -68,6 +69,7 @@ contexts:
     - include: rule-definition-enum
     - include: rule-macro-expandsion
     - include: rule-definition-function
+  rule-declaration-preprocessor-safe-notsure:
     - include: rule-statement-declaration
     - include: rule-statement-empty
     - include: rule-invalid-statement-symbol
@@ -182,7 +184,7 @@ contexts:
     - include: rule-invalid-expression-symbol
 
   rule-statement-case:
-    - match: (?=\s*\b(case|default)(\s+{{svCtxType}})?\s*(:))
+    - match: (?=\s*\b(case|default)(\s+\w+)?\s*(:))
       push:
         - match: \b(?:case|default)\b
           scope: keyword.control.c
@@ -198,7 +200,7 @@ contexts:
   __rule-impl-statement-compact:
     - match: (?=\s*\{)
       push:
-        - match: \s*\{
+        - match: \{
           scope: punctuation.definition.brace.block.begin
           push:
             - meta_scope: meta.tip.embed meta.block.statement
@@ -219,7 +221,7 @@ contexts:
   __rule-expression-compact:
     - match: (?=\s*\()
       push:
-        - match: \s*\(
+        - match: \(
           scope: punctuation.definition.bracket.expression.begin
           push:
             - meta_scope: meta.tip.embed meta.expression.group
@@ -280,7 +282,6 @@ contexts:
     - match: \s*\(
       scope: punctuation.definition.arguments.begin
       push:
-        - meta_scope: meta.ttt
         - match: \s*\)
           scope: punctuation.definition.arguments.end1
           pop: true
@@ -476,8 +477,9 @@ contexts:
       set:
         - match: (?=^\s*(#)(endif)\b)
           pop: true
-        - include: rule-declaration-preprocessor-safe
+        - include: rule-declaration-preprocessor-safe-sure
         - include: rule-impl-statement
+        - include: rule-declaration-preprocessor-safe-notsure
         - include: __step-preprocessor-condition-else
 
     - match: \s*\bdefined(?=\s*\()
@@ -733,7 +735,7 @@ contexts:
       push:
         - match: \s*(<<|>>)
           scope: variable.function.override
-        - match: (?=;)
+        - match: (?=;|,)
           pop: true
         - include: step-expression-statement
 # brace init
@@ -747,7 +749,10 @@ contexts:
           - match: \s*\}
             scope: punctuation.definition.brace.end
             pop: true
-          - include: step-expression-statement
+          - include: step-finish-at-end-of-statement
+          - match: \s*\)
+            scope: invalid.illegal.stray-bracket-end
+          - include: step-expression
 # statement flow
   rule-statement-flow:
     - include: rule-statement-flow-for

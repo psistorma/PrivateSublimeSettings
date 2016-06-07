@@ -8,6 +8,7 @@
 				"Bookmarks",
 				"GitGutter",
 				"Vintage",
+				"C++",
 				"Anaconda",
 				"SublimeLinter",
 				"TypeScript",
@@ -65,5 +66,5 @@
 			]
 		}
 	},
-	"loaded_bundle": "c++"
+	"loaded_bundle": "python"
 }

@@ -5,7 +5,8 @@ import codecs
 import os
 from datetime import datetime
 from threading import Thread
-import signal, subprocess
+import signal
+import subprocess
 import json
 import webbrowser
 
@@ -28,14 +29,17 @@ else:
     from dir_context import Dir
     from plugins import PluginList, PluginRegistryCall
 
+
 #
 # Commands
 #
+
+
 class GulpCommand(BaseCommand):
     cache_file_name = ".sublime-gulp.cache"
     log_file_name = 'sublime-gulp.log'
     allowed_extensions = [".babel.js", ".js"]
-    
+
     def work(self):
         self.folders = []
         self.gulp_files = []
@@ -58,9 +62,8 @@ class GulpCommand(BaseCommand):
             self.append_to_gulp_files(folder_path)
             for inner_folder in self.settings.get("gulpfile_paths", []):
                 if(os.name == 'nt'):
-                    inner_folder = inner_folder.replace("/","\\")
+                    inner_folder = inner_folder.replace("/", "\\")
                 self.append_to_gulp_files(os.path.join(folder_path, inner_folder))
-
 
     def append_to_gulp_files(self, folder_path):
         gulpfile_path = self.get_gulpfile_path(folder_path)
@@ -98,7 +101,7 @@ class GulpCommand(BaseCommand):
             self.error_message(str(e))
         else:
             tasks = [[name, self.dependencies_text(task)] for name, task in json_result.items()]
-            return sorted(tasks, key = lambda task: task)
+            return sorted(tasks, key=lambda task: task)
 
     def dependencies_text(self, task):
         return "Dependencies: " + task['dependencies'] if task['dependencies'] else ""
@@ -121,13 +124,16 @@ class GulpCommand(BaseCommand):
 
         self.callcount += 1
 
-        if self.callcount == 1: 
+        if self.callcount == 1:
             return self.write_to_cache()
 
         if data is None:
             raise Exception("Could not write to cache gulpfile.")
 
-        raise Exception("Sha1 from gulp cache ({0}) is not equal to calculated ({1}).\nTry erasing the cache and running Gulp again.".format(data[gulpfile]["sha1"], filesha1))
+        if gulpfile in data:
+            raise Exception("Sha1 from gulp cache ({0}) is not equal to calculated ({1}).\nTry erasing the cache and running Gulp again.".format(data[gulpfile]["sha1"], filesha1))
+        else:
+            raise Exception("Have you renamed a folder?.\nSometimes Sublime doesn't update the project path, try removing the folder from the project and adding it again.")
 
     def write_to_cache(self):
         package_path = os.path.join(sublime.packages_path(), self.package_name)
@@ -199,7 +205,7 @@ class GulpCommand(BaseCommand):
 
     def run_gulp_task(self):
         task = self.construct_gulp_task()
-        Thread(target = self.run_process, args = (task, )).start()
+        Thread(target=self.run_process, args=(task, )).start()
 
     def construct_gulp_task(self):
         self.show_running_status_in_output_panel()
@@ -241,6 +247,16 @@ class GulpArbitraryCommand(GulpCommand):
             self.run_gulp_task()
 
 
+class GulpLastCommand(BaseCommand):
+    def work(self):
+        if ProcessCache.last:
+            last_command = ProcessCache.last.last_command
+            task_name = last_command.replace('gulp ', '').strip()
+            self.window.run_command("gulp", { "task_name": task_name })
+        else:
+            self.status_message("You need to run a task first")
+
+
 class GulpKillCommand(BaseCommand):
     def work(self):
         if ProcessCache.empty():
@@ -256,9 +272,11 @@ class GulpShowPanelCommand(BaseCommand):
     def work(self):
         self.show_panel()
 
+
 class GulpHidePanelCommand(BaseCommand):
     def work(self):
         self.close_panel()
+
 
 class GulpPluginsCommand(BaseCommand):
     def work(self):
@@ -279,7 +297,7 @@ class GulpPluginsCommand(BaseCommand):
             if thread.result:
                 plugin_response = json.loads(thread.result.decode('utf-8'))
                 self.plugins = PluginList(plugin_response)
-                self.show_quick_panel(self.plugins.quick_panel_list(), self.open_in_browser, font = 0)
+                self.show_quick_panel(self.plugins.quick_panel_list(), self.open_in_browser, font=0)
             else:
                 self.error_message(self.error_text_for(thread))
 
@@ -295,6 +313,7 @@ class GulpPluginsCommand(BaseCommand):
     def open_in_browser(self, index=-1):
         if index >= 0 and index < self.plugins.length:
             webbrowser.open_new(self.plugins.get(index).get('homepage'))
+
 
 class GulpDeleteCacheCommand(GulpCommand):
     def choose_file(self):
@@ -321,11 +340,12 @@ class GulpExitCommand(sublime_plugin.WindowCommand):
             self.window.run_command("gulp_kill")
         finally:
             self.window.run_command("exit")
-            
+
 
 #
 # General purpose Classes.
 #
+
 
 class CrossPlatformProcess():
     def __init__(self, sublime_command):
@@ -356,7 +376,7 @@ class CrossPlatformProcess():
     def _preexec_val(self):
         return os.setsid if sublime.platform() != "windows" else None
 
-    def communicate(self, fn = lambda x:None):
+    def communicate(self, fn=lambda x: None):
         stdout, stderr = self.pipe(fn)
         self.process.communicate()
         self.terminate()
@@ -377,7 +397,8 @@ class CrossPlatformProcess():
         output_text = ""
         while True:
             line = stream.readline()
-            if not line: break
+            if not line:
+                break
             output_line = CrossPlaformCodecs.decode_line(line)
             output_text += output_line
             fn(output_line)
@@ -406,10 +427,12 @@ class CrossPlatformProcess():
 
 class ProcessCache():
     _procs = []
+    last = None
 
     @classmethod
     def add(cls, process):
-       cls._procs.append(process)
+        cls._procs.append(process)
+        cls.last = process
 
     @classmethod
     def remove(cls, process):
