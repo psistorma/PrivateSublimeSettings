@@ -539,7 +539,7 @@
       <key>name</key>
       <string>regex keyword operator</string>
       <key>scope</key>
-      <string>keyword - meta.tip.notify - meta.tip.highlight</string>
+      <string>keyword - meta.tip.notify - meta.tip.highlight,support.class</string>
       <key>settings</key>
       <dict>
         <key>fontStyle</key>

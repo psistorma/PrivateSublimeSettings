@@ -21,7 +21,7 @@
 		}
 	],
 	"caret_style": "blink",
-	"color_scheme": "Packages/User/SublimeLinter/Storm (SL).tmTheme",
+	"color_scheme": "Packages/User/Storm.tmTheme",
 	"detect_indentation": false,
 	"detect_slow_plugins": true,
 	"draw_white_space": "selection",
@@ -55,9 +55,9 @@
 	[
 		"Bookmarks",
 		"GitGutter",
-		"Vintage",
 		"SublimeClang",
-		"TypeScript"
+		"SublimeLinter",
+		"Vintage"
 	],
 	"line_numbers": true,
 	"line_padding_bottom": 0,

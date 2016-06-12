@@ -184,17 +184,19 @@ contexts:
     - include: rule-invalid-expression-symbol
 
   rule-statement-case:
-    - match: (?=\s*\b(case|default)(\s+\w+)?\s*(:))
+    - match: (?=\s*\b(case|default).*?(:))
       push:
         - match: \b(?:case|default)\b
           scope: keyword.control.c
         - match: '(?<!:)\:(?!:)'
           scope: punctuation.definition.colon.case.c
-          set:
-            - match: (?=\s*\bcase)\b
+          push:
+            - match: (?=\s*\bcase|default)\b
               pop: true
             - include: step-flow-block
             - include: __step-impl-statement
+        - match: (?=\s*\})
+          pop: true
         - include: lex-variable
 
   __rule-impl-statement-compact:
@@ -678,6 +680,7 @@ contexts:
             - match: (?=\s*\{)
               pop: true
             - include: rule-expression-impl-function-call
+        - include: step-expression
 # cast template
   rule-cast-template:
     - match: (?=\s*\b(const_cast|dynamic_cast|reinterpret_cast|static_cast)\b)
@@ -703,7 +706,7 @@ contexts:
 
 #impl function call
   rule-expression-impl-function-call:
-    - match: (?=\s*{{svCtxType}}\s*(?:\(|{{svOverrideFnInvoke}}))
+    - match: (?=\s*({{svCtxType}}\s*)(?:\(|{{svOverrideFnInvoke}}))
       push:
         - match: (?=\s*\()
           set: step-parens-invoke
@@ -811,14 +814,23 @@ contexts:
   rule-statement-flow-switch:
     - match: (?=\s*\bswitch\s*\()
       push:
-        - match: \s*\b(switch)\s+(\()\s*
+        - meta_scope: meta.flow
+        - match: \s*\b(switch)\s*
           captures:
             1: keyword.control.c
-            2: punctuation.definition.brace.begin
-        - match: \s*(\))
-          scope: punctuation.definition.brace.end
-          set: step-flow-block
-        - include: step-expression-statement
+        - match: (?=\s*\()
+          push: step-parens-invoke
+        - match: (\s*\{)
+          scope: punctuation.definition.brace.begin
+          push:
+            - match: \s*(\})(;)?
+              captures:
+                1: punctuation.definition.brace.end
+                2: punctuation.definition.semicolon.statement.end
+              pop: true
+            - include: rule-statement-case
+        - match: (?<=\})
+          pop: true
 # statement try
   rule-statement-try:
     - match: (?=^\s*\b(?:try)\b)
@@ -966,6 +978,8 @@ contexts:
     - include: lex-memory-operator
     - include: lex-keyword
     - include: lex-support-literal
+    - include: lex-support-context
+    - include: lex-support-variable
     - include: lex-literal-value
     - include: lex-ident
   lex-ident:
@@ -1342,3 +1356,9 @@ contexts:
   lex-support-literal:
     - match: \s*\b(NULL|TRUE|FALSE)\b
       scope: support.literal.macro.name
+  lex-support-context:
+    - match: \s*\b(std)\b
+      scope: variable.entity.name
+  lex-support-variable:
+    - match: \s*\b(endl)\b
+      scope: variable.entity.name
