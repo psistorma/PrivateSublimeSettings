@@ -190,12 +190,6 @@ contexts:
           scope: keyword.control.c
         - match: '(?<!:)\:(?!:)'
           scope: punctuation.definition.colon.case.c
-          push:
-            - match: (?=\s*\bcase|default)\b
-              pop: true
-            - include: step-flow-block
-            - include: __step-impl-statement
-        - match: (?=\s*\})
           pop: true
         - include: lex-variable
 
@@ -788,18 +782,18 @@ contexts:
           set: [step-flow-block, for_stmt_expr1]
 
   for_stmt_expr1:
-    - match: ";"
+    - match: \s*;
       scope: punctuation.definition.semicolon.statement.end
       set: for_stmt_expr2
-    - match: \)
+    - match: \s*\)
       scope: punctuation.definition.arguments.end
       pop: true
     - include: step-expression-statement
   for_stmt_expr2:
-    - match: ";"
+    - match: \s*;
       scope: punctuation.definition.semicolon.statement.end
       set: for_stmt_expr3
-    - match: \)
+    - match: \s*\)
       scope: punctuation.definition.arguments.end
       pop: true
     - include: step-expression-statement
@@ -807,7 +801,7 @@ contexts:
     - match: \s*\)
       scope: punctuation.definition.arguments.end
       pop: true
-    - match: ";"
+    - match: \s*;
       scope: invalid.illegal.stray-semi-colon
     - include: step-expression-statement
 
@@ -820,17 +814,8 @@ contexts:
             1: keyword.control.c
         - match: (?=\s*\()
           push: step-parens-invoke
-        - match: (\s*\{)
-          scope: punctuation.definition.brace.begin
-          push:
-            - match: \s*(\})(;)?
-              captures:
-                1: punctuation.definition.brace.end
-                2: punctuation.definition.semicolon.statement.end
-              pop: true
-            - include: rule-statement-case
-        - match: (?<=\})
-          pop: true
+        - match: (?=\s*\{)
+          set: step-flow-block
 # statement try
   rule-statement-try:
     - match: (?=^\s*\b(?:try)\b)
@@ -976,6 +961,7 @@ contexts:
     - include: __lex-chain-type
   lex-variable:
     - include: lex-memory-operator
+    - include: lex-operator
     - include: lex-keyword
     - include: lex-support-literal
     - include: lex-support-context
