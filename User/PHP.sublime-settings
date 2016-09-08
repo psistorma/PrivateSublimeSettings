@@ -3,8 +3,8 @@
 	[
 		"phtml",
 		"php3",
-		"inc",
 		"php4",
+		"inc",
 		"php5"
 	]
 }

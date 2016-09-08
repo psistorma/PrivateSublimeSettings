@@ -14,6 +14,9 @@
 			"path": "E:\\try"
 		},
 		{
+			"path": "E:\\Tmp\\typescript"
+		},
+		{
 			"path": "E:\\Tmp\\TestMake\\TestMake"
 		},
 		{
@@ -33,6 +36,15 @@
 		},
 		{
 			"path": "E:\\Tmp\\oglpg-8th-edition"
+		},
+		{
+			"path": "E:\\Tmp\\js_barswitch_babel"
+		},
+		{
+			"path": "E:\\Tmp\\babel\\node_modules"
+		},
+		{
+			"path": "E:\\Tmp\\babel"
 		},
 		{
 			"path": "E:\\Tmp\\awesome-typescript-loader"
@@ -60,6 +72,18 @@
 		},
 		{
 			"path": "E:\\electron\\simple_peer"
+		},
+		{
+			"path": "E:\\electron\\react-router\\examples"
+		},
+		{
+			"path": "E:\\electron\\react-router-redux\\examples\\basic"
+		},
+		{
+			"path": "E:\\electron\\react-15.3.0\\examples"
+		},
+		{
+			"path": "E:\\electron\\material-ui\\examples\\webpack-example"
 		},
 		{
 			"path": "E:\\electron\\material-ui\\examples"

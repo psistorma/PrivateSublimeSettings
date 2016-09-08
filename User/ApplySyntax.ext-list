@@ -13,68 +13,14 @@
 		"tcc",
 		"thh"
 	],
-	"HTML (Rails)":
-	[
-		"html.erb"
-	],
-	"INI":
-	[
-		".gitattributes",
-		".gitconfig",
-		".gitignore",
-		".npmrc",
-		"ini.dist"
-	],
-	"JSON":
-	[
-		".bowerrc",
-		".csslintrc",
-		".eslintrc",
-		".jscsrc",
-		".jshintrc",
-		"geojson"
-	],
 	"JSONByStorm":
 	[
 		"stormpal.key",
 		"sublime-settings"
 	],
-	"PHP":
-	[
-		"inc",
-		"php3",
-		"php4",
-		"php5",
-		"phtml"
-	],
-	"Python":
-	[
-		"py3",
-		"pyw"
-	],
 	"PythonByStorm":
 	[
 		"py"
-	],
-	"Ruby":
-	[
-		"jbuilder",
-		"podspec",
-		"rabl",
-		"rake",
-		"rb",
-		"simplecov",
-		"thor"
-	],
-	"Ruby Haml":
-	[
-		"haml"
-	],
-	"Shell-Unix-Generic":
-	[
-		"bash",
-		"sh",
-		"zsh"
 	],
 	"StormOutputView":
 	[
@@ -93,14 +39,7 @@
 	],
 	"XML":
 	[
-		"earth",
-		"xml.dist"
-	],
-	"YAML":
-	[
-		".gemrc",
-		"yml",
-		"yml.dist"
+		"earth"
 	],
 	"sublime-syntaxByStorm":
 	[

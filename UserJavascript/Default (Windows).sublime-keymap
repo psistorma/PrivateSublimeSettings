@@ -1,27 +1,6 @@
 [
 //javascript
     //smart quick autocompletion
-    //{ for { --> { new line }
-    {
-        "keys": ["{"],
-        "command": "insert_snippet",
-        "args": {"contents": " {\n\t$0\n}"},
-        "context": [
-            {"key": "selection_empty", "operator": "equal", "operand": true},
-            {"key": "following_text", "operator": "regex_match", "operand": "$"},
-            {"key": "selector", "operator": "equal", "operand": "source.js, source.ts"}
-        ]
-    },
-    {
-        "keys": ["{"],
-        "command": "insert_snippet",
-        "args": {"contents": "{\n\t$0\n}"},
-        "context": [
-            {"key": "selection_empty", "operator": "equal", "operand": true},
-            {"key": "following_text", "operator": "regex_match", "operand": "\\s$"},
-            {"key": "selector", "operator": "equal", "operand": "source.js, source.ts"}
-        ]
-    },
     //e for }e --> } else {}
     {"keys": ["e"], "command": "insert_snippet", "args": {"contents": " else {\n\t$0\n}"},
         "context": [

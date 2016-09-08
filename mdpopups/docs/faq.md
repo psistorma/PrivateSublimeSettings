@@ -12,7 +12,7 @@ Frequently asked questions.
 
 - **Why in code blocks do tabs get converted to 4 spaces?**
 
-    Because I like it that way.  If you are planning on have a snippet of text sent through the syntax highlighter and do not want your tabs to be converted to 4 spaces, you should convert it to the number of spaces you do like **before** sending it through the syntax highlighter.
+    Because I like it that way.  If you are planning on having a snippet of text sent through the syntax highlighter and do not want your tabs to be converted to 4 spaces, you should convert it to the number of spaces you like **before** sending it through the syntax highlighter.
     {: style="font-style: italic"}
 
 - **Why does &lt;insert element&gt; not work, or cause the tooltip not to show?**
@@ -22,10 +22,10 @@ Frequently asked questions.
 
 - **Why can't I get CSS selectors like this to work: `#!css div p { ... }`?**
 
-    Sublime's CSS handling is very limited and cannot handle parent and child selectors etc.  It handles one element at a time only.  You can chain classes: `#!css .myclass.myotherclass`, but you **cannot** have a parent and a child class selector or elementes: `#!css .myclass .myotherclass`.
+    This now work in Sublime Text build 3119+, but read on if you are below that build. Sublime's CSS handling is very limited and cannot handle parent and child selectors etc.  It handles one element at a time only.  You can chain classes: `#!css .myclass.myotherclass`, but you **cannot** have a parent and a child class selector or elementes: `#!css .myclass .myotherclass`.
     {: style="font-style: italic"}
 
 - **I tried pushing a massive amount of HTML through the tooltip and Sublime crashed.  What do I do?**
 
-    Don't do that.  I won't bother getting into the fact that technically Sublime should handle these situation gracefully, so I'll just say that the tooltip API has some limitations; use it reasonably.
+    This may be more stable now, but I will leave this here just in case.  I won't bother getting into the fact that technically Sublime should handle these situation gracefully, so I'll just say that the tooltip API has some limitations; use it reasonably.
     {: style="font-style: italic"}

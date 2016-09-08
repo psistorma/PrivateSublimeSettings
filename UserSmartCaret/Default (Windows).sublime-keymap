@@ -51,16 +51,22 @@
     },
 //Find smart insert point
     {"keys": ["ctrl+i"], "command": "move_by_side", "args": {
-        "target": "/[\\]|\\)|\\}|$](?![\\]|\\)|\\}])/"}},
+        "target": "/[\\]|\\)|\\}|$](?![\\]|\\)|\\}])/"},"context": [
+            {"key": "selector", "operator": "equal", "operand": "source"}
+        ]},
     {"keys": ["ctrl+i"], "command": "move_by_side", "args": {
         "target": "/[\\]\\|\\)|\\}|$](?![\\]|\\)|\\}])/", "extend": true}, "context":[
         {"key": "selection_empty", "operator": "equal", "operand": false},
+        {"key": "selector", "operator": "equal", "operand": "source"}
     ]},
     {"keys": ["ctrl+shift+i"], "command": "move_by_side", "args": {
-        "target": "-/(?<=[\\^|\\[|\\(|\\{](?![\\[|\\(|\\{]))./"}},
+        "target": "-/(?<=[\\^|\\[|\\(|\\{](?![\\[|\\(|\\{]))./"},"context": [
+            {"key": "selector", "operator": "equal", "operand": "source"}
+        ]},
     {"keys": ["ctrl+shift+i"], "command": "move_by_side", "args": {
         "target": "-/(?<=[\\^|\\[|\\(|\\{](?![\\[|\\(|\\{]))./", "extend": true}, "context":[
         {"key": "selection_empty", "operator": "equal", "operand": false},
+        {"key": "selector", "operator": "equal", "operand": "source"}
     ]},
 //Append new line
     {"keys": ["ctrl+;"], "command": "mul_run", "args": {

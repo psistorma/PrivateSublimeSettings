@@ -175,7 +175,6 @@
         },
         "context": [
             {"key": "selection_empty", "operator": "equal", "operand": true},
-            {"key": "preceding_text", "operator": "regex_contains", "operand": "(?:this|\\bp\\w*)$"},
             { "key": "auto_complete_visible", "operator": "equal", "operand": false },
             {"key": "selector", "operator": "equal", "operand": "source.c,source.c++"}
         ]

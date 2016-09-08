@@ -1,7 +1,10 @@
 [
         {"keys": ["alt+l"], "command": "run_macro_file", "args": {"file": "res://Packages/User/Macros/prettyLine.sublime-macro"}},
+        {"keys": ["alt+f8"], "command": "indent_xml", "context": [
+                        {"key": "selector", "operator": "equal", "operand": "text.xml"}
+        ]},
         {"keys": ["alt+f8"], "command": "html_beautify", "context": [
-                        {"key": "selector", "operator": "equal", "operand": "text.html, text.xml"}
+                        {"key": "selector", "operator": "equal", "operand": "text.html"}
         ]},
         {"keys": ["alt+f8"], "command": "js_format", "context": [
                         {"key": "selector", "operator": "equal", "operand": "source.js"}

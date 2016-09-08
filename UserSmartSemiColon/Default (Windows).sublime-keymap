@@ -2,9 +2,10 @@
     {
         "keys": [";"],
         "command": "insert",
-        "args": {"characters": ";\n"},
+        "args": {"characters": "\n"},
         "context": [
             {"key": "selection_empty", "operator": "equal", "operand": true},
+            {"key": "preceding_text", "operator": "regex_match", "operand": ".*?;"},
             {"key": "following_text", "operator": "regex_match", "operand": "$"},
             {"key": "selector", "operator": "equal", "operand": "source.c,source.c++,source.js,source.ts"}
         ]

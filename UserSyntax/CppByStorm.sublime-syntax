@@ -46,6 +46,14 @@ variables:
         (\<\g<ctxType>\>)?
       )++)
   svCtxType: '{{svCtxTypeNoPointer}}\s*\*?'
+  svCtxTypeNoPointer1: |-
+    (?x)
+      (?<ctxType1>(
+        (::)?
+        {{svIdent}}
+        (\<\g<ctxType1>\>)?
+      )++)
+  svCtxType1: '{{svCtxTypeNoPointer1}}\s*\*?'
 contexts:
   prototype:
     - include: rule-comments
@@ -68,8 +76,9 @@ contexts:
     - include: rule-definition-struct
     - include: rule-definition-enum
     - include: rule-macro-expandsion
-    - include: rule-definition-function
+    - include: rule-definition-function-sure
   rule-declaration-preprocessor-safe-notsure:
+    - include: rule-definition-function-notsure
     - include: rule-statement-declaration
     - include: rule-statement-empty
     - include: rule-invalid-statement-symbol
@@ -134,20 +143,29 @@ contexts:
     - match: \s*\]
       scope: invalid.illegal.stray-square-end
 # impl
+  __step-impl-block:
+    - match: \s*\{
+      scope: punctuation.definition.brace.impl.begin
+      push:
+        - match: \s*\}
+          scope: punctuation.definition.brace.impl.end
+          pop: true
+        - include: __step-impl-statement
+    - match: \s*\}
+      scope: invalid.illegal.stray-brace-end
+      pop: true
+    - include: step-finish-now
+
   rule-impl-block:
     - match: (?=\s*\{)
       push:
-        - match: \s*\{
-          scope: punctuation.definition.brace.impl.begin
-          push:
-            - match: \s*\}
-              scope: punctuation.definition.brace.impl.end
-              pop: true
-            - include: __step-impl-statement
-        - match: \s*\}
-          scope: invalid.illegal.stray-brace-end
-          pop: true
-        - include: step-finish-now
+        - include: __step-impl-block
+
+  rule-embed-impl-block:
+    - match: (?=\s*\{)
+      push:
+        - meta_scope: meta.tip.embed
+        - include: __step-impl-block
 
   step-impl-block:
     - include: rule-impl-block
@@ -473,6 +491,7 @@ contexts:
       set:
         - match: (?=^\s*(#)(endif)\b)
           pop: true
+        - include: rule-embed-impl-block
         - include: rule-declaration-preprocessor-safe-sure
         - include: rule-impl-statement
         - include: rule-declaration-preprocessor-safe-notsure
@@ -639,7 +658,13 @@ contexts:
         - include: lex-support-macro-name
         - include: step-finish-now
 # function definition
-  rule-definition-function:
+  rule-definition-function-sure:
+    - match: (?=\s*{{svCtxType1}}\s*(?:(?:operator\b.*?\()|(?:~?(?:{{svCtxType}}\s*)+\s*\()))
+      push:
+        - include: rule-definition-function-notsure
+        - include: step-finish-now
+
+  rule-definition-function-notsure:
     - match: (?=.*?\boperator\b.*?\()|(?=\s*~?(?:{{svCtxType}}\s*)+\s*\()
       push:
         - meta_scope: meta.definition.function
@@ -890,7 +915,7 @@ contexts:
         - include: step-expression-statement
 # statement expression
   rule-statement-expression:
-    - match: (?=\w|\(|{{svOverrideFnInvoke}})
+    - match: (?=\s*(?:\w|\(|{{svOverrideFnInvoke}}))
       push: step-expression-statement
 # declare friend
   rule-declare-friend:

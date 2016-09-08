@@ -1,4 +1,15 @@
 [
+    {"keys": ["ctrl+alt+q"], "command": "mul_run" , "args": {
+        "commands" : [
+            {"command": "run_shell_cmd",
+                "args":{
+                    "commands": ["VS/VSCommand.exe \"${file}\" ${m_sel_row} ${m_sel_col} 14.0"],
+                    "run_mode": "run","win_mode": "hide"
+                },
+                "context": "window"
+            },
+        ]}
+    },
     {"keys": ["ctrl+alt+o"], "command": "mul_run" , "args": {
         "commands" : [
             {"command": "save"},
@@ -101,7 +112,7 @@
             {"command": "save"},
             {"command": "run_shell_cmd",
                 "args":{
-                    "commands": ["tsc --jsx react \"${file}\" && node.exe \"${file_path}/${file_base_name}.js\""]
+                    "commands": ["tsc --jsx react --target es5 \"${file}\" && node.exe \"${file_path}/${file_base_name}.js\""]
                 },
                 "context": "window"
             },
@@ -115,7 +126,7 @@
             {"command": "save"},
             {"command": "run_shell_cmd",
                 "args":{
-                    "commands": ["tsc --jsx react \"${file}\" && node.exe \"${file_path}/${file_base_name}.js\""],"async": false
+                    "commands": ["tsc --jsx react --target es5 \"${file}\" && node.exe \"${file_path}/${file_base_name}.js\""],"async": false
                 },
                 "context": "window"
             },

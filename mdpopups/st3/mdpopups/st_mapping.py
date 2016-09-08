@@ -1,16 +1,17 @@
 """Sublime Text language mapping."""
 
 lang_map = {
-    # 'name': (('mapping_alias',), ('tmLanguage_or_sublime-syntax file'))
+    # 'name': (('mapping_alias',), ('tmLanguage_or_sublime-syntax file',))
     'actionscript': (('as', 'actionscript',), ('ActionScript/ActionScript',)),
     'applescript': (('applescript',), ('AppleScript/AppleScript',)),
     'asp': (('asp',), ('ASP/ASP',)),
     'bash': (('bash', 'sh', 'ksh', 'shell'), ('ShellScript/Shell-Unix-Generic',)),
     'batch': (('batch', 'bat', 'dosbatch', 'winbatch'), ('Batch File/Batch File',)),
-    'c': (('c',), ('C++/C')),
+    'c': (('c',), ('C++/C',)),
     'c++': (('c++', 'cpp'), ('C++/C++',)),
     'c#': (('csharp', 'c#'), ('C#/C#',)),
     'clojure': (('clojure', 'clj'), ('Clojure/Clojure',)),
+    'cmake': (('cmake',), ('CMake/CMake',)),
     'css': (('css',), ('CSS/CSS',)),
     'd': (('d',), ('D/D',)),
     'diff': (('diff',), ('Diff/Diff',)),
