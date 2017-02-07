@@ -30,6 +30,10 @@ The default settings can be viewed by accessing the ***Preferences > Package Set
  - **parameters**
      - The parameters to pass to the terminal. These parameters will be used if no [custom parameters](#custom-parameters) are passed via a key binding.
      - *Default:* ***[]***
+ - **env**
+     - The environment variables changeset. Default environment variables used when invoking the terminal are inherited from sublime.
+     - The changeset may be used to overwrite/unset environment variables. Use `null` to indicate that the environment variable should be unset.
+     - *Default:* ***{}***
 
 ### Examples
 
@@ -53,6 +57,15 @@ Here are some example setups:
 }
 ```
 
+#### gnome-terminal for CJK users on GNU/Linux
+
+```js
+{
+  "terminal": "gnome-terminal",
+  // Unset LD_PRELOAD which may cause problems for sublime with imfix
+  "env": {"LD_PRELOAD": null}
+}
+
 #### iTerm on OS X
 
 ```js
@@ -67,6 +80,14 @@ Here are some example setups:
 {
   "terminal": "iTerm.sh",
   "parameters": ["--open-in-tab"]
+}
+```
+
+#### iTerm2 v3 on OS X
+
+```js
+{
+  "terminal": "iTerm2-v3.sh"
 }
 ```
 

@@ -1,4 +1,55 @@
 # changelog
+## 1.17.0
+
+ - Fixed OS X settings via @drbarrett in #162
+
+## 1.16.3
+
+ - Added unicode to str normalization for environment. Fixes #154
+
+## 1.16.2
+
+ - Added fallback for env setting. Fixes #154
+
+## 1.16.1
+
+ - Fixed Windows Powershell support. Fixes #151
+
+## 1.16.0
+
+ - Added support for environment customization via @peterfyj in #150
+
+## 1.15.1
+
+ - Updated examples in Terminal.sublime-settings to be less confusing via @rogeriopradoj in #139
+
+## 1.15.0
+
+ - Fixed iTerm2-v3 script opening multiple tabs if never opened before via @ctf0 in #131
+
+## 1.14.0
+
+ - Fixed iTerm2-v3 script navigation and window activation via @garyking in #133
+
+## 1.13.1
+
+ - Added `release.sh` for release automation
+
+## 1.13.0
+
+ - Added iTerm2-v3 support via @pzgz in #98
+
+## 1.12.1
+
+ - Added missing changelog notes
+
+## 1.12.0
+
+ - Fixed gnome-terminal support via @beledouxdenis in #115
+
+## 1.11.0
+
+ - Fixed custom parameters functionality via @jfcherng in #112
 
 ## 1.10.1
 

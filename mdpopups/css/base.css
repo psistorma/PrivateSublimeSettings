@@ -1,17 +1,17 @@
-/* Html fake border color */
-/* Defines the general look of the font and provides a little margin. */
 /* TODO: next beta remove checks for 3119. */
 {%- if var.default_formatting %}
 {%- if var.sublime_version < 3119 %}
 {{'Packages/mdpopups/css/base-legacy.css'|getcss}}
 {%- else %}
-html { padding: 0; margin: 0; }
-.mdpopups {
+html, body { padding: 0; margin: 0; }
+div.mdpopups {
+  display: block;
   margin: 0;
   padding: {% if var.is_popup %}0.2rem{% else %}0{% endif %};
   font-size: 1rem;
-  line-height: 1.2rem;
+  line-height: 1.1rem;
 }
+.mdpopups div { display: block; }
 /* Headers */
 .mdpopups h1 { font-size: 1.5rem; }
 .mdpopups h2 { font-size: 1.4rem; }
